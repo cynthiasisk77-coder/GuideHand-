@@ -8,6 +8,274 @@ export interface ArticleBody {
 }
 
 export const ARTICLE_BODIES: Record<string, ArticleBody> = {
+  "Scene safety and triage order": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Check the scene for fire, electricity, traffic, chemicals, weapons, unstable structures, or animals before approaching.",
+      "Use gloves or another barrier when possible.",
+      "Check responsiveness, normal breathing, and life-threatening bleeding — take no more than about 10 seconds for this first check.",
+      "Treat absent/abnormal breathing, severe bleeding, or another immediate threat before spending time on a detailed exam.",
+      "Activate every available route to emergency help. Use speaker mode on a phone while providing care.",
+      "Keep monitoring — a person who is initially awake can deteriorate.",
+      "Do not enter a scene that is unsafe for you. Do not give food, drink, or oral medicine to someone who isn't fully alert. Do not move someone with a suspected neck/back/hip injury unless staying put is more dangerous.",
+    ],
+  },
+  "Adult CPR/AED": {
+    sources: ["American Heart Association, 2025 Adult Basic Life Support Guidelines", "American Red Cross"],
+    guidance: [
+      "If unresponsive and not breathing (or only gasping), presume cardiac arrest — do not delay CPR trying to find a pulse.",
+      "Shout for help, send someone for an AED and to call 911. If alone with a phone, call first, put it on speaker, then start CPR.",
+      "Place the person on their back on a firm surface if it can be done safely.",
+      "Push hard and fast, center of the chest, 100-120 compressions/minute, at least 2 inches deep (not more than 2.4 inches) in an average adult. Let the chest fully recoil.",
+      "If trained and willing, 30 compressions to 2 breaths. If not, continue compression-only CPR.",
+      "Turn on the AED as soon as it arrives and follow its prompts; resume compressions immediately when it says to.",
+      "Continue until the person shows clear signs of life, a trained responder takes over, the scene becomes unsafe, or you're physically unable to continue.",
+    ],
+  },
+  "Adult choking, 2025 sequence": {
+    sources: ["American Heart Association, 2025 Adult Basic Life Support Guidelines"],
+    guidance: [
+      "Severe obstruction: the person can't speak, cough effectively, or breathe.",
+      "Give 5 firm back blows between the shoulder blades, then 5 abdominal thrusts. Repeat until the object clears or the person becomes unresponsive.",
+      "If the abdomen can't be encircled, or the person is in late pregnancy, use back blows and chest thrusts instead.",
+      "If they become unresponsive, lower them safely and start CPR, beginning with chest compressions. Only remove an object during airway-opening if you can actually see it.",
+      "Do not do a blind finger sweep. Do not rely on a suction gadget in place of established first aid.",
+    ],
+  },
+  "Heart attack and aspirin boundaries": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Possible signs: chest pain/pressure, shortness of breath, nausea, sweating, lightheadedness, or discomfort in the jaw/back/stomach/neck/arm. Can look different in women, older adults, and people with diabetes.",
+      "Treat as time-sensitive — activate emergency response and get to definitive care by the fastest safe route.",
+      "Let the person rest in whatever position is most comfortable for breathing.",
+      "An alert adult with no known aspirin allergy and no prior instruction against it may chew/swallow 162-325 mg of aspirin while waiting for help. If there's any uncertainty, don't give it.",
+      "Never give aspirin to someone unconscious or unable to swallow, and never give another person's prescription nitroglycerin.",
+      "If they become unresponsive and stop breathing normally, begin CPR and use an AED.",
+    ],
+  },
+  "Stroke": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Use FAST: Face (ask them to smile — look for one-sided droop), Arms (raise both — look for one drifting down), Speech (a simple sentence — listen for slurring or wrong words), Time (if any sign is present, call for help immediately and note when they were last known normal).",
+      "Get to definitive care by the fastest safe route — stroke treatment is time-sensitive.",
+      "Keep the person under observation and protect their airway. If unresponsive but breathing normally, use the recovery position unless trauma makes that unsafe.",
+      "Do not give food, drink, aspirin, or any oral medicine — some strokes are caused by bleeding, and aspirin can make that worse.",
+      "Do not wait to see if symptoms improve on their own.",
+    ],
+  },
+  "Severe bleeding and tourniquet": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Signs of life-threatening bleeding: pooling blood, spurting or rapidly flowing blood, bleeding that continues despite pressure, or bleeding with drowsiness/dizziness/chest pain/loss of consciousness.",
+      "Call for help, use gloves/a barrier, expose the wound, and apply firm continuous direct pressure with gauze or clean cloth.",
+      "If direct pressure alone doesn't stop arm/leg bleeding, apply a commercial tourniquet above the wound (never over a joint) and tighten until bleeding stops. Note the time if you can.",
+      "Do not loosen or remove a working tourniquet — leave that decision to medical professionals. Do not use a narrow cord, wire, or shoelace as a substitute.",
+      "Never use a tourniquet on a neck, chest, abdomen, or groin wound. Keep the person warm and monitor breathing.",
+    ],
+  },
+  "Chest and abdominal trauma (open chest wound)": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Treat any open chest wound as immediately life-threatening — activate every available route to definitive care.",
+      "Do not remove an embedded object. Stabilize it with bulky dressings.",
+      "It's reasonable to leave the wound open to air, use a clean nonocclusive dressing, or use a purpose-made vented chest seal.",
+      "Watch breathing continuously. If breathing worsens after any dressing/seal, loosen or remove it.",
+      "Do not insert anything into the chest yourself, and do not seal it fully airtight and then stop watching.",
+    ],
+  },
+  "Wound irrigation and when not to close": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Control bleeding with direct pressure, then irrigate with running potable water or sterile saline until dirt/debris is gone.",
+      "Clean the surrounding skin gently — don't pour harsh antiseptic directly into the wound.",
+      "Cover a clean superficial wound with a clean dressing; change it when wet, dirty, or loose.",
+      "Watch for spreading redness, swelling, increasing pain, foul drainage, fever, red streaking, or loss of function — signs of infection.",
+      "Do NOT close a deep, puncture, bite, crush, or contaminated wound yourself with glue/staples. Do not close an animal or human bite at all — get it evaluated (infection, tetanus, and rabies decisions can be time-sensitive).",
+    ],
+  },
+  "Thermal burns": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Stop the burning process and move away from the heat source safely.",
+      "Cool the burn immediately with clean running water for 5-20 minutes.",
+      "Remove rings/watches/tight items before swelling starts, but don't pull away material stuck to the burn.",
+      "After cooling, loosely cover with a clean, nonadherent dry dressing. Protect the person from hypothermia, especially a child or large burn.",
+      "Get urgent care for: a full-thickness burn, a partial-thickness burn bigger than the person's palm, a burn on the face/hands/feet/genitals, an electrical or chemical burn, or any sign of smoke inhalation.",
+      "Do not use butter, oil, toothpaste, or ice directly on a burn. Do not break blisters or pull off melted-in clothing.",
+    ],
+  },
+  "Poison exposure by eye, skin, inhalation": {
+    sources: ["CDC, \"What to Do in a Chemical Emergency\"", "National Capital Poison Center", "American Heart Association + American Red Cross"],
+    guidance: [
+      "Protect yourself and leave the contaminated area; for an outdoor release, move away and stay upwind. Never enter a confined contaminated space without proper respiratory gear.",
+      "Eye: remove contacts if easy, then irrigate with copious room-temperature water for at least 15 minutes, avoiding runoff into the other eye.",
+      "Skin: remove contaminated clothing, rinse with copious running water for at least 15 minutes; mild soap can help remove material stuck to skin.",
+      "Inhalation: move to fresh air immediately and stay away from the fumes.",
+      "Bag contaminated clothing without handling it more than necessary. Seek poison-center or medical guidance by every available route.",
+      "Do not try to neutralize an acid with an alkali (or vice versa) on the body — the reaction can generate heat and worsen the injury. Don't become a second victim by entering toxic air.",
+    ],
+  },
+  "Unknown swallowed poison, no induced vomiting": {
+    sources: ["National Capital Poison Center", "American Heart Association + American Red Cross"],
+    guidance: [
+      "If the person collapses, seizes, can't be woken, or has trouble breathing, call 911 immediately and give condition-appropriate first aid.",
+      "Remove any remaining substance from the mouth without forcing fingers into the throat.",
+      "Preserve the container/label/pill bottle/plant sample or a photo. Note age, weight, substance, possible amount, time, and symptoms.",
+      "Call Poison Control (1-800-222-1222) whenever there's any connection available — exact treatment depends on the substance, dose, timing, age, and symptoms.",
+      "For a caustic/burning product, Poison Control may advise a small amount of water or milk only if the person is conscious, not convulsing, and can swallow safely — this is not a universal rule, ask first.",
+      "Do NOT induce vomiting (ipecac is no longer recommended). Never give anything by mouth to someone drowsy, convulsing, or unresponsive.",
+    ],
+  },
+  "Activated-charcoal limitations (human)": {
+    sources: ["National Capital Poison Center, \"Activated Charcoal: An Effective Treatment for Poisonings\""],
+    guidance: [
+      "Activated charcoal can reduce absorption of some poisons, but it is not a universal antidote.",
+      "Do not give it based only on a generic instruction — Poison Control does not recommend unsupervised home charcoal treatment. Emergency doses are much larger than typical supplement tablets and may need monitoring.",
+      "Vomiting and aspiration of charcoal into the lungs can cause serious harm, especially if the person is drowsy. It's also contraindicated with GI bleeding, perforation, or blockage.",
+      "Burned toast, fireplace charcoal, and barbecue briquettes are NOT medical activated charcoal — never substitute them.",
+    ],
+  },
+  "Opioid overdose and naloxone": {
+    sources: ["CDC, \"Lifesaving Naloxone\"", "American Heart Association + American Red Cross"],
+    guidance: [
+      "Possible signs: can't be woken, slow/absent breathing, gasping, pinpoint pupils, blue/gray lips or nails, choking/snoring/gurgling sounds.",
+      "Call 911. If unresponsive and not breathing normally, begin high-quality CPR (trained rescuers should include breaths).",
+      "Give naloxone immediately if available, per the product instructions. Continue CPR.",
+      "Give another naloxone dose per instructions if there's no response — more than one dose may be needed for fentanyl or other potent opioids.",
+      "If normal breathing returns but they're still unresponsive, place them on their side and monitor continuously — naloxone can wear off before the opioid does. CDC advises monitoring until help arrives or for at least 4 hours.",
+      "Naloxone won't harm someone whose overdose isn't from opioids, but it also won't reverse that other poisoning — CPR and emergency help still matter.",
+    ],
+  },
+  "Seizure": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Note the start time. Help the person to the ground if possible and clear hard/sharp objects away.",
+      "Protect the head with something soft, without holding it down. Stay with the person.",
+      "When possible, place them on their side once shaking stops so fluids can drain.",
+      "Monitor breathing afterward — begin CPR if it's absent or abnormal.",
+      "Call 911 for: a first seizure, one lasting over 5 minutes, repeated seizures without returning to normal, a seizure in water, injury/choking/breathing trouble, pregnancy, an infant under 6 months, or no return to baseline within 5-10 minutes.",
+      "Do not restrain the person or put anything in their mouth (a person cannot swallow their tongue). Don't give food, liquid, or oral medicine until they're fully alert again.",
+    ],
+  },
+  "Severe allergic reaction / epinephrine": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Possible signs: lip/facial swelling, throat-closing sensation, difficulty breathing, widespread hives, vomiting/diarrhea, dizziness, pallor, or reduced alertness after an exposure.",
+      "Call 911. If they have a prescribed epinephrine autoinjector, use it immediately in the outer thigh — assist if needed.",
+      "If symptoms don't improve and help is more than 5-10 minutes out, a second autoinjector dose may be used per their emergency plan.",
+      "Keep monitoring. If they become unresponsive and stop breathing normally, begin CPR and use an AED.",
+      "Do NOT substitute an antihistamine for epinephrine — it doesn't reverse airway swelling or shock fast enough. Don't make someone weak/faint/in shock stand or walk.",
+      "If no epinephrine is available at all, see the dedicated \"Anaphylaxis when no epinephrine is available\" entry.",
+    ],
+  },
+  "Diabetes, insulin interruption, hypoglycemia": {
+    sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
+    guidance: [
+      "Possible signs of low blood sugar: shakiness, sweating, hunger, dizziness, weakness, behavior change, or confusion in someone with diabetes/a history of low blood sugar.",
+      "Check a glucose meter if available and it won't delay care. Give at least 20g of oral glucose — tablets/gel preferred, plain sugar is a reasonable substitute.",
+      "Recheck in 10 minutes. Call 911 if they don't improve, can't swallow, have a seizure, or lose consciousness.",
+      "Once improved, give a longer-lasting snack/meal if the next meal isn't soon.",
+      "Do not put food/drink/gel in the mouth of someone unresponsive or unable to swallow. Do not give insulin for suspected LOW blood sugar.",
+    ],
+  },
+  "Dehydration and oral rehydration": {
+    sources: ["World Health Organization + UNICEF, Oral Rehydration Salts", "CDC, Food Poisoning Symptoms"],
+    guidance: [
+      "Use a commercial oral rehydration salts (ORS) packet mixed exactly per its label with safe water when available.",
+      "Give frequent small sips; if vomiting occurs, pause briefly and restart more slowly.",
+      "Household fallback ONLY if no ORS packet is available: 1 liter safe water + 6 level teaspoons sugar + 1/2 level teaspoon table salt, stirred until dissolved. Make a fresh batch every 24 hours. More salt/sugar is NOT better — a mixing error can worsen illness, especially in a child.",
+      "Separate the ill person's waste and utensils from shared food prep; wash hands with soap and safe water.",
+      "Get care fast for: blood in stool, diarrhea over 3 days, fever over 102°F, repeated vomiting that prevents fluids staying down, little/no urine, severe dizziness standing, confusion, severe abdominal pain, or worsening illness in a pregnant person, infant, older adult, or immunocompromised person.",
+    ],
+  },
+  "Fever, respiratory infection, isolation": {
+    sources: ["CDC, Signs and Symptoms of Flu", "CDC, Flu: What To Do If You Get Sick"],
+    guidance: [
+      "Keep the ill person away from others as much as practical; improve ventilation and use a well-fitting mask when close contact can't be avoided.",
+      "Encourage rest and safe fluids. Treat pain/fever with a medicine the person can normally take, exactly per the label, without duplicating the same active ingredient across products.",
+      "Monitor breathing, alertness, fluid intake, and urine output. Higher risk: young children, adults 65+, pregnant people, and anyone with a chronic condition or weak immunity.",
+      "Keep trying to reach care — prescription antivirals are time-sensitive and most helpful when started early for high-risk flu patients.",
+      "Danger signs: trouble breathing, blue/gray lips or face, persistent chest/abdominal pain, confusion, seizure, little/no urine, severe weakness, or illness that improves then returns/worsens.",
+      "Never give aspirin to anyone 18 or younger with suspected flu (Reye syndrome risk). Don't use leftover antibiotics for a presumed viral illness.",
+    ],
+  },
+  "Medication storage, expiration, continuity": {
+    sources: ["U.S. Food and Drug Administration, \"Expiration Dates — Questions and Answers\""],
+    guidance: [
+      "A labeled expiration date is the period a drug is known to keep its strength/quality/purity when stored as labeled.",
+      "Government stockpile extensions are based on lot-specific testing — that does NOT prove an ordinary household bottle is safe or potent years past its date. This is not a \"most drugs are fine for years\" situation.",
+      "Use unexpired, correctly stored supply whenever possible. Discard liquids/injectables/pills with unexpected color, particles, odor, moisture damage, or broken seals, unless an official emergency instruction says otherwise for a specific product/lot.",
+      "Don't stop or substitute critical maintenance medicine casually — seek a pharmacist, prescriber, or public-health guidance by any available route.",
+      "Don't improvise doses to compensate for suspected potency loss.",
+    ],
+  },
+  "Pediatric/infant CPR and choking": {
+    sources: ["American Heart Association + American Academy of Pediatrics, 2025 Guidelines for CPR and Emergency Cardiovascular Care"],
+    guidance: [
+      "Infant choking: alternate 5 back blows with 5 chest thrusts (heel of one hand) — NOT abdominal thrusts, which carry injury risk in infants.",
+      "Child choking: now aligned with the adult approach — alternate 5 back blows with 5 abdominal thrusts until the object clears or the child becomes unresponsive.",
+      "Pediatric CPR: compressions at 100-120/minute, about one-third of chest depth. Give rescue breaths early — pediatric cardiac arrest more often starts as a breathing problem than a sudden cardiac one, unlike many adult arrests.",
+      "This is a 2025 update — if you learned pediatric CPR/choking before then, the sequence has changed; don't rely on older training alone.",
+    ],
+  },
+  "Fractures, splints, circulation checks": {
+    sources: ["American Red Cross, \"Muscle, Bone and Joint Injury\" and \"Fractures\""],
+    guidance: [
+      "Treat any suspected fracture as real until ruled out. Do not try to realign or push a bone back into place — keep the limb in the position it was found.",
+      "If trained and professional help will be delayed, splint the area, extending past the joints above and below the injury, with padding, secured firmly but not tight enough to cut off circulation.",
+      "Check circulation regularly after splinting — toes/fingers beyond the splint should stay pink and warm. If they turn pale, blue, or cold, the splint is too tight.",
+      "Do not move the person more than necessary.",
+    ],
+  },
+  "Head, neck and spinal injury": {
+    sources: ["American Red Cross, \"Head, Neck, and Spinal Injury\""],
+    guidance: [
+      "If a head, neck, or spinal injury is suspected, tell the person not to move and to answer verbally rather than nodding/shaking their head. Keep them in the position found.",
+      "Exceptions where movement is necessary: to perform CPR, or if bleeding can't otherwise be controlled.",
+      "Do not remove a helmet unless necessary to give CPR. Keep an infant/child in their car seat unless removal is necessary for CPR.",
+      "Why this matters: improper handling of a real spinal injury can cause permanent paralysis that proper immobilization would have prevented.",
+    ],
+  },
+  "Smoke inhalation and carbon monoxide": {
+    sources: ["CDC, \"Clinical Guidance for Carbon Monoxide Poisoning Following Disasters and Severe Weather\""],
+    guidance: [
+      "CO poisoning symptoms: headache, dizziness, weakness, nausea, vomiting, chest pain, altered mental status — progressing at higher exposure to confusion, fainting, seizures, or coma.",
+      "Onset is dose-dependent: low-level exposure can take up to ~2 hours to cause symptoms; high-level exposure can do it in ~5 minutes.",
+      "Get the person into fresh air as soon as it's safe to do so.",
+      "If unconscious, place them on their side (recovery position) to reduce choking/aspiration risk. Begin CPR if they're not breathing. Call 911 immediately.",
+      "This is first-aid-layer only — hospital oxygen treatment is a clinical step beyond what you can do in the field, but getting them to that care fast is the point.",
+    ],
+  },
+  "Snakebite and venomous arthropods (human)": {
+    sources: ["CDC/NIOSH, \"Venomous Snakes at Work\"", "American Red Cross, \"Snake Bites\""],
+    guidance: [
+      "Do not apply ice or a tourniquet. Do not cut the wound, apply suction, or use electric shock on it.",
+      "Do not take aspirin, ibuprofen, or naproxen (bleeding-risk increase). Do not drink caffeine or alcohol.",
+      "Do not try to catch, trap, or kill the snake — that risks another bite and wastes critical time.",
+      "Do not drive yourself to care — dizziness or loss of consciousness can follow a bite.",
+      "Keep the person calm and as still as possible and get emergency transport.",
+    ],
+  },
+  "Tick bite, rabies exposure, animal bite (human)": {
+    sources: ["CDC, \"Rabies Post-exposure Prophylaxis Guidance\"", "CDC Rabies Prevention and Control"],
+    guidance: [
+      "For any bite or scratch from wildlife or an unfamiliar animal, wash the wound immediately with soap and water for a full 15 minutes to physically flush out virus particles. A virucidal agent like povidone-iodine helps if available.",
+      "Consult a healthcare provider after any such bite. Severity, location (bites near the head are higher-risk), and the animal species (bats, raccoons, skunks, foxes are high-risk US rabies vectors) all factor into whether rabies post-exposure prophylaxis (wound care plus immune globulin and vaccine series) should start immediately.",
+      "For a tick bite, CDC maintains an interactive \"Tick Bite Bot\" tool to help decide when it needs medical follow-up.",
+      "For ordinary bite-wound care and infection risk beyond rabies, see the dedicated \"Dog/animal bite wound care and infection risk\" entry.",
+    ],
+  },
+  "Pesticide exposure": {
+    sources: ["U.S. Environmental Protection Agency, \"First Aid in Case of Pesticide Exposure\""],
+    guidance: [
+      "Skin: drench the area with water and remove contaminated clothing, then wash skin and hair thoroughly with soap and water.",
+      "Eyes: hold the eyelid open and flush gently with clean running water for at least 15 minutes — eyes absorb pesticides faster than any other exposed body part, so speed matters.",
+      "Inhalation: get to fresh air immediately.",
+      "Ingestion: do NOT induce vomiting unless Poison Control or the product's own label specifically says to.",
+      "Always follow the specific first-aid instructions on the product label, and bring the label/container to any medical visit.",
+      "Poison Control: 1-800-222-1222. National Pesticide Information Center: 1-800-858-7378.",
+    ],
+  },
   "Anaphylaxis when no epinephrine is available": {
     sources: [
       "Australasian Society of Clinical Immunology and Allergy (ASCIA)",
