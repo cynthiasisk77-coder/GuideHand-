@@ -8,6 +8,653 @@ export interface ArticleBody {
 }
 
 export const ARTICLE_BODIES: Record<string, ArticleBody> = {
+  "Reading a paper/topographic map": {
+    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation"],
+    guidance: [
+      "Identify the map's scale, contour interval, and magnetic declination before moving.",
+      "Orient the map to true north using declination, not magnetic north alone, when precision matters.",
+      "This field manual is public domain and explicitly extends beyond military use into outdoor recreation, emergency response, and wilderness survival.",
+    ],
+  },
+  "Compass use and orientation": {
+    sources: ["U.S. Army FM 3-25.26", "Mississippi State University Extension"],
+    guidance: [
+      "Orient map and compass together before moving.",
+      "Take a back-bearing periodically to confirm you haven't drifted off course.",
+      "Do not navigate near large metal objects, vehicles, or power lines — they deflect the needle.",
+    ],
+  },
+  "Land navigation without GPS": {
+    sources: ["U.S. Army FM 3-25.26"],
+    guidance: [
+      "Combine dead reckoning (direction plus distance from a known point) with terrain association (matching visible features to the map) rather than relying on either alone.",
+      "Recalibrate your pace count for the terrain you're actually walking — it changes on hills, snow, or heavy brush.",
+    ],
+  },
+  "Identifying safe vs. unsafe routes during a disaster": {
+    sources: ["Ready.gov/FEMA"],
+    guidance: [
+      "Identify several possible destinations in different directions and know primary and alternate routes in advance.",
+      "Always follow local officials' instructions over a pre-planned route — conditions change.",
+      "Don't treat a downloaded offline map's \"primary route\" as guaranteed passable — it can't show live closures, downed lines, or flooding.",
+    ],
+  },
+  "Finding cardinal directions without a compass": {
+    sources: ["U.S. Army FM 3-25.26, Appendix F (Orienteering)"],
+    guidance: [
+      "Shadow-tip method: push a straight ~1-meter stick into level ground, mark the shadow tip, wait 10-15 minutes, mark the new tip.",
+      "The first mark is west. Standing with that mark to your left: north is ahead, east is to your right, south is behind you.",
+      "This is an approximation for orientation, not a substitute for a compass and map when accuracy really matters (steep terrain, whiteout, long distances).",
+    ],
+  },
+  "No cellular service or internet": {
+    sources: ["FCC/FEMA, \"Tips for Communicating During an Emergency\""],
+    guidance: [
+      "Networks get congested during emergencies — redialing repeatedly makes it worse for everyone.",
+      "If a call fails, wait before redialing; try texting instead, since texts often get through when calls don't.",
+      "Keep a battery- or hand-crank-powered NOAA Weather Radio as an internet-independent information source.",
+    ],
+  },
+  "NOAA Weather Radio": {
+    sources: ["NOAA", "National Weather Service"],
+    guidance: [
+      "NOAA Weather Radio All Hazards broadcasts continuous NWS warnings/watches/forecasts 24/7 over 1,000+ transmitters, plus non-weather hazards (earthquakes, chemical releases, AMBER alerts, 911 outages).",
+      "It needs a dedicated receiver on one of seven VHF frequencies — not a phone app, no cell service or Wi-Fi or grid power needed if battery/crank powered.",
+      "Keep a battery-powered or hand-crank receiver in your kit and know your area's frequency in advance.",
+    ],
+  },
+  "AM/FM emergency broadcasts": {
+    sources: ["FEMA, Integrated Public Alert and Warning System (IPAWS)"],
+    guidance: [
+      "The Emergency Alert System (EAS) delivers authenticated alerts via AM/FM/satellite radio and broadcast/cable/satellite TV — one path of FEMA's IPAWS, alongside Wireless Emergency Alerts and NOAA Weather Radio.",
+      "IPAWS authenticates and validates alerts before they reach any of these paths.",
+      "Keep a battery-powered AM/FM radio as a backup needing no cell network, data plan, or working tower.",
+    ],
+  },
+  "Emergency alert verification and rumor control": {
+    sources: ["FEMA"],
+    guidance: [
+      "FEMA maintains an official \"Common Disaster-Related Rumors\" page, reactivated for each major disaster, to correct false claims.",
+      "IPAWS only distributes alerts already authenticated by an authorized public safety official — an unverified message forwarded on social media isn't the same as a real IPAWS/WEA/EAS alert.",
+      "Treat an alert as verified only if it came through IPAWS-linked channels or your local emergency-management agency's official channel. Check fema.gov/disaster/recover/rumor-response during declared disasters before sharing unverified claims.",
+    ],
+  },
+  "Active shooter / active attacker response": {
+    sources: ["CISA, \"Active Shooter Preparedness\""],
+    guidance: [
+      "RUN — evacuate if there's an accessible escape path, using cover and concealment, moving away from the threat.",
+      "HIDE — if evacuation isn't possible, get into a secure area with a lockable door, or find cover to break the attacker's line of sight.",
+      "FIGHT — as an absolute last resort, when neither running nor hiding is possible, commit fully to incapacitating the attacker.",
+      "Most active-shooter incidents are over in 10-15 minutes, before law enforcement typically arrives — this is why individual preparedness matters.",
+      "Don't assume \"run\" is always safest without assessing the actual exits and the threat's location first.",
+    ],
+  },
+  "Suspicious package or explosion threat": {
+    sources: ["U.S. Department of Homeland Security", "Ready.gov"],
+    guidance: [
+      "Report a suspicious or unattended item to authorities immediately (call 911) with as much detail as possible.",
+      "Seek distance and cover; evacuate if it's safe to move.",
+      "Do not approach, touch, or inspect the item. Do not use a two-way radio or cell phone near a suspected device — the transmission could trigger detonation. Do not congregate near the scene.",
+    ],
+  },
+  "Situational awareness basics": {
+    sources: ["U.S. Department of Homeland Security, \"See Something, Say Something\""],
+    guidance: [
+      "Report specific, unusual behavior (not a person's identity or appearance alone) to local police via the non-emergency or emergency line as appropriate.",
+      "This is narrowly about reporting suspicious activity to authorities — it's the official scope of this specific guidance, not a complete personal-safety awareness course.",
+    ],
+  },
+  "Home intrusion / break-in response": {
+    sources: ["National Crime Prevention Council"],
+    guidance: [
+      "Prevention: solid-core or metal exterior doors, deadbolts with at least a 1.5-inch throw, wide-angle door viewers at more than one height, trimmed shrubs near entry points, motion-activated lighting.",
+      "Never hide a spare key outside (under a mat, in a planter, on a ledge).",
+      "If a break-in occurs, call police immediately.",
+    ],
+  },
+  "Weapon storage safety around children": {
+    sources: ["American Academy of Pediatrics"],
+    guidance: [
+      "The safest home for a child is one without a firearm.",
+      "If a household keeps one, store it unloaded and locked, with ammunition locked separately from the firearm.",
+      "Roughly a third of American children live in homes with firearms, and a meaningful share of those homes have at least one unlocked firearm — this is a real, common gap, not a hypothetical one.",
+    ],
+  },
+  "Lawful self-defense boundaries (varies by state)": {
+    sources: ["National Conference of State Legislatures (NCSL)"],
+    guidance: [
+      "Stand-your-ground states remove the duty to retreat before using force (including deadly force) in self-defense if lawfully present and reasonably believing force is necessary against imminent death or serious injury.",
+      "Duty-to-retreat states require attempting to safely retreat before using deadly force, when possible — typically except inside one's own home.",
+      "Castle doctrine specifically covers the home: it generally removes the duty to retreat when defending your residence against an unlawful intruder, and exists in some form in most states.",
+      "State legislatures amend these laws regularly — this is framework only. Never treat a specific state's current rule as settled without checking NCSL's live tracker or consulting an attorney.",
+    ],
+  },
+  "Civil unrest, riot, violent demonstration nearby": {
+    sources: ["ACLU, \"Know Your Rights: Protests\""],
+    guidance: [
+      "Before attending, or if unrest develops near you, plan a route and a backup way out. Look after physical needs (rest, water).",
+      "Put your phone in airplane mode when not actively communicating — this reduces signals it transmits and limits location tracking.",
+      "Think before posting photos/video that could identify bystanders — that footage can be used to locate and target them.",
+      "Keep a physical/backup way out in mind at all times; avoid the crowd's center if it turns confrontational; keep phone battery reserved for real emergencies.",
+    ],
+  },
+  "Curfew and checkpoint legal guidance by jurisdiction": {
+    sources: ["ACLU, \"Know Your Rights: Stopped by Police\"", "NHTSA-aligned checkpoint guidance"],
+    guidance: [
+      "Stop, stay calm, keep hands visible, comply with lawful instructions, and provide requested ID/vehicle documents — stop and let them do their job.",
+      "You have the right to remain silent (you may say so out loud) and you don't have to consent to a search, though officers may still conduct one under certain legal authority.",
+      "Do not attempt to drive around or through a checkpoint. Do not argue or physically resist, even if you think the stop is unjustified — raise that afterward, through a lawyer, not at the checkpoint.",
+      "The specific legal authority behind a given curfew (who can declare one, penalties) is genuinely jurisdiction-specific and isn't covered by this general behavioral guidance.",
+    ],
+  },
+  "Flood-contaminated food and container salvage": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS)"],
+    guidance: [
+      "Discard any food in a non-waterproof container that may have contacted floodwater — plastic wrap, cardboard, screw-caps, snap lids, pull-tops, and crimped caps can all be seeped past.",
+      "Discard cardboard juice/milk/formula boxes and home-canned food that contacted floodwater — they can't be reliably cleaned and sanitized.",
+      "Discard any perishable food that was above 40°F for two hours or more. When in doubt, throw it out — never taste food to judge safety.",
+    ],
+  },
+  "Damaged/bulging/rusted cans": {
+    sources: ["USDA Food Safety and Inspection Service"],
+    guidance: [
+      "A small dent in an otherwise sound can is generally fine. A deep dent you can lay a finger into should be discarded, especially on a seam.",
+      "Surface rust you can rub off with a finger is not itself disqualifying; rust visible inside the can once opened means discard.",
+      "Never buy or eat from a bulging can — bulging signals bacterial gas production inside.",
+    ],
+  },
+  "Outdoor stove, grill, and fire cooking": {
+    sources: ["CPSC", "National Fire Protection Association"],
+    guidance: [
+      "Never use a charcoal grill, propane grill, camp stove, or generator inside a home, garage, basement, crawlspace, tent, or any partially enclosed space — including a porch, breezeway, or carport.",
+      "Ventilation (open windows, fans) cannot be relied on to make indoor or enclosed use safe.",
+      "Don't \"just crack a window\" as a substitute for full outdoor use — there's no accepted middle ground here.",
+    ],
+  },
+  "Safe cooking temperatures": {
+    sources: ["FoodSafety.gov"],
+    guidance: [
+      "Poultry (whole, parts, ground, stuffing): 165°F.",
+      "Ground beef/pork/veal/lamb: 160°F.",
+      "Whole cuts of beef/pork/veal/lamb (steaks, chops, roasts): 145°F with a 3-minute rest.",
+      "Fish with fins: 145°F, or cooked until flesh is opaque and separates easily with a fork.",
+      "Use a food thermometer — color is not a reliable indicator; some cooked meats stay pink even at a safe temperature.",
+    ],
+  },
+  "Cross-contamination without running water": {
+    sources: ["CDC", "USDA/FSIS"],
+    guidance: [
+      "Wash hands 20 seconds with soap and water before/after handling food (see \"Handwashing with scarce water\" for the without-water version).",
+      "Keep raw meat/poultry/seafood/eggs separate from ready-to-eat food.",
+      "Use separate cutting boards for raw protein versus produce/bread.",
+    ],
+  },
+  "Infant feeding without safe water or refrigeration": {
+    sources: ["CDC, Infant and Child Feeding in Emergencies"],
+    guidance: [
+      "Breastfeeding is the safest option during an emergency.",
+      "If formula feeding, ready-to-feed liquid formula (no mixing, sterile single-use containers) is safer than powdered formula in a disaster.",
+      "If only powdered formula is available, use bottled water until tap water is confirmed safe, following exact label amounts. If safe water isn't available to clean bottles/nipples, use disposable cups instead of bottles.",
+      "Never mix powdered formula with water of unknown safety — this can make an infant seriously ill and, in some cases, can be fatal.",
+    ],
+  },
+  "Thawing, refreezing, ice-crystal rule": {
+    sources: ["CDC", "FoodSafety.gov"],
+    guidance: [
+      "Food may be safely refrozen if it still has ice crystals or is at 40°F or below — quality may suffer, especially meat/poultry/dairy.",
+      "Exception: discard ice cream/frozen yogurt if softened at all, even slightly — they don't refreeze safely.",
+      "A full freezer holds a safe temperature about 48 hours with the door closed (24 hours if half full). Never taste food to judge safety.",
+    ],
+  },
+  "Dry ice ventilation and handling": {
+    sources: ["Cornell University EHS", "NIH Office of Research Services"],
+    guidance: [
+      "Store dry ice in a well-ventilated area in a container designed to vent gas — never seal it airtight, since pressure buildup can rupture the container.",
+      "CO2 is heavier than air and displaces oxygen in unventilated spaces; handle with gloves or tongs, never bare hands (frostbite/contact-burn risk).",
+      "If transporting in a vehicle, use only small quantities and keep fresh air flowing for the whole trip.",
+    ],
+  },
+  "Rodent/insect contamination": {
+    sources: ["U.S. Food and Drug Administration"],
+    guidance: [
+      "Packaged or stored food showing evidence of pest contact — droppings, urine, live or dead insects, larvae, webbing, gnawing, or damaged packaging — should generally be discarded rather than salvaged.",
+    ],
+  },
+  "Handwashing with scarce water": {
+    sources: ["USDA", "CDC"],
+    guidance: [
+      "Use soap with a small amount of clean (bottled if needed) water when available.",
+      "When water is scarce, an alcohol-based hand sanitizer with at least 60% alcohol is the CDC-recommended alternative — apply to the palm and rub over all hand/finger surfaces until dry. Moist towelettes are a secondary option.",
+      "Wash or sanitize before/after handling food, after the toilet, after changing a diaper, and after coughing/sneezing/nose-blowing.",
+    ],
+  },
+  "Latrine siting": {
+    sources: ["CDC, WASH-related Emergencies", "community emergency-toilet guides"],
+    guidance: [
+      "A commonly cited siting rule: place a latrine or portable toilet at least 100 feet from surface water (lakes, rivers, streams) and at least 100 feet downhill or away from any drinking-water source, home, or campsite.",
+      "This 100-foot figure is well-established in general private-well/septic-setback guidance but should be confirmed against your local health department's actual required setback.",
+    ],
+  },
+  "Water, electricity, gas, propane shutoffs": {
+    sources: ["Ready.gov / FEMA"],
+    guidance: [
+      "Every household member should know how to shut off gas, water, and electricity — gas leaks and electrical sparking cause many post-disaster fires.",
+      "If you smell or hear gas leaking, open a window if safe, then leave the area on foot immediately. Never turn gas back on yourself once shut off — only a professional or the utility should do that.",
+      "For water, find the main shutoff valve and turn it clockwise until fully closed. Replace a valve that's rusted or hard to close, before an emergency, not during one.",
+    ],
+  },
+  "Generator electrical connection / backfeed prevention": {
+    sources: ["Safe Electricity", "National Electrical Code (NFPA 70)"],
+    guidance: [
+      "Plugging a generator into household wiring via a wall outlet with an improvised cord (a \"suicide cord\") sends power backward through the house wiring and out through the utility transformer, stepped up to line voltage — thousands of volts.",
+      "This has killed utility line workers who reasonably assumed a de-energized line was safe to touch during storm restoration.",
+      "Never connect a generator to household wiring without a code-compliant transfer switch — otherwise power appliances directly through the generator's own outlets and proper extension cords.",
+    ],
+  },
+  "Downed power lines and electrified water": {
+    sources: ["Electrical Safety Foundation International", "multiple electric utilities"],
+    guidance: [
+      "Always assume a downed line is energized, even if it looks dead or isn't sparking.",
+      "Stay back — utility-published safe distances vary from about 10 feet up to 30-50+ feet; a downed line can energize the ground itself for many feet around it, especially when wet.",
+      "Never touch a downed line or anything it's contacting, and never use any object (including wood or rope) to move it — normally non-conductive materials conduct electricity when even slightly wet.",
+      "Never touch a person in contact with a downed line — call 911 and the utility instead.",
+    ],
+  },
+  "Appliance reconnection and surge risk": {
+    sources: ["General guidance consistent with CPSC home electrical-safety resources"],
+    guidance: [
+      "Devices left switched on during an outage draw power immediately when grid power returns, which can contribute to surges.",
+      "Unplug sensitive electronics during an extended outage, especially anything not on a surge protector, and shut down equipment that would be hazardous if it restarted unexpectedly.",
+    ],
+  },
+  "Lithium battery heat/cold/fire/storage": {
+    sources: ["CPSC", "New York State Division of Homeland Security and Emergency Services"],
+    guidance: [
+      "Lithium-ion batteries can enter thermal runaway — a self-sustaining reaction generating heat rapidly and igniting the flammable electrolyte — during use, storage, or charging.",
+      "Store at a moderate charge (roughly 30-60%) for long-term storage, in a cool, dry, ventilated area, ideally near a smoke detector.",
+      "Never leave batteries in a hot car; avoid very cold storage or charging, which stresses the pack.",
+      "If a lithium battery fire starts, it spreads quickly, water may not extinguish it, and standard extinguishers generally don't work — evacuate and call the fire department rather than fighting it yourself.",
+    ],
+  },
+  "Vehicle charging without CO exposure": {
+    sources: ["National Fire Protection Association"],
+    guidance: [
+      "Never run a fueled engine or motor (a car, generator, or similar) indoors, even in a garage with the door open — carbon monoxide buildup.",
+      "This does NOT apply to an EV's charging process itself, which produces no carbon monoxide — EV charging's real hazards are electrical (proper installation) and, rarely, battery fire in enclosed parking structures, not CO.",
+    ],
+  },
+  "Jump-start sequence by vehicle type": {
+    sources: ["AAA"],
+    guidance: [
+      "Both vehicles in park (or neutral + parking brake for manual), ignition off, accessories/devices off. Remove jewelry — batteries contain acid and metal can create an unintended ground path.",
+      "Connect positive (red) clamp to the dead battery's positive terminal, then the other positive clamp to the good battery's positive terminal.",
+      "Connect negative (black) clamp to the good battery's negative terminal, then connect the final negative clamp to an unpainted metal surface in the dead vehicle's engine bay — NOT its battery's negative terminal directly. Batteries vent flammable hydrogen gas, and sparking right at the battery risks igniting it.",
+    ],
+  },
+  "Tire change and roadside visibility": {
+    sources: ["NHTSA TireWise program", "general roadside-safety practice"],
+    guidance: [
+      "Pull as far off the roadway as possible and use hazard lights.",
+      "If visibility is poor (heavy rain, fog, snow) or the shoulder is narrow with fast traffic passing close, the safer choice is to stay inside the vehicle, seatbelt fastened, and call for roadside assistance rather than attempt the change there.",
+    ],
+  },
+  "Severe thunderstorm, straight-line wind, hail": {
+    sources: ["National Weather Service"],
+    guidance: [
+      "A severe thunderstorm has winds of at least 58 mph and/or hail at least 1 inch in diameter.",
+      "At home: go to your secure/safe location, bringing pets if time allows. At work/school: stay away from windows and avoid large open-span rooms (cafeterias, gyms, auditoriums) — roof-collapse risk.",
+      "Outdoors: get into a sturdy building immediately — sheds/storage buildings are not safe, and sheltering under a tree can be deadly. Move vehicles under cover if time permits.",
+    ],
+  },
+  "Winter storm, blizzard, ice storm": {
+    sources: ["CDC", "Ready.gov"],
+    guidance: [
+      "Limit time outside — cold, ice, and power/communication failures compound danger.",
+      "Keep at least 1 gallon of water per person per day (3-day minimum), non-perishable food, and a vehicle kit (jumper cables, traction material, flashlight, warm clothes, blankets, water, snacks).",
+      "If stranded, staying with the car is generally safer than walking for help in poor visibility/icy conditions; run the engine/heater ~10 min/hour, crack a window, and make sure snow isn't blocking the exhaust pipe (CO risk).",
+      "Reduce speed significantly on icy roads.",
+    ],
+  },
+  "Landslide and mudflow": {
+    sources: ["USGS", "CDC"],
+    guidance: [
+      "Warning signs: new cracks/bulges in ground or foundations, soil pulling away from a foundation, tilting fences/poles/trees, broken utility lines, a rapid rise in creek muddiness or a stream that suddenly stops flowing, and a rumbling sound like a freight train as a slide begins.",
+      "Before: monitor NOAA Weather Radio for intense-rainfall warnings — most debris-flow deaths happen to people asleep, so stay alert during heavy prolonged rain.",
+      "During: in a single-story home, get onto sturdy furniture and hold on. In a two-story home, go upstairs to the side facing away from the slope. Outdoors, run perpendicular to the slide's path — never try to outrun it straight downhill or run uphill into it.",
+    ],
+  },
+  "Dam or levee failure": {
+    sources: ["FEMA"],
+    guidance: [
+      "Know whether your home sits in a dam or levee inundation zone (ask your local emergency management office, which maintains inundation maps).",
+      "Have a family evacuation plan in place before an incident.",
+      "If officials issue a dam/levee evacuation order, treat it as extremely time-critical — this flooding can arrive far faster than a typical river flood.",
+    ],
+  },
+  "Drought and prolonged water shortage": {
+    sources: ["NOAA National Integrated Drought Information System (NIDIS)", "USGS"],
+    guidance: [
+      "Fix leaks promptly — even a small faucet leak can waste roughly 20 gallons a day. Reuse water where reasonable and prioritize water-efficient appliances.",
+      "Prolonged drought can lower the water table enough to fail a private well outright — relevant for the roughly 1 in 8 US households relying on one.",
+      "FEMA's baseline emergency water figure is 1 gallon per person per day for a ~3-day emergency; a multi-week drought calls for planning noticeably more, though no single agency publishes one universal multi-week number.",
+    ],
+  },
+  "Volcanic ash": {
+    sources: ["USGS Volcano Hazards Program"],
+    guidance: [
+      "Ash inhalation is at minimum an irritant and poses more serious risk to children, older adults, and people with respiratory/cardiovascular disease.",
+      "Shelter indoors somewhere ash-free — close doors/windows and seal significant gaps.",
+      "Anyone with a respiratory/cardiac condition should keep prescribed medication on hand and use as directed.",
+      "If ash gets into water, let it settle and use the clear water from above the settled layer.",
+    ],
+  },
+  "Unknown industrial smoke or fire": {
+    sources: ["PHMSA Emergency Response Guidebook", "Commonwealth of Massachusetts"],
+    guidance: [
+      "Follow official instructions immediately — evacuate or shelter-in-place, whichever is ordered. Do not try to identify the chemical yourself or decide your own response based on smell or appearance.",
+      "If in a vehicle and can't safely leave the area, shelter in a substantial building if reachable; if you must stay in the vehicle, close all windows/vents and shut off the AC/heater to avoid drawing outside air in.",
+      "Visible smoke alone doesn't tell you what's burning or what protective action is correct.",
+    ],
+  },
+  "Train/truck hazardous-material release": {
+    sources: ["PHMSA Emergency Response Guidebook", "Commonwealth of Massachusetts"],
+    guidance: [
+      "Follow official instructions immediately, whether evacuate or shelter-in-place — do not try to identify the chemical yourself.",
+      "If in a vehicle and cannot safely leave, shelter in a substantial building if reachable; otherwise close all windows/vents and shut off AC/heater.",
+    ],
+  },
+  "Carbon-monoxide alarm or symptoms (general)": {
+    sources: ["National Fire Protection Association"],
+    guidance: [
+      "If a CO alarm sounds, get everyone (and pets, if safe) to fresh air immediately — outdoors or an open window — then call 911 or the fire department from there.",
+      "Do not search for the source yourself, and do not re-enter until responders or a qualified technician confirms it's safe.",
+      "Symptoms (headache, dizziness, weakness, nausea, confusion) demand the same immediate fresh-air-and-call response even without a working alarm.",
+    ],
+  },
+  "Basic knots for emergencies": {
+    sources: ["Scouting America"],
+    guidance: [
+      "Bowline: forms a loop at a rope's end that won't slip or tighten under load — historically used for rescue (looping around a person's torso to hoist them to safety).",
+      "Clove hitch: ties a rope to a post or pole; the standard start/finish for most lashings.",
+      "Square knot: joins two ropes of similar diameter.",
+    ],
+  },
+  "Rope and cordage strength basics": {
+    sources: ["Cordage Institute Guideline CI 1401-15"],
+    guidance: [
+      "Safe Working Load (SWL) is the Minimum Breaking Load divided by a safety factor — commonly 5:1 to 12:1 for non-critical use, as strict as 1:15 when life/limb is at risk. Working load is roughly 15-25% of rated tensile strength, not the full breaking strength.",
+      "Tying a knot cuts a rope's effective strength by roughly half compared to unknotted rope.",
+      "A dynamic/sudden (shock) load — dropping, jerking, swinging a load — can multiply the force to several times the equivalent static load. Reduce working load further for any life-safety use.",
+    ],
+  },
+  "Boarding up windows (basic carpentry)": {
+    sources: ["FEMA/Ready.gov"],
+    guidance: [
+      "Permanent storm shutters offer the best protection; where unavailable, 5/8-inch plywood cut to fit each window in advance (before the storm) is the standard alternative.",
+      "Taping windows does NOT protect the glass from shattering — it only makes the resulting shards larger and more dangerous. Tape is not an acceptable substitute for shutters or plywood.",
+      "Roof-to-frame straps or clips are also part of overall storm hardening FEMA recommends.",
+    ],
+  },
+  "Sharpening tools and knives safely": {
+    sources: ["OSHA", "CPSC"],
+    guidance: [
+      "Most hand-tool injuries come from misuse or poor maintenance, not the tools themselves — a dull blade is actually more dangerous than a sharp one, since it requires more force and is more likely to slip.",
+      "Keep sharpening stones lubricated (water or the manufacturer's specified lubricant) and don't let them dry out; soak a dry stone before use.",
+      "Wear cut-resistant gloves when there's meaningful risk of a slip.",
+    ],
+  },
+  "Legal/regulatory boundaries on foraging and trapping": {
+    sources: ["Washington Department of Fish & Wildlife", "36 CFR § 13.480"],
+    guidance: [
+      "State fish and wildlife agencies are the primary regulatory authority over fishing, hunting, and trapping, and can issue emergency rules on short notice.",
+      "Federal subsistence hunting/trapping on certain federal lands is governed directly by federal regulation (36 CFR § 13.480).",
+      "Do not assume any emergency automatically waives license, season, or method requirements — check your state wildlife agency's current emergency-rule status, or a game warden, before relying on this as a food source outside normal regulations.",
+    ],
+  },
+  "Identifying unsafe/contaminated fishing waters": {
+    sources: ["U.S. Environmental Protection Agency"],
+    guidance: [
+      "States/territories/tribes issue fish consumption advisories for specific bodies of water based on contaminant testing (mercury, PFAS, PCBs, DDT are most common) — these bioaccumulate with repeated exposure.",
+      "There is no universal \"look at the water and know it's safe\" rule. Check your state/local health department's current advisory for the specific body of water rather than assuming clean-looking water is safe.",
+    ],
+  },
+  "Field-dressing and safe handling of wild game": {
+    sources: ["New Hampshire Fish and Game", "Washington Department of Fish & Wildlife", "Penn State Extension"],
+    guidance: [
+      "Field dress within about an hour of harvest; keep the carcass off the ground and use clean utensils.",
+      "Cool the carcass below 40°F as quickly as possible and keep it cool through processing and transport — this is what actually slows bacterial growth.",
+      "Avoid an animal that appeared sick before harvest. Wear rubber gloves and a face mask while gutting/butchering.",
+      "Never eat the brain, eyeballs, spinal cord, spleen, liver, or lymph nodes, and avoid cutting through bone/spinal column during processing — reduces exposure to chronic wasting disease and other tissue-concentrated risks.",
+    ],
+  },
+  "Most dangerous look-alike poisonous plants": {
+    sources: ["National Capital Poison Center"],
+    guidance: [
+      "Poison hemlock and water hemlock closely resemble edible wild carrot, parsley, and parsnip, and are among the most acutely toxic plants in North America — water hemlock can cause seizures and death from a small ingested amount.",
+      "Treat \"looks like a wild carrot/parsley relative\" as a hard stop, not a feature to identify around.",
+    ],
+  },
+  "Universal edibility test, with real limitations stated plainly": {
+    sources: ["General bushcraft/survival-skills literature critiquing the test"],
+    guidance: [
+      "The classic \"put a small piece on your lip, wait, eat a small amount, wait more\" test is widely popularized but has real problems: it's often presented incompletely online, doesn't reliably catch every dangerous plant, and gets casually treated as safe for recreational foraging, which it is not.",
+      "It exists only as a last-resort survival procedure, never a casual identification method. The U.S. Air Force's \"Rule of Eight\" is a more rigorous revision.",
+      "Do NOT treat a \"pass\" as proof a plant is safe in normal quantities, and don't use it as a substitute for actual identification.",
+    ],
+  },
+  "Plants never to touch or burn": {
+    sources: ["CDC/NIOSH"],
+    guidance: [
+      "Never burn poison ivy, poison oak, or poison sumac, or brush piles that may contain them.",
+      "Burning releases urushiol (the same oil causing skin rash) into the smoke — inhaling it can cause severe internal respiratory reactions, not just external rash.",
+      "If burning contaminated brush is truly unavoidable, use at minimum a NIOSH-certified R-95/P-95-or-better particulate respirator.",
+    ],
+  },
+  "Psychological first aid and grief support": {
+    sources: ["SAMHSA"],
+    guidance: [
+      "SAMHSA's Psychological First Aid (PFA) is designed to be usable by non-mental-health-professionals right after a disaster: psychological support, stress/coping, supportive communication, promoting community self-help, addressing functional needs, \"helping the helper,\" and de-escalation.",
+      "SAMHSA Disaster Distress Helpline: call or text 1-800-985-5990 — a real, currently operating national resource for anyone in disaster-related emotional distress.",
+    ],
+  },
+  "Helping children cope with disaster stress": {
+    sources: ["CDC", "American Red Cross"],
+    guidance: [
+      "Return to normal routines as soon as reasonably possible (family meals, school, familiar activities) — this helps children recover.",
+      "Watch for anxiety, depression, or PTSD symptoms and seek help if they persist.",
+      "A caregiver's own calm, in-control demeanor measurably helps a child feel safer — children take cues from the adults around them. Reassurance and extra affection help soothe anxiety.",
+    ],
+  },
+  "Elderly-specific emergency needs": {
+    sources: ["CDC", "Administration for Community Living"],
+    guidance: [
+      "Roughly half of adults 65+ have two or more chronic conditions, which can make surviving even a short period without food/water/shelter/rest materially harder.",
+      "Beyond standard supplies, plan explicitly for mobility assistance, transportation if self-evacuation isn't possible, medication continuity, and — for anyone with dementia — a supervision/wandering plan.",
+    ],
+  },
+  "Family reunification if separated": {
+    sources: ["FEMA/Ready.gov", "CDC", "American Academy of Pediatrics"],
+    guidance: [
+      "The National Emergency Child Locator Center (NECLC) and Unaccompanied Minor Registry (UMR) are real, standing federal resources for exactly this scenario.",
+      "Choose more than one meeting place (in case one becomes inaccessible) that's safe, familiar, and easy for every family member — including children — to reach and describe.",
+      "Agree in advance on how to contact each other if phone networks are down. Keep a written family plan (not solely phone-stored) with meeting places, an out-of-area contact, and critical medical info for each person.",
+    ],
+  },
+  "Evacuation order vs. shelter order (decision)": {
+    sources: ["FEMA", "OSHA"],
+    guidance: [
+      "An evacuation order means authorities want the area emptied — typically because a threat (hurricane, wildfire, flood) is still approaching and travel is still possible.",
+      "A shelter-in-place order means get inside a sturdy building and stay — issued when going outside would be more dangerous than staying (a chemical plume, an active violent incident, or a threat that's already arrived).",
+      "Follow the specific order given for the specific hazard — don't default to \"always evacuate\" or \"always shelter\"; the wrong choice for a given hazard can be actively dangerous.",
+    ],
+  },
+  "Cat-specific heatstroke": {
+    sources: ["Royal Veterinary College", "PDSA"],
+    guidance: [
+      "Unlike dogs (which can tolerate cold-water immersion), cats need GRADUAL cooling only: move to shade/a cool area immediately and call a vet.",
+      "Apply cool (not ice-cold) damp towels to the belly, paws, and ears, or use a fan for evaporative cooling. Never use ice-cold water or an ice bath on a cat — cooling too fast can itself cause shock.",
+      "Offer small sips of water only if alert enough to drink safely. Heatstroke can become life-threatening in 20-30 minutes; organ damage risk begins above ~104°F.",
+    ],
+  },
+  "Pet hypothermia and frostbite": {
+    sources: ["American Red Cross Pet First Aid"],
+    guidance: [
+      "Hypothermia: move to a warm, dry place immediately; check airway/breathing/circulation, begin CPR if needed. Below 98°F, or very sluggish/unresponsive, needs an emergency vet immediately — don't just warm at home and wait.",
+      "Warm gradually when appropriate — rapid warming can cause blood vessels to dilate too fast, risking shock. Check temperature about every 10 minutes.",
+      "Frostbite (most common on tail, ear tips, paw pads): warm with warm (not hot) water/compress; never rub or apply pressure — worsens tissue damage. Get vet care either way.",
+    ],
+  },
+  "Bloat/GDV warning signs": {
+    sources: ["American Animal Hospital Association"],
+    guidance: [
+      "GDV (\"bloat\") is one of the most rapidly life-threatening dog emergencies: the stomach fills with gas/food/fluid and twists.",
+      "Early signs: restlessness, drooling, discomfort after eating, unproductive retching (trying to vomit, nothing comes up) — this is one of the most important red flags.",
+      "Critical signs: visibly distended abdomen, severe pain, pale gums, weakness, collapse.",
+      "There is NO safe home treatment — this requires an emergency clinic, surgery, and intensive care. Call ahead so they can prepare.",
+    ],
+  },
+  "Pet trauma, bleeding, fractures, safe transport": {
+    sources: ["American Veterinary Medical Association", "Merck Veterinary Manual"],
+    guidance: [
+      "Bleeding: firm direct pressure with a clean cloth, held at least 3 minutes without lifting to check.",
+      "Suspected fracture: do not realign — gently stabilize without adding pressure. An improvised splint can use rolled newspaper/magazine secured with fabric strips, snug but not cutting off circulation.",
+      "Altered mental status after trauma: keep the head level or elevated ~20 degrees, avoid jerking motion, avoid manipulating the neck.",
+      "Transport: confine to limit further injury (carrier/box for small animals, a board/sled/blanket as a stretcher for large dogs). Call ahead; keep warm and quiet en route.",
+    ],
+  },
+  "Pet seizure and breathing distress": {
+    sources: ["American Veterinary Medical Association", "PDSA"],
+    guidance: [
+      "During a seizure: stay calm, clear nearby objects, do NOT hold the pet down, do NOT put hands near its mouth (bite risk — there's no tongue-swallowing danger to prevent).",
+      "Dim lights, quiet the room, keep it cool (seizures raise body temperature). Time it and record video if safe, for the vet.",
+      "Seek emergency care immediately for: a seizure over 5 minutes, multiple seizures within 24 hours, or breathing difficulty/blue-tinged gums. Begin CPR if unconscious and not breathing.",
+      "Breathing distress alone: go to the nearest emergency animal hospital immediately, call ahead, keep the vehicle cool (heat makes breathing harder).",
+    ],
+  },
+  "Livestock water, feed, evacuation": {
+    sources: ["USDA Farm Service Agency"],
+    guidance: [
+      "USDA's Emergency Assistance for Livestock, Honeybees, and Farm-Raised Fish Program (ELAP) can help cover above-normal costs of hauling feed/water to livestock, or hauling livestock to grazing land, during drought or other qualifying disasters.",
+      "Before moving livestock across state lines, contact the receiving state's State Veterinarian's Office first — interstate movement often has health/inspection requirements.",
+      "Ahead of any disaster, keep barns/shelter structures in good repair and arrange alternate shelter space in advance.",
+      "Contact your local FSA county office in advance — programs and requirements are administered locally and can change.",
+    ],
+  },
+  "Carcass handling and zoonotic disease": {
+    sources: ["CDC", "USDA APHIS"],
+    guidance: [
+      "The risk to humans from animal carcasses after a disaster is low if basic precautions are taken — proper handwashing after any contact is the main protection against pathogens like Salmonella and E. coli.",
+      "For a larger-scale animal death event, USDA APHIS is the lead federal agency and can advise on safe disposal.",
+      "Disposal shouldn't begin until an actual disposal plan is in place — both to prevent pathogen spread and, for zoonotic diseases, to protect human health.",
+    ],
+  },
+  "Tire puncture limits and plug boundaries": {
+    sources: ["NHTSA", "Tire Industry Association"],
+    guidance: [
+      "A puncture is repairable only if 1/4 inch (6mm) or smaller, in the tread area — never the shoulder or sidewall.",
+      "A repair must sit at least 1 inch from any prior repair and at least 2 inches from the sidewall.",
+      "NHTSA endorses only the combination plug-and-patch method — a plug alone may hold air but lets the tire keep deteriorating underneath, so plug-only isn't considered a real repair.",
+      "Never repair a sidewall/shoulder puncture, one larger than 1/4 inch, or a tire with multiple close-together repairs — replace instead.",
+    ],
+  },
+  "Vehicle overheating": {
+    sources: ["AAA and general roadside-safety guidance"],
+    guidance: [
+      "Pull off the road safely rather than continuing to drive or braking hard. Turn off the AC and turn the heater to maximum — this pulls heat away from the engine. Open windows/sunroof to vent heat.",
+      "Once stopped, turn the vehicle off and do NOT open the hood immediately — overheated coolant can exceed 230°F and the system is pressurized. Wait at least 15 minutes.",
+      "Once cooled, check for leaks and add a 50/50 coolant-water mix if needed before restarting. Call for a tow if the problem persists.",
+    ],
+  },
+  "Small-engine troubleshooting": {
+    sources: ["Generac official troubleshooting guide"],
+    guidance: [
+      "A small engine that won't start is almost always missing fuel, air, or spark.",
+      "Fuel: gasoline gums up a carburetor in as little as 30 days — check fuel level/condition first.",
+      "Air: a dirty air filter starves the engine; inspect/replace if dirty, and make sure the choke is in the correct starting position.",
+      "Spark: remove the spark plug, hold it against bare metal on the engine, pull the recoil starter — a working plug shows a visible blue spark. A wet plug usually means the engine is flooded, not a spark problem.",
+    ],
+  },
+  "Spark-plug inspection/replacement": {
+    sources: ["Generac official troubleshooting guide"],
+    guidance: [
+      "Remove the spark plug, hold it against bare metal on the engine, and pull the recoil starter — a working plug shows a visible blue spark.",
+      "A wet spark plug usually indicates the engine is flooded (too much fuel/over-choking) rather than a spark problem itself.",
+      "See the \"Small-engine troubleshooting\" entry for the full fuel/air/spark diagnostic sequence this fits into.",
+    ],
+  },
+  "Manual siphon-pump legal/safety boundaries": {
+    sources: ["CDC, \"Don't Siphon Gasoline\" PSA"],
+    guidance: [
+      "Never siphon gasoline by mouth. Swallowing gasoline can cause vomiting, and gasoline reaching the lungs (aspiration) can cause chemical pneumonia — a real, potentially fatal lung injury — from even a small amount.",
+      "Use a hand-operated siphon pump or squeeze-bulb siphon instead of your mouth, every time, regardless of experience or urgency.",
+      "The legal side (moving fuel between containers/vehicles can be regulated in some jurisdictions) remains a minor open note — the safety warning applies regardless.",
+    ],
+  },
+  "Solar panel, charge controller, power-bank chain": {
+    sources: ["Morningstar Corporation", "general off-grid solar industry references"],
+    guidance: [
+      "A charge controller sits between solar panels and a battery bank specifically to prevent overcharging — unregulated voltage risks battery gassing, fire, or explosion.",
+      "Match the controller's voltage rating to the battery bank; size wiring for actual current and cable-run distance; use correctly rated fuses/breakers and safe disconnects near the battery.",
+      "Keep connections dry and never work on a live circuit. A 25-30% safety margin over calculated load is a commonly recommended sizing buffer.",
+    ],
+  },
+  "Phone low-power settings and battery budgeting": {
+    sources: ["Ready.gov/FEMA", "FCC", "U.S. Department of Energy"],
+    guidance: [
+      "Switch to low-power/battery-saver mode, or airplane mode when not actively communicating.",
+      "Reduce screen brightness and close unused apps.",
+      "Generally minimize device use to stretch remaining battery for when you actually need to reach emergency services or family.",
+    ],
+  },
+  "Suspected EMP: what can/cannot be inferred": {
+    sources: ["CISA", "DHS"],
+    guidance: [
+      "A widescale-damage EMP is specifically associated with a high-altitude nuclear detonation, certain specialized munitions, or a severe natural geomagnetic disturbance (a major solar storm) — it's not a catch-all explanation for ordinary electronics failures.",
+      "Most vulnerable devices share embedded modern electronics: computers/control systems, communications/radio equipment, vehicles with electronic ignition.",
+      "The federal government's actual EMP concern centers on protecting the electric grid and critical infrastructure, not predicting whether any one household gadget would survive.",
+      "Do NOT treat \"my electronics stopped working\" alone as evidence of an EMP — ordinary equipment failure or a normal outage are far more common explanations.",
+    ],
+  },
+  "Well power and pressure system": {
+    sources: ["General well-service/plumbing-industry guidance — not government-sourced"],
+    guidance: [
+      "A well pump stops immediately when power fails, since it runs on electricity. The pressure tank provides a limited reserve — minutes to a few hours depending on size/usage — before water stops entirely.",
+      "A pressure tank with a failed internal bladder causes \"short cycling\" (pump switching on/off every few seconds), hard on both the pump and a generator.",
+      "Sizing a generator for a well pump requires accounting for starting/surge watts, not just running watts — an electric motor commonly needs 3-4x its running wattage just to start.",
+      "After power returns, check the circuit breaker first and reset the pressure switch to \"auto\" if the pump doesn't restart on its own.",
+    ],
+  },
+  "Food dehydration and humidity limits": {
+    sources: ["National Center for Home Food Preservation (University of Georgia)"],
+    guidance: [
+      "NCHFP is the actual gold-standard research body for home food preservation, including dehydration.",
+      "Dehydrators come in horizontal (heating element/fan on the side, more even heat) and vertical designs — design affects drying evenness.",
+      "Specific safe temperature/time parameters for particular foods (meat/jerky has its own pre-heating step, distinct from produce) still need direct confirmation against nchfp.uga.edu.",
+    ],
+  },
+  "Retained-heat cooking, low-fuel": {
+    sources: ["General retained-heat/haybox cooking references", "FoodSafety.gov danger-zone principle"],
+    guidance: [
+      "A retained-heat (\"haybox\") cooker brings food to a full boil, then insulates the pot so residual heat finishes cooking — can cut fuel use by roughly 20-80%.",
+      "Same danger-zone principle applies: food held between about 40°F and 140°F too long risks bacterial growth.",
+      "Keep food in a retained-heat cooker no more than about 4-6 hours, and keep it above 140°F throughout.",
+    ],
+  },
+  "Diaper, menstrual, incontinence waste": {
+    sources: ["CDC"],
+    guidance: [
+      "Bag soiled diapers and other absorbent hygiene waste in heavy-duty 3-5 mil black plastic bags.",
+      "Dispose of with other bagged household waste once garbage collection resumes.",
+    ],
+  },
+  "Greywater disposal": {
+    sources: ["U.S. Environmental Protection Agency"],
+    guidance: [
+      "Greywater is wastewater from bathtubs, showers, bathroom sinks, and clothes washers specifically — it does NOT include toilet waste or kitchen-sink/dishwasher water (that's blackwater, which must go to a sewer/septic system).",
+      "EPA generally endorses greywater reuse for conservation, but permitted uses and volume limits are set state by state (commonly around 250 gallons/day where unpermitted systems are allowed) — this is genuinely state-regulated, confirm your own state's rules.",
+      "Label any non-potable water storage clearly (commonly purple piping or \"CAUTION: NONPOTABLE WATER – DO NOT DRINK\" signage).",
+    ],
+  },
   "Scene safety and triage order": {
     sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
     guidance: [

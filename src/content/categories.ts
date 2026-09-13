@@ -235,7 +235,7 @@ export const CATEGORIES: Category[] = [
       { title: "Chainsaw and cutting-tool safety", status: "partial", priority: "P1", note: "" },
       { title: "Manual siphon-pump legal/safety boundaries", status: "verified", priority: "P2", note: "CDC + CPSC" },
       { title: "Immediate steps after a car crash", status: "verified", priority: "P1", note: "US DOT + NHTSA" },
-      { title: "Spark-plug inspection/replacement", status: "new", priority: "P2", note: "Outline only" },
+      { title: "Spark-plug inspection/replacement", status: "partial", priority: "P2", note: "Closed by the small-engine troubleshooting research (Generac guide)" },
     ],
   },
   {
@@ -358,7 +358,7 @@ export const CATEGORIES: Category[] = [
     note: "Deliberately minimal — the full medicinal-plant archive lives in a separate project and stays there.",
     topics: [
       { title: "Most dangerous look-alike poisonous plants", status: "verified", priority: "P0", note: "Poison Control" },
-      { title: "Universal edibility test, with real limitations stated plainly", status: "new", priority: "P1", note: "Caution about a flawed popular method" },
+      { title: "Universal edibility test, with real limitations stated plainly", status: "partial", priority: "P1", note: "Deliberately kept low-confidence — framed as a caution about a flawed popular method, not an endorsement" },
       { title: "Plants never to touch or burn", status: "verified", priority: "P0", note: "CDC/NIOSH" },
       { title: "Basic tree ID for firewood/tinder only", status: "new", priority: "P3", note: "Non-medicinal" },
     ],
