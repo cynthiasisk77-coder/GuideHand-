@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "emergency-prep-app",
-    "slug": "emergency-prep-app",
+    "slug": "guidehand-emergency-preparedness-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -41,15 +41,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "516e4adc-8862-4829-91c1-a3d59fd93f8d"
+        "projectId": "0d85659e-59ab-4cbd-8cf3-a4b0812d5359"
       }
     },
-    "owner": "fauxproof-app",
+    "owner": "guidehand_emergency-app",
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/516e4adc-8862-4829-91c1-a3d59fd93f8d"
+      "url": "https://u.expo.dev/0d85659e-59ab-4cbd-8cf3-a4b0812d5359"
     }
   }
 }
