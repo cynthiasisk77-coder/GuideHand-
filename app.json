@@ -41,15 +41,15 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "5baa02f1-e7ea-4b65-8add-0ea78719c79e"
+        "projectId": "516e4adc-8862-4829-91c1-a3d59fd93f8d"
       }
     },
-    "owner": "cyn77",
+    "owner": "fauxproof-app",
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "updates": {
-      "url": "https://u.expo.dev/5baa02f1-e7ea-4b65-8add-0ea78719c79e"
+      "url": "https://u.expo.dev/516e4adc-8862-4829-91c1-a3d59fd93f8d"
     }
   }
 }
