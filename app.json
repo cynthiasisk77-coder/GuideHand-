@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "emergency-prep-app",
+    "name": "GuideHand",
     "slug": "guidehand-emergency-preparedness-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,9 +8,11 @@
     "scheme": "emergencyprepapp",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "bundleIdentifier": "com.guidehand.emergencyprep",
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "com.guidehand.emergencyprep",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
