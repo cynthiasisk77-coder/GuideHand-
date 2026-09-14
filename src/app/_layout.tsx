@@ -3,23 +3,26 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import { RED } from '@/constants/categoryStyle';
+import { Calm } from '@/constants/calm';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+  const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AnimatedSplashOverlay />
       <Stack
         screenOptions={{
-          headerTintColor: '#FFFFFF',
-          headerStyle: { backgroundColor: RED },
-          headerTitleStyle: { fontWeight: '700' },
+          headerTintColor: c.text,
+          headerStyle: { backgroundColor: c.bg },
+          headerShadowVisible: false,
+          headerTitleStyle: { fontWeight: '700', color: c.text },
           headerBackTitle: 'Back',
         }}>
         <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="group/[group]" options={{ title: 'Category' }} />
         <Stack.Screen name="category/[category]" options={{ title: 'Category' }} />
         <Stack.Screen name="article/[category]/[topic]" options={{ title: 'Article' }} />
       </Stack>

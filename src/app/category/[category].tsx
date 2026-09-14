@@ -1,22 +1,20 @@
 import { useMemo } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { CallButton } from '@/components/tile';
-import { EMERGENCY_CATEGORY, PRIORITY_HUMAN, PRIORITY_ORDER, getCategoryStyle, getQuickTile } from '@/constants/categoryStyle';
+import { CallButton } from '@/components/call-button';
+import { Icon } from '@/components/icon';
+import { Calm } from '@/constants/calm';
+import { EMERGENCY_CATEGORY, PRIORITY_HUMAN, PRIORITY_ORDER, getQuickTile } from '@/constants/categoryStyle';
 import { PRIORITY_COLOR, STATUS_LABEL } from '@/constants/status';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
 import { getCategoryBySlug, getTopicsForCategory } from '@/lib/content';
 
 export default function CategoryScreen() {
   const { category } = useLocalSearchParams<{ category: string }>();
   const router = useRouter();
-  const theme = useTheme();
-  const insets = useSafeAreaInsets();
+  const scheme = useColorScheme();
+  const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
   const categoryData = useMemo(() => getCategoryBySlug(category), [category]);
   const topics = useMemo(
     () =>
@@ -26,27 +24,18 @@ export default function CategoryScreen() {
     [category]
   );
   const name = categoryData?.name ?? 'Category';
-  const cs = getCategoryStyle(name);
   const isEmergency = name === EMERGENCY_CATEGORY;
   const written = topics.filter((t) => t.hasBody).length;
 
   return (
-    <ThemedView style={styles.container}>
-      <Stack.Screen options={{ title: cs.short, headerStyle: { backgroundColor: cs.color }, headerTintColor: cs.fg }} />
-      <ScrollView contentContainerStyle={[styles.scroll, { paddingBottom: insets.bottom + Spacing.six }]}>
-        <View style={[styles.band, { backgroundColor: cs.color }]}>
-          <View style={styles.bandInner}>
-            <Text style={styles.bandEmoji}>{cs.emoji}</Text>
-            <View style={styles.bandText}>
-              <Text style={[styles.bandTitle, { color: cs.fg }]}>{name}</Text>
-              <Text style={[styles.bandSub, { color: cs.fg }]}>
-                {categoryData?.note ? categoryData.note : `${written} of ${topics.length} topics written`}
-              </Text>
-            </View>
-          </View>
-        </View>
-
+    <View style={[styles.container, { backgroundColor: c.bg }]}>
+      <Stack.Screen options={{ title: name }} />
+      <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
+          <Text style={[styles.subhead, { color: c.textSecondary }]}>
+            {categoryData?.note ? categoryData.note : `${written} of ${topics.length} topics written`}
+          </Text>
+
           {isEmergency ? <CallButton style={styles.call} /> : null}
 
           {topics.map((item) => {
@@ -58,74 +47,48 @@ export default function CategoryScreen() {
                 onPress={() =>
                   router.push({ pathname: '/article/[category]/[topic]', params: { category, topic: item.slug } })
                 }
-                style={({ pressed }) => [styles.card, { backgroundColor: theme.backgroundElement, opacity: pressed ? 0.8 : 1 }]}>
+                style={({ pressed }) => [
+                  styles.card,
+                  { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.8 : 1 },
+                ]}>
                 <View style={[styles.stripe, { backgroundColor: PRIORITY_COLOR[item.priority] }]} />
                 <View style={styles.cardBody}>
-                  <View style={styles.titleRow}>
-                    {quick ? <Text style={styles.cardEmoji}>{quick.emoji}</Text> : null}
-                    <ThemedText style={styles.cardTitle}>{quick ? quick.label : item.title}</ThemedText>
-                  </View>
+                  <Text style={[styles.cardTitle, { color: c.text }]}>{quick ? quick.label : item.title}</Text>
                   <View style={styles.metaRow}>
                     <View style={[styles.pill, { backgroundColor: PRIORITY_COLOR[item.priority] }]}>
                       <Text style={styles.pillText}>{PRIORITY_HUMAN[item.priority]}</Text>
                     </View>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      {STATUS_LABEL[item.status]}
-                    </ThemedText>
+                    <Text style={[styles.metaText, { color: c.textSecondary }]}>{STATUS_LABEL[item.status]}</Text>
                     {!item.hasBody ? (
-                      <ThemedText type="small" themeColor="textSecondary">
-                        · not written yet
-                      </ThemedText>
+                      <Text style={[styles.metaText, { color: c.textSecondary }]}>· not written yet</Text>
                     ) : null}
                   </View>
                 </View>
-                <Text style={[styles.chevron, { color: theme.textSecondary }]}>›</Text>
+                <Icon name="chevron" size={18} color={c.chevron} />
               </Pressable>
             );
           })}
         </View>
       </ScrollView>
-    </ThemedView>
+    </View>
   );
 }
 
+const SIDE = Spacing.three;
+
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  scroll: {},
-  band: {
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-  },
-  bandInner: {
-    width: '100%',
-    maxWidth: MaxContentWidth - Spacing.three * 2,
-    alignSelf: 'center',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: Spacing.three,
-  },
-  bandEmoji: {
-    fontSize: 44,
-  },
-  bandText: {
-    flex: 1,
-  },
-  bandTitle: {
-    fontSize: 24,
-    fontWeight: '800',
-    lineHeight: 30,
-  },
-  bandSub: {
-    fontSize: 14,
-    opacity: 0.9,
-    marginTop: 2,
-  },
+  scroll: { paddingTop: 14, paddingBottom: 40 },
   content: {
     width: '100%',
     maxWidth: MaxContentWidth,
     alignSelf: 'center',
-    paddingHorizontal: Spacing.three,
-    paddingTop: Spacing.three,
+    paddingHorizontal: SIDE,
+  },
+  subhead: {
+    fontSize: 13,
+    lineHeight: 18,
+    marginBottom: 14,
   },
   call: {
     marginBottom: Spacing.three,
@@ -133,33 +96,25 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderWidth: 1,
     borderRadius: 14,
     overflow: 'hidden',
     marginBottom: Spacing.two,
   },
   stripe: {
-    width: 6,
+    width: 5,
     alignSelf: 'stretch',
   },
   cardBody: {
     flex: 1,
-    paddingVertical: 14,
+    paddingVertical: 13,
     paddingHorizontal: Spacing.three,
     gap: 6,
   },
-  titleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  cardEmoji: {
-    fontSize: 22,
-  },
   cardTitle: {
-    flex: 1,
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '700',
-    lineHeight: 22,
+    lineHeight: 21,
   },
   metaRow: {
     flexDirection: 'row',
@@ -167,6 +122,7 @@ const styles = StyleSheet.create({
     gap: 8,
     flexWrap: 'wrap',
   },
+  metaText: { fontSize: 12 },
   pill: {
     paddingHorizontal: 8,
     paddingVertical: 2,
@@ -176,9 +132,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 11,
     fontWeight: '700',
-  },
-  chevron: {
-    fontSize: 28,
-    paddingRight: Spacing.three,
   },
 });

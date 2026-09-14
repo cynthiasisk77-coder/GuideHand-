@@ -152,8 +152,8 @@ export const CATEGORIES: Category[] = [
       { title: "Dry ice ventilation and handling", status: "verified", priority: "P1", note: "Cornell EHS + NIH ORS" },
       { title: "Retained-heat cooking, low-fuel", status: "partial", priority: "P1", note: "Haybox technique" },
       { title: "Food dehydration and humidity limits", status: "partial", priority: "P2", note: "" },
-      { title: "Water-bath vs. pressure canning", status: "partial", priority: "P0", note: "" },
-      { title: "Botulism warning signs and disposal", status: "partial", priority: "P0", note: "" },
+      { title: "Water-bath vs. pressure canning", status: "verified", priority: "P0", note: "CDC + NCHFP" },
+      { title: "Botulism warning signs and disposal", status: "verified", priority: "P0", note: "CDC" },
       { title: "Rodent/insect contamination", status: "verified", priority: "P1", note: "FDA" },
       { title: "Wild game handling and cooking", status: "pending", priority: "P1", note: "See Fishing/Trapping/Food Acquisition" },
       { title: "Fish toxins and harmful algal blooms", status: "pending", priority: "P0", note: "See Fishing/Trapping/Food Acquisition" },
@@ -189,7 +189,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Power & Lighting",
     topics: [
-      { title: "General power outage", status: "partial", priority: "P1", note: "" },
+      { title: "General power outage", status: "verified", priority: "P1", note: "American Red Cross + CDC" },
       { title: "Generator carbon-monoxide safety", status: "verified", priority: "P0", note: "" },
       { title: "Generator electrical connection / backfeed prevention", status: "verified", priority: "P0", note: "Safe Electricity + NEC" },
       { title: "Downed power lines and electrified water", status: "verified", priority: "P0", note: "ESFI + utility companies" },
@@ -274,7 +274,7 @@ export const CATEGORIES: Category[] = [
       { title: "No cellular service or internet", status: "verified", priority: "P1", note: "FCC/FEMA" },
       { title: "NOAA Weather Radio", status: "verified", priority: "P1", note: "NOAA/NWS" },
       { title: "AM/FM emergency broadcasts", status: "verified", priority: "P1", note: "FEMA IPAWS/EAS" },
-      { title: "FRS, GMRS, MURS, CB, amateur-radio boundaries", status: "partial", priority: "P2", note: "" },
+      { title: "FRS, GMRS, MURS, CB, amateur-radio boundaries", status: "verified", priority: "P2", note: "47 CFR Part 95/97" },
       { title: "Texting vs. calling during network congestion", status: "partial", priority: "P2", note: "" },
       { title: "Family communication plan and rendezvous points", status: "partial", priority: "P1", note: "" },
       { title: "Paper maps, contacts, critical records backup", status: "partial", priority: "P2", note: "" },
@@ -380,7 +380,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Family & Special Needs",
     topics: [
-      { title: "Disability, mobility, sensory, caregiver needs", status: "partial", priority: "P1", note: "" },
+      { title: "Disability, mobility, sensory, caregiver needs", status: "verified", priority: "P1", note: "Red Cross + Ready.gov" },
       { title: "Power-dependent medical equipment failure plan", status: "partial", priority: "P0", note: "" },
       { title: "Children in emergencies (age-appropriate prep)", status: "new", priority: "P2", note: "" },
       { title: "Elderly-specific emergency needs", status: "verified", priority: "P2", note: "CDC + Administration for Community Living" },

@@ -1224,6 +1224,61 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Rinse thoroughly under cold water; scrape out the dark bloodline along the backbone for cleaner taste.",
     ],
   },
+  "Water-bath vs. pressure canning": {
+    sources: ["CDC, \"Home-Canned Foods\"", "National Center for Home Food Preservation / USDA"],
+    guidance: [
+      "Use only a current, tested USDA or National Center for Home Food Preservation recipe — the exact jar size, method, process time, canner type, and altitude adjustment it specifies. Don't improvise.",
+      "Pressure canning is the ONLY safe method for low-acid foods: meat, poultry, seafood, most fresh vegetables, and some tomatoes. A boiling-water canner does not protect low-acid food against botulism, no matter how long you process it.",
+      "Don't use an electric multi-cooker just because it has a \"canning\" or \"steam canning\" button — those aren't validated as safe canning methods.",
+      "Tomatoes and figs often need added acid (tested amounts of lemon juice or citric acid) to can safely in a water-bath canner — don't assume all tomatoes are acidic enough on their own.",
+      "If you didn't follow the tested process exactly, don't eat or share the food — throw it out rather than guess.",
+    ],
+  },
+  "Botulism warning signs and disposal": {
+    sources: ["CDC, \"Home-Canned Foods\"", "CDC, \"Botulism Prevention\""],
+    guidance: [
+      "Never taste home-canned food to check if it's safe — botulinum toxin can't be seen, smelled, or tasted, and even a small taste can be deadly.",
+      "Reject without opening or tasting: a leaking, bulging, or swollen container; a cracked or damaged jar or lid; liquid or foam that spurts out when you open it; food that's discolored, moldy, or smells wrong; or any home-canned item where you don't know the canning method or storage history.",
+      "A normal smell is not proof the food is safe.",
+      "If you suspect a jar or can is contaminated, dispose of it without tasting it — don't pour it down the drain or feed it to animals; seal it in a bag and discard it in household trash, or follow your local health department's guidance for a larger amount.",
+    ],
+  },
+  "General power outage": {
+    sources: ["American Red Cross, \"Power Outage Safety\"", "CDC"],
+    guidance: [
+      "Check for immediate hazards first — smoke, fire, a gas odor, arcing, water near electrical equipment, damaged wires, or a medical device losing power — before treating it as an ordinary outage.",
+      "If standing water is between you and the main electrical disconnect, don't enter the water to reach it.",
+      "Stay at least 35 feet from any fallen power line and anything it's touching — treat every downed line as energized.",
+      "Unplug or switch off nonessential appliances and electronics to reduce restart load and surge damage when power returns. Leave one light switched on so you'll know when it's back.",
+      "Keep refrigerator and freezer doors closed (see \"Refrigerator/freezer outage timing\").",
+      "If heat, cold, or a power-dependent medical device makes staying home unsafe, relocate early to a location you've confirmed has power — don't wait until it becomes an emergency.",
+      "Don't assume a dead phone, dark neighborhood, or failed vehicle proves anything bigger than an ordinary outage — those have many common causes.",
+    ],
+  },
+  "FRS, GMRS, MURS, CB, amateur-radio boundaries": {
+    sources: ["Electronic Code of Federal Regulations, 47 CFR Part 95 and Part 97"],
+    guidance: [
+      "FRS (Family Radio Service): usable without an individual license, using certified FRS radios. Short range, shared channels, no privacy guarantee.",
+      "GMRS (General Mobile Radio Service): requires an individual FCC license (no test required, just a fee) — other family members can typically operate under that one license.",
+      "CB (Citizens Band): generally licensed by rule with certified equipment, no individual license needed — shared channels, legal power and equipment limits still apply.",
+      "MURS (Multi-Use Radio Service): also licensed by rule with certified equipment — a 5-channel short-distance VHF service, shared and prone to interference.",
+      "Amateur (ham) radio: normally requires passing a test and getting an FCC license under Part 97 — learn, test, and get licensed before an emergency, not during one.",
+      "Being ABLE to receive a frequency doesn't mean you're allowed to transmit on it. A radio that can tune to a frequency isn't automatically certified or legal for that service.",
+      "Federal rule (47 CFR §97.403) does allow an amateur station to use any means available for genuine emergencies involving immediate safety of life or property when normal systems are down — but that's a narrow emergency allowance, not blanket permission to use ham frequencies casually during any disaster.",
+    ],
+  },
+  "Disability, mobility, sensory, caregiver needs": {
+    sources: ["American Red Cross, \"Make a Plan\"", "Ready.gov/FEMA"],
+    guidance: [
+      "Write down who performs each essential task for the person who needs help, and name a backup person in case the first one isn't available.",
+      "Stage in advance: mobility devices and their chargers, a manual backup if a powered device fails, transfer equipment, and accessible transportation arranged ahead of time.",
+      "Keep a written medication list — doses, prescribers, pharmacy info, allergies, refrigeration needs — plus physical copies of critical prescriptions.",
+      "Plan for communication aids, hearing-aid batteries, glasses, canes, and service-animal supplies, with instructions written so someone else could follow them if you're not able to.",
+      "For anyone relying on powered medical equipment (oxygen, CPAP, suction, feeding pump, refrigerated medication), plan explicitly for what happens when backup power runs out — don't assume it will last as long as the emergency does.",
+      "Identify an accessible shelter and transportation destination before you need one. Don't assume a public shelter can meet a specific medical or equipment need without confirming it in advance.",
+      "Life-sustaining equipment and medication continuity deserve a plan reviewed with your own clinician and equipment provider — this is a starting checklist, not a substitute for that conversation.",
+    ],
+  },
   "Emergency stored-water quantity and containers": {
     sources: ["CDC, \"How to Create an Emergency Water Supply\""],
     guidance: [
