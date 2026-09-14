@@ -1224,4 +1224,118 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Rinse thoroughly under cold water; scrape out the dark bloodline along the backbone for cleaner taste.",
     ],
   },
+  "Emergency stored-water quantity and containers": {
+    sources: ["CDC, \"How to Create an Emergency Water Supply\""],
+    guidance: [
+      "Store at least 1 gallon per person per day for at least 3 days; a 2-week supply is better when you have room for it.",
+      "Store extra for hot climates, pregnancy, illness, pets, and hygiene or medical needs.",
+      "Unopened commercially bottled water is the most reliable choice. For home-filled containers, use food-grade containers with tight lids — never a container that held bleach, pesticide, fuel, or another toxic chemical.",
+      "Label home-filled containers \"drinking water\" with the date, keep them out of sunlight and away from chemicals, and replace the water every 6 months.",
+      "Don't touch stored water or the inside of the container with your hands or an unclean scoop.",
+    ],
+  },
+  "Tap water suspected unsafe": {
+    sources: ["CDC, \"How to Make Water Safe in an Emergency\""],
+    guidance: [
+      "Follow any local boil-water or do-not-use notice as soon as you can reach it through any channel.",
+      "Use bottled, boiled, or properly treated water for drinking, cooking, brushing teeth, food prep, ice, dishes, handwashing, and infant formula.",
+      "If officials warn contamination could enter home plumbing, close the home's main water valve if you can do it safely and know which valve it is.",
+      "Keep clean and dirty containers separate. Never assume clear-looking water is safe.",
+      "Never use water from a heating radiator or boiler. Never try to boil, bleach, filter, or sun-treat water that smells like fuel or chemicals, or that may be radioactively contaminated — use a different source instead.",
+    ],
+  },
+  "Boiling for microbial hazards": {
+    sources: ["CDC + EPA emergency-disinfection guidance"],
+    guidance: [
+      "If the water is cloudy, let it settle, then filter it through a clean cloth, paper towel, or coffee filter first.",
+      "Bring the clear water to a rolling boil for 1 minute. Above 6,500 feet elevation, boil for 3 minutes instead.",
+      "Let it cool naturally and store it in a sanitized, tightly covered container.",
+      "Boiling kills germs, but it does NOT remove salt, heavy metals, fuel, pesticides, most chemicals, or radioactive material — and can even concentrate some of those as water evaporates. Don't rely on it for chemically contaminated water.",
+    ],
+  },
+  "Concentration-aware household bleach treatment": {
+    sources: ["CDC + EPA emergency-disinfection guidance"],
+    guidance: [
+      "Use only regular, unscented household chlorine bleach for disinfection (5%–9% sodium hypochlorite), with nothing else added. Never use scented, color-safe, splashless, gel, or cleaner-added bleach.",
+      "For that 5%–9% strength: 2 drops per quart/liter of clear water, 8 drops (about 1/8 teaspoon) per gallon, or 40 drops per 5 gallons. Double the amount if the water is cloudy, murky, colored, or very cold.",
+      "Stir and let it sit at least 30 minutes before drinking.",
+      "Check the label's actual percentage first — the drop counts above are specifically for 5%–9% bleach, and other concentrations need different amounts. Standard bleach treatment does not reliably kill Cryptosporidium, and bleach cannot treat chemically or radioactively contaminated water.",
+    ],
+  },
+  "Portable filter limits": {
+    sources: ["CDC emergency-water guidance"],
+    guidance: [
+      "Follow the filter's exact instructions and check its stated absolute pore size — CDC says 1 micron or smaller is needed to remove parasites, and 0.3 micron or smaller for bacteria.",
+      "Most portable filters do NOT remove viruses — you may still need to chemically disinfect the water afterward for bacteria and viruses, not just filter it.",
+      "Carbon alone does not make microbiologically unsafe water safe to drink.",
+      "Don't assume a filter removes dissolved chemicals, fuel, salt, heavy metals, or radioactive material unless the manufacturer specifically says so and it's independently certified.",
+    ],
+  },
+  "Emergency household water sources": {
+    sources: ["CDC, \"How to Find Clean Water in an Emergency\""],
+    guidance: [
+      "Safe sources already in your home (if not contaminated): water from the tap water heater's tank (not a home-heating boiler or radiator), melted ice from a safe source, clear water from a toilet's upper tank (never the bowl) if no chemical cleaner was used, and liquid from canned fruit or vegetables.",
+      "Pool or spa water can be used for cleaning and hygiene, but is not recommended for drinking.",
+      "Outside water — rain, rivers, streams, ponds, lakes, springs — may carry sewage, animal waste, or chemicals. It needs proper microbial treatment, and must be rejected entirely if fuel or toxic-chemical contamination is suspected.",
+    ],
+  },
+  "Flooded private well, initial response": {
+    sources: ["CDC, \"How to Disinfect Wells After an Emergency\""],
+    guidance: [
+      "Don't drink from a flooded or possibly contaminated well — use bottled water until it's confirmed safe.",
+      "If you can do it without entering water or touching damaged electrical equipment, shut off electricity to the well area first.",
+      "Check for downed wires, submerged electrical hazards, sharp debris, unstable ground, and open holes before approaching. Never enter a well pit — hazardous gases can build up there.",
+      "Have a qualified electrician or well/pump contractor inspect any damaged wiring or equipment before it's used again.",
+      "Until lab testing confirms the water is safe, boil it for microbial risk or use another source — and if fuel or toxic chemicals are suspected, boiling and disinfection can't fix that; well disinfection specifics depend on your well type and should follow your local health department's guidance.",
+    ],
+  },
+  "Nuclear detonation flash/blast/fallout": {
+    sources: ["CDC, \"Preparing for a Radiation Emergency\"", "CDC, \"Nuclear Blasts: Frequently Asked Questions\""],
+    guidance: [
+      "If you're near the flash when it happens: turn away, protect your eyes, drop to the ground, and stay down until the heat and shock wave have passed.",
+      "As soon as you can move safely, get inside the nearest substantial building — brick or concrete multi-story buildings and basements shield better, but any building beats staying outside or in a car.",
+      "Move to the basement or the middle of the building, away from exterior walls, windows, doors, and the roof.",
+      "Stay inside and stay tuned to official information. Sheltering for at least 24 hours can significantly cut fallout exposure in many situations, but follow official instructions over a fixed timer.",
+      "If you were outside during or after the event, see \"Radiation shelter and decontamination\" for removing contamination once you're inside.",
+    ],
+  },
+  "Dirty bomb vs. nuclear explosion distinction": {
+    sources: ["CDC, \"What to Do for Different Types of Radiation Emergencies\""],
+    guidance: [
+      "A dirty bomb uses ordinary explosives to scatter radioactive material — it does not produce a nuclear blast's fireball, flash, or shockwave.",
+      "The explosion itself is the immediate danger at first, the same as any bombing; radioactive contamination is a second, separate concern afterward.",
+      "The response is the same core steps either way: get inside, put distance between yourself and the release, decontaminate if you were exposed, and follow official instructions.",
+      "Don't assume a bombing is \"just a bomb\" and skip the radiation precautions, and don't assume it must be as catastrophic as a nuclear weapon — treat any bombing as a possible radiological release until told otherwise.",
+    ],
+  },
+  "Radiation shelter and decontamination": {
+    sources: ["CDC, \"Preparing for a Radiation Emergency\"", "CDC, \"What to Do: Get Inside\""],
+    guidance: [
+      "Get inside, stay inside, stay tuned — get to the nearest substantial building, move to a basement or the middle of the building away from exterior walls and windows, and close/lock doors and windows.",
+      "If you were outside during the event or release: carefully remove your outer layer of clothing as soon as you're safely inside. This one step alone can remove up to about 90% of radioactive material from your body and clothing.",
+      "Bag the removed clothing and keep it away from people and pets.",
+      "Wash exposed skin and hair with soap and water when it's available, without harsh scrubbing, then put on clean clothes.",
+      "Do not take potassium iodide (KI) on your own. It only protects the thyroid from radioactive iodine under specific conditions, doesn't protect against other radioactive material or external radiation, and should only be taken when public-health or emergency officials specifically say to.",
+    ],
+  },
+  "Junctional bleeding and wound packing": {
+    sources: ["American Red Cross, \"Life-Threatening External Bleeding\"", "Stop the Bleed / U.S. Department of Defense"],
+    guidance: [
+      "A tourniquet only works on an arm or leg. For life-threatening bleeding at the groin, shoulder, neck, scalp, or back — where a tourniquet can't be applied — wound packing is the trained technique used instead.",
+      "Call or have someone call 911 immediately; wound packing does not replace emergency transport.",
+      "This is a trained skill, not something to improvise for the first time in an emergency — strongly consider a formal Stop the Bleed or Red Cross course before you need it.",
+      "Never place a tourniquet on the neck, chest, abdomen, or groin — those injuries need direct pressure and packing, not a tourniquet.",
+      "Keep monitoring breathing and responsiveness, and treat for shock (keep them warm, avoid unnecessary movement) while waiting for help.",
+    ],
+  },
+  "Refrigerator/freezer outage timing": {
+    sources: ["CDC + FoodSafety.gov, food-safety-during-power-outage guidance"],
+    guidance: [
+      "Keep the doors closed. Write down the time the power failed so you can track how long food has been without cooling.",
+      "A closed refrigerator keeps food safe for about 4 hours. A closed, full freezer holds its temperature about 48 hours (24 hours if only half full).",
+      "After 4 hours without power, move refrigerated perishables (meat, poultry, fish, eggs, milk, cut produce, leftovers) to a cooler at 40°F or colder, or discard them.",
+      "Frozen food can still be cooked or refrozen if it still has ice crystals or is 40°F or colder — quality may suffer, but it's safe. Discard ice cream/frozen yogurt if thawed at all, even slightly; they don't refreeze safely.",
+      "Never taste food to decide if it's safe, and don't assume cooking spoiled food afterward makes it safe again — some hazards survive cooking.",
+    ],
+  },
 };
