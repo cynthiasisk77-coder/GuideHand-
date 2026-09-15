@@ -2087,30 +2087,86 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Pregnancy considerations across scenarios": {
-    sources: ["American College of Obstetricians and Gynecologists (ACOG)","CDC Pregnancy and Disaster Preparedness"],
+    sources: ["American College of Obstetricians and Gynecologists (ACOG) Committee Statement on Disaster Preparedness","CDC, Pregnancy in Emergencies"],
     guidance: [
-      "Manage hydration and heat carefully: pregnant people dehydrate and overheat faster than usual. Drink clean water regularly to head off early contractions and heat-triggered dizziness.",
-      "Sleeping and resting position: when lying down, rest on the left side to keep body weight off the large vein carrying blood from the lower body back to the heart, which preserves blood flow to the placenta.",
-      "Avoid heavy lifting and flood exposure: don't lift heavy debris or wade through contaminated floodwater — it carries bacteria that can trigger serious infections or pregnancy complications.",
-      "Watch for warning signs: get medical care immediately for vaginal bleeding, leaking clear fluid, a severe headache or vision changes (signs of preeclampsia), sharp persistent abdominal pain, or a noticeable drop in baby's movement.",
-      "Stay ready for emergency delivery: keep clean towels, receiving blankets, and a copy of prenatal records in the go-bag in case labor starts fast, away from a clinic.",
+      "Prioritize hydration and rest: dehydration can directly trigger uterine contractions and false or preterm labor. Prioritize clean drinking water (at least 1 gallon a day) and avoid heavy lifting or disaster debris cleanup.",
+      "Watch for urgent warning signs: get medical care immediately for vaginal bleeding or fluid leakage, regular painful contractions before 37 weeks, sudden severe swelling in the face or hands, a severe persistent headache, or visual changes like flashes or blurriness — signs of preeclampsia.",
+      "Sleep on the left side: when resting in a shelter or temporary quarters, lying on the left side relieves pressure on major blood vessels and keeps blood and oxygen flowing to the fetus.",
+      "Protect against environmental hazards: avoid breathing wildfire smoke (wear an N95 if outdoor air is bad), never touch or wade through floodwater, and use an EPA-registered insect repellent to guard against mosquito-borne illness.",
+      "Pack dedicated pregnancy records: keep paper copies of prenatal records, blood type, gestational age, and your doctor's contact info sealed in a waterproof bag inside your go-bag.",
     ],
   },
   "Family communication plan and rendezvous points": {
     sources: ["Ready.gov / FEMA Family Emergency Communication Plan","American Red Cross"],
     guidance: [
-      "Designate an out-of-area contact: pick a friend or relative at least 100 miles away. Local cell networks often jam during disasters, but long-distance calls often route through more easily.",
-      "Pick three specific meeting spots: an immediate spot right outside your home (a specific tree or the mailbox) for sudden events like a house fire; a neighborhood spot — a nearby park, library, or neighbor's house — if you can't get back to your street; and a regional spot, a landmark or building in an adjacent town, if the whole community evacuates.",
-      "Keep physical contact cards: write emergency phone numbers, meeting locations, and medical notes on paper cards kept in each family member's wallet, backpack, or bug-out bag, so a dead phone doesn't erase critical information.",
+      "Pick an out-of-town contact: one relative or friend outside your immediate region or state as the central check-in person — long-distance lines and texts often connect after a disaster when local networks are jammed.",
+      "Text instead of calling: texts use far less network bandwidth than calls and often slip through congested cell towers when voice calls fail.",
+      "Set three distinct meeting points: an immediate spot just outside the house (a specific tree, mailbox, or driveway edge) for a sudden emergency like a fire; a neighborhood spot — a library, park, or community center — if your street is blocked; and a regional spot, a relative's home, civic building, or place of worship in a neighboring town, if the whole city evacuates.",
+      "Carry paper contact cards: don't rely only on phone address books. Give every family member, kids included, a laminated card in their backpack with the out-of-town contact's name, number, and the agreed meeting points.",
     ],
   },
   "Evacuation zones and shelter locations": {
-    sources: ["Federal Emergency Management Agency (FEMA)","American Red Cross, Sheltering in an Emergency"],
+    sources: ["Ready.gov / FEMA Evacuation and Shelter Guidelines","American Red Cross Disaster Shelter Operations"],
     guidance: [
-      "Know your zone designation: coastal and riverfront counties assign letters or numbers to evacuation zones based on flood, storm surge, or wildfire risk. Learn your specific zone before an incident happens, not during one.",
-      "Public shelters are a baseline refuge: emergency municipal shelters provide basic safety, water, and protection from the elements, but generally don't supply bedding, specialized baby formula, your prescriptions, or pet care unless it's a designated co-located pet shelter.",
-      "Arrive prepared: bring your go-bag with your own blankets, medications, personal hygiene items, and critical ID documents.",
-      "Tell staff about medical needs right away: when you arrive, alert intake staff immediately if anyone in your group needs electricity for medical equipment, has mobility limitations, or has dietary restrictions.",
+      "Know your zone before an emergency: coastal and flood-prone communities assign lettered or numbered zones (Zone A, Zone 1) based on elevation and surge risk, not city borders. Find your home's exact zone on county emergency-management maps ahead of time.",
+      "Heed zone-specific evacuation orders: leave immediately when authorities call an evacuation for your zone. Lower-risk zones should stay put to keep evacuation routes clear for people in real danger.",
+      "Find shelters offline: local shelters (often high schools or civic centers) get announced over a battery-powered NOAA Weather Radio and local AM/FM emergency frequencies. With weak cell service, text \"SHELTER\" and your ZIP code to 43362, FEMA's automated SMS shelter locator.",
+      "Know what shelters actually provide: basic floor space, warmth, and water — not private beds, food preferences, or personal medical devices. Bring your own bedding, hygiene items, a 7-day supply of prescriptions, and ID.",
+    ],
+  },
+  "Go-bag / bug-out bag contents": {
+    sources: ["Federal Emergency Management Agency (FEMA)","Ready.gov, Build A Kit"],
+    guidance: [
+      "The 72-hour rule: pack enough for each household member to get by independently for at least 3 days.",
+      "Water and food: 1 gallon of water per person per day (or durable emergency water pouches), plus compact, high-calorie, non-perishable food that needs no cooking or refrigeration.",
+      "First aid, tools, and sanitation: a comprehensive first-aid kit, a multi-tool or knife, a loud whistle, a flashlight or headlamp with extra batteries, moist towelettes, heavy-duty trash bags, and plastic ties for sanitation.",
+      "Warmth, weather, and documents: emergency ponchos, a thermal foil space blanket, a spare change of warm clothes with sturdy shoes, and waterproof copies of ID, insurance, bank records, and some emergency cash in small bills.",
+      "Power and connectivity: a portable battery power bank with charging cables, a battery or hand-crank NOAA weather radio, and a printed list of family contacts and local maps.",
+    ],
+  },
+  "Home fire escape plan": {
+    sources: ["National Fire Protection Association (NFPA), How to Make a Home Fire Escape Plan"],
+    guidance: [
+      "Two ways out of every room: map and physically identify two clear exit paths — like a door and a window — out of every bedroom and living space.",
+      "Set an outside meeting spot: a fixed landmark a safe distance from the front of the home, like a specific tree, mailbox, or street sign, where everyone gathers immediately.",
+      "Practice moving in zero visibility: run drills crawling low on hands and knees, eyes closed or under simulated low visibility, so everyone can find the exits blind, under smoke.",
+      "Strict no-re-entry rule: once someone is outside at the meeting point, they never go back in for any reason — not pets, not valuables.",
+    ],
+  },
+  "Tornado plan": {
+    sources: ["NOAA / National Weather Service (NWS)","FEMA Tornado Safety and Shelter Planning"],
+    guidance: [
+      "Pick the safe location ahead of time: the lowest interior room with no windows — a basement, storm cellar, or a ground-floor interior bathroom or closet — is your designated shelter.",
+      "Stage supplies inside that room: protective headgear, heavy blankets or a spare mattress, a battery-powered radio, sturdy shoes, and a flashlight kept permanently in or next to it.",
+      "Set a mobile-home and vehicle rule in advance: leave a mobile home, camper, or vehicle for a sturdy permanent structure well before funnel clouds or rotation develop.",
+      "Plan the post-storm steps: check for gas leaks, shut off damaged utilities, avoid downed power lines, and wear thick boots to avoid puncture injuries from debris.",
+    ],
+  },
+  "Evacuating with medical equipment/power-dependent needs": {
+    sources: ["American Red Cross, Disability and Disaster Preparedness","Ready.gov / FEMA"],
+    guidance: [
+      "Stage transport equipment in advance: keep mobility aids (a manual wheelchair, walker, cane), extra batteries, and chargers staged near your exit route.",
+      "Keep non-powered backups ready: a manual backup for any electric device, such as a manual wheelchair, hand-bulb suction, or a manual resuscitator bag.",
+      "Pack an emergency medical kit: a 7 to 14 day supply of medications, written equipment model numbers and settings, the operating manuals, and your doctor's contact information.",
+      "Confirm your destination can handle it: check ahead of time that your evacuation location, transportation, or shelter can actually support your specific power and medical needs before you travel.",
+    ],
+  },
+  "Public-place evacuation scenarios (work/school/mall)": {
+    sources: ["OSHA Emergency Action Plans","NFPA Life Safety Code (NFPA 101)"],
+    guidance: [
+      "Spot two exits as soon as you arrive: make it a habit to identify at least two visible, unobstructed exits whenever you enter a crowded building or shopping center.",
+      "Never use elevators during an evacuation: always take the stairs — elevators can lose power, malfunction, or fill with smoke and heat.",
+      "Move with the crowd, not against it: stay on your feet, don't fight the flow of people, keep your hands up near your chest for protection, and work along the walls toward the perimeter exits.",
+      "Heed alarms and staff instructions immediately: evacuate the moment a fire or security alarm sounds — don't wait to see what others do, and don't go back for bags, coats, or belongings.",
+    ],
+  },
+  "Pet/livestock evacuation": {
+    sources: ["ASPCA","American Veterinary Medical Association (AVMA) Emergency Pet Evacuation Guidelines"],
+    guidance: [
+      "Transport small pets in secure carriers: cats, small dogs, and small animals go in sturdy, well-ventilated carriers or crates lined with a familiar towel to reduce panic and escape attempts.",
+      "Bring ID, leashes, and records: every animal should wear a collar with current ID tags. Pack sturdy leashes, muzzles, vaccination records, and a 7-day supply of food and water.",
+      "Never leave pets chained outdoors: if you evacuate, never leave animals chained, penned, or locked in a yard where rising water, falling debris, or fire can trap them.",
+      "Move livestock early: get trailers moving before roads flood or close. If evacuation isn't possible, open interior paddock gates so animals can reach higher, open ground away from low-lying barns or barbed wire.",
     ],
   },
 };

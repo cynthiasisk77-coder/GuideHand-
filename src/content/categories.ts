@@ -298,7 +298,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Evacuation",
     topics: [
-      { title: "Go-bag / bug-out bag contents", status: "partial", priority: "P1", note: "" },
+      { title: "Go-bag / bug-out bag contents", status: "verified", priority: "P1", note: "FEMA + Ready.gov" },
       { title: "Evacuation zones and shelter locations", status: "verified", priority: "P1", note: "FEMA + American Red Cross" },
       { title: "Evacuation order vs. shelter order (decision)", status: "verified", priority: "P1", note: "FEMA + OSHA" },
       { title: "Offline route downloads (primary/alternate)", status: "partial", priority: "P2", note: "" },
@@ -306,9 +306,9 @@ export const CATEGORIES: Category[] = [
       { title: "Family reunification if separated", status: "verified", priority: "P1", note: "Ready.gov/FEMA" },
       { title: "Immediate/neighborhood/regional meeting places", status: "partial", priority: "P2", note: "" },
       { title: "Vehicle evacuation kit", status: "new", priority: "P2", note: "" },
-      { title: "Pet/livestock evacuation", status: "partial", priority: "P1", note: "See Animals & Pets" },
-      { title: "Evacuating with medical equipment/power-dependent needs", status: "partial", priority: "P1", note: "" },
-      { title: "Public-place evacuation scenarios (work/school/mall)", status: "partial", priority: "P1", note: "" },
+      { title: "Pet/livestock evacuation", status: "verified", priority: "P1", note: "ASPCA + AVMA" },
+      { title: "Evacuating with medical equipment/power-dependent needs", status: "verified", priority: "P1", note: "American Red Cross + Ready.gov/FEMA" },
+      { title: "Public-place evacuation scenarios (work/school/mall)", status: "verified", priority: "P1", note: "OSHA + NFPA 101" },
     ],
   },
   {
@@ -418,8 +418,8 @@ export const CATEGORIES: Category[] = [
     name: "Preparedness Plans",
     note: "Meant to become checklists generated from the underlying content.",
     topics: [
-      { title: "Home fire escape plan", status: "partial", priority: "P1", note: "" },
-      { title: "Tornado plan", status: "partial", priority: "P1", note: "" },
+      { title: "Home fire escape plan", status: "verified", priority: "P1", note: "NFPA" },
+      { title: "Tornado plan", status: "verified", priority: "P1", note: "NOAA/NWS + FEMA" },
       { title: "Hurricane plan", status: "partial", priority: "P1", note: "" },
       { title: "Flood evacuation plan", status: "pending", priority: "P1", note: "" },
       { title: "Wildfire evacuation plan", status: "pending", priority: "P1", note: "" },
