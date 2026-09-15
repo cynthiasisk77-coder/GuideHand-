@@ -3342,4 +3342,15 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Even after this, see a real dentist or doctor as soon as you possibly can — a field extraction like this can leave bone fragments or an incomplete removal that needs proper follow-up care.",
     ],
   },
+  "Lost in the woods: what to do first": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "The moment you realize you're lost, stop walking. Moving further while panicked is how a small problem turns into a much bigger one — most people who keep wandering end up farther from any trail, not closer.",
+      "Follow STOP: Stop, Think, Observe, Plan. Sit down if you can. Think back to the last point you knew where you were. Look around for landmarks, trail markers, running water, or high ground you recognize. Only then decide on a plan — and the plan is usually to stay put, not to keep moving.",
+      "In most cases, staying where you are is safer than trying to self-rescue. You're far easier to find standing still in one place than wandering to a new spot every hour, and most search efforts start from your last known location.",
+      "Make yourself easy to find: get to a clearing or high ground if it's close and safe to reach, and use the same rule-of-three signaling that works for any rescue situation — three whistle blasts, three fires, or three of anything, paused and repeated (see Wilderness signaling and search-and-rescue marking for the full technique).",
+      "The exceptions where moving on foot makes sense: you're in immediate danger where you are (flooding, wildfire, unstable ground), it's getting dark and you have a specific, sure destination close by, or you have a documented, reliable trail to follow out. If none of those apply, staying put and signaling is almost always the better bet.",
+      "Before you ever head out: tell someone your planned route and when you expect to be back. That single step is what actually gets search-and-rescue looking in the right place — nothing else here works as well without it.",
+    ],
+  },
 };

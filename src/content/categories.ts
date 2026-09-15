@@ -318,6 +318,7 @@ export const CATEGORIES: Category[] = [
       { title: "Finding cardinal directions without a compass", status: "verified", priority: "P3", note: "FM 3-25.26 Appendix F" },
       { title: "Marking private landmarks/hazards on offline maps", status: "partial", priority: "P3", note: "" },
       { title: "Wilderness signaling and search-and-rescue marking", status: "verified", priority: "P2", note: "NASAR + USAF AFMAN 10-503" },
+      { title: "Lost in the woods: what to do first", status: "partial", priority: "P1", note: "" },
     ],
   },
   {
