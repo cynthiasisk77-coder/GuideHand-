@@ -386,6 +386,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Bowline (\"the king of knots\"): a secure, fixed loop at a rope's end that won't slip or shrink under load, yet unties easily afterward. Use it for rescue lines, tie-down points, or hanging gear. Form a small loop in the standing part, pass the working end up through it, around the standing line, then back down through the loop, and pull it firm.",
       "Taut-line hitch: an adjustable friction hitch that slides to change tension, then locks in place under load. Good for tent guy-lines, shelter tarps, and antenna lashings. Wrap the working end around the anchor line twice toward the anchor, then once more on the outside toward the load, and pull tight to set it.",
       "Trucker's hitch: a mechanical-advantage knot that cinches a load two to three times tighter than pulling by hand. Use it for strapping down roof tarps or bulky gear. Form a slip loop in the middle of the line, run the working end through an anchor point, feed it back through the slip loop, pull hard to tighten, then lock it off with two half-hitches.",
+      "Prusik hitch: a small loop of cord tied around a thicker rope that grips tight under load but slides freely by hand when there's no weight on it. Useful for climbing up a fixed rope, tensioning a shelter line, or as part of a simple pulley system for hauling something heavy.",
+      "Figure-8 loop: a strong, reliable loop tied in the end of a rope for clipping onto something or anchoring to a tree or vehicle. It holds a large share of the rope's strength and, unlike some other loop knots, doesn't jam into an impossible-to-untie knot after it's been under a heavy load.",
+      "Clove hitch: a quick way to tie a rope to a post, pipe, or pole. It's fast to tie and holds well under steady pull, but can slip if the load keeps jerking on and off, so back it up with two half-hitches if you're relying on it for anything long-term.",
     ],
   },
   "Rope and cordage strength basics": {
@@ -732,6 +735,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Activate every available route to emergency help. Use speaker mode on a phone while providing care.",
       "Keep monitoring — a person who is initially awake can deteriorate.",
       "Do not enter a scene that is unsafe for you. Do not give food, drink, or oral medicine to someone who isn't fully alert. Do not move someone with a suspected neck/back/hip injury unless staying put is more dangerous.",
+      "If there are multiple injured people at once (a car pileup, a building collapse) and you have to decide who to help first: start with everyone who can get up and walk on their own — direct them to one spot, they can wait. For everyone else, check breathing first, then check for a pulse or serious bleeding, then check if they can follow a simple instruction like \"squeeze my hand.\" People who aren't breathing normally, don't have a pulse, or can't follow a simple command need help first; people who are breathing fine and can follow commands can wait a little longer. This is hard and it feels wrong to walk past someone, but in a true mass-casualty situation, treating people in the wrong order can cost more lives overall.",
     ],
   },
   "Adult CPR/AED": {
@@ -785,6 +789,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "If direct pressure alone doesn't stop arm/leg bleeding, apply a commercial tourniquet above the wound (never over a joint) and tighten until bleeding stops. Note the time if you can.",
       "Do not loosen or remove a working tourniquet — leave that decision to medical professionals. Do not use a narrow cord, wire, or shoelace as a substitute.",
       "Never use a tourniquet on a neck, chest, abdomen, or groin wound. Keep the person warm and monitor breathing.",
+      "If one tourniquet fully tightened doesn't stop the bleeding, put a second one on right above the first (closer to the body) rather than loosening the first one to check it.",
+      "If a body part is completely severed: controlling the bleeding on the person is what matters most. For the severed part itself — rinse off big debris gently without scrubbing, wrap it in dry clean cloth or gauze, seal it in a waterproof bag, then place that bag in a second container with an ice-and-water slurry. Never let it touch ice directly and never let it sit in water unprotected — both damage the tissue and can ruin any chance of it being reattached.",
     ],
   },
   "Chest and abdominal trauma (open chest wound)": {
@@ -805,6 +811,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Cover a clean superficial wound with a clean dressing; change it when wet, dirty, or loose.",
       "Watch for spreading redness, swelling, increasing pain, foul drainage, fever, red streaking, or loss of function — signs of infection.",
       "Do NOT close a deep, puncture, bite, crush, or contaminated wound yourself with glue/staples. Do not close an animal or human bite at all — get it evaluated (infection, tetanus, and rabies decisions can be time-sensitive).",
+      "For the best chance of avoiding infection, irrigation matters more than what you irrigate with — even plain clean water works if you use enough of it and enough force. A large syringe, or a plastic bottle with a small pinhole poked in the cap that you squeeze hard, both create enough pressure to actually flush debris out rather than just rinse the surface.",
+      "A wound that's too dirty or too old to close (see above) can still be cared for: loosely pack it with clean, saline-moistened gauze so it can drain, and cover with a dry dressing. Change the dressing daily or every other day. It will heal from the inside out over time — that's normal for a wound that couldn't be closed, not a sign something's wrong.",
     ],
   },
   "Thermal burns": {
@@ -1223,6 +1231,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Escalate to 911/ER (not just \"see a dentist soon\") for trouble breathing/swallowing, or facial swelling with fever.",
       "See a dentist as soon as reachable even if pain is currently mild.",
       "If a permanent tooth gets completely knocked out: pick it up by the crown (the white part), never the root. If the person is alert, try gently pushing it back into its socket right away and have them bite down gently on gauze to hold it. If it won't go back in, keep it from drying out — in a cup of cold milk or tucked in the person's cheek — and get to a dentist fast. It has the best chance of being saved within about an hour.",
+      "Bleeding that won't stop after a tooth comes out (extraction or trauma): a slightly damp black tea bag pressed firmly against the socket, held with steady bite pressure for 45-60 minutes, works better than plain gauze — something in tea actually helps blood clot there.",
+      "A crown or cap that's fallen off: clean the old cement out of it, dry the tooth stub, and use a small dab of plain (non-whitening) toothpaste, petroleum jelly, or temporary dental cement (sold at any pharmacy) to stick it back on as a temporary fix until you can see a dentist. Bite down gently on gauze for a few minutes to seat it and squeeze out the extra.",
+      "Telling apart two kinds of tooth pain: pain that's sharp but stops as soon as the hot, cold, or sweet thing is gone is usually manageable until you see a dentist. Pain that throbs on its own, wakes you up at night, or lingers long after you stop eating or drinking is more serious — it usually means the nerve inside the tooth is dying, and it's worth getting seen sooner.",
     ],
   },
   "Eye injury and chemical irrigation": {
@@ -1234,6 +1245,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Foreign body (not embedded): irrigate gently, inner corner toward outer corner. Never rub the eye.",
       "Embedded/impaled object: do not attempt removal. Protect the eye with a rigid shield without pressing on it.",
       "Any chemical splash or embedded foreign body = emergency care, not wait-and-see.",
+      "Loose debris like sand or an eyelash: don't rub it. Pull the upper eyelid down and out over the lower lashes — this alone often sweeps it loose so you can flush it out.",
+      "If something is impaled or stuck in the eye and you're covering it while waiting for help: cover BOTH eyes, not just the injured one. Eyes move together, so if the healthy eye moves, the injured eye moves the same way and can drive the object in deeper. Covering both keeps the injured eye still.",
     ],
   },
   "Non-opioid medication overdose": {
@@ -1375,6 +1388,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Unopened commercially bottled water is the most reliable choice. For home-filled containers, use food-grade containers with tight lids — never a container that held bleach, pesticide, fuel, or another toxic chemical.",
       "Label home-filled containers \"drinking water\" with the date, keep them out of sunlight and away from chemicals, and replace the water every 6 months.",
       "Don't touch stored water or the inside of the container with your hands or an unclean scoop.",
+      "How to tell if a plastic container is safe for water: look for a small recycling triangle with a number inside, usually on the bottom. #1 (PET), #2 (HDPE), #4 (LDPE), and #5 (PP) are all fine for water. Avoid #3 (PVC) and #6 (polystyrene) entirely, and only use #7 if it's specifically labeled BPA-free.",
+      "Never reuse a barrel or drum that held anything other than food, even if it's labeled food-grade plastic — chemical residue from fuel, pesticides, or solvents soaks into the plastic itself and can't be washed out. If you're repurposing a used food-grade drum (syrup, juice concentrate), wash it with hot soapy water, then sanitize with about 1 tablespoon of plain unscented bleach per gallon of water swished across every interior surface, and rinse well before filling.",
     ],
   },
   "Tap water suspected unsafe": {
@@ -1441,6 +1456,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Stay inside and stay tuned to official information. Sheltering for at least 24 hours can significantly cut fallout exposure in many situations, but follow official instructions over a fixed timer.",
       "If you were outside during or after the event, see \"Radiation shelter and decontamination\" for removing contamination once you're inside.",
       "Know that fallout radiation fades fast at first: it's most intense in the first hour, drops to about a tenth of that by 7 hours, to about a hundredth by roughly 2 days, and to a thousandth within about 2 weeks. That's exactly why officials say to shelter for at least 24-48 hours before any short trip outside, and why the first day matters most.",
+      "If you're close enough that the flash and shock wave don't arrive together: the flash travels at the speed of light, so you see it first. The shock wave itself travels roughly a mile every 5 seconds, so depending how far away you are, you may have a few seconds to a couple minutes of warning after the flash before it hits — use every second of that to get down and take cover.",
+      "While you're down: keep your mouth slightly open and cover your ears with your hands. This helps equalize the pressure from the blast wave and lowers the chance of ruptured eardrums or lung damage from the pressure itself.",
+      "If you have potassium iodide (KI) tablets: they only protect your thyroid from one specific radioactive substance in fallout (radioactive iodine) — they do nothing for the blast, the initial radiation, or other radioactive materials in fallout. Only take them when officials specifically advise it; taking extra doesn't add protection and can cause its own health problems.",
     ],
   },
   "Dirty bomb vs. nuclear explosion distinction": {
@@ -1512,6 +1530,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Pursed-lip breathing (COPD or panic): if an inhaler is empty or unavailable, have them inhale slowly through the nose for 2 seconds, purse their lips like blowing out a candle, and exhale slowly for 4 seconds. This keeps the airway open longer and slows hyperventilation.",
       "Clear the immediate air: move away from smoke, dust, cold drafts, engine exhaust, or strong chemical odors that trigger airway spasms. Loosen tight clothing around the neck and chest.",
       "Watch for respiratory failure: if the person cannot speak more than one word at a time, their lips or fingertips turn gray or blue, or their chest pulls in hard between the ribs with each breath, the airway is failing. If they collapse and stop breathing, begin CPR.",
+      "A \"silent chest\" is a red flag, not a good sign: if wheezing suddenly stops but the person is still struggling to breathe, that usually means the airways have closed down so much that air barely moves at all anymore — it's not improvement. Treat this as an immediate 911 emergency.",
+      "If they carry an epinephrine auto-injector and their rescue inhaler isn't helping: epinephrine can also help open the airways in a severe asthma attack, not just allergic reactions. Use it the same way you would for anaphylaxis.",
+      "With absolutely nothing else on hand: hot black coffee or breathing warm steam can sometimes take the edge off temporarily, since caffeine is chemically related to a mild asthma medication — this is a weak, last-resort measure, not a substitute for real treatment.",
     ],
   },
   "Unconscious, breathing, cause unknown": {
@@ -1531,6 +1552,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Warm the core, not the limbs: focus heat on the chest, neck, and back using dry towels, layers, and warm water bottles wrapped in cloth. Never apply hot water or bare hot packs directly to the skin, and never rub cold arms or legs — rubbing forces cold, stagnant blood straight to the heart, which can trigger cardiac arrest.",
       "Only offer warm drinks if fully alert: if they can sit up and talk clearly, give warm, sugary water or broth. Never force liquids into someone who is drowsy or nodding off.",
       "Know the rough stages: mild hypothermia is heavy shivering but still clear-headed; moderate is violent shivering with clumsy hands and confusion; severe is when shivering actually stops, muscles go rigid, and the person is barely responsive or unconscious — that's the most dangerous stage, not a sign they're improving.",
+      "For a more complete warming setup: get them into dry clothes first (cut clothing off rather than moving a severely cold person around, if needed), wrap them in something that blocks wind and wet (a space blanket or even a plastic trash bag), then add real insulation on top (sleeping bags, blankets), making sure there's something between them and the ground the whole time — cold ground pulls heat out fast.",
+      "Keep a moderately-to-severely hypothermic person lying flat, not sitting or standing, even to move them. Sitting a very cold person upright can be enough to trigger a dangerous drop in blood pressure or even cardiac arrest — their body has been compensating in ways that don't handle a sudden position change well.",
     ],
   },
   "Extreme heat illness": {
@@ -1547,9 +1570,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Signs delivery is happening now: contractions 1 to 2 minutes apart, a strong urge to push or bear down, a sensation like a bowel movement, or the baby's head is visible (crowning).",
       "Call 911 immediately: put the phone on speaker. Wash your hands and gather clean towels, blankets, and a clean bulb syringe or cloth.",
-      "Support the delivery: support the baby's head as it emerges with gentle hands; do not pull the baby out or push on the mother's stomach. If the cord is wrapped around the neck, slip it gently over the head.",
+      "Support the delivery: support the baby's head as it emerges with gentle hands; do not pull the baby out or push on the mother's stomach. If the cord is wrapped around the neck, slip it gently over the head. If it's wrapped tightly enough that you can't slip it free and the shoulders are about to deliver, that's one of the rare situations where the cord may need to be tied off in two spots and cut between the ties before continuing — this is why staying on the phone with dispatch matters, so someone can walk you through it in the moment.",
       "Care for the newborn: dry the baby thoroughly right away with a warm, clean towel. Clear fluid from the mouth and nose with a cloth. Place the baby directly skin-to-skin on the mother's chest and cover both with dry blankets.",
-      "Leave the umbilical cord alone: do not cut the cord unless emergency dispatch explicitly directs you to. Let the placenta deliver naturally — do not pull on the cord.",
+      "Leave the umbilical cord alone otherwise: do not cut the cord unless it's the tight-nuchal-cord situation above or emergency dispatch explicitly directs you to. Let the placenta deliver naturally, usually within 10-30 minutes — do not pull on the cord to speed it up, which risks severe internal injury to the mother.",
+      "After the placenta delivers, the mother is still at risk of serious bleeding. Gently but firmly massage her lower belly in a circular motion until it feels firm, like a grapefruit, rather than soft — this helps the uterus contract and slows the bleeding. Putting the baby to breast right away also helps trigger the same effect naturally.",
     ],
   },
   "Drowning / near-drowning rescue": {
@@ -1686,6 +1710,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Protect it from wet weather safely: run it on a dry, level surface under an open canopy-style generator tent; never operate a running generator in standing water or uncovered in falling rain — that risks electrocution.",
       "Shut off and cool down before refueling: turn off the generator and let the engine cool for 5 to 10 minutes before adding fuel — spilling gas on a hot muffler can ignite immediately.",
       "Use heavy-duty outdoor extension cords: plug appliances into the generator using grounded, undamaged, outdoor-rated cords sized correctly for the load.",
+      "The same rule applies beyond generators: charcoal grills, camp stoves, and kerosene heaters are just as dangerous indoors, even in a garage or an enclosed porch with the door propped open. None of these are designed to run anywhere air doesn't freely exchange with the outdoors.",
+      "Don't rely on how someone looks to judge CO poisoning — the well-known \"cherry-red skin\" sign is actually rare and shows up late, if at all. Headache, dizziness, nausea, and confusion that several people in the house develop around the same time are much more common early warnings, and they're easy to mistake for a stomach bug or the flu.",
     ],
   },
   "Carbon-monoxide alarm or symptoms": {
@@ -2697,6 +2723,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Angle the roof to catch the heat: pitch the lean-to roof at 45 degrees sloping away from the fire — the slope catches reflected heat and directs it down onto you while sending smoke up and over.",
       "Get off the ground: never sleep on bare or damp ground. Build a raised bed frame, or lay down at least 12-18 inches of dry pine needles, leaves, or spruce boughs to stop conductive heat loss into the ground.",
       "Dig a long, shallow fire trench: matching your body length rather than a round pit warms you evenly along your whole length instead of concentrating heat on just your chest or feet.",
+      "Where you put a shelter matters as much as how you build it. Avoid exposed ridgelines and open areas (too much wind), dry creek beds or washes (can flash flood), and anywhere right next to standing water (colder, damper, more bugs). Look up before you commit to a spot, too — never shelter under dead trees, hanging broken branches, or loose rock that could fall.",
+      "Cold air sinks and pools in low valleys and hollows at night, which can make the lowest ground 15-20°F colder than a spot just partway up a slope. Building on a gentle rise rather than the valley floor — or the wind-exposed top — is usually noticeably warmer.",
     ],
   },
   "Emergency fish traps and baskets": {
@@ -2923,6 +2951,42 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "The basic idea: water flows down a drive pipe and builds up speed, then slams a one-way \"waste\" valve shut. That sudden stop creates a pressure spike (water hammer) that forces a small amount of water through a second one-way valve into a sealed air chamber, which smooths the pulses into a steady stream heading uphill to your storage tank.",
       "Built from standard plumbing fittings: a drive pipe (30-50 feet of rigid pipe from your water source), a tee fitting with a swing check valve mounted to act as the waste valve, a second check valve mounted to act as the delivery valve, and a sealed length of capped pipe mounted upright as the air chamber.",
       "These pumps can lift water several times higher than the vertical drop feeding them, and they run continuously with no power source — the tradeoff is they waste a good deal of the water they process, so they work best where the water source itself isn't scarce.",
+    ],
+  },
+  "High-altitude sickness: AMS, HAPE, and HACE": {
+    sources: ["Wilderness Medical Society Clinical Practice Guidelines"],
+    guidance: [
+      "Altitude sickness (AMS) is common above about 8,000 feet and feels like a bad hangover: throbbing headache, tiredness, nausea, dizziness, trouble sleeping. The fix is simple — stop going higher until it fully clears, rest, drink water, and a mild pain reliever like ibuprofen can help.",
+      "High-altitude pulmonary edema (HAPE) means fluid is building up in the lungs, and it can turn fatal within hours. Warning signs: getting winded from very light activity or even at rest, a dry cough that turns wet or pink/frothy, a rattling or bubbling sound in the chest, and bluish lips or fingertips.",
+      "High-altitude cerebral edema (HACE) means the brain is swelling, and it can progress to coma quickly. Warning signs: real trouble with coordination (can't walk a straight line heel-to-toe), severe confusion, personality changes, hallucinations.",
+      "For HAPE or HACE, the only thing that reliably works is getting to lower elevation immediately — at least 2,000-3,000 feet down if at all possible. Don't wait to see if it improves on its own; both conditions can kill within hours to a day if the person stays high. Keep them warm, avoid exertion, and use supplemental oxygen if you have it, but descent is what actually saves them.",
+      "If you're planning a high-altitude trip in advance, ask your doctor whether you should carry prescription altitude-sickness medication — this is a common, sensible precaution for serious mountaineering or high-altitude travel, but it needs to be prescribed and dosed by a doctor who knows your health history, not taken from a general guide.",
+    ],
+  },
+  "Pemmican (traditional long-term meat and fat preservation)": {
+    sources: ["Traditional Plains Indigenous foodways","USDA Historical Food Technology Bulletins"],
+    guidance: [
+      "Pemmican is dried lean meat pounded into powder and mixed with rendered fat, and it's one of the longest-lasting foods you can make at home — properly sealed, it can last decades with no refrigeration, freezing, or chemical preservatives.",
+      "The ratio matters: aim for roughly equal parts fat and dried meat powder by weight. Too little fat and the meat powder molds; too much and you get a greasy mess that doesn't hold together.",
+      "Use only lean meat — trim off every bit of soft fat, which goes rancid. Venison, elk, or lean beef all work. Slice it very thin and dry it until it's completely brittle and snaps like a cracker, then grind or pound it into a coarse powder.",
+      "For the fat, use hard fat from around the kidneys (suet/tallow) rather than soft fat from just under the skin — hard fat stays solid at room temperature and doesn't spoil the way soft fat does. Melt it gently, strain out any solid bits, and pour it warm over the meat powder, mixing until every bit of powder is coated.",
+      "Press the mixture firmly into a sealed container — a bag, tin, or vacuum-sealed pouch — pushing out as much air as possible before it cools and hardens. Less trapped air means it keeps longer.",
+    ],
+  },
+  "Gravity-fed water distribution and pipe sizing": {
+    sources: ["Peace Corps Technical Brief: Gravity-Fed Water Flow Systems","International Association of Plumbing and Mechanical Officials (IAPMO)"],
+    guidance: [
+      "A gravity-fed water system turns elevation into pressure with no pump needed: for every foot your storage tank sits above where the water comes out, you get roughly 0.43 PSI of pressure. To get normal household pressure (around 30 PSI) with gravity alone, your tank needs to sit roughly 70 feet higher than your highest faucet — that's a real hill or tower, not just a rooftop tank.",
+      "Pipe size matters more than people expect: a long run of narrow pipe (1/2 inch) loses a lot of pressure to friction, especially with several fixtures open at once. For your main line from the tank, use at least 1-inch pipe, and only narrow down to 3/4 inch or 1/2 inch right at the very end, near individual fixtures.",
+      "If your pipe run goes up and down over hilly ground, air can get trapped at the high points and stop water from flowing at all, even though everything looks connected correctly. Adding a simple valve at the top of each rise, which you open briefly to bleed out trapped air, solves this — do it once when you first fill the system, and again any time flow mysteriously stops.",
+    ],
+  },
+  "Ammunition and propellant storage safety": {
+    sources: ["National Fire Protection Association (NFPA 495)","Sporting Arms and Ammunition Manufacturers' Institute (SAAMI)"],
+    guidance: [
+      "Stored ammunition doesn't explode like a bomb in a house fire — individual rounds can pop from the heat and send a case fragment flying a short distance, which is still a real hazard, but it's not the dramatic detonation people picture.",
+      "Heat and humidity are what actually damage stored ammunition over time, corroding it and degrading the powder inside. Keep it in a sealed, airtight container — a military-surplus ammo can with a rubber gasket works well — somewhere cool and dry, ideally under 75°F with low humidity. A small silica gel packet inside each container helps absorb moisture; replace it yearly.",
+      "Never store a large quantity of loose gunpowder inside a sealed, heavy steel safe with no venting. In a fire, a safe like that can't relieve pressure the way a proper ammunition can does, and a full sealed safe can rupture violently instead. If you store bulk powder, use containers actually designed for that purpose, not a repurposed gun safe.",
     ],
   },
 };

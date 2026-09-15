@@ -86,6 +86,7 @@ export const CATEGORIES: Category[] = [
       { title: "Medication storage, expiration, continuity", status: "verified", priority: "P1", note: "" },
       { title: "Poison-record log (substance/amount/time/symptoms)", status: "partial", priority: "P2", note: "" },
       { title: "Cold-water immersion and drowning rescue", status: "specialist", priority: "P0", note: "Wilderness Medical Society + AHA" },
+      { title: "High-altitude sickness: AMS, HAPE, and HACE", status: "specialist", priority: "P0", note: "Wilderness Medical Society" },
     ],
   },
   {
@@ -379,6 +380,7 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency pit-smoking and meat preservation", status: "verified", priority: "P2", note: "USDA FSIS + US Forest Service" },
       { title: "Off-grid meat curing (dry salt and brine preservation)", status: "verified", priority: "P2", note: "USDA FSIS + UGA NCHFP" },
       { title: "Emergency grain fermentation (lactic acid preservation and silage)", status: "verified", priority: "P3", note: "FAO + USDA ARS" },
+      { title: "Pemmican (traditional long-term meat and fat preservation)", status: "verified", priority: "P3", note: "USDA Historical Food Technology Bulletins" },
     ],
   },
   {
@@ -393,6 +395,7 @@ export const CATEGORIES: Category[] = [
       { title: "Manual hand-drilling for shallow water (sludge and auger methods)", status: "verified", priority: "P3", note: "Peace Corps + UNICEF" },
       { title: "Manual well rehabilitation (surging and air-jetting a clogged well)", status: "verified", priority: "P2", note: "National Ground Water Association + FAO" },
       { title: "Hydraulic ram pump construction from hardware-store pipe fittings", status: "verified", priority: "P3", note: "Practical Action" },
+      { title: "Gravity-fed water distribution and pipe sizing", status: "verified", priority: "P2", note: "Peace Corps + IAPMO" },
     ],
   },
   {
@@ -484,6 +487,7 @@ export const CATEGORIES: Category[] = [
       { title: "Hygiene-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Emergency-document inventory", status: "verified", priority: "P2", note: "Ready.gov EFFAK + NIST" },
       { title: "Fuel inventory", status: "verified", priority: "P1", note: "NFPA 30 + Small Engine Manufacturers Association" },
+      { title: "Ammunition and propellant storage safety", status: "verified", priority: "P2", note: "NFPA 495 + SAAMI" },
       { title: "Calculated days-of-water/food remaining", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Expiring-soon and missing-supplies alerts", status: "partial", priority: "P2", note: "Spec exists" },
     ],
