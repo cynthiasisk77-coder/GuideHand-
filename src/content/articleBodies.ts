@@ -40,11 +40,13 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Finding cardinal directions without a compass": {
-    sources: ["U.S. Army FM 3-25.26, Appendix F (Orienteering)"],
+    sources: ["U.S. Army Field Manual (FM 3-25.26), Map Reading and Land Navigation"],
     guidance: [
-      "Shadow-tip method: push a straight ~1-meter stick into level ground, mark the shadow tip, wait 10-15 minutes, mark the new tip.",
-      "The first mark is west. Standing with that mark to your left: north is ahead, east is to your right, south is behind you.",
-      "This is an approximation for orientation, not a substitute for a compass and map when accuracy really matters (steep terrain, whiteout, long distances).",
+      "Shadow-stick method: plant a straight 3-foot stick vertically in level ground, mark the tip of its shadow with a stone, wait 15-20 minutes, and mark the new shadow tip with a second stone. The line from the first stone to the second runs West to East (first mark West, second mark East).",
+      "Analog watch method (Northern Hemisphere): point the hour hand at the sun. The point halfway between the hour hand and 12 o'clock points South, and the opposite direction is North.",
+      "North Star (Polaris) alignment: find the Big Dipper, trace the line through its two outer \"pointer\" stars (Merak and Dubhe) upward about 5 times their spacing, and you'll land on Polaris — within 1 degree of true North.",
+      "Don't trust moss alone: moss grows on any shaded, moisture-retaining side of a tree, not reliably on the north side. Wind-bent vegetation and the fact that south-facing hillsides dry faster and lose snow first (in northern latitudes) are more reliable terrain cues.",
+      "Treat all of this as approximation, not a substitute for a compass and map when accuracy really matters — steep terrain, whiteout, or long distances.",
     ],
   },
   "No cellular service or internet": {
@@ -230,10 +232,12 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Latrine siting": {
-    sources: ["CDC, WASH-related Emergencies", "community emergency-toilet guides"],
+    sources: ["Centers for Disease Control and Prevention (CDC), Emergency Sanitation Guidelines","U.S. Army Field Manual (FM 21-10 / ATP 4-25.12), Field Sanitation"],
     guidance: [
-      "A commonly cited siting rule: place a latrine or portable toilet at least 100 feet from surface water (lakes, rivers, streams) and at least 100 feet downhill or away from any drinking-water source, home, or campsite.",
-      "This 100-foot figure is well-established in general private-well/septic-setback guidance but should be confirmed against your local health department's actual required setback.",
+      "Keep the 200-foot setback: dig latrines and waste pits at least 200 feet (roughly 70-80 paces) from any surface water, campsite, or food-prep area to prevent waterborne contamination.",
+      "Individual cat-hole: for one-time use on the move, dig 6-8 inches deep and 4-6 inches wide in dark organic topsoil, where soil bacteria breaks pathogens down fastest.",
+      "Straddle trench for a small group: for a semi-permanent site, dig a trench 12 inches wide, 18-24 inches deep, and 3-6 feet long, with a shovel kept at hand. Cover each use immediately with 2-3 inches of loose soil and wood ash to control odor and keep flies from carrying pathogens to food.",
+      "Close it out properly: once waste is within 6 inches of the surface, backfill completely, mound the soil slightly so rain sheds off, and pack it down.",
     ],
   },
   "Water, electricity, gas, propane shutoffs": {
@@ -2357,6 +2361,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Make rawhide: soak the fleshed hide in a wood-ash-and-water solution (or hydrated lime) for 3 to 6 days until hair wipes off easily. Rinse thoroughly in running water, neutralize with a weak vinegar wash, stretch tight in a wooden frame, and let it dry stiff.",
       "Brain-tan for soft buckskin: every animal's brain has enough natural oil to tan its own hide. Simmer the brain in a cup of water into a smooth warm slurry, then work it deep into both sides of the dried, hairless skin.",
       "Work and smoke the hide: pull and stretch the drying hide continuously over a cable or smooth log edge until the fibers are completely soft, then smoke it over a smoldering punky-wood fire for several hours — the smoke's compounds keep the leather pliable even after it gets wet.",
+      "Bark-tan as an alternative to brain-tanning: simmer inner bark from oak, chestnut, hemlock, or sumac in a non-iron pot (iron reacts with tannins and stains the leather) until the water is a deep tea color, then cool it completely — a hot bath scalds and hardens raw hide. Soak the hide in a weak bath first for several days, then move it through progressively stronger tannin baths over 3 to 6 weeks. It's fully tanned when a sliced cross-section shows tannin color all the way through, with no raw white line in the middle.",
     ],
   },
   "Off-grid refrigeration and cooler management": {
@@ -2499,6 +2504,175 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Set up a pitcher pump for a shallow well: mount a cast-iron hand pump to a rigid PVC or galvanized suction pipe run into the shallow water table, and prime it by pouring clean water down the top throat to seal the internal leather cup before working the handle.",
       "Add an auxiliary deep-well hand pump: install a secondary drop pipe alongside an existing electric submersible pump inside a standard 4 or 6-inch casing. A deep manual pump runs a rod down to a submerged cylinder and lifts water from 200-300 feet with mechanical handle leverage.",
       "Protect the wellhead from contamination: make sure the casing extends at least 12 inches above the worst expected flood level and is sealed with a screened sanitary well cap, so floodwater, insects, and rodents can't get into the aquifer.",
+    ],
+  },
+  "Emergency blacksmithing and tool forging": {
+    sources: ["U.S. Army Technical Manual (TM 9-237), Operator's Manual for Welding and Blacksmithing"],
+    guidance: [
+      "Build an improvised forge: dig a shallow trench, or line a metal wheel rim or brake drum with wood ash and clay to hold the heat. Connect an iron pipe (tuyere) at the base to a hand bellows, hair dryer, or bicycle pump to force air into the firebed.",
+      "Manage fuel and heat: burn clean, dense hardwood charcoal. Forced air through charcoal easily reaches the 1,600-2,000°F glowing orange-to-yellow heat needed to hammer and shape carbon steel.",
+      "Improvise an anvil: a heavy section of railroad track, a large sledgehammer head bedded into a hardwood stump, or a flat unweathered granite boulder all work as a base.",
+      "Harden and temper basic tool steel: heat high-carbon steel (leaf springs, coil springs, old files) until cherry red and no longer magnetic, then quench immediately in warm oil to harden it. Sand it clean, gently reheat until it shows a straw-to-bronze oxide color (temper), and air-cool to avoid brittle shattering.",
+    ],
+  },
+  "Emergency lime and quicklime production": {
+    sources: ["Practical Action Technical Brief, Small-Scale Lime Burning","National Lime Association"],
+    guidance: [
+      "Choose the right feedstock: limestone rock, marble chips, or clean oyster, mussel, or clam shells, scrubbed free of any organic meat debris before burning.",
+      "Fire the kiln (calcination): stack the limestone or shells with hardwood fuel in a crisscross pattern inside an insulated clay or stone kiln pit, and hold at least 1,650°F for several hours to drive off carbon dioxide and convert calcium carbonate into quicklime.",
+      "Respect quicklime's hazards: it reacts violently with water, producing intense heat and caustic alkali steam. Always wear eye protection, heavy gloves, and long sleeves — it causes severe chemical burns to skin and eyes.",
+      "Slake it into usable mortar: carefully add water to cooled quicklime chunks in a metal trough. It will hiss and crumble into a smooth paste (slaked lime). Mix 1 part slaked lime with 3 parts clean sharp sand for durable masonry mortar.",
+    ],
+  },
+  "Field brick and adobe making": {
+    sources: ["Peace Corps, Appropriate Technology for Construction: Adobe and Rammed Earth","New Mexico Building Code (Adobe Standards)"],
+    guidance: [
+      "Test your soil first: shake local subsoil with water in a clean glass jar and let it settle into layers. Good adobe runs roughly 60-70% coarse sand and 15-30% clay/silt — too much clay cracks on drying, too much sand crumbles.",
+      "Add a fiber binder: trample wet subsoil with chopped dry straw, hay, pine needles, or dry grass (1-2 inches long) in a shallow pit until it's a stiff, dough-like mix. The fiber adds tensile strength and cuts shrinkage cracking.",
+      "Mold the bricks: pack the stiff mud firmly into bottomless wooden forms (commonly 4x10x14 inches), scrape off the excess with a straight board, and lift the form right away while the brick holds its shape.",
+      "Cure in stages: cure fresh bricks flat under partial shade for 3-4 days, then stand them on edge for 2-4 weeks to air-cure fully before building with them.",
+    ],
+  },
+  "Emergency wood ash lye (potash) extraction": {
+    sources: ["Traditional Pioneer Chemical Manuals","University Agricultural Extension Bulletins"],
+    guidance: [
+      "Pick the right ash: use only dry, gray-white ash from fully burned hardwood (oak, hickory, ash, beech). Skip softwoods like pine or fir (too low in potassium carbonate, too resinous), and never use paper or briquette ash with synthetic binders.",
+      "Set up an extraction barrel: drill drain holes in the bottom of a food-grade 5-gallon bucket or unpainted wooden barrel, and line the base with clean gravel topped by 2 inches of clean straw or cloth as a sediment filter.",
+      "Leach it: pack the barrel with sifted ash and slowly pour soft water (rainwater, not hard well water) over the top until it trickles out the bottom into a catch vessel. Re-pour the liquid back through the ashes several times to concentrate it.",
+      "Check strength with the egg-float test: the lye is strong enough for soap or hominy when a fresh egg floats with about a quarter-sized area above the surface. If it sinks, gently boil the liquid down in a stainless-steel or cast-iron pot (never aluminum) to concentrate it further.",
+    ],
+  },
+  "Corn nixtamalization (hominy and masa from wood ash)": {
+    sources: ["FAO, Maize in Human Nutrition (Food and Nutrition Series No. 25)","Native American ethnobotanical traditions"],
+    guidance: [
+      "Understand why it matters: field corn holds bound niacin and proteins the body can't absorb directly. Soaking it in a hot alkaline solution (slaked lime or filtered wood-ash lye) dissolves the tough outer hull, unlocks usable niacin (preventing pellagra), and improves the amino acid balance.",
+      "Cook it: combine 2 quarts of dry whole-kernel field corn, 4 quarts water, and 2 tablespoons food-grade slaked lime (or 2 cups filtered wood-ash lye water). Simmer gently 30-45 minutes until the kernels soften and the skins loosen.",
+      "Let it steep overnight: take it off the heat, cover, and let it sit in the cooling alkaline liquid for 8-12 hours so the alkali fully penetrates the starch.",
+      "Rinse and de-hull: drain and rinse vigorously under running water, rubbing the kernels together to remove the loosened hulls and black tips. Rinse until the water runs clear — you're left with hominy, ready to boil whole or grind into masa.",
+    ],
+  },
+  "Emergency pit-smoking and meat preservation": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS), Smoking and Food Safety","U.S. Forest Service Wilderness Operations"],
+    guidance: [
+      "Dig the two-pit system: a firepit about 2 feet deep and wide on the windward side, and a second, deeper smoking trench 6-8 feet away on higher ground, connected by a shallow covered trench or buried pipe so smoke arrives cool.",
+      "Control the smoke and heat: build a small hardwood coal bed, then smother direct flame with damp, barkless hardwood chunks to make thick, cool smoke. Hold the chamber between 110-140°F — a hot fire cooks and melts fat before the moisture evaporates.",
+      "Hang the meat: suspend thin, salt-cured strips on sharpened green (non-toxic) sticks across the top of the chamber, and cover the pit with damp burlap or a tarp to hold the smoke in while letting moisture escape.",
+      "Smoke long enough: 24-48 hours of continuous smoking drives out internal moisture and deposits antimicrobial wood-smoke compounds on the surface, protecting the meat for months in dry storage.",
+    ],
+  },
+  "Primitive archery and simple bow fabrication": {
+    sources: ["Society of Primitive Technology Technical Bulletins","Traditional Bowyer's Bible"],
+    guidance: [
+      "Choose your stave: a straight, knot-free sapling or split limb about as tall as you are and 2-3 inches thick, from dense springy hardwood — hickory, osage orange, ash, black locust, or white oak. Skip deadwood, which snaps under tension.",
+      "Protect the back of the bow: the side facing away from you when you draw (the \"back\") is under pure tension. Never cut across its growth ring — remove wood only from the belly (facing you) and the sides.",
+      "Tiller the stave gradually: rest the bottom tip on your shoe, hold the handle, and press the top limb to check its flex. Pare wood from stiff spots on the belly until both limbs bend into an even arc with no weak hinges.",
+      "String it: cut shallow diagonal nocks into the tips at 45 degrees, and braid a string from paracord strands, artificial sinew, or twisted plant cordage, sized for roughly a 6-inch brace height between string and handle.",
+    ],
+  },
+  "Improvised cordage (plant fibers and reverse-wrap)": {
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21), Rope and Cordage Procurement","Society of Primitive Technology"],
+    guidance: [
+      "Harvest the right fiber: fibrous inner bark (basswood, cedar, willow), stalks of mature herbaceous plants (dogbane, nettle, milkweed), or tough leaves (yucca, agave). Scrape away the brittle outer bark until long, flexible fiber remains.",
+      "Learn the reverse-wrap: fold a fiber bundle unevenly so the strands stagger, grip the bend between thumb and forefinger, twist each strand tightly clockwise, then roll them counter-clockwise over each other. That locks the twist in and stops the cord unraveling.",
+      "Splice in new fiber as you go: never let both strands run out at the same spot — when one thins to about 2 inches, lay a new bundle's butt end alongside it, twist them together, and keep going.",
+      "Test before you trust it: plant cordage tightens slightly as it cures. Test breaking strength with dead-weight before using it for shelter guylines, snares, or a bow-drill string.",
+    ],
+  },
+  "Emergency candle and lamp making (animal tallow and plant oils)": {
+    sources: ["Traditional Homesteading Technical Manuals","Penn State Extension, Home Fuel and Light Fabrication"],
+    guidance: [
+      "Render tallow for solid candles: chop raw animal fat into small cubes, simmer on low with a splash of water until the fat clears and cracklings float, then strain through cheesecloth. Cool and pour around a centered wick in a hollow tube — tallow sets into a hard, smokeless fuel.",
+      "Build a liquid oil lamp: pour a non-mineral vegetable oil (olive, canola, sunflower, or melted lard) into a small heat-safe bowl or can. Anchor a natural wick through bent foil or wire, leaving about 1/4 inch exposed above the oil.",
+      "Make a proper wick: tightly braided 100% cotton cord, unbleached linen string, or dried rush pith work well. Never use synthetic line — it melts, smokes toxic fumes, and chokes off the flame.",
+    ],
+  },
+  "Off-grid meat curing (dry salt and brine preservation)": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS), Principles of Meat Preservation","University of Georgia NCHFP"],
+    guidance: [
+      "Hit the 3% salt threshold: use non-iodized coarse salt at a minimum of 3% of the meat's raw weight — that's what draws out water and drops water activity below the level bacteria need to grow.",
+      "Dry-cure: rub kosher or canning salt with cracked black pepper into every crease and joint, then hang the meat in a cold, ventilated space (36-40°F) for roughly 7 days per inch of thickness.",
+      "Or use a saturated wet brine: dissolve salt in boiled water until a raw egg floats with a nickel-sized area exposed (about 10-12% salinity). Submerge the meat completely, weighted down so no part touches air.",
+      "Watch for bone taint on large cuts: bacteria can grow near bone before surface salt penetrates that deep. Slice large cuts into slabs no thicker than 2 inches, or inject brine along the bone with a meat syringe.",
+    ],
+  },
+  "Charcoal/sand bio-sand water filters (slow-sand column)": {
+    sources: ["World Health Organization (WHO) Biosand Filtration Guidelines","Center for Affordable Water and Sanitation Technology (CAWST)"],
+    guidance: [
+      "Layer it bottom to top: 2 inches of clean coarse gravel around the outlet pipe, 2 inches of fine gravel above that, then 4-6 inches of crushed fresh hardwood charcoal (removes pesticides and odors), and 12-16 inches of fine washed silica sand on top (traps pathogens).",
+      "Let the biological layer establish: in a continuous-flow filter, a living biofilm builds on the top half-inch of sand over 1-2 weeks and actively destroys pathogens like Giardia. Keep 2 inches of standing water over the sand to keep it alive.",
+      "Control the flow: regulate the outlet to a slow, steady drip — about 1 liter per minute for a 5-gallon bucket. Too much pressure blows channels through the sand and wrecks the filtration.",
+      "Always disinfect afterward: sand and charcoal remove protozoa and suspended matter but don't guarantee removing every virus — boil or chemically disinfect the filtered water before drinking it.",
+    ],
+  },
+  "Emergency bone and horn toolmaking": {
+    sources: ["Society of Primitive Technology Technical Series","Experimental Archaeology Bulletins"],
+    guidance: [
+      "Choose dense bone: large leg bones (femurs, tibias) from deer or cattle hold an edge and take impact well — ribs and skulls are too porous and brittle.",
+      "Score and snap it: score a deep groove down the bone's length with a sharp flint edge, hacksaw blade, or file, rest it scored-side-down on a stone anvil, and strike the opposite side sharply to split it into straight blanks.",
+      "Shape by abrasion: grind blanks into needles, fishhooks, awls, or chisel points against wet coarse sandstone or granite — bone works and polishes easily when wet.",
+      "Soften horn with heat: animal horn (keratin) becomes pliable after boiling 20-30 minutes, and can then be flattened between boards under heavy rocks to make waterproof spoons, plates, or powder horns.",
+    ],
+  },
+  "Primitive timber joinery (mortise, tenon, and lap joints)": {
+    sources: ["U.S. Forest Service, Historic Log Cabin Construction and Repair","Peace Corps Field Manuals"],
+    guidance: [
+      "Half-lap for frames: cut away exactly half the thickness of two crossing logs at their intersection so the flat faces seat flush — this stops side-to-side racking and keeps a flat plane for beams and walls.",
+      "Mortise and tenon: carve a rectangular peg (tenon) on one log's end and a matching socket (mortise) through the receiving post, then lock it by drilling through both and driving in a tapered hardwood peg.",
+      "Saddle-notch round logs for cabin walls: cut a deep semi-circular cup into the underside of the upper log to fit the curve of the log below — cutting the notch on the underside means rain runs off instead of pooling and rotting the joint.",
+      "Wedge-lock the pins: split the center of an inserted tenon tip and drive a dry hardwood wedge into the split from outside, spreading the tenon wider than the mortise so the joint can't pull free even as the wood shrinks.",
+    ],
+  },
+  "Emergency mud stucco and wattle-and-daub construction": {
+    sources: ["Practical Action Technical Brief, Earth Construction","Traditional Vernacular Architecture Studies"],
+    guidance: [
+      "Build the wattle frame: drive upright stakes 12-18 inches apart along the wall line, then weave flexible green branches (willow, hazel, grapevine, split bamboo) horizontally through them into a stiff lattice.",
+      "Mix the daub: 4 parts subsoil clay, 2 parts coarse sand, 1 part chopped dry straw or grass, and 1 part fresh herbivore dung (it acts as a natural binder). Trample it with water until it holds its shape without slumping.",
+      "Press it into the lattice: force the mud into both sides of the woven screen by hand or with a flat trowel, making sure the lattice is fully enclosed with no hollow air pockets.",
+      "Cure and seal: let it dry slowly in shade, patching any shrinkage cracks with a thin clay slurry. Once fully cured, coat it with slaked lime wash to shed wind-driven rain and deter insects.",
+    ],
+  },
+  "Emergency hide glue and natural resins": {
+    sources: ["Society of Primitive Technology","Traditional Ethnobotanical Toolcraft"],
+    guidance: [
+      "Make hide glue: simmer rawhide scraps, skin trimmings, tendons, and hooves in water on very low heat for several hours — this breaks down collagen into water-soluble gelatin glue. Strain and simmer the liquid down into a thick syrup, then cool it into dry cakes that keep indefinitely and re-melt with warm water when needed.",
+      "Make pine pitch adhesive: harvest raw pine, spruce, or fir sap. Melt it gently over low coals (never a direct flame), skim off bark bits, and stir in finely powdered charcoal and dried dung (1 part filler to 3 parts resin) — the filler stops brittle crystallization and makes a tough, waterproof cement.",
+      "Apply pine pitch hot: spread it with a flattened stick. It sets solid within seconds as it cools, and can be reheated and reworked any time.",
+    ],
+  },
+  "Thatch and shingle primitive roofing": {
+    sources: ["Peace Corps Manual, Small-Scale Construction Technology","Traditional Architecture Guidelines"],
+    guidance: [
+      "Keep the pitch steep: at least 45 degrees (a 1:1 slope), so rainwater runs off the surface faster than it can seep into the bundles — a shallower pitch traps water and rots within a season.",
+      "Bundle the material: harvest dry mature water reeds, prairie grass, cattails, or palm fronds, and tie them into tight, uniform 6-8 inch bundles with grapevine, bark cordage, or wire.",
+      "Lay it from the eaves up: lash the first bundle layer along the lowest roof purlin with the cut ends facing down, then overlap each successive course by at least half to two-thirds of its length as you move toward the ridge.",
+      "Cap the ridge: finish the top with an inverted layer of folded turf, a clay cap, or crossed bundles held down by binder poles pinned with wooden crooks so wind can't peel the roof.",
+    ],
+  },
+  "Emergency spring tapping and seep development": {
+    sources: ["EPA Emergency Water Supply Systems","Peace Corps Water and Sanitation Manual"],
+    guidance: [
+      "Find the true discharge point: clear leaves, rotted logs, and mud to see exactly where water emerges from bedrock or gravel — don't dig randomly into an unstable hillside, which can bury or divert the flow.",
+      "Dig a sanitary collection basin: excavate down to solid rock or firm clay below the emergence point, and line it with clean washed gravel to filter out fine silt.",
+      "Install a collection pipe: set a food-grade PVC pipe, bamboo, or metal conduit horizontally in the gravel bed with the intake covered by stainless mesh, and pack firm clay tightly around the outside of the pipe to keep surface runoff out.",
+      "Cap it and divert runoff: seal the spring box with a heavy flat stone or timber lid covered in soil, and dig an uphill diversion ditch to route dirty rainwater away from the collection head.",
+    ],
+  },
+  "Wilderness thermal reflector shelters": {
+    sources: ["U.S. Army Survival Manual (FM 21-76), Cold Weather Shelters","Boy Scouts of America Wilderness Manual"],
+    guidance: [
+      "Build a radiant heat-bank wall: a solid vertical wall of wet green logs, flat rocks, or packed mud, 4-6 feet high, about 6-8 feet in front of an open lean-to. Build the fire between the shelter and the wall so heat bounces back onto your bedding.",
+      "Angle the roof to catch the heat: pitch the lean-to roof at 45 degrees sloping away from the fire — the slope catches reflected heat and directs it down onto you while sending smoke up and over.",
+      "Get off the ground: never sleep on bare or damp ground. Build a raised bed frame, or lay down at least 12-18 inches of dry pine needles, leaves, or spruce boughs to stop conductive heat loss into the ground.",
+      "Dig a long, shallow fire trench: matching your body length rather than a round pit warms you evenly along your whole length instead of concentrating heat on just your chest or feet.",
+    ],
+  },
+  "Emergency fish traps and baskets": {
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21), Food Procurement: Fishing Techniques"],
+    guidance: [
+      "Build a funnel trap: weave a willow, reed, or wire cylinder with an inverted cone-shaped funnel entrance pointing inward — fish swim in through the narrow neck to reach bait but can't find their way back out.",
+      "Use weirs in moving or tidal water: build a V-shaped stone or stake wall pointing downstream in a creek, or toward shore on a tidal flat, to funnel fish toward a holding pen or basket trap at the point.",
+      "Anchor and place it well: weight the trap to the bottom with flat stones lashed inside the frame, tether it to a solid root with dark line, and place it near drop-offs, submerged brush, or cut-banks where fish naturally shelter.",
+      "Bait it: crushed freshwater mussels, earthworms, insects, or perforated cans of spoiled meat in a mesh pouch behind the funnel draw fish in.",
     ],
   },
 };

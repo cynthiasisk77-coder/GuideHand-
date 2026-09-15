@@ -138,6 +138,8 @@ export const CATEGORIES: Category[] = [
       { title: "Gravity-fed water filtration systems (drip-bucket construction)", status: "verified", priority: "P2", note: "CDC + WHO" },
       { title: "Field water distillation (solar still evaporation trench)", status: "verified", priority: "P2", note: "US Army FM 21-76" },
       { title: "Well-water pump manual operation (deep and shallow wells)", status: "verified", priority: "P2", note: "EPA + Water Systems Council" },
+      { title: "Charcoal/sand bio-sand water filters (slow-sand column)", status: "verified", priority: "P2", note: "WHO + CAWST" },
+      { title: "Emergency spring tapping and seep development", status: "verified", priority: "P2", note: "EPA + Peace Corps" },
     ],
   },
   {
@@ -169,6 +171,9 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency food preservation: sun drying and jerky curing", status: "verified", priority: "P2", note: "USDA FSIS + NCHFP" },
       { title: "Pest exclusion for emergency grain and seed caches", status: "verified", priority: "P2", note: "Utah State Extension + Penn State Extension" },
       { title: "Long-term food storage defense (pests, mylar, oxygen absorbers)", status: "verified", priority: "P2", note: "Utah State Extension + USDA NIFA" },
+      { title: "Corn nixtamalization (hominy and masa from wood ash)", status: "verified", priority: "P3", note: "FAO" },
+      { title: "Emergency pit-smoking and meat preservation", status: "verified", priority: "P2", note: "USDA FSIS + US Forest Service" },
+      { title: "Off-grid meat curing (dry salt and brine preservation)", status: "verified", priority: "P2", note: "USDA FSIS + UGA NCHFP" },
     ],
   },
   {
@@ -198,6 +203,8 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency firewood selection and safe burning", status: "verified", priority: "P2", note: "EPA Burnwise + CSIA" },
       { title: "Charcoal production and firebed management", status: "verified", priority: "P3", note: "FAO Forestry + US Forest Service" },
       { title: "Rocket stoves and biochar basics", status: "verified", priority: "P3", note: "Aprovecho Research Center + International Biochar Initiative" },
+      { title: "Thatch and shingle primitive roofing", status: "verified", priority: "P3", note: "Peace Corps" },
+      { title: "Wilderness thermal reflector shelters", status: "verified", priority: "P2", note: "US Army FM 21-76" },
     ],
   },
   {
@@ -214,6 +221,7 @@ export const CATEGORIES: Category[] = [
       { title: "Phone low-power settings and battery budgeting", status: "verified", priority: "P2", note: "Ready.gov/FEMA + FCC + DOE" },
       { title: "Suspected EMP: what can/cannot be inferred", status: "verified", priority: "P3", note: "CISA/DHS/FEMA" },
       { title: "Battery watt-hour budgeting (calculator)", status: "verified", priority: "P2", note: "NEC Article 690/706 + DOE" },
+      { title: "Emergency candle and lamp making (animal tallow and plant oils)", status: "verified", priority: "P3", note: "Penn State Extension" },
     ],
   },
   {
@@ -360,6 +368,16 @@ export const CATEGORIES: Category[] = [
       { title: "Sharpening tools and knives safely", status: "verified", priority: "P3", note: "OSHA/CPSC" },
       { title: "Improvised lever/pry/lift techniques", status: "specialist", priority: "P2", note: "FEMA US&R" },
       { title: "Basic rigging and lifting safety limits", status: "specialist", priority: "P2", note: "OSHA 1910.184 + ASME B30" },
+      { title: "Emergency blacksmithing and tool forging", status: "verified", priority: "P3", note: "US Army TM 9-237" },
+      { title: "Emergency lime and quicklime production", status: "verified", priority: "P3", note: "Practical Action + National Lime Association" },
+      { title: "Field brick and adobe making", status: "verified", priority: "P3", note: "Peace Corps + NM Building Code" },
+      { title: "Emergency wood ash lye (potash) extraction", status: "verified", priority: "P3", note: "Pioneer chemical manuals + Extension bulletins" },
+      { title: "Primitive archery and simple bow fabrication", status: "verified", priority: "P3", note: "Society of Primitive Technology" },
+      { title: "Improvised cordage (plant fibers and reverse-wrap)", status: "verified", priority: "P3", note: "US Army FM 21-76" },
+      { title: "Emergency bone and horn toolmaking", status: "verified", priority: "P3", note: "Society of Primitive Technology" },
+      { title: "Primitive timber joinery (mortise, tenon, and lap joints)", status: "verified", priority: "P3", note: "US Forest Service + Peace Corps" },
+      { title: "Emergency mud stucco and wattle-and-daub construction", status: "verified", priority: "P3", note: "Practical Action" },
+      { title: "Emergency hide glue and natural resins", status: "verified", priority: "P3", note: "Society of Primitive Technology" },
     ],
   },
   {
@@ -373,6 +391,7 @@ export const CATEGORIES: Category[] = [
       { title: "Identifying unsafe/contaminated fishing waters", status: "verified", priority: "P0", note: "EPA" },
       { title: "Off-grid seed saving and viability testing", status: "verified", priority: "P3", note: "USDA + Organic Seed Alliance" },
       { title: "Emergency hide tanning and rawhide production", status: "verified", priority: "P3", note: "Society of Primitive Technology + DOI" },
+      { title: "Emergency fish traps and baskets", status: "verified", priority: "P2", note: "US Army FM 21-76" },
     ],
   },
   {
