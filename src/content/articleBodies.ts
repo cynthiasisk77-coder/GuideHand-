@@ -257,12 +257,14 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Downed power lines and electrified water": {
-    sources: ["Electrical Safety Foundation International", "multiple electric utilities"],
+    sources: ["Electrical Safety Foundation International", "multiple electric utilities", "OSHA Standard 1910.269"],
     guidance: [
       "Always assume a downed line is energized, even if it looks dead or isn't sparking.",
       "Stay back — utility-published safe distances vary from about 10 feet up to 30-50+ feet; a downed line can energize the ground itself for many feet around it, especially when wet.",
       "Never touch a downed line or anything it's contacting, and never use any object (including wood or rope) to move it — normally non-conductive materials conduct electricity when even slightly wet.",
       "Never touch a person in contact with a downed line — call 911 and the utility instead.",
+      "If a line is down near you, shuffle away instead of walking normally: keep both feet together and touching the ground, and slide them along the ground without ever lifting one foot past the other. Keep shuffling until you're at least 35 feet away — double that if the ground is wet.",
+      "If a live wire falls on your car while you're inside, stay inside — the metal frame protects you as long as you don't touch the ground and the car at the same time. Only get out if the car catches fire, and if you do, jump clear with both feet together at once, then shuffle away the same way.",
     ],
   },
   "Appliance reconnection and surge risk": {
@@ -426,19 +428,24 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Field-dressing and safe handling of wild game": {
-    sources: ["New Hampshire Fish and Game", "Washington Department of Fish & Wildlife", "Penn State Extension"],
+    sources: ["New Hampshire Fish and Game", "Washington Department of Fish & Wildlife", "Penn State Extension", "CDC Zoonotic Diseases in Hunting Operations", "USDA APHIS"],
     guidance: [
       "Field dress within about an hour of harvest; keep the carcass off the ground and use clean utensils.",
       "Cool the carcass below 40°F as quickly as possible and keep it cool through processing and transport — this is what actually slows bacterial growth.",
       "Avoid an animal that appeared sick before harvest. Wear rubber gloves and a face mask while gutting/butchering.",
       "Never eat the brain, eyeballs, spinal cord, spleen, liver, or lymph nodes, and avoid cutting through bone/spinal column during processing — reduces exposure to chronic wasting disease and other tissue-concentrated risks.",
+      "Rabbits, hares, and rodents can carry tularemia (\"rabbit fever\") — wear gloves when skinning them, since the bacteria can get in through small cuts or scrapes on bare hands. Check the liver and spleen after gutting; if you see small white or yellowish spots, don't eat that animal — bury the carcass away from pets and clean your knife and hands well afterward.",
+      "Try hard not to puncture the stomach, intestines, or bladder while gutting. It's an easy accident, and it contaminates the meat with bacteria that spoil it fast, on top of being unpleasant to clean up.",
     ],
   },
   "Most dangerous look-alike poisonous plants": {
-    sources: ["National Capital Poison Center"],
+    sources: ["National Capital Poison Center", "USDA Agricultural Research Service", "FDA Poisonous Plant Database"],
     guidance: [
       "Poison hemlock and water hemlock closely resemble edible wild carrot, parsley, and parsnip, and are among the most acutely toxic plants in North America — water hemlock can cause seizures and death from a small ingested amount.",
       "Treat \"looks like a wild carrot/parsley relative\" as a hard stop, not a feature to identify around.",
+      "Telling poison hemlock from wild carrot (Queen Anne's Lace): poison hemlock has a completely smooth, hairless stem with purple blotches or streaks, and smells unpleasant (like mouse urine) when crushed. Wild carrot has a fuzzy, hairy stem with no purple spots, and smells like a garden carrot when crushed. When in doubt, don't pick either — they grow side by side.",
+      "Water hemlock, considered North America's most lethal plant, grows in wet ground — creek banks, marshes, ditches. If you slice the root and see hollow chambers inside, or it oozes a yellowish oily sap, leave it alone. It can cause violent seizures within 30 to 60 minutes of ingestion.",
+      "Pokeweed (tall plant with dark purple berry clusters and reddish stems) is toxic across the whole plant, especially the roots and berries — treat it as a plant to avoid rather than something to prepare and eat, even though some historical foraging guides describe ways to cook young shoots.",
     ],
   },
   "Universal edibility test, with real limitations stated plainly": {
@@ -654,10 +661,13 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Solar panel, charge controller, power-bank chain": {
-    sources: ["Morningstar Corporation", "general off-grid solar industry references"],
+    sources: ["Morningstar Corporation", "general off-grid solar industry references", "National Electrical Code (NEC Article 690 & 706)", "American Boat and Yacht Council (ABYC E-11)"],
     guidance: [
       "A charge controller sits between solar panels and a battery bank specifically to prevent overcharging — unregulated voltage risks battery gassing, fire, or explosion.",
       "Match the controller's voltage rating to the battery bank; size wiring for actual current and cable-run distance; use correctly rated fuses/breakers and safe disconnects near the battery.",
+      "A battery bank can dump an enormous amount of current into a dead short in milliseconds — enough to melt wiring or start a fire. Put a properly rated fuse or breaker within about 7 inches of the battery's positive terminal, on the main line, before it branches anywhere else — this is the single most important fire-prevention step in a DIY battery setup.",
+      "Undersized wire is a real fire risk on low-voltage systems, since they carry much higher current than household wiring for the same power — when in doubt, size up rather than down, and never substitute ordinary household wire (Romex) for battery/inverter cabling.",
+      "Ground the system: connect the inverter's metal case and the battery's negative terminal to a real earth ground (a copper ground rod driven into the soil), not just to each other — this is what lets safety devices actually trip if something goes wrong instead of leaving the whole system live.",
       "Keep connections dry and never work on a live circuit. A 25-30% safety margin over calculated load is a commonly recommended sizing buffer.",
     ],
   },
@@ -703,11 +713,13 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Greywater disposal": {
-    sources: ["U.S. Environmental Protection Agency"],
+    sources: ["U.S. Environmental Protection Agency", "World Health Organization"],
     guidance: [
-      "Greywater is wastewater from bathtubs, showers, bathroom sinks, and clothes washers specifically — it does NOT include toilet waste or kitchen-sink/dishwasher water (that's blackwater, which must go to a sewer/septic system).",
+      "Greywater is wastewater from bathtubs, showers, bathroom sinks, and clothes washers specifically — it does NOT include toilet waste or kitchen-sink/dishwasher water (that's blackwater, which must go to a sewer/septic system). Note: some everyday definitions lump kitchen-sink water in with greywater too — if you're ever unsure which category a particular water source falls under where you live, treat it as blackwater until you've confirmed otherwise.",
       "EPA generally endorses greywater reuse for conservation, but permitted uses and volume limits are set state by state (commonly around 250 gallons/day where unpermitted systems are allowed) — this is genuinely state-regulated, confirm your own state's rules.",
       "Label any non-potable water storage clearly (commonly purple piping or \"CAUTION: NONPOTABLE WATER – DO NOT DRINK\" signage).",
+      "Don't let greywater sit in a closed container for more than about 24 hours — bacteria multiply fast in standing greywater and it starts behaving like blackwater. Use it or route it out the same day.",
+      "A simple disposal option is a soakaway pit: dig a hole roughly 3-4 feet deep and 3 feet wide, at least 100 feet from any well, spring, or open water, fill it with clean fist-sized gravel or stones, and let greywater drain into it below the surface so it doesn't pool or attract insects. A simple mesh strainer or cloth over the drain first catches food bits, hair, and grease before they clog the pit.",
     ],
   },
   "Scene safety and triage order": {
@@ -808,10 +820,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Poison exposure by eye, skin, inhalation": {
-    sources: ["CDC, \"What to Do in a Chemical Emergency\"", "National Capital Poison Center", "American Heart Association + American Red Cross"],
+    sources: ["CDC, \"What to Do in a Chemical Emergency\"", "National Capital Poison Center", "American Heart Association + American Red Cross", "American Academy of Ophthalmology", "OSHA Standard 1910.151(c)"],
     guidance: [
       "Protect yourself and leave the contaminated area; for an outdoor release, move away and stay upwind. Never enter a confined contaminated space without proper respiratory gear.",
-      "Eye: remove contacts if easy, then irrigate with copious room-temperature water for at least 15 minutes, avoiding runoff into the other eye.",
+      "Eye: remove contacts if easy, then irrigate with copious room-temperature water. How long depends on what it was — at least 15 minutes for a mild irritant, 20-30 minutes for an acid, and 30-60 minutes for a strong alkali (bleach, lye, drain cleaner, wet cement or mortar), since alkalis keep damaging the eye the longer they stay in contact. Avoid runoff into the other eye, and gently hold the eyelids open while rolling the eye around so water reaches all the way around it, not just the front.",
       "Skin: remove contaminated clothing, rinse with copious running water for at least 15 minutes; mild soap can help remove material stuck to skin.",
       "Inhalation: move to fresh air immediately and stay away from the fumes.",
       "Bag contaminated clothing without handling it more than necessary. Seek poison-center or medical guidance by every available route.",
@@ -922,10 +934,12 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Fractures, splints, circulation checks": {
-    sources: ["American Red Cross, \"Muscle, Bone and Joint Injury\" and \"Fractures\""],
+    sources: ["American Red Cross, \"Muscle, Bone and Joint Injury\" and \"Fractures\"", "American College of Emergency Physicians (ACEP)", "Wilderness Medical Society"],
     guidance: [
       "Treat any suspected fracture as real until ruled out. Do not try to realign or push a bone back into place — keep the limb in the position it was found.",
+      "Check circulation, movement, and feeling in the fingers or toes before you splint too, not just after — that way you know if something was already wrong before you touched it.",
       "If trained and professional help will be delayed, splint the area, extending past the joints above and below the injury, with padding, secured firmly but not tight enough to cut off circulation.",
+      "For a hand or wrist, splint with something round (a rolled sock or gauze roll) in the palm so the fingers curl naturally, like they're loosely holding a can. For a foot or ankle, splint it at a right angle to the leg rather than pointed — that keeps the tendon at the back of the ankle from tightening up permanently.",
       "Check circulation regularly after splinting — toes/fingers beyond the splint should stay pink and warm. If they turn pale, blue, or cold, the splint is too tight.",
       "Do not move the person more than necessary.",
     ],
@@ -940,13 +954,14 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Smoke inhalation and carbon monoxide": {
-    sources: ["CDC, \"Clinical Guidance for Carbon Monoxide Poisoning Following Disasters and Severe Weather\""],
+    sources: ["CDC, \"Clinical Guidance for Carbon Monoxide Poisoning Following Disasters and Severe Weather\"", "National Fire Protection Association"],
     guidance: [
       "CO poisoning symptoms: headache, dizziness, weakness, nausea, vomiting, chest pain, altered mental status — progressing at higher exposure to confusion, fainting, seizures, or coma.",
       "Onset is dose-dependent: low-level exposure can take up to ~2 hours to cause symptoms; high-level exposure can do it in ~5 minutes.",
+      "A structure fire involving modern furniture, carpet, or plastics can also release other toxic gases beyond CO. Soot around the nose or mouth, a dark or gritty cough, singed facial hair, or a hoarse voice after smoke exposure are all signs the exposure may be more serious than it looks — treat these as a reason to get emergency care fast, even if the person seems to be breathing okay right now, since some of this damage shows up gradually.",
       "Get the person into fresh air as soon as it's safe to do so.",
       "If unconscious, place them on their side (recovery position) to reduce choking/aspiration risk. Begin CPR if they're not breathing. Call 911 immediately.",
-      "This is first-aid-layer only — hospital oxygen treatment is a clinical step beyond what you can do in the field, but getting them to that care fast is the point.",
+      "This is first-aid-layer only — hospital oxygen treatment (and other antidotes hospitals can give for more serious smoke-related poisoning) are clinical steps beyond what you can do in the field, but getting them to that care fast is the point.",
     ],
   },
   "Snakebite and venomous arthropods (human)": {
@@ -1751,13 +1766,18 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Unknown pet poison response": {
-    sources: ["American Society for the Prevention of Cruelty to Animals (ASPCA) Animal Poison Control Center","Merck Veterinary Manual"],
+    sources: ["American Society for the Prevention of Cruelty to Animals (ASPCA) Animal Poison Control Center","Merck Veterinary Manual","Pet Poison Helpline"],
     guidance: [
       "Identify and remove the source immediately: take the remaining substance, wrapper, or plant away so the pet can't reach more of it, and keep other animals away from the area.",
       "Don't induce vomiting unless specifically directed: never give hydrogen peroxide, salt, or baking soda blindly. Inducing vomiting can cause severe chemical burns if the poison was caustic (acids, lye, drain cleaner) or fatal lung damage if it was petroleum-based.",
+      "Never induce vomiting in cats, rodents, rabbits, or horses at all — it isn't safe for their bodies no matter what they swallowed. For dogs only, if a vet can't be reached quickly and the poison wasn't caustic, fuel-based, or sharp, and the dog is alert (not drowsy, seizing, or unconscious): fresh 3% hydrogen peroxide by mouth, about 1 teaspoon per 5 lbs of body weight, never more than 3 tablespoons total regardless of size. Walk the dog afterward. If nothing happens in 15 minutes, one repeat dose is okay — after that, stop and get to a vet.",
+      "Some poisons need faster action than others: antifreeze (ethylene glycol) can cause fatal kidney failure within about 12 hours, so treat it as an hours-not-days emergency. Rat and mouse poison (the anticoagulant kind) stops blood from clotting, but symptoms like weakness or pale gums may not show up for 3 to 7 days — don't assume your pet is fine just because they seem okay right after eating it. True lilies are deadly to cats specifically — even pollen or licking lily-vase water can cause fatal kidney failure, so treat any lily exposure in a cat as an immediate vet visit, symptoms or not.",
+      "Chocolate is dosed by how dark it is, not just how much: milk chocolate becomes risky around 1 oz per pound of body weight, while unsweetened baking chocolate or cocoa powder is dangerous at just 0.1 oz per pound — call a vet or poison hotline with the type and amount eaten rather than guessing.",
+      "Rat and mouse poisons aren't all the same: some (anticoagulant type) cause delayed bleeding as described above, but another common type causes tremors and neurological symptoms within hours with no home remedy — if you have the package, bring it or a photo of it with you, since treatment depends on which kind it was.",
       "Preserve the evidence: bag the packaging, chew remnants, plant leaves, or a sample of any vomit in a sealed plastic bag so a veterinarian can inspect it.",
       "Decontaminate skin and eyes: if poison got on the fur or paws, stop them from grooming it off (a cone or a wrapped towel works), then wash the coat with warm water and mild dish soap. Flush eyes with sterile saline or clean lukewarm water for 10 to 15 minutes.",
       "Keep the pet calm and warm: wrap them loosely in a towel or blanket and monitor breathing. Avoid strenuous activity, which speeds up how fast the poison is absorbed.",
+      "Two hotlines staffed by vets around the clock (both charge a consultation fee): ASPCA Animal Poison Control, (888) 426-4435. Pet Poison Helpline, (855) 764-7661.",
     ],
   },
   "Dog/cat NSAID and acetaminophen boundaries": {
@@ -1941,10 +1961,11 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Rainwater collection and first-flush contamination": {
     sources: ["CDC Rainwater Collection","Texas A&M AgriLife Extension Rainwater Harvesting Guidelines"],
     guidance: [
-      "The first-flush rule: the first 10 to 20 gallons of roof or tarp runoff wash down accumulated bird droppings, dust, pollen, heavy metals, and debris. Divert and discard that first dirty flush before directing water into your collection barrels.",
+      "The first-flush rule: the first 10 to 20 gallons of roof or tarp runoff wash down accumulated bird droppings, dust, pollen, heavy metals, and debris. Divert and discard that first dirty flush before directing water into your collection barrels. As a rule of thumb, waste roughly 1-2 gallons for every 100 square feet of roof you're collecting from — a bigger roof needs a bigger first flush discarded.",
       "Choose clean catchment surfaces: corrugated metal, glass, and food-grade plastic sheeting give the cleanest runoff. Avoid old asphalt-shingle roofs, which leach petroleum hydrocarbons, and lead-flashed roofs.",
       "Pre-filter debris: keep a fine mesh screen over the intake opening to block leaves, twigs, and insects.",
       "Always treat before drinking: collected rainwater isn't automatically safe to drink. Filter out fine silt, then bring it to a rolling boil or disinfect it with plain unscented bleach before drinking or cooking with it.",
+      "If you're storing rainwater for weeks or months rather than using it right away: keep it in dark or opaque containers so light can't grow algae inside, and re-treat it every 6-12 months with a small amount of plain unscented bleach (roughly 1 fluid ounce per 100 gallons) to keep it from turning unsafe while it sits.",
     ],
   },
   "UV purification methods (e.g. SODIS, UV pens)": {
@@ -2289,11 +2310,14 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Sump-pump failure": {
-    sources: ["Federal Emergency Management Agency (FEMA), Protecting Your Home from Sump Pump Failures and Flooding"],
+    sources: ["Federal Emergency Management Agency (FEMA), Protecting Your Home from Sump Pump Failures and Flooding", "FEMA P-312: Protecting Building Utility Systems from Flood Damage"],
     guidance: [
       "Diagnose the failure fast: check for a tripped breaker, an unplugged cord, a float switch stuck on debris or jammed against the pit wall, or a jammed impeller.",
       "Clear a mechanical jam safely: disconnect power completely before putting your hands in the pit, then check the base intake screen for gravel, stones, or sludge blocking the impeller.",
+      "Know why this matters beyond a wet floor: if the pump stays down while groundwater keeps rising outside, pressure can build up underneath your foundation slab — even a couple feet of water outside can push up hard enough to crack a basement floor. Getting water moving again (by any method below) isn't just about staying dry.",
       "Set up a 12V DC backup: a dedicated marine deep-cycle battery running an auxiliary bilge pump or a second sump pump with its own check valve and independent discharge line.",
+      "If you still have pressurized tap water, a water-powered ejector pump can move sump water out with no electricity at all — it uses the pressure of your incoming water to create suction, at the cost of using some tap water to do it.",
+      "If your property slopes away from the house, a gravity drain line from the bottom of the sump pit straight out through the foundation wall downhill can run continuously with no power — protect the outside opening with a screen (keeps animals out) and a one-way flap (stops water flowing back in during heavy rain).",
       "Bail or siphon manually as a last resort: with no power and no backup pump, bail the pit with a 5-gallon bucket into drainage sloped away from the house, or run a continuous siphon with a garden hose out a basement window to lower ground.",
     ],
   },
@@ -2788,6 +2812,117 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Know gold and silver won't help you at first: in the first phase of a real crisis, precious metals can't be eaten, worn, or used to purify water — they only become useful again once things stabilize and basic needs are already being met some other way.",
       "Stock what actually trades in a crisis: medical and sanitation items (pain relievers, antibiotics, antiseptic, wound dressings, soap, water purification tablets), fuel and maintenance items (small propane canisters, stabilized gasoline, lamp oil, matches, lighters, motor oil, paracord), and food/comfort items (salt, sugar, pepper, coffee or tea, hard liquor — useful both as a trade good and a wound antiseptic — and baking soda).",
       "Keep trading away from home: never do an exchange at your house or your supply cache. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
+    ],
+  },
+  "Fish toxins and harmful algal blooms": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Algae blooms: if water looks like pea soup or spilled green/blue paint, or has a thick scum with a musty smell, stay out of it completely — don't drink it, cook with it, wash in it, or let pets drink it either. These toxins can be fatal within minutes to hours, and normal filtering, boiling, or adding chlorine does not remove them.",
+      "Ciguatera (reef fish poisoning): large predatory reef fish like barracuda, grouper, and moray eel can carry a toxin that isn't destroyed by cooking, freezing, or smoking. Watch for stomach upset followed by an odd symptom swap — cold things feel burning hot and hot things feel cold — along with tingling, a slow heartbeat, and low blood pressure. Avoid eating the head, guts, roe, and liver of large reef predators.",
+      "Scombroid poisoning: dark-meat fish like tuna, mackerel, and mahi-mahi that weren't kept cold enough can build up a toxin that causes flushing, headache, a peppery taste, hives, and trouble breathing within 10-30 minutes of eating. Cooking does not destroy this toxin either. Treat trouble breathing or a big drop in blood pressure as a medical emergency.",
+      "Shellfish poisoning: mussels, clams, and oysters harvested during a \"red tide\" or an unmonitored bloom can concentrate toxins that cause numbness starting in the lips and tongue and can progress to trouble breathing within 2-12 hours. Never harvest filter-feeding shellfish from water under a bloom advisory or closure.",
+      "Pufferfish and blue-ringed octopus carry a different toxin with no antidote at all — numbness starting at the lips, spreading to full-body paralysis, while the person stays fully conscious the whole time. This is why pufferfish (fugu) is only ever legal to eat when prepared by a specifically licensed, trained preparer — never eat one caught or bought casually.",
+    ],
+  },
+  "Poison-record log (substance/amount/time/symptoms)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Keep a simple written log near your first-aid kit so you're not trying to remember details while panicking on the phone with Poison Control (1-800-222-1222).",
+      "Who: name, age, rough weight, any health conditions, medications they take regularly, and whether they're pregnant.",
+      "What: the exact product name and active ingredients from the label — or just take a photo of the label/container if you're not sure how to read it.",
+      "How much: your best guess at the maximum amount that could be missing — count remaining pills, or estimate what's left in a bottle.",
+      "How and when: swallowed, on the skin, breathed in, in the eye, or a bite/sting, and roughly what time it happened.",
+      "What you're seeing: what symptoms started and when, whether their pupils look unusually large or small, whether their skin looks flushed, pale, or sweaty.",
+      "What you already did: what time you rinsed something off, gave water, gave activated charcoal, or did anything else — Poison Control will ask about this.",
+    ],
+  },
+  "Household pipe gravity draining": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Shut off your main water valve first — usually a lever or wheel where the water line enters your house, or at the street meter box.",
+      "Turn off power and gas to your water heater before doing anything else. Never drain a water heater while it's still heating — that can damage it or make it dangerous.",
+      "Open the highest faucet in the house (hot and cold) to let air into the pipes — this breaks the vacuum so the water can actually drain instead of getting stuck partway.",
+      "Open the lowest faucet or spigot in the house (a basement sink or an outside hose bib) and let gravity pull the water down and out.",
+      "Disconnect your washing machine's hoses and drain them into a bucket, then run a quick empty cycle for a few seconds to spin any remaining water out of its internal pump.",
+      "Flush every toilet, then sponge out any water left in the bowl and bail out the tank. Pour a cup or two of RV/marine antifreeze (the pink, non-toxic propylene glycol kind) into toilet bowls and drain traps so anything left behind doesn't freeze and crack the pipe or porcelain. Never use automotive antifreeze (ethylene glycol) for this — it's poisonous to people and pets.",
+      "To drain the water heater itself: connect a garden hose to its drain valve at the bottom, run the hose somewhere it can drain safely, open the valve, and also open the relief valve on top so air can get in and it drains faster.",
+    ],
+  },
+  "Saltwater/brackish desalination limits": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never drink ocean water, even a little, even if you're desperate — it actually speeds up dehydration instead of helping, because your body has to use more of its own water to get rid of the salt than the seawater gave it.",
+      "Basic camping or backpacking filters do not remove salt — they only filter out germs and debris. Salt passes straight through.",
+      "A hand-pump desalination unit built specifically for seawater can work, but it's slow — expect roughly one liter per 30-45 minutes of steady pumping. Filter out dirt and sand first with a basic pre-filter, or the fine membrane inside will clog quickly.",
+      "Boiling and catching the steam (distillation) is the most reliable low-tech way to turn saltwater into drinkable water — it just costs a lot of fuel, roughly a pound of wood for every pound or so of clean water you get.",
+      "Brackish water (river mouths, tidal flats, some coastal wells) is less salty than the ocean but still risky — the saltier it tastes, the more it will dehydrate you instead of helping. When in doubt, distill it or run it through a real desalination filter rather than drinking it straight.",
+    ],
+  },
+  "Food rotation / FIFO principles": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "FIFO means \"first in, first out\" — put new groceries behind or under the older ones, so you naturally grab the oldest stuff first instead of letting it sit in the back until it expires.",
+      "Write the date you bought or stored something right on the container with a marker — much faster than digging up a receipt later.",
+      "Rough shelf-life guide: opened items and fresh staples, use within a few months. Canned goods — acidic ones like tomatoes or citrus start degrading after 12-18 months, but low-acid canned meat and beans can last several years. Dehydrated food and sealed dry goods, several years. Rice, wheat, and beans sealed properly in Mylar bags with oxygen absorbers, can last decades.",
+      "Cooler storage stretches shelf life significantly — keeping dry staples somewhere consistently cool rather than somewhere that gets hot (like a garage in summer) meaningfully extends how long they stay good.",
+      "Check your stored food every few months. Look for dented cans (especially on the seams), bulging lids, rust, or a broken seal on Mylar bags — if you find one, use it in regular cooking soon rather than waiting for an emergency to discover it's gone bad.",
+    ],
+  },
+  "Gas or propane odor": {
+    sources: ["NFPA 54 (National Fuel Gas Code)","American Gas Association"],
+    guidance: [
+      "If you smell rotten eggs or sulfur, or hear hissing near a gas appliance, meter, or line, get everyone — people and pets — outside immediately and move well away from the building.",
+      "Don't touch anything electrical on your way out — no light switches, no phones, no garage door openers, nothing that could spark. Don't light a match or lighter either. Even a tiny spark can ignite a gas leak.",
+      "Once you're safely outside and away from the building, call your gas company or 911 — don't go back inside for any reason, including to shut off the gas yourself.",
+      "If your outside gas meter has an easy-to-reach shutoff and you feel safe doing it from outside: look for the rectangular tab on the pipe leading into the meter, and turn it a quarter-turn with a wrench until the tab is crosswise to the pipe — that shuts the gas off.",
+      "Once gas has been shut off, never turn it back on yourself. A professional needs to check the lines for leaks and safely relight pilot lights first.",
+    ],
+  },
+  "Cold-water immersion and drowning rescue": {
+    sources: ["Wilderness Medical Society","American Heart Association"],
+    guidance: [
+      "The first minute in cold water (under about 59°F) is its own danger separate from drowning itself: your body gasps involuntarily and breathing goes fast and shallow, which is how a lot of cold-water drownings happen in the first few seconds. The priority is just keeping your face out of the water and controlling your breathing until that passes.",
+      "You lose real strength fast: fine hand movements go within 2-3 minutes, and the ability to swim or pull yourself out can fail within 10-15 minutes, regardless of how strong a swimmer someone is. If you fall into cold water, try to self-rescue — climb out, grab onto something that floats — in that first window rather than waiting, because your body may not let you later.",
+      "Pull a person out lying flat if you can, rather than upright — hauling someone out vertically right at the moment of rescue can trigger a dangerous drop in their blood pressure.",
+      "For someone who nearly drowned, give rescue breaths before starting chest compressions, even though normal CPR usually starts with compressions — with drowning, the person needs air first because the core problem is lack of oxygen, not a heart problem.",
+      "Don't try to push water out of someone's lungs with abdominal thrusts (the Heimlich maneuver) — it doesn't work for that and can cause them to vomit and choke instead.",
+      "Someone who was rescued and seems fine can still get seriously sick over the next 1-3 days from water that got into their lungs — watch for ongoing cough, chest pain, crackly breathing, or fever, and get medical care if any of that shows up even after the immediate emergency seems over.",
+    ],
+  },
+  "Off-grid masonry heater construction (thermal mass heating)": {
+    sources: ["Masonry Heater Association of North America","Appropriate Technology Library"],
+    guidance: [
+      "Unlike a regular wood stove that smolders slowly for hours, a masonry heater works by burning one hot, fast fire (1-2 hours) and then storing that heat in a massive brick or stone core.",
+      "Hot exhaust gets routed through a maze of internal brick channels before it reaches the chimney, so the mass around it — often a couple thousand pounds of dense brick or stone — soaks up most of the heat instead of letting it go straight up the flue.",
+      "Once the fire burns down and the damper is closed, the heated masonry radiates gentle, steady warmth for 12-24 hours from that one fire — much more even than a wood stove's up-and-down heat.",
+      "The firebox and the first section of flue must be built from real firebrick (rated for direct flame contact) set with refractory mortar — never use ordinary red brick or concrete block in the core. Regular brick and block can crack, spall, or even burst from repeated high heat because of trapped moisture inside them.",
+    ],
+  },
+  "Field case-hardening of mild steel (pack carburizing)": {
+    sources: ["ASM International","traditional blacksmithing technical manuals"],
+    guidance: [
+      "Ordinary mild steel — rebar, common nails, generic steel stock — doesn't have enough carbon in it to harden just by heating and quenching in water like tool steel does. Case-hardening adds a hard outer shell to soft steel instead.",
+      "Pack the shaped part (a knife edge, chisel, or punch) tightly into a sealed metal container along with a carbon-rich mix — powdered hardwood charcoal works, with a little bone meal or crushed eggshell mixed in to speed up the process. Seal the container well so air can't get in.",
+      "Heat the sealed container to a bright cherry-red/orange heat and hold it there for 2-4 hours. Carbon slowly works its way from the charcoal into the outer layer of the hot steel.",
+      "Pull the part out of the pack while still hot and quench it immediately in cold water or brine. The outer shell comes out hard enough to hold a sharp edge, while the core underneath stays softer and more shock-resistant, so the tool won't shatter under impact the way something hardened all the way through would.",
+    ],
+  },
+  "Manual well rehabilitation (surging and air-jetting a clogged well)": {
+    sources: ["National Ground Water Association","FAO Manual on Drilled Wells"],
+    guidance: [
+      "If your well's water output drops off suddenly and it's not because the regional water table dropped, the well screen (the slotted section that lets water in) is probably clogged with mineral buildup or fine sand.",
+      "A surge block is a simple tool you can lower down the well casing — basically a snug-fitting disc on a rod or cable — and plunge up and down to loosen packed sediment around the screen. The downstroke pushes water out through the screen to break up clogs; the upstroke pulls loose debris up into the casing where it can be removed.",
+      "After surging, use a bailer (a pipe with a one-way valve on the bottom) to scoop the loosened sediment out of the bottom of the well, or run compressed air down a pipe to the bottom to blast the sludge up and out.",
+      "This is a real project with real equipment, not a five-minute fix — but it's a legitimate way to bring a clogging well back to full output without paying for a full well replacement.",
+    ],
+  },
+  "Hydraulic ram pump construction from hardware-store pipe fittings": {
+    sources: ["Practical Action","University of Wisconsin Extension"],
+    guidance: [
+      "A hydraulic ram pump moves water uphill using only the force of moving water itself — no electricity, fuel, or moving parts beyond two valves — as long as you have a stream or spring with at least a few feet of natural fall to work with.",
+      "The basic idea: water flows down a drive pipe and builds up speed, then slams a one-way \"waste\" valve shut. That sudden stop creates a pressure spike (water hammer) that forces a small amount of water through a second one-way valve into a sealed air chamber, which smooths the pulses into a steady stream heading uphill to your storage tank.",
+      "Built from standard plumbing fittings: a drive pipe (30-50 feet of rigid pipe from your water source), a tee fitting with a swing check valve mounted to act as the waste valve, a second check valve mounted to act as the delivery valve, and a sealed length of capped pipe mounted upright as the air chamber.",
+      "These pumps can lift water several times higher than the vertical drop feeding them, and they run continuously with no power source — the tradeoff is they waste a good deal of the water they process, so they work best where the water source itself isn't scarce.",
     ],
   },
 };

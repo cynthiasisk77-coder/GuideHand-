@@ -65,6 +65,7 @@ export const QUICK_ARTICLE_MAP: Record<string, QuickLink> = {
     related: ["Vehicle stranded in heat or cold", "Dehydration and oral rehydration"],
   },
   "Animal emergency (poisoning)": {
+    primary: "Unknown pet poison response",
     related: ["Pet snakebite and envenomation", "Pet seizure and breathing distress", "Pet trauma, bleeding, fractures, safe transport", "Bloat/GDV warning signs"],
   },
   "Emergency childbirth": {
@@ -74,6 +75,7 @@ export const QUICK_ARTICLE_MAP: Record<string, QuickLink> = {
     related: ["Pet seizure and breathing distress"],
   },
   "Drowning / near-drowning rescue": {
+    primary: "Cold-water immersion and drowning rescue",
     related: ["Adult CPR/AED", "Pediatric/infant CPR and choking", "Vehicle submersion: escaping a sinking car"],
   },
   "Active violence (run-hide-fight quick card)": {

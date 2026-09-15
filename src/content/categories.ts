@@ -85,6 +85,7 @@ export const CATEGORIES: Category[] = [
       { title: "Pesticide exposure", status: "specialist", priority: "P1", note: "EPA" },
       { title: "Medication storage, expiration, continuity", status: "verified", priority: "P1", note: "" },
       { title: "Poison-record log (substance/amount/time/symptoms)", status: "partial", priority: "P2", note: "" },
+      { title: "Cold-water immersion and drowning rescue", status: "specialist", priority: "P0", note: "Wilderness Medical Society + AHA" },
     ],
   },
   {
@@ -130,7 +131,7 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency household water sources", status: "verified", priority: "P1", note: "" },
       { title: "Flooded private well, initial response", status: "verified", priority: "P0", note: "" },
       { title: "Hot-water tank safe isolation and draining", status: "specialist", priority: "P1", note: "CDC + FEMA — involves electrical/gas shutoff" },
-      { title: "Household pipe gravity draining", status: "pending", priority: "P2", note: "Not yet drafted" },
+      { title: "Household pipe gravity draining", status: "partial", priority: "P2", note: "" },
       { title: "Rainwater collection and first-flush contamination", status: "verified", priority: "P1", note: "CDC + Texas A&M AgriLife Extension" },
       { title: "Saltwater/brackish desalination limits", status: "partial", priority: "P2", note: "" },
       { title: "Chemical/fuel/algal-toxin/radiological rejection", status: "verified", priority: "P0", note: "EPA + CDC WASH" },
@@ -157,8 +158,8 @@ export const CATEGORIES: Category[] = [
       { title: "Botulism warning signs and disposal", status: "verified", priority: "P0", note: "CDC" },
       { title: "Rodent/insect contamination", status: "verified", priority: "P1", note: "FDA" },
       { title: "Wild game handling and cooking", status: "verified", priority: "P1", note: "USDA FSIS + CDC" },
-      { title: "Fish toxins and harmful algal blooms", status: "pending", priority: "P0", note: "See Fishing/Trapping/Food Acquisition" },
-      { title: "Food rotation / FIFO principles", status: "new", priority: "P3", note: "See Inventory & Supplies" },
+      { title: "Fish toxins and harmful algal blooms", status: "partial", priority: "P0", note: "" },
+      { title: "Food rotation / FIFO principles", status: "partial", priority: "P3", note: "" },
     ],
   },
   {
@@ -390,6 +391,8 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency spring tapping and seep development", status: "verified", priority: "P2", note: "EPA + Peace Corps" },
       { title: "Emergency water well disinfection (shock chlorination)", status: "verified", priority: "P2", note: "EPA + CDC" },
       { title: "Manual hand-drilling for shallow water (sludge and auger methods)", status: "verified", priority: "P3", note: "Peace Corps + UNICEF" },
+      { title: "Manual well rehabilitation (surging and air-jetting a clogged well)", status: "verified", priority: "P2", note: "National Ground Water Association + FAO" },
+      { title: "Hydraulic ram pump construction from hardware-store pipe fittings", status: "verified", priority: "P3", note: "Practical Action" },
     ],
   },
   {
@@ -401,6 +404,7 @@ export const CATEGORIES: Category[] = [
       { title: "Thatch and shingle primitive roofing", status: "verified", priority: "P3", note: "Peace Corps" },
       { title: "Wilderness thermal reflector shelters", status: "verified", priority: "P2", note: "US Army FM 21-76" },
       { title: "Emergency charcoal gasification (wood gas for engines)", status: "verified", priority: "P3", note: "FEMA + National Academy of Sciences" },
+      { title: "Off-grid masonry heater construction (thermal mass heating)", status: "verified", priority: "P2", note: "Masonry Heater Association of North America" },
     ],
   },
   {
@@ -420,6 +424,7 @@ export const CATEGORIES: Category[] = [
       { title: "Natural mortar and cob wall construction", status: "verified", priority: "P3", note: "ICC Appendix U + Peace Corps" },
       { title: "Field pottery and clay vessel production (water storage and cooking)", status: "verified", priority: "P3", note: "Primitive Technology Papers + Smithsonian" },
       { title: "Emergency field soap fabrication (cold-process lard soap)", status: "verified", priority: "P3", note: "University Extension + Practical Action" },
+      { title: "Field case-hardening of mild steel (pack carburizing)", status: "verified", priority: "P3", note: "ASM International" },
     ],
   },
   {
