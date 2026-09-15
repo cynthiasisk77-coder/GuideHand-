@@ -32,6 +32,12 @@ export default function EmergencyIndexScreen() {
             </Text>
           </View>
 
+          <View style={[styles.calmBlock, { backgroundColor: c.sageSoft }]}>
+            <Text style={[styles.calmText, { color: c.text }]}>
+              Stay calm. Take a deep breath. It&apos;s going to be okay — we&apos;ll get through this together.
+            </Text>
+          </View>
+
           {buckets.map((bucket) => (
             <Pressable
               key={bucket.name}
@@ -87,6 +93,18 @@ const styles = StyleSheet.create({
   },
   title: { fontSize: 22, fontFamily: Fonts.display },
   subhead: { fontSize: 13, lineHeight: 18, fontFamily: Fonts.body },
+  calmBlock: {
+    borderRadius: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 14,
+  },
+  calmText: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontFamily: Fonts.bodyMedium,
+    textAlign: 'center',
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
