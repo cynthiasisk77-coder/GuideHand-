@@ -88,6 +88,8 @@ export const CATEGORIES: Category[] = [
       { title: "Cold-water immersion and drowning rescue", status: "specialist", priority: "P0", note: "Wilderness Medical Society + AHA" },
       { title: "Femur fracture: making a traction splint", status: "partial", priority: "P0", note: "" },
       { title: "Broken facial bones and airway protection", status: "partial", priority: "P0", note: "" },
+      { title: "Choking when you're alone (self-rescue)", status: "partial", priority: "P0", note: "" },
+      { title: "Impaled object: never pull it out", status: "partial", priority: "P0", note: "" },
       { title: "High-altitude sickness: AMS, HAPE, and HACE", status: "specialist", priority: "P0", note: "Wilderness Medical Society" },
     ],
   },

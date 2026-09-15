@@ -823,8 +823,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Thermal burns": {
     sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
     guidance: [
-      "Stop the burning process and move away from the heat source safely.",
+      "If someone's clothes or body are actively on fire, put the fire out first, before anything else: don't let them run, since running fans the flames — get them to drop to the ground, cover their face with their hands, and roll to smother it. If you're helping someone else who's on fire, tackle them down and wrap them tightly in a wool blanket, heavy coat, or rug. Only once the fire itself is out do you move on to cooling the burn.",
       "Cool the burn immediately with clean running water for 5-20 minutes.",
+      "Never use ice or ice-cold water on a burn: ice freezes the already-damaged skin, kills more tissue underneath, and can push the body into shock. Cool or room-temperature water is what you want, not cold.",
       "Remove rings/watches/tight items before swelling starts, but don't pull away material stuck to the burn.",
       "After cooling, loosely cover with a clean, nonadherent dry dressing. Protect the person from hypothermia, especially a child or large burn.",
       "Get urgent care for: a full-thickness burn, a partial-thickness burn bigger than the person's palm, a burn on the face/hands/feet/genitals, an electrical or chemical burn, or any sign of smoke inhalation.",
@@ -3110,6 +3111,23 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Get the wet boots and socks off as soon as you can, and pat the skin dry gently with a clean towel — don't rub.",
       "Let the feet warm up gradually at normal room temperature. Never warm them near an open fire, with hot water, or on a heating pad, and never rub or massage them — the skin is fragile at this point and can peel off.",
       "Prop the feet up on a pack or rolled blanket to help bring the swelling down, and once they're dry, put on clean, completely dry wool socks.",
+    ],
+  },
+  "Choking when you're alone (self-rescue)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Don't try to drink water to push the blockage down — it just adds liquid on top of an already-blocked airway and makes breathing even harder.",
+      "Make a fist and place the thumb side against your belly, just above your belly button and below your rib cage. Grab that fist with your other hand and pull sharply inward and upward, into your gut — the same motion as if someone else were giving you abdominal thrusts.",
+      "If you can't get enough force that way: find a sturdy chair back, countertop edge, or the arm of a couch. Lean your upper belly right over the hard edge, then drop your body weight down onto it hard. The sudden pressure forces the air left in your lungs up through your throat and can pop the blockage free, the way an abdominal thrust would.",
+      "Keep trying — repeated thrusts, alternating methods if needed — until the blockage clears or you're able to get someone's attention to help.",
+    ],
+  },
+  "Impaled object: never pull it out": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "If a knife, nail, stick, or piece of rebar is stuck deep in the body, do not pull it out. It's acting like a cork, physically blocking a hole in a blood vessel — pulling it free can let serious, uncontrollable bleeding start from deep inside, often impossible to stop outside of a hospital.",
+      "Leave the object exactly where it is. Build up padding on both sides of it using rolled towels, bulky gauze, or folded clothing, then wrap tape or cloth strips around the padding and the body to hold the object still so it can't shift or wobble while the person is moved.",
+      "The one exception: if the object has gone straight through the cheek or jaw and is actively blocking the airway so the person genuinely can't breathe at all, it may need to come out to save their airway. Outside of that specific situation, leave it in place and get emergency help.",
     ],
   },
 };
