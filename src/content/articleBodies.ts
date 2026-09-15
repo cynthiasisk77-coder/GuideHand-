@@ -2812,6 +2812,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Use weirs in moving or tidal water: build a V-shaped stone or stake wall pointing downstream in a creek, or toward shore on a tidal flat, to funnel fish toward a holding pen or basket trap at the point.",
       "Anchor and place it well: weight the trap to the bottom with flat stones lashed inside the frame, tether it to a solid root with dark line, and place it near drop-offs, submerged brush, or cut-banks where fish naturally shelter.",
       "Bait it: crushed freshwater mussels, earthworms, insects, or perforated cans of spoiled meat in a mesh pouch behind the funnel draw fish in.",
+      "Building the funnel trap in more detail: lash 16-24 pencil-thick green saplings (willow, hazel, or river cane), 3-4 feet long, around 3-4 rigid hoops spaced 1/2 to 1 inch apart for water flow, then gather the tail ends into a cone and tie them off with a slip knot you can undo later to dump the catch without rebuilding the trap. Weave the funnel throat as a separate, shorter cone with a wide rim matching the cylinder and a narrow 2-3 inch opening at the point, then lash it into the cylinder's mouth facing inward.",
+      "A 2-liter bottle makes a fast minnow and crawfish trap: cut the cone off the top about an inch below the shoulder, flip it around, and push it back into the bottle to form an inward funnel. Punch matching holes through both layers and wire or zip-tie them together, then poke 10-15 small drain holes through the base and sides so it sinks and drains fast. Drop in crushed bugs or bread crumbs with a stone for ballast and sink it in a shallow creek pool.",
     ],
   },
   "Emergency charcoal gasification (wood gas for engines)": {
@@ -3801,6 +3803,25 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Label every storage tote or bucket with a bold stencil letter and number (like BIN-A1), and keep the master list of what's in each one on the ledger's front-cover index page.",
       "Set a hard floor for every category — a minimum reserve you will not trade away, like 30 days of rations or 5 gallons of fuel. Mark that line in the ledger so it isn't a judgment call in the moment.",
       "Physically recount everything every 30 days during an extended grid-down stretch, and spot-check a few sealed container weights against what you recorded when you packed them — a lighter container catches a rodent breach or slow shrinkage early.",
+    ],
+  },
+  "Emergency fishing (handline, improvised gear)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Passive gear beats active fishing in a survival situation: sitting with a single rod for hours costs more energy than it returns. Set up unattended lines that fish continuously while you handle shelter, water, or fire instead.",
+      "A trotline covers a wide area: run a strong main cord across a slow river bend or between two overhanging branches, then tie short dropper lines every 3-4 feet along it with hooks weighted down to sit just below the surface where catfish, carp, and bass feed.",
+      "A limb-line uses the tree itself as your rod: tie 6-8 feet of line to a flexible, live green branch overhanging deep water and bait the hook. The branch's spring tension keeps fighting the fish and keeps the hook set until you check the line.",
+      "No metal hooks on hand? Carve a gorge hook from a 1-inch sliver of hardwood or bone, sharpened at both ends with a notch in the middle for the line — baited and swallowed flat, it pivots sideways and sets when you pull tension. A bent safety pin, paperclip, or wire nail works too.",
+      "An improvised dip net catches what a line can't: bend a live, thumb-thick green sapling into a teardrop loop 12-16 inches wide, lashing the overlap to form a handle. Stretch an old T-shirt hem or, better, salvaged window screen or mosquito netting (far less drag in moving water) around the loop and stitch it on. Sweep it fast behind overturned rocks, undercut banks, and weed beds where fish hide from direct sun.",
+      "For bait on the spot: turn over rotting logs and flat creek stones for hellgrammites, worms, crickets, and crayfish — live local forage usually out-fishes an artificial lure, especially in the middle of the day.",
+    ],
+  },
+  "Hand-tool inventory basics": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Cover four tool categories that need zero electricity or fuel: cutting/shaping (felling axe, bow saw with spare blades, hand saw, drawknife, wood rasp), percussion/leverage (heavy hammer, claw hammer, wrecking bar, cold chisels), fastening (adjustable wrenches, locking pliers, slip-joint pliers, a multi-bit screwdriver, and a hand-crank drill), and earth/trenching (round-point shovel, pick mattock, post-hole digger).",
+      "Store tools sealed against moisture: gasket-sealed totes or wooden chests, kept off a concrete floor (concrete wicks up ground moisture). A block of sidewalk chalk or a small pouch of dry wood ash inside the box absorbs ambient humidity and slows rust.",
+      "Keep maintenance consumables stocked alongside the tools themselves, not as an afterthought: a couple of mill bastard files for sharpening edges, a combination oil stone, a quart of plain non-detergent oil, and spare hickory or ash handles with steel wedges to rehang a broken tool head.",
     ],
   },
 };

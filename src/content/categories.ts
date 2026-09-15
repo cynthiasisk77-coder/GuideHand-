@@ -385,7 +385,7 @@ export const CATEGORIES: Category[] = [
     topics: [
       { title: "Basic knots for emergencies", status: "verified", priority: "P2", note: "Scouting America" },
       { title: "Improvised repairs (duct tape, tarp, zip-tie fixes)", status: "verified", priority: "P2", note: "US Army FM 4-30.31" },
-      { title: "Hand-tool inventory basics", status: "new", priority: "P3", note: "See Inventory & Supplies" },
+      { title: "Hand-tool inventory basics", status: "partial", priority: "P3", note: "See Inventory & Supplies" },
       { title: "Boarding up windows (basic carpentry)", status: "verified", priority: "P2", note: "FEMA/Ready.gov" },
       { title: "Rope and cordage strength basics", status: "verified", priority: "P3", note: "Cordage Institute" },
       { title: "Sharpening tools and knives safely", status: "verified", priority: "P3", note: "OSHA/CPSC" },
@@ -400,7 +400,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Fishing / Trapping / Food Acquisition",
     topics: [
-      { title: "Emergency fishing (handline, improvised gear)", status: "new", priority: "P2", note: "" },
+      { title: "Emergency fishing (handline, improvised gear)", status: "partial", priority: "P2", note: "" },
       { title: "Legal/regulatory boundaries on foraging and trapping", status: "verified", priority: "P2", note: "WDFW + 36 CFR 13.480 — framework only" },
       { title: "Basic snares and deadfalls", status: "partial", priority: "P2", note: "Historical field method, not government-sourced" },
       { title: "Field-dressing and safe handling of wild game", status: "verified", priority: "P1", note: "State wildlife agencies + Extension" },
