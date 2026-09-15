@@ -910,7 +910,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["World Health Organization + UNICEF, Oral Rehydration Salts", "CDC, Food Poisoning Symptoms"],
     guidance: [
       "Use a commercial oral rehydration salts (ORS) packet mixed exactly per its label with safe water when available.",
-      "Give frequent small sips; if vomiting occurs, pause briefly and restart more slowly.",
+      "Give frequent small sips — about one spoonful every minute or two works well. Gulping a full cup at once tends to trigger vomiting and undoes the progress. If vomiting occurs anyway, pause briefly and restart more slowly.",
       "Household fallback ONLY if no ORS packet is available: 1 liter safe water + 6 level teaspoons sugar + 1/2 level teaspoon table salt, stirred until dissolved. Make a fresh batch every 24 hours. More salt/sugar is NOT better — a mixing error can worsen illness, especially in a child.",
       "Separate the ill person's waste and utensils from shared food prep; wash hands with soap and safe water.",
       "Get care fast for: blood in stool, diarrhea over 3 days, fever over 102°F, repeated vomiting that prevents fluids staying down, little/no urine, severe dizziness standing, confusion, severe abdominal pain, or worsening illness in a pregnant person, infant, older adult, or immunocompromised person.",
@@ -955,6 +955,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "For a hand or wrist, splint with something round (a rolled sock or gauze roll) in the palm so the fingers curl naturally, like they're loosely holding a can. For a foot or ankle, splint it at a right angle to the leg rather than pointed — that keeps the tendon at the back of the ankle from tightening up permanently.",
       "Check circulation regularly after splinting — toes/fingers beyond the splint should stay pink and warm. If they turn pale, blue, or cold, the splint is too tight.",
       "Do not move the person more than necessary.",
+      "If the bone is visibly poking through the skin (an open fracture): never try to push it back under the skin, and never pour rubbing alcohol, hydrogen peroxide, or iodine directly on exposed bone — those damage living bone cells and can cause severe, hard-to-treat infection. Instead, gently rinse away loose surface dirt with clean water, cover the exposed bone with a clean cloth or gauze that's damp with clean water so it doesn't dry out, then splint over that as usual. If the bone slips back under the skin on its own while you're working, that's fine — just don't pull it back out.",
     ],
   },
   "Head, neck and spinal injury": {
@@ -3081,6 +3082,34 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "With phones and internet down, useful information mostly travels by people actually talking to each other nearby — a habit of checking in with neighbors becomes much more valuable than it normally is.",
       "A simple daily check-in point works well: pick one spot (the end of the street, a specific driveway) and a fixed time each day that neighbors informally gather to share what they've each learned, flag anyone who needs help (elderly neighbors, someone low on medication), and keep an eye on each other's property.",
       "This isn't about forming an armed patrol — it's basic mutual awareness: knowing who's still home, who's struggling, and what's actually happening on your street, which is often more accurate than rumors.",
+    ],
+  },
+  "Femur fracture: making a traction splint": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "This is a special exception to the usual \"don't try to realign a fracture\" rule, and it applies specifically to a broken thigh bone (femur) when real medical help is genuinely hours away. The thigh muscles are strong enough that when the bone breaks, muscle spasm pulls the broken ends past each other — extremely painful, and it can tear blood vessels running through the leg. Gently pulling the leg back to length relieves that spasm and can stop deep internal bleeding.",
+      "What you need: something long, straight, and strong enough to bear tension — a sturdy branch, a board, or a hiking pole — reaching from the armpit or hip down past the foot by a few inches, plus strips of cloth or cord.",
+      "Setting it up: tie the top of the pole securely to the belt or chest so it can't slide down. Wrap a strip of cloth in a figure-eight around the ankle and under the foot, leaving the heel and toes uncovered so you can check they stay warm and pink. Run a loop of cord from that ankle wrap down to a notch cut in the bottom of the pole.",
+      "Creating traction: put a short stick through that cord loop and twist it slowly, the way you'd tighten a tourniquet — this gradually pulls the foot down and stretches the leg back out to roughly match the length of the uninjured leg. Once the leg is straight and the muscle spasm eases off, tie the small stick against the main pole so it can't untwist on its own.",
+      "Keep checking the foot for warmth, color, and feeling the whole time you're setting this up and afterward — if it goes pale, cold, or numb, something is wrapped too tight and needs to be loosened right away.",
+    ],
+  },
+  "Broken facial bones and airway protection": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never lay someone with a badly broken jaw or face flat on their back — gravity pulls the broken jaw and tongue backward into the throat, and blood or loose teeth can choke them.",
+      "Keep them sitting up and leaning forward instead, so blood, teeth, and saliva drain out and down rather than backward into the airway.",
+      "If they're unconscious: roll them onto their side (the recovery position) with their face angled toward the ground, so fluid drains out instead of pooling in the throat or being inhaled.",
+      "If they're struggling to breathe: hook your fingers behind the back corners of the jawbone, just below the ears, and pull the whole lower jaw forward. This pulls the tongue off the back of the throat and can open the airway even when the face itself is badly injured.",
+    ],
+  },
+  "Trench foot (feet wet and cold for too long)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Trench foot comes from wearing cold, soaked socks and boots for half a day or longer, not from freezing temperatures the way frostbite does. Feet turn pale, wrinkled, numb, and dead-feeling at first, then turn red, swollen, and painfully burning once they warm back up.",
+      "Get the wet boots and socks off as soon as you can, and pat the skin dry gently with a clean towel — don't rub.",
+      "Let the feet warm up gradually at normal room temperature. Never warm them near an open fire, with hot water, or on a heating pad, and never rub or massage them — the skin is fragile at this point and can peel off.",
+      "Prop the feet up on a pack or rolled blanket to help bring the swelling down, and once they're dry, put on clean, completely dry wool socks.",
     ],
   },
 };
