@@ -1686,4 +1686,92 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Stay on the lowest level: heat rises, so sleep on the ground floor or in a finished basement rather than upper stories. Avoid indoor heat sources like gas burners or ovens.",
     ],
   },
+  "Common toxic foods (pets)": {
+    sources: ["ASPCA Animal Poison Control Center","Merck Veterinary Manual, “Toxic Food Hazards for Small Animals”"],
+    guidance: [
+      "Chocolate, coffee, and caffeine: contain theobromine and caffeine, which dogs and cats can't break down. Signs include vomiting, diarrhea, rapid panting, extreme thirst, a racing heart, muscle tremors, seizures, and heart failure. Dark chocolate, baking chocolate, and cocoa powder are the most concentrated and dangerous.",
+      "Grapes and raisins: even a small amount can trigger sudden, irreversible acute kidney failure in dogs. Toxicity is unpredictable — some dogs react severely to just a few. Early signs are vomiting, sluggishness, and refusing food, followed by reduced or absent urination.",
+      "Onions, garlic, chives, and leeks: these destroy red blood cells in both dogs and cats, causing life-threatening anemia. Powdered forms in broths, soups, and seasoned meats are especially concentrated. Signs often take days to appear: weakness, pale gums, reddish or dark brown urine, and collapse.",
+      "Macadamia nuts: cause severe muscle weakness, depression, vomiting, tremors, and high body temperature in dogs. Affected dogs often lose control of their hind legs within 12 hours.",
+      "Yeast bread dough: raw rising dough expands rapidly in a pet's warm stomach, causing severe bloating, pain, and life-threatening stomach twisting. The yeast also produces alcohol as it ferments, which can cause alcohol poisoning, disorientation, hypothermia, and slowed breathing.",
+    ],
+  },
+  "Veterinary activated-charcoal decision boundary": {
+    sources: ["American College of Veterinary Emergency and Critical Care (ACVECC)","Merck Veterinary Manual, “Decontamination: Activated Charcoal Guidelines”"],
+    guidance: [
+      "Not a universal antidote: activated charcoal binds to many toxins in the stomach and intestines so they pass through harmlessly, but not all of them. It doesn't work against heavy metals (lead, zinc), alcohols (ethanol, methanol, antifreeze), petroleum products, or caustic acids and lye.",
+      "Never give it to a drowsy, vomiting, or seizing animal: if an animal is stumbling, depressed, actively throwing up, or convulsing, charcoal carries a real risk of being inhaled into the lungs, which can cause severe, fatal pneumonia.",
+      "Use medical activated charcoal only: never substitute burned toast, fireplace charcoal, or barbecue briquettes — briquettes contain toxic binders and lighter-fluid residue that would poison the animal further.",
+      "Watch for salt-poisoning risk: medical-grade activated charcoal pulls a lot of fluid into the digestive tract, which can spike blood sodium to dangerous levels and cause brain swelling and seizures. Make sure the animal stays well-hydrated with access to fresh water.",
+    ],
+  },
+  "Dog heatstroke": {
+    sources: ["Journal of the American Veterinary Medical Association (JAVMA) heatstroke treatment protocols","British Small Animal Veterinary Association (BSAVA)"],
+    guidance: [
+      "Recognize the emergency early: heavy panting, thick sticky drool, bright red or dark purple gums and tongue, stumbling, glazed eyes, vomiting, and collapse. A rectal temperature above 104°F is critical, and above 106°F is life-threatening.",
+      "Cool first, before moving them: the single most important step is lowering their body temperature right where you are, before transport. Waiting until you reach a clinic while they stay dangerously hot causes irreversible brain damage and organ failure.",
+      "How to cool safely: move into shade or an air-conditioned room. Pour cool, tap-temperature water continuously over their body, chest, groin, and paw pads, and put a fan blowing across their wet fur to speed up evaporation.",
+      "Never use ice water or an ice bath: extreme cold makes blood vessels near the skin clamp shut, trapping the heat deep in the core organs and triggering hypothermic shock.",
+      "Stop active cooling at 103°F: their temperature keeps dropping even after you stop. Once it reaches 103°F, stop wetting them, dry them off loosely to avoid hypothermia, and get them to a vet.",
+    ],
+  },
+  "Diarrhea isolation and oral rehydration": {
+    sources: ["World Health Organization (WHO) Guidelines for the Treatment of Diarrhoea","CDC food and waterborne illness rehydration protocols"],
+    guidance: [
+      "Strict hygiene and isolation: severe infectious diarrhea spreads fast through contaminated hands, water, and surfaces. Isolate the ill person in one room, use a separate bathroom or twin-bucket toilet if you can, and wipe high-touch surfaces with a bleach-water solution. Wash hands thoroughly with soap and safe water after every contact.",
+      "Recognize dangerous dehydration: little or no dark-yellow urine, a dry mouth and cracked lips, sunken eyes, skin that stays tented when pinched, a rapid pulse, dizziness on standing, or extreme weakness.",
+      "Oral rehydration salts (ORS) formula: if commercial packets aren't available, mix the standard WHO emergency formula — 1 liter (about 1 quart) of boiled or safe bottled water, 6 level teaspoons of sugar, and 1/2 level teaspoon of table salt, stirred until fully dissolved.",
+      "Never alter the ratio: too much salt or sugar can make the diarrhea worse and pull fluid out of the bloodstream, causing fatal dehydration — especially in young children and infants.",
+      "Give frequent, tiny sips: one small sip or spoonful every 2 to 3 minutes, not a full cup at once — gulping triggers stomach spasms and vomiting. If they vomit, wait 10 minutes, then restart even more slowly.",
+      "Discard unused solution after 24 hours: mix a fresh batch daily so bacteria doesn't grow in the sugary liquid.",
+    ],
+  },
+  "Fuel storage, transfer, fire safety": {
+    sources: ["National Fire Protection Association (NFPA 30 / NFPA 30A)","Consumer Product Safety Commission (CPSC) portable fuel container guidelines"],
+    guidance: [
+      "Use approved, dedicated containers: store fuel only in certified safety cans (red for gasoline, yellow for diesel, blue for kerosene) with vapor-tight caps and flame-arrestor screens — never a milk jug, glass jar, or open bucket.",
+      "Keep containers outside living areas: store them in a well-ventilated shed or detached garage, away from direct sunlight, heaters, water heaters, and electrical panels. Never store fuel inside a home or basement.",
+      "Prevent static sparks when filling: place portable cans flat on bare ground before filling — never inside a truck bed, on a plastic bed liner, or in a car trunk. Keep the nozzle in firm contact with the rim of the can the entire time you're filling it.",
+      "Leave room for expansion: fill containers to no more than about 95% full. Fuel expands as it warms, and head space keeps vapors from forcing liquid out through the seams or vents.",
+      "No open flames or hot surfaces: never refuel equipment while the engine is running or hot — shut it off and let it cool for 5 to 10 minutes before pouring.",
+    ],
+  },
+  "Unknown pet poison response": {
+    sources: ["American Society for the Prevention of Cruelty to Animals (ASPCA) Animal Poison Control Center","Merck Veterinary Manual"],
+    guidance: [
+      "Identify and remove the source immediately: take the remaining substance, wrapper, or plant away so the pet can't reach more of it, and keep other animals away from the area.",
+      "Don't induce vomiting unless specifically directed: never give hydrogen peroxide, salt, or baking soda blindly. Inducing vomiting can cause severe chemical burns if the poison was caustic (acids, lye, drain cleaner) or fatal lung damage if it was petroleum-based.",
+      "Preserve the evidence: bag the packaging, chew remnants, plant leaves, or a sample of any vomit in a sealed plastic bag so a veterinarian can inspect it.",
+      "Decontaminate skin and eyes: if poison got on the fur or paws, stop them from grooming it off (a cone or a wrapped towel works), then wash the coat with warm water and mild dish soap. Flush eyes with sterile saline or clean lukewarm water for 10 to 15 minutes.",
+      "Keep the pet calm and warm: wrap them loosely in a towel or blanket and monitor breathing. Avoid strenuous activity, which speeds up how fast the poison is absorbed.",
+    ],
+  },
+  "Dog/cat NSAID and acetaminophen boundaries": {
+    sources: ["U.S. Food and Drug Administration (FDA) Center for Veterinary Medicine","ASPCA Animal Poison Control"],
+    guidance: [
+      "Never give human pain relievers to cats or dogs: ibuprofen (Advil, Motrin), naproxen (Aleve), and acetaminophen (Tylenol) are highly toxic to pets even in tiny fractions of a human dose.",
+      "Acetaminophen is lethal to cats: cats completely lack the liver enzymes needed to break it down. A single tablet can cause their red blood cells to lose the ability to carry oxygen (blood turns chocolate-brown, gums turn blue or gray), leading to rapid suffocation, liver failure, and death within hours.",
+      "NSAIDs cause acute kidney and stomach failure in dogs: ibuprofen and naproxen cause severe stomach and intestinal ulcers, intestinal perforation, and sudden, irreversible kidney failure.",
+      "Don't use baby aspirin as a home remedy either: even a low dose can cause serious gastrointestinal bleeding, clotting failure, and organ damage. Pain management in animals needs species-specific, veterinary-formulated medication only.",
+    ],
+  },
+  "Dog xylitol exposure": {
+    sources: ["U.S. Food and Drug Administration (FDA) Consumer Updates, “Paws Off Xylitol; It's Dangerous for Dogs”","American Animal Hospital Association (AAHA)"],
+    guidance: [
+      "Recognize hidden sources: xylitol (sometimes labeled \"birch bark extract\" or \"birch sugar\") is an artificial sweetener in sugar-free gum, peanut butter, chewable vitamins, baked goods, toothpaste, and mouthwash.",
+      "Causes sudden, severe hypoglycemia: in dogs, xylitol triggers a massive, rapid insulin release that drops blood sugar to life-threatening levels within 10 to 60 minutes.",
+      "Watch for critical symptoms: stumbling, extreme weakness, a wobbly \"drunken\" gait, vomiting, collapse, muscle tremors, seizures, and coma. High doses can cause acute liver failure within 12 to 24 hours.",
+      "Immediate field action: if the dog is conscious and able to swallow, rub a high-sugar syrup (maple syrup, corn syrup, or honey) directly onto their gums with a finger to help counter the blood-sugar crash while getting them to emergency care. Don't force liquids down their throat.",
+    ],
+  },
+  "Cat true-lily exposure": {
+    sources: ["U.S. Food and Drug Administration (FDA), “Lovely Lilies and Curious Cats: A Dangerous Combination”","ASPCA Animal Poison Control Center"],
+    guidance: [
+      "Every part of a true lily is fatal to cats: lilies from the Lilium genus (Easter, Asiatic, Tiger, Stargazer) and Hemerocallis genus (daylilies) cause rapid, irreversible acute kidney failure in cats.",
+      "Even microscopic exposure is toxic: chewing a petal, biting a leaf, brushing against the flower and grooming pollen off their fur, or drinking water from the vase can all cause fatal poisoning.",
+      "Early warning signs: drooling, vomiting, loss of appetite, and extreme lethargy starting 1 to 3 hours after contact. Within 12 to 24 hours, kidney function shuts down — decreased or absent urination, dehydration, seizures, and death follow.",
+      "Wash fur immediately: if pollen is visible on the coat, wash it off thoroughly with warm water and mild soap right away so they can't lick it off and swallow it.",
+      "Speed determines survival: once acute kidney failure sets in, the damage is permanent. Aggressive IV fluid therapy at a veterinary clinic within the first 6 to 18 hours is the only thing that can save the kidneys.",
+    ],
+  },
 };
