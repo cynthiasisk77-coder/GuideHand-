@@ -96,6 +96,7 @@ export const CATEGORIES: Category[] = [
       { title: "Severe nosebleeds that won't stop", status: "partial", priority: "P2", note: "" },
       { title: "Black widow, brown recluse, and scorpion stings", status: "partial", priority: "P1", note: "" },
       { title: "Emergency tooth extraction (true last resort only)", status: "partial", priority: "P2", note: "" },
+      { title: "Crush syndrome: why timing matters before freeing a trapped limb", status: "partial", priority: "P1", note: "" },
       { title: "High-altitude sickness: AMS, HAPE, and HACE", status: "specialist", priority: "P0", note: "Wilderness Medical Society" },
     ],
   },
@@ -131,6 +132,10 @@ export const CATEGORIES: Category[] = [
       { title: "Aircraft impact/explosion in a building", status: "verified", priority: "P1", note: "NFPA + FEMA" },
       { title: "Caught in an avalanche", status: "partial", priority: "P1", note: "" },
       { title: "Escaping quicksand, mudflats, and saturated silt", status: "partial", priority: "P2", note: "" },
+      { title: "Advanced home isolation: negative-pressure room and PPE routine", status: "partial", priority: "P2", note: "" },
+      { title: "Trapped in a building collapse: what to do until help arrives", status: "partial", priority: "P1", note: "" },
+      { title: "Anhydrous ammonia leak", status: "partial", priority: "P1", note: "" },
+      { title: "Fuel spill containment (gasoline/diesel)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -291,6 +296,7 @@ export const CATEGORIES: Category[] = [
       { title: "Aggressive dog attack defense", status: "partial", priority: "P1", note: "" },
       { title: "Dog or cat choking", status: "partial", priority: "P1", note: "" },
       { title: "Livestock bloat: recognizing it and what you can safely do", status: "partial", priority: "P1", note: "" },
+      { title: "Livestock fracture management (large animals)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -319,6 +325,9 @@ export const CATEGORIES: Category[] = [
       { title: "Marking private landmarks/hazards on offline maps", status: "partial", priority: "P3", note: "" },
       { title: "Wilderness signaling and search-and-rescue marking", status: "verified", priority: "P2", note: "NASAR + USAF AFMAN 10-503" },
       { title: "Lost in the woods: what to do first", status: "partial", priority: "P1", note: "" },
+      { title: "Lost in an unfamiliar city on foot", status: "partial", priority: "P2", note: "" },
+      { title: "Lost while driving in a city", status: "partial", priority: "P2", note: "" },
+      { title: "Lost on rural backroads while driving", status: "partial", priority: "P2", note: "" },
     ],
   },
   {

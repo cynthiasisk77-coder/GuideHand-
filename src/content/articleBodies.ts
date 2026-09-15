@@ -447,6 +447,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never eat the brain, eyeballs, spinal cord, spleen, liver, or lymph nodes, and avoid cutting through bone/spinal column during processing — reduces exposure to chronic wasting disease and other tissue-concentrated risks.",
       "Rabbits, hares, and rodents can carry tularemia (\"rabbit fever\") — wear gloves when skinning them, since the bacteria can get in through small cuts or scrapes on bare hands. Check the liver and spleen after gutting; if you see small white or yellowish spots, don't eat that animal — bury the carcass away from pets and clean your knife and hands well afterward.",
       "Try hard not to puncture the stomach, intestines, or bladder while gutting. It's an easy accident, and it contaminates the meat with bacteria that spoil it fast, on top of being unpleasant to clean up.",
+      "A technique that helps avoid it: lay the animal on a slight downhill slope with the head uphill, and as you cut from the pelvis toward the throat, slide two fingers under the skin ahead of the blade (palm up) to push the guts away, with the cutting edge angled upward rather than down into the body. Cutting blade-down is how the gut gets nicked by accident.",
+      "At the back end, cut all the way around the anus from the outside to free it from the pelvis, then tie it off snugly with a piece of cord before pulling it forward through the pelvic canal — this keeps waste from leaking onto the meat as you remove it. Handle the bladder (a small pale sac near the pelvis) gently and remove it whole; if it tears, the urine that spills will taint any meat it touches.",
     ],
   },
   "Most dangerous look-alike poisonous plants": {
@@ -845,6 +847,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Inhalation: move to fresh air immediately and stay away from the fumes.",
       "Bag contaminated clothing without handling it more than necessary. Seek poison-center or medical guidance by every available route.",
       "Do not try to neutralize an acid with an alkali (or vice versa) on the body — the reaction can generate heat and worsen the injury. Don't become a second victim by entering toxic air.",
+      "Dry caustic powder (like lime or dry lye) is different from a liquid spill: brush it off completely dry first, with a cloth or brush, before adding any water. Adding water to a dry caustic powder first can trigger a reaction that generates intense heat and burns the skin worse. Once the powder is brushed off, then flush with water as usual — this doesn't apply to liquid acids or caustics, which should be flushed with water immediately.",
     ],
   },
   "Unknown swallowed poison, no induced vomiting": {
@@ -1009,6 +1012,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "For a tick bite, CDC maintains an interactive \"Tick Bite Bot\" tool to help decide when it needs medical follow-up.",
       "For ordinary bite-wound care and infection risk beyond rabies, see the dedicated \"Dog/animal bite wound care and infection risk\" entry.",
       "Remove an attached tick correctly: grasp it as close to the skin as you can with fine-tipped tweezers and pull straight up with steady, even pressure. Don't twist, jerk, or try to burn it off or smother it in petroleum jelly — those make it more likely to leave mouth-parts behind or inject more saliva. Clean the bite afterward and watch the area for a spreading rash or flu-like symptoms over the next month.",
+      "If a known, healthy-looking domestic dog, cat, or ferret bites someone, it usually doesn't need to be killed to check for rabies — confining and observing it for 10 days is the standard approach. If it's still alive and acting normal at the end of that window, it wasn't shedding rabies virus at the time of the bite. This observation option doesn't apply to wild animals (raccoons, bats, skunks, foxes) or one acting erratically — treat those as a real exposure and get care right away.",
     ],
   },
   "Pesticide exposure": {
@@ -1061,6 +1065,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Get medical care within about 8 hours for: deep bites, puncture wounds, any bite near a joint, or any bite to the face, hand, or foot. Antibiotics started within about 6 hours meaningfully cut infection risk.",
       "A dirty bite wound uses the shorter 5-year tetanus booster threshold, not the standard 10-year interval.",
       "This is separate from deciding whether rabies post-exposure prophylaxis is needed — see the rabies-exposure entry.",
+      "Cat bites in particular shouldn't be taped or stitched closed — cat teeth are thin and sharp enough to inject bacteria deep into a joint or tendon, and closing the wound traps that infection inside instead of letting it drain. Leave a cat bite open and get it looked at.",
     ],
   },
   "Ankle sprain / twisted ankle": {
@@ -1488,6 +1493,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "If you're close enough that the flash and shock wave don't arrive together: the flash travels at the speed of light, so you see it first. The shock wave itself travels roughly a mile every 5 seconds, so depending how far away you are, you may have a few seconds to a couple minutes of warning after the flash before it hits — use every second of that to get down and take cover.",
       "While you're down: keep your mouth slightly open and cover your ears with your hands. This helps equalize the pressure from the blast wave and lowers the chance of ruptured eardrums or lung damage from the pressure itself.",
       "If you have potassium iodide (KI) tablets: they only protect your thyroid from one specific radioactive substance in fallout (radioactive iodine) — they do nothing for the blast, the initial radiation, or other radioactive materials in fallout. Only take them when officials specifically advise it; taking extra doesn't add protection and can cause its own health problems.",
+      "Fallout itself doesn't start landing immediately — you generally have something like 10-15 minutes after the blast before radioactive dust and debris starts drifting back down. Use that window to get inside and as deep into shelter as you can, rather than assuming you have no time at all or unlimited time.",
     ],
   },
   "Dirty bomb vs. nuclear explosion distinction": {
@@ -1508,6 +1514,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Wash exposed skin and hair with soap and water when it's available, without harsh scrubbing, then put on clean clothes.",
       "Do not take potassium iodide (KI) on your own. It only protects the thyroid from radioactive iodine under specific conditions, doesn't protect against other radioactive material or external radiation, and should only be taken when public-health or emergency officials specifically say to.",
       "Remember the three things that protect you: time (spend as little time as possible in an exposed area), distance (getting twice as far from a radiation source cuts your exposure to a quarter), and shielding (put dense material between you and the outside). Dense mass matters most — a few feet of packed earth or a couple feet of concrete blocks the large majority of radiation, which is exactly why a below-ground shelter is so much safer than an upper floor.",
+      "Don't use hair conditioner when washing off radioactive dust — the oils in conditioner actually bind the particles to your hair, making them harder to rinse out, not easier. Plain shampoo or soap works better here.",
+      "Rough idea of how much material it takes to cut incoming radiation in half: about 2.5-3 inches of concrete, 3.5-4 inches of packed soil, or 10-12 inches of solid wood. Without a real underground shelter, you can stack heavy furniture, filled water jugs, or bags of soil and sand against the walls and over you in a corner of a room to build up that kind of mass — it doesn't need to be fancy, just dense and thick.",
     ],
   },
   "Junctional bleeding and wound packing": {
@@ -2869,6 +2877,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Set up a simple hardware backup: put digitized copies on two identical encrypted USB drives (or encrypt them yourself with something like BitLocker or VeraCrypt) — one in your go-bag, one in a fireproof safe or a relative's house.",
       "Know what belongs on the list: government IDs, birth and marriage certificates, passports, Social Security cards, property deeds, lease, vehicle title, insurance policy pages (home, auto, life), immunization and medical records, a list of key account numbers, and a few recent photos of family members and pets for identification.",
       "Keep physical backups too: print copies on waterproof paper, or seal them in heavy waterproof document pouches in an indexed binder.",
+      "A recent utility bill with your name and address on it is worth including too — some disaster zones restrict re-entry to residents who can prove they actually live there, and a printed bill is a simple way to do that without power or internet.",
     ],
   },
   "Grid-down barter mechanics and resource staging": {
@@ -2877,6 +2886,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Know gold and silver won't help you at first: in the first phase of a real crisis, precious metals can't be eaten, worn, or used to purify water — they only become useful again once things stabilize and basic needs are already being met some other way.",
       "Stock what actually trades in a crisis: medical and sanitation items (pain relievers, antibiotics, antiseptic, wound dressings, soap, water purification tablets), fuel and maintenance items (small propane canisters, stabilized gasoline, lamp oil, matches, lighters, motor oil, paracord), and food/comfort items (salt, sugar, pepper, coffee or tea, hard liquor — useful both as a trade good and a wound antiseptic — and baking soda).",
       "Keep trading away from home: never do an exchange at your house or your supply cache. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
+      "If you're keeping physical cash on hand, small bills matter more than large ones — $1, $5, $10, and $20 bills are actually usable, since most people won't have change for a $100 bill when card readers are down. Pre-1965 US dimes and quarters (90% silver) are also widely recognized and hard to fake, if you want precious metal in a more practical, tradeable form than bullion.",
     ],
   },
   "Fish toxins and harmful algal blooms": {
@@ -3351,6 +3361,90 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Make yourself easy to find: get to a clearing or high ground if it's close and safe to reach, and use the same rule-of-three signaling that works for any rescue situation — three whistle blasts, three fires, or three of anything, paused and repeated (see Wilderness signaling and search-and-rescue marking for the full technique).",
       "The exceptions where moving on foot makes sense: you're in immediate danger where you are (flooding, wildfire, unstable ground), it's getting dark and you have a specific, sure destination close by, or you have a documented, reliable trail to follow out. If none of those apply, staying put and signaling is almost always the better bet.",
       "Before you ever head out: tell someone your planned route and when you expect to be back. That single step is what actually gets search-and-rescue looking in the right place — nothing else here works as well without it.",
+      "If you do decide you have to walk out: people naturally curve in a slow circle when walking through woods with nothing to aim at, since one leg is always slightly stronger than the other. To walk a straight line instead, pick a tree directly ahead of you, walk to it, then from there sight a new tree in line with your direction of travel, and repeat — this keeps correcting your path back to straight.",
+      "Without a compass, walking downhill is a reasonable way to eventually find people: small trickles of water lead to creeks, creeks lead to streams, and streams lead to rivers — and roads, bridges, and towns are almost always built along river valleys.",
+    ],
+  },
+  "Lost in an unfamiliar city on foot": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Walking with a blank stare, constantly turning around, or staring at a dead phone marks you as an easy target if the area isn't safe. Walk with a steady pace and upright posture even while you're figuring out where you are.",
+      "Look up for reference points instead of down: broadcast towers, highway overpasses, clusters of tall buildings, or stadium lights all work as fixed landmarks that keep you from circling the same few blocks without realizing it.",
+      "Infrastructure tends to run in straight lines toward the center of things: following railroad tracks, elevated transit lines, or major power transmission towers usually leads you either into or out of a city, not in circles.",
+      "Avoid narrow alleys, dead ends, and recessed doorways that only have one way out. If it's getting dark, head toward places more likely to still be staffed and lit — a hospital, a fire station, an active transit hub — rather than a dark commercial block.",
+    ],
+  },
+  "Lost while driving in a city": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "If navigation drops out in the middle of a complex interchange, don't stop in a live traffic lane — pull into a well-lit parking lot, gas station, or the shoulder to figure out where you are.",
+      "Traffic flow itself is a clue: heavy traffic moving toward the center of a city in the morning and back out in the evening is a normal commute pattern you can use to guess which direction is \"in\" versus \"out.\"",
+      "Wide multi-lane avenues with large overhead signs tend to connect to highways or beltways eventually — following one consistently is more likely to get you somewhere than winding through side streets.",
+      "If you're stuck in a maze of one-way streets, turning the same direction three times in a row brings you back toward your starting cross-street instead of getting more lost by guessing against the arrows.",
+      "At a dead stop in traffic, leave enough space to see the rear tires of the car ahead touching the ground — that gap gives you room to steer out if you ever need to.",
+    ],
+  },
+  "Lost on rural backroads while driving": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Unmarked dirt and gravel roads burn fuel fast and risk a flat tire, a high-centered car, or sliding into a ditch — if you're already unsure where you are, that's not the time to keep exploring rougher roads hoping they connect somewhere.",
+      "Road quality is a real clue: two-track dirt usually leads to a private driveway or a dead end, gravel usually leads to paved road, and paved county roads lead to state highways. If the road is getting worse instead of better, turn around rather than pushing forward hoping it loops back around.",
+      "Power lines can point you toward town: follow them toward where the poles get bigger and carry more wires — that's the direction power is flowing from, usually a substation near a town or highway.",
+      "Small metal road signs with a number on them (like \"CR 1200\") are worth writing down even without a map — county road numbering usually follows a grid, so the numbers themselves can tell you roughly which direction you're heading.",
+      "If the vehicle gets stuck or dies, staying with it is usually the better move — a car is much easier for a search vehicle or passerby to spot than a person walking down a dark road, and walking exposes you to exhaustion, weather, and loose farm dogs. Only leave it if you can actually see an occupied house or a main road close by.",
+    ],
+  },
+  "Advanced home isolation: negative-pressure room and PPE routine": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "For a more serious airborne illness than typical household sickness, a sealed sick room alone may not be enough — you can improve it by making the room slightly negative-pressure, so air only flows INTO it, never out.",
+      "Seal the room's air vents with plastic sheeting and tape, and press a damp towel against the base of the door to the hallway. Then set a box fan in a cracked-open window, facing outward, and seal the rest of the window opening around the fan with cardboard and tape.",
+      "Running that fan continuously pulls air in from under the hallway door and pushes it outside — meaning air generally moves INTO the sick room, not out of it and into the rest of the house. You can rough-check this by holding a lit incense stick or smoke source near the gap under the hallway door — the smoke should get pulled inward, not blown back at you.",
+      "Set up a clean-to-dirty routine at the door: keep clean masks, gloves, and eye protection on a small table just outside. Put them on before going in. Coming out, take the gloves off inside the room (turning them inside out) and drop them in a lined bin there, wash your hands, then step out, close the door, and only then remove your mask and eye protection — touching only the straps, never the front — and wash your hands again.",
+    ],
+  },
+  "Trapped in a building collapse: what to do until help arrives": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Cover your nose and mouth with a shirt or cloth right away — dust from collapsed concrete and drywall is fine enough to cause real breathing trouble on its own.",
+      "Don't shout continuously — it burns through your energy and the air around you fast, and rescuers often can't hear a voice through rubble anyway. Instead, tap rhythmically on a pipe, duct, or solid piece of the structure — three taps, pause, repeat — since search teams specifically listen for that kind of rhythmic pattern with sensitive equipment.",
+      "Don't push or kick at debris around you — shifting the wrong piece can bring more down. Only clear small, loose material you can move without disturbing anything that looks like it's actually holding weight.",
+      "If you have a flashlight, save the battery — turn it off once you've gotten your bearings, and only turn it on again when you hear voices or equipment nearby.",
+    ],
+  },
+  "Crush syndrome: why timing matters before freeing a trapped limb": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "If someone's arm or leg has been pinned under something heavy for more than about 2 hours, the crushed muscle tissue builds up toxins and potassium while it's trapped. The danger isn't the trapping itself — it's what happens the moment the weight comes off.",
+      "Suddenly freeing a limb that's been crushed that long can send a surge of those toxins straight to the heart all at once, which can stop it. This is why professional rescuers sometimes give IV fluids or apply a tourniquet before lifting the weight, not after.",
+      "If you can safely apply a tourniquet high on the limb, above the crush point, before the weight is lifted, that protects against this — it keeps those toxins from suddenly flooding into the rest of the body when the pressure is released. If you can't do that in time, at least get emergency medical help involved before anyone lifts the weight, rather than freeing the limb the moment you're able to.",
+      "This only applies to a limb pinned for a genuinely long time (2+ hours) — a shorter entrapment doesn't carry the same risk, and normal rescue (freeing the limb and treating the injury directly) is appropriate.",
+    ],
+  },
+  "Anhydrous ammonia leak": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Anhydrous ammonia (used in agriculture and industrial refrigeration) has a sharp, choking smell like strong smelling salts, and a leak often looks like a low white fog hugging the ground.",
+      "It reacts violently with any moisture — including your eyes, mouth, and lungs — so exposure causes real chemical burns, not just irritation.",
+      "Move crosswind first, then upwind: check which way smoke or flags are blowing, walk roughly perpendicular to the wind until you're clear of the cloud, then head upwind of the source. Because the gas is heavy and hugs low ground, move to higher terrain and avoid ditches, gullies, or basements.",
+      "If you have to move through any of it, breathe through a wet cloth folded several times over your nose and mouth — the moisture absorbs a meaningful amount of the gas before it reaches your lungs.",
+    ],
+  },
+  "Fuel spill containment (gasoline/diesel)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Gasoline vapor is heavier than air and creeps along the ground — it can reach a pilot light, running vehicle, or a spark from an electrical switch from dozens of feet away and ignite. The moment there's a spill, kill nearby flames, shut down generators, and don't touch any switches in the area.",
+      "Never hose a fuel spill toward a storm drain, ditch, or pond — that just spreads it (and if it ignites, spreads burning fuel) over a much larger area.",
+      "Instead, contain it: pile bare soil, sand, or gravel into a small berm downhill of the spill to keep it from spreading further, then smother the pooled liquid with dry cat litter, dirt, or sawdust to soak it up. Scoop the saturated material into a metal container for disposal rather than leaving it to evaporate or soak into the ground.",
+    ],
+  },
+  "Livestock fracture management (large animals)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A large animal — a horse, cow, or goat — with a broken leg can turn a clean break into a shredded, open injury just by thrashing around. Calm the animal first: a halter and lead rope to steady the head goes a long way before you try to do anything else.",
+      "Be realistic about what you can fix: a break above the knee or hock (a femur or shoulder injury) genuinely needs a veterinary surgical facility — there's no field fix for that. A lower-leg break, below the knee or hock, can often be stabilized well enough for transport or comfort.",
+      "For a lower-leg fracture: wrap the leg heavily with thick padding (towels, cotton sheeting, a folded blanket — a couple of inches all the way around), then place a rigid support alongside it — a length of PVC pipe split down the middle, a 2x4, or similar — running from the ground past the joint above the break. Wrap it snugly with vet wrap or heavy tape from the bottom up to hold the joint still.",
+      "This is about keeping the animal stable and comfortable until a vet can take over, not a substitute for real veterinary care.",
     ],
   },
 };
