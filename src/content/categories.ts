@@ -548,6 +548,7 @@ export const CATEGORIES: Category[] = [
       { title: "Calculated days-of-water/food remaining", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Expiring-soon and missing-supplies alerts", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Maintaining firearms in dusty or freezing conditions", status: "partial", priority: "P3", note: "" },
+      { title: "Establishing barter inventory tracking without electronics", status: "partial", priority: "P3", note: "" },
     ],
   },
   {

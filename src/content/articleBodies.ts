@@ -716,6 +716,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "After power returns, check the circuit breaker first and reset the pressure switch to \"auto\" if the pump doesn't restart on its own.",
       "A submersible well pump usually runs on 240V and can draw a large surge of power just to start — a small standard 120V generator often can't start it without a proper 240V outlet or a transfer switch built for it.",
       "The moment power goes out, don't forget the water that's already sitting in your pressure tank — it typically holds a few gallons of usable water even with the pump off. Open the lowest faucet in the house, or the tank's own drain valve, to gravity-drain that reserve into buckets before it's gone.",
+      "With no hand pump piped in and the electric pump down, you can still pull water manually from a 4- or 6-inch casing with a well bailer — a narrow tube with a ball-check valve at the bottom. Lower it down the casing on a cord; the ball floats up to let water fill the tube as it submerges, then seats and seals shut as you pull the cord back up for retrieval.",
     ],
   },
   "Retained-heat cooking, low-fuel": {
@@ -1497,6 +1498,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Check for downed wires, submerged electrical hazards, sharp debris, unstable ground, and open holes before approaching. Never enter a well pit — hazardous gases can build up there.",
       "Have a qualified electrician or well/pump contractor inspect any damaged wiring or equipment before it's used again.",
       "Until lab testing confirms the water is safe, boil it for microbial risk or use another source — and if fuel or toxic chemicals are suspected, boiling and disinfection can't fix that; well disinfection specifics depend on your well type and should follow your local health department's guidance.",
+      "Check the well cap itself: it should be a bolted sanitary seal with a downward-facing screened vent, sitting at least 12-18 inches above the highest floodwater expected in your area. If muddy floodwater ever tops the casing, surface bacteria and pathogens can siphon straight down into the aquifer.",
     ],
   },
   "Nuclear detonation flash/blast/fallout": {
@@ -3790,6 +3792,15 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "In a chaotic evacuation — smoke, a crowd, a structural collapse — kids and disoriented elderly relatives can be separated in seconds. Don't rely on a paper card in a pocket; write key details in permanent waterproof marker on a vinyl wristband, a laminated tag, or the inside cuff of their jacket.",
       "Include: full legal name, date of birth, blood type, any life-threatening allergies (like penicillin or severe asthma), and two out-of-area contact numbers.",
       "Keep identifying details off the outside of clothing or a backpack in plain sight — a stranger reading a child's name off their bag can use it to fake familiarity and lure them away.",
+    ],
+  },
+  "Establishing barter inventory tracking without electronics": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Keep a hardbound ledger in a waterproof pouch, written in permanent ink (pencil fades and can be altered). Split it into sections by category — medical/consumables, fuel/batteries, shelf-stable food, tools/fasteners, trade goods — and log three things per entry: date/action, quantity in or out, and running balance.",
+      "Label every storage tote or bucket with a bold stencil letter and number (like BIN-A1), and keep the master list of what's in each one on the ledger's front-cover index page.",
+      "Set a hard floor for every category — a minimum reserve you will not trade away, like 30 days of rations or 5 gallons of fuel. Mark that line in the ledger so it isn't a judgment call in the moment.",
+      "Physically recount everything every 30 days during an extended grid-down stretch, and spot-check a few sealed container weights against what you recorded when you packed them — a lighter container catches a rodent breach or slow shrinkage early.",
     ],
   },
 };
