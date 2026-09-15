@@ -81,6 +81,12 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     categories: ["Inventory & Supplies", "Preparedness Plans", "Reference Library"],
     icon: "plan",
   },
+  {
+    name: "Off-Grid & Primitive Skills",
+    sub: "Homesteading, primitive crafts, long-term self-sufficiency",
+    categories: ["Off-Grid Food Production", "Off-Grid Water Systems", "Primitive Fire, Fuel & Shelter", "Primitive Crafts & Construction"],
+    icon: "tools",
+  },
 ];
 
 export function findGroupBySlug(slug: string): CategoryGroup | undefined {
