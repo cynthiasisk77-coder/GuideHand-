@@ -155,6 +155,7 @@ export const CATEGORIES: Category[] = [
       { title: "Saltwater/brackish desalination limits", status: "partial", priority: "P2", note: "" },
       { title: "Chemical/fuel/algal-toxin/radiological rejection", status: "verified", priority: "P0", note: "EPA + CDC WASH" },
       { title: "UV purification methods (e.g. SODIS, UV pens)", status: "verified", priority: "P1", note: "WHO + CDC" },
+      { title: "Water testing without a lab: turbidity, smell, and color", status: "partial", priority: "P1", note: "" },
     ],
   },
   {
@@ -226,6 +227,8 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency candle and lamp making (animal tallow and plant oils)", status: "verified", priority: "P3", note: "Penn State Extension" },
       { title: "Faraday protection for radios and electronics", status: "partial", priority: "P3", note: "" },
       { title: "Freeing someone from a live household electrical source", status: "partial", priority: "P0", note: "" },
+      { title: "Generator maintenance: oil, spark plugs, carburetor", status: "partial", priority: "P2", note: "" },
+      { title: "Battery care and revival (lead-acid and AGM)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -242,8 +245,11 @@ export const CATEGORIES: Category[] = [
       { title: "Well power and pressure system", status: "partial", priority: "P1", note: "" },
       { title: "Sump-pump failure", status: "verified", priority: "P2", note: "FEMA" },
       { title: "Water-heater isolation", status: "specialist", priority: "P1", note: "CDC + Ready.gov/FEMA — involves electrical/gas shutoff" },
-      { title: "Appliance failure and safe restart", status: "new", priority: "P2", note: "" },
+      { title: "Appliance failure and safe restart", status: "partial", priority: "P2", note: "" },
       { title: "High-wind window hardening (plywood vs. duct tape)", status: "partial", priority: "P1", note: "" },
+      { title: "Running propane safely to an indoor-rated appliance", status: "partial", priority: "P1", note: "" },
+      { title: "Shoring a sagging ceiling or damaged wall", status: "partial", priority: "P1", note: "" },
+      { title: "Managing wet crawlspaces and basement flooding", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -312,7 +318,7 @@ export const CATEGORIES: Category[] = [
       { title: "Family communication plan and rendezvous points", status: "verified", priority: "P1", note: "Ready.gov/FEMA + American Red Cross" },
       { title: "Paper maps, contacts, critical records backup", status: "partial", priority: "P2", note: "" },
       { title: "Emergency alert verification and rumor control", status: "verified", priority: "P1", note: "FEMA Rumor Response" },
-      { title: "Amateur (ham) radio licensing basics", status: "new", priority: "P3", note: "" },
+      { title: "Amateur (ham) radio licensing basics", status: "partial", priority: "P3", note: "" },
     ],
   },
   {
@@ -418,6 +424,7 @@ export const CATEGORIES: Category[] = [
       { title: "Meat smoking: hot smoking vs. cold smoking safety", status: "partial", priority: "P2", note: "" },
       { title: "Testing stored grains for dangerous mold (mycotoxins)", status: "partial", priority: "P2", note: "" },
       { title: "Zeer pot: off-grid evaporative cooling", status: "partial", priority: "P3", note: "" },
+      { title: "Preserving eggs without refrigeration (water-glassing)", status: "partial", priority: "P3", note: "" },
     ],
   },
   {
@@ -433,6 +440,7 @@ export const CATEGORIES: Category[] = [
       { title: "Manual well rehabilitation (surging and air-jetting a clogged well)", status: "verified", priority: "P2", note: "National Ground Water Association + FAO" },
       { title: "Hydraulic ram pump construction from hardware-store pipe fittings", status: "verified", priority: "P3", note: "Practical Action" },
       { title: "Gravity-fed water distribution and pipe sizing", status: "verified", priority: "P2", note: "Peace Corps + IAPMO" },
+      { title: "Gravity-fed water filter maintenance and the freeze-fracture risk", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -497,8 +505,10 @@ export const CATEGORIES: Category[] = [
       { title: "Diarrhea isolation and oral rehydration", status: "specialist", priority: "P0", note: "WHO + CDC" },
       { title: "General emergency sanitation without running water", status: "verified", priority: "P1", note: "CDC + WHO" },
       { title: "Mold and wet-building cleanup", status: "verified", priority: "P1", note: "EPA + CDC" },
-      { title: "Long-term waste, pests, vector control", status: "pending", priority: "P2", note: "Not yet drafted" },
+      { title: "Long-term waste, pests, vector control", status: "partial", priority: "P2", note: "" },
       { title: "Off-grid hygiene and field sanitation", status: "verified", priority: "P2", note: "WHO + Sphere Handbook" },
+      { title: "Disposal of medical waste and soiled dressings", status: "partial", priority: "P2", note: "" },
+      { title: "Field laundry: eradicating lice, mites, and bedbugs", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -513,6 +523,7 @@ export const CATEGORIES: Category[] = [
       { title: "Helping children cope with disaster stress", status: "verified", priority: "P2", note: "CDC + American Red Cross" },
       { title: "Family Circle shared plan and permissions", status: "verified", priority: "P3", note: "App feature" },
       { title: "Medication continuity plan for dependents", status: "partial", priority: "P2", note: "" },
+      { title: "Improvised feminine hygiene pads", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -531,6 +542,7 @@ export const CATEGORIES: Category[] = [
       { title: "Ammunition and propellant storage safety", status: "verified", priority: "P2", note: "NFPA 495 + SAAMI" },
       { title: "Calculated days-of-water/food remaining", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Expiring-soon and missing-supplies alerts", status: "partial", priority: "P2", note: "Spec exists" },
+      { title: "Maintaining firearms in dusty or freezing conditions", status: "partial", priority: "P3", note: "" },
     ],
   },
   {

@@ -421,6 +421,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Most hand-tool injuries come from misuse or poor maintenance, not the tools themselves — a dull blade is actually more dangerous than a sharp one, since it requires more force and is more likely to slip.",
       "Keep sharpening stones lubricated (water or the manufacturer's specified lubricant) and don't let them dry out; soak a dry stone before use.",
       "Wear cut-resistant gloves when there's meaningful risk of a slip.",
+      "Rough angle guide: a general-purpose knife holds a good edge at 20-25 degrees per side. An axe or hatchet needs a thicker 30-35 degree edge — too thin, and it chips or rolls the first time it hits hard or frozen wood.",
+      "No sharpening stone on hand? A smooth, fine-grained river stone (slate, quartzite, smooth basalt) works as a substitute — wet it with water or a little oil, match the angle the blade already has, and draw the edge across in smooth, sweeping strokes.",
+      "Finish any edge by stropping it: drawing the blade backward, spine leading, across a leather belt or a strip of plain cardboard. This knocks off the microscopic burr left by sharpening and is what actually makes an edge feel \"hair-shaving\" sharp.",
     ],
   },
   "Legal/regulatory boundaries on foraging and trapping": {
@@ -708,6 +711,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "A pressure tank with a failed internal bladder causes \"short cycling\" (pump switching on/off every few seconds), hard on both the pump and a generator.",
       "Sizing a generator for a well pump requires accounting for starting/surge watts, not just running watts — an electric motor commonly needs 3-4x its running wattage just to start.",
       "After power returns, check the circuit breaker first and reset the pressure switch to \"auto\" if the pump doesn't restart on its own.",
+      "A submersible well pump usually runs on 240V and can draw a large surge of power just to start — a small standard 120V generator often can't start it without a proper 240V outlet or a transfer switch built for it.",
+      "The moment power goes out, don't forget the water that's already sitting in your pressure tank — it typically holds a few gallons of usable water even with the pump off. Open the lowest faucet in the house, or the tank's own drain valve, to gravity-drain that reserve into buckets before it's gone.",
     ],
   },
   "Retained-heat cooking, low-fuel": {
@@ -733,6 +738,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Label any non-potable water storage clearly (commonly purple piping or \"CAUTION: NONPOTABLE WATER – DO NOT DRINK\" signage).",
       "Don't let greywater sit in a closed container for more than about 24 hours — bacteria multiply fast in standing greywater and it starts behaving like blackwater. Use it or route it out the same day.",
       "A simple disposal option is a soakaway pit: dig a hole roughly 3-4 feet deep and 3 feet wide, at least 100 feet from any well, spring, or open water, fill it with clean fist-sized gravel or stones, and let greywater drain into it below the surface so it doesn't pool or attract insects. A simple mesh strainer or cloth over the drain first catches food bits, hair, and grease before they clog the pit.",
+      "Never spray raw greywater overhead with a sprinkler, and never let it touch anything you'd eat raw — leafy greens, lettuce, herbs. Route it below the soil surface instead, like the soakaway pit above, not onto the leaves of food you're not going to cook first.",
     ],
   },
   "Scene safety and triage order": {
@@ -1259,6 +1265,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Antibiotics are not automatically needed — most tooth pain is managed with pain control and an actual dental procedure.",
       "Escalate to 911/ER (not just \"see a dentist soon\") for trouble breathing/swallowing, or facial swelling with fever.",
       "See a dentist as soon as reachable even if pain is currently mild.",
+      "Signs of a tooth abscess specifically, not just general tooth pain: throbbing pain that radiates toward the ear, swelling along the jawline or cheek, a small pimple-like bump on the gum, and pain when you tap the tooth. This needs a dentist — an abscess doesn't resolve on its own.",
+      "Warm salt water can help in the meantime: 1/2 teaspoon of salt in 8 ounces of warm water, swished for about 2 minutes every couple of hours. It won't cure the infection, but it draws down some swelling and reduces bacteria in the area.",
+      "Clove oil, if you have it, is a real numbing option: dab a small amount onto a cotton ball and hold it against the aching tooth and gum for 5-10 minutes.",
+      "Use cold, not heat, on the outside of the face — a cold pack calms pain, while heat actually draws the infection outward and can make facial swelling worse.",
       "If a permanent tooth gets completely knocked out: pick it up by the crown (the white part), never the root. If the person is alert, try gently pushing it back into its socket right away and have them bite down gently on gauze to hold it. If it won't go back in, keep it from drying out — in a cup of cold milk or tucked in the person's cheek — and get to a dentist fast. It has the best chance of being saved within about an hour.",
       "Bleeding that won't stop after a tooth comes out (extraction or trauma): a slightly damp black tea bag pressed firmly against the socket, held with steady bite pressure for 45-60 minutes, works better than plain gauze — something in tea actually helps blood clot there.",
       "A crown or cap that's fallen off: clean the old cement out of it, dry the tooth stub, and use a small dab of plain (non-whitening) toothpaste, petroleum jelly, or temporary dental cement (sold at any pharmacy) to stick it back on as a temporary fix until you can see a dentist. Bite down gently on gauze for a few minutes to seat it and squeeze out the extra.",
@@ -1315,6 +1325,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "After a storm/disaster, walk the fence line before assuming animals are still contained.",
       "Loose livestock near a road is a safety emergency for animals and drivers — prioritize containment/warning over solo recovery.",
       "Routine twice-yearly fence inspection is the main prevention most sources emphasize.",
+      "A quick way to splice broken wire fencing (the Western Union splice): pull the two broken ends tight with fencing pliers, overlap them by about 6 inches, and wrap each end tightly around the other wire 4-5 times. Don't just tie a knot in the wire — a sharp bend creates a weak point that snaps the next time an animal leans on it.",
+      "If a corner post has rotted or pulled loose and the whole fence line has gone slack: drive a new post a few feet down the line, run a horizontal brace between the top of the corner post and this new post, then wrap wire diagonally between the base of the corner post and the top of the brace post and twist it tight with a stick, like tightening a tourniquet, until the fence pulls straight again.",
     ],
   },
   "Dry staples, rationing, special diets": {
@@ -1611,6 +1623,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Care for the newborn: dry the baby thoroughly right away with a warm, clean towel. Clear fluid from the mouth and nose with a cloth. Place the baby directly skin-to-skin on the mother's chest and cover both with dry blankets.",
       "Leave the umbilical cord alone otherwise: do not cut the cord unless it's the tight-nuchal-cord situation above or emergency dispatch explicitly directs you to. Let the placenta deliver naturally, usually within 10-30 minutes — do not pull on the cord to speed it up, which risks severe internal injury to the mother.",
       "After the placenta delivers, the mother is still at risk of serious bleeding. Gently but firmly massage her lower belly in a circular motion until it feels firm, like a grapefruit, rather than soft — this helps the uterus contract and slows the bleeding. Putting the baby to breast right away also helps trigger the same effect naturally.",
+      "Bleeding after birth (lochia) is normal, but soaking through more than one large pad in an hour, for two hours running, is not — that's a sign of active postpartum hemorrhage and needs the fundal massage above along with emergency care as fast as you can get it. A soft, squishy belly instead of a firm one is another sign the uterus isn't contracting the way it should.",
     ],
   },
   "Drowning / near-drowning rescue": {
@@ -1751,6 +1764,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Use heavy-duty outdoor extension cords: plug appliances into the generator using grounded, undamaged, outdoor-rated cords sized correctly for the load.",
       "The same rule applies beyond generators: charcoal grills, camp stoves, and kerosene heaters are just as dangerous indoors, even in a garage or an enclosed porch with the door propped open. None of these are designed to run anywhere air doesn't freely exchange with the outdoors.",
       "Don't rely on how someone looks to judge CO poisoning — the well-known \"cherry-red skin\" sign is actually rare and shows up late, if at all. Headache, dizziness, nausea, and confusion that several people in the house develop around the same time are much more common early warnings, and they're easy to mistake for a stomach bug or the flu.",
+      "If you're using an indoor-rated propane heater (the kind actually built for indoor use, not a generator or grill), it still needs real airflow — keep a window cracked at least an inch the whole time it's running so it has fresh air to draw on.",
     ],
   },
   "Carbon-monoxide alarm or symptoms": {
@@ -1776,8 +1790,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Block out daytime sun: cover sun-facing windows with aluminum foil (facing outward to reflect light), white cardboard, or blankets hung behind the glass. Keep windows and blinds shut during the hottest hours.",
       "Create a nighttime draft: open windows on opposite sides of the house only once the outside temperature drops below the indoor temperature, and hang damp sheets across open windows to cool the incoming breeze.",
-      "Cool the body's pulse points: soak cloths or bandanas in cool water and wrap them around the neck, wrists, groin, and armpits. Sponge arms and legs with water and let it evaporate off the skin.",
+      "Cool the body's pulse points: soak cloths or bandanas in cool water and wrap them around the neck, wrists, groin, and armpits. Sponge arms and legs with water and let it evaporate off the skin. A whole shirt soaked in cool water works the same way, and works even better sitting in front of a fan or in a breeze.",
       "Stay on the lowest level: heat rises, so sleep on the ground floor or in a finished basement rather than upper stories. Avoid indoor heat sources like gas burners or ovens.",
+      "Don't drink huge amounts of plain water while sweating heavily for hours — it flushes out the salt your body needs and can cause cramping or, in extreme cases, dangerous water intoxication. Add a pinch of salt to your water or eat something salty alongside it.",
     ],
   },
   "Common toxic foods (pets)": {
@@ -2369,6 +2384,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Add a stabilizer before storage: untreated pump gasoline starts breaking down and forming engine-clogging varnish within 30 to 90 days. Mix in a fuel stabilizer (like STA-BIL or Sea Foam) as you fill the container, which extends shelf life to 12 to 24 months.",
       "Buy ethanol-free fuel for long-term storage when you can: ethanol absorbs moisture from the air, which causes phase separation and corrodes carburetors in generators, chainsaws, and pumps.",
       "Keep safe storage clearance: a well-ventilated, detached shed or garage at least 50 feet from occupied living space, pilot lights, water heaters, and spark sources — and never more than 25 gallons inside a residential garage.",
+      "Diesel doesn't break down the way gasoline does, but it attracts moisture and can grow a bacterial/fungal slime people call \"diesel algae\" — black, stringy growth that clogs fuel filters fast. A diesel-specific biocide additive, used about once a year in stored fuel, kills it off, and running diesel through a water-separating filter before it goes into a vehicle or generator catches problems before they cause a breakdown.",
     ],
   },
   "Battery watt-hour budgeting (calculator)": {
@@ -2378,6 +2394,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Account for inverter conversion loss: inverters converting 12V DC battery power to 120V AC typically run 80% to 85% efficient. Divide your total AC watt-hour need by 0.85 so the battery bank actually covers the loss.",
       "Respect battery depth-of-discharge limits: never drain lead-acid or AGM batteries below 50% of rated capacity without permanent plate damage. Lithium iron phosphate (LiFePO4) batteries can safely go to 80-90%.",
       "Size the inverter for both continuous and surge watts: the continuous rating must exceed everything running at once, and the surge rating needs headroom for motorized appliances (fridges, pumps), which can briefly draw 2 to 3 times their running wattage on startup.",
+      "Once you know your daily watt-hour need, you can size solar panels to actually replace it: divide your daily watt-hours by your area's average peak sun hours (roughly 4 in winter, 5-6 in summer for most of the US). A 600Wh daily need divided by 4 peak sun hours means you need at least 150W of panels just to break even on an average day — plan for more than the bare minimum to cover cloudy stretches.",
     ],
   },
   "Sump-pump failure": {
@@ -2455,6 +2472,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Pack roots in a damp medium: layer carrots, beets, parsnips, and turnips in wooden crates with slightly damp sawdust, clean sand, or peat moss so the roots don't touch, which holds moisture in and light out.",
       "Keep ethylene producers separate: apples, pears, and ripe fruit give off ethylene gas, which makes potatoes sprout and carrots turn bitter — store them apart. Keep onions and garlic dry (60% humidity), away from the moisture-loving root crops.",
       "Improvise in-ground storage: bury a clean metal garbage can or chest freezer in a shaded, well-drained bank, layer dry straw on top, add a small vent pipe, and cover with a thick wooden lid topped with 12 inches of soil or straw bales.",
+      "Some vegetables need to be cured before they go into cold storage, not straight from the ground: onions, garlic, winter squash, and sweet potatoes should sit somewhere warm, dry, and shaded for 10-14 days first. This toughens their skins and heals over small nicks from harvesting, so they don't just rot in storage.",
     ],
   },
   "Emergency hide tanning and rawhide production": {
@@ -2492,6 +2510,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never burn treated or processed wood: pressure-treated lumber (arsenic and copper), painted or varnished wood, plywood, particleboard, and plastics all release toxic gases like dioxins and hydrogen cyanide when burned.",
       "Avoid green pine in a closed stove: unseasoned pine and fir are high in sap and resin, burn cool, and coat the chimney flue with flammable creosote fast — a real chimney-fire risk.",
       "Stack for airflow outdoors: crisscross log-cabin or teepee stacking draws air from the bottom and sends smoke straight up instead of smothering the embers.",
+      "For long-term storage, keep the stack up off bare ground (pallets or rails work) so ground moisture doesn't rot the bottom layer, and leave a couple inches of open air space between rows so wind can pass through and dry it. Only cover the very top of the stack, not the sides — wrapping the whole pile in a tarp down to the ground traps moisture inside and turns the wood moldy instead of keeping it dry.",
     ],
   },
   "Charcoal production and firebed management": {
@@ -2599,6 +2618,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never use oxygen absorbers on moist food: brown rice, nuts, dried meat, brown sugar, or vegetables that aren't bone-dry should not be packed with oxygen absorbers — removing the oxygen from moist food creates ideal conditions for Clostridium botulinum, the bacteria that causes botulism.",
       "Heat-seal the Mylar properly: seal the open top with a commercial heat sealer, or a clothing iron on its highest cotton/linen setting pressed over a solid board, leaving a 2-inch gap to drop the oxygen absorber in before the final continuous seal.",
       "Add rodent-proof secondary containment: Mylar alone won't stop a rodent from chewing through. Store sealed Mylar pouches inside rigid, food-grade 5-gallon HDPE buckets or metal drums with airtight, gasketed lids.",
+      "How to tell if your seal actually worked: within 12-24 hours, the bag should pull in tight against the food, almost like a vacuum-sealed brick (a little headspace is normal — the oxygen absorber only removes oxygen, not the nitrogen that makes up most of the air). If the bag still looks loose and slack after a day, the seal has a leak somewhere and needs to be redone.",
     ],
   },
   "Well-water pump manual operation (deep and shallow wells)": {
@@ -2888,6 +2908,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Stock what actually trades in a crisis: medical and sanitation items (pain relievers, antibiotics, antiseptic, wound dressings, soap, water purification tablets), fuel and maintenance items (small propane canisters, stabilized gasoline, lamp oil, matches, lighters, motor oil, paracord), and food/comfort items (salt, sugar, pepper, coffee or tea, hard liquor — useful both as a trade good and a wound antiseptic — and baking soda).",
       "Keep trading away from home: never do an exchange at your house or your supply cache. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
       "If you're keeping physical cash on hand, small bills matter more than large ones — $1, $5, $10, and $20 bills are actually usable, since most people won't have change for a $100 bill when card readers are down. Pre-1965 US dimes and quarters (90% silver) are also widely recognized and hard to fake, if you want precious metal in a more practical, tradeable form than bullion.",
+      "Bring a second person if you can, and don't go alone: have one person handle the actual conversation and exchange, while the other stays back 15-20 yards, watching the surroundings rather than the trade itself. Only bring out the specific item you're trading — never open a bag or trunk that shows everything else you have, which just signals what else there is to take.",
     ],
   },
   "Fish toxins and harmful algal blooms": {
@@ -3475,6 +3496,165 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "You need two unglazed terra-cotta pots, one that fits inside the other with about an inch or two of gap all around — unglazed is important, since the water needs to be able to seep through the clay itself.",
       "Plug the drainage hole in the bottom of both pots. Pour a couple inches of clean, coarse sand into the bottom of the larger pot, sit the smaller pot on top of it so the rims line up, then fill the gap between the two pot walls completely with more sand.",
       "Soak the sand thoroughly with clean water until it can't hold any more. Put your food in the dry inner pot, cover the top with a damp cloth, and set the whole thing somewhere shaded with a bit of airflow. Re-wet the sand a couple of times a day to keep it working.",
+    ],
+  },
+  "Disposal of medical waste and soiled dressings": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Bloody bandages, used wound packing, and anything soaked in bodily fluid left in open household trash attracts flies and pests and can spread infection around your living space — treat it differently from regular trash.",
+      "Double-bag it: put soiled gauze, gloves, and dressings in a dedicated heavy-duty trash bag. When it's about 3/4 full, twist the neck closed, fold it over on itself, tape it shut, and put that whole bag inside a second sealed bag.",
+      "If you can burn it: a hot, actively-flaming fire, not a smoldering one, will destroy it quickly — a weak fire just produces toxic smoke without actually burning through the plastic and waste.",
+      "If you can't burn it: bury it at least 3 feet deep, well away from where people live, and at least 200 feet from any well, pond, or water source.",
+    ],
+  },
+  "Improvised feminine hygiene pads": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Clean cotton — boiled rags, strips cut from a cotton t-shirt, or flannel — works as an absorbent layer inside a soft cotton outer wrap. Avoid synthetic fabric (polyester, nylon) directly against skin; it traps moisture and makes yeast infections more likely.",
+      "To clean and reuse cloth pads: rinse out heavy staining in cold water first (hot water actually sets blood stains rather than removing them), then boil the rinsed cloth in water for 10-15 minutes to kill bacteria, and dry it in direct sunlight, which acts as a natural disinfectant on top of the boiling.",
+    ],
+  },
+  "Generator maintenance: oil, spark plugs, carburetor": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Small generator engines don't have an oil filter, so the oil breaks down faster than a car's — change it every 50-100 hours of run time, and check the dipstick every time you refill the gas tank.",
+      "If a generator starts, runs for just a few seconds, then shuts itself off, check the oil level before you assume something else is wrong — most modern generators have a low-oil sensor that shuts the engine down automatically to protect it.",
+      "Gas left sitting in the carburetor for more than about a month can turn into a gummy varnish that clogs the tiny internal passages — this is the most common reason a stored generator won't start. If that happens, the float bowl on the bottom of the carburetor can be removed and cleaned with carburetor cleaner spray.",
+      "Before putting a generator away for storage, close the fuel valve and let it run until it stalls out on its own from an empty carburetor — this is what actually prevents the gummed-up-carburetor problem in the first place.",
+    ],
+  },
+  "Battery care and revival (lead-acid and AGM)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Don't let a standard lead-acid battery sit below about 50% charge for long — repeatedly draining it low lets hard crystals form on the internal plates, which permanently reduces how much charge it can hold.",
+      "If it's a flooded (not sealed) battery, check the liquid level inside monthly and top it up with distilled water only if the plates are exposed — never tap water, which introduces minerals that damage the cells, and never add acid to a battery that's just low on water.",
+      "A battery that reads low and won't take a normal charge anymore isn't necessarily dead — a dedicated desulfation charger, built specifically to break down those hardened crystal deposits, can sometimes bring an old battery back to usable condition.",
+    ],
+  },
+  "Water testing without a lab: turbidity, smell, and color": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Clear water isn't automatically safe, and cloudy water isn't automatically dangerous — but cloudy (turbid) water does make it harder for boiling, chlorine, or UV treatment to work, because suspended particles can shield germs. Let cloudy water settle for a few hours, or run it through a cloth or sand filter, before you treat it.",
+      "Smell tells you a lot: a rotten-egg smell is usually naturally occurring sulfur or decaying organic matter, which boiling and aerating (pouring back and forth between two containers) generally handles. A chemical, gasoline, or pesticide smell means don't drink, boil, or filter it at all — boiling just concentrates the chemical, and normal filters don't remove it. A fishy or stale-pond smell suggests algae toxins, which nothing you do at home will neutralize — find a different source.",
+      "Color is a rough guide too: green usually means algae, deep tea-brown is often just harmless plant tannins (bitter-tasting but drinkable once filtered), and anything milky or with an oily sheen on top points to industrial or fuel contamination — don't use it.",
+    ],
+  },
+  "Gravity-fed water filter maintenance and the freeze-fracture risk": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "When a ceramic or carbon filter's flow slows from a steady stream to a slow drip, it's usually just clogged with fine sediment on the outside — scrub the outer shell gently with a clean scouring pad under clean water (no soap) until it looks like fresh ceramic again.",
+      "For a squeeze or gravity hollow-fiber filter (the Sawyer/LifeStraw style), you can often restore flow by backflushing: push clean water backward through the filter from the clean-water side using the cleaning syringe that comes with it, plunging it firmly several times to push trapped silt back out.",
+      "Never let a wet hollow-fiber filter freeze — this is a serious, easy-to-miss danger. Freezing water inside the microscopic hollow fibers expands and cracks them, and afterward the filter will still pass water at a normal rate, but it can let essentially all the bacteria and parasites straight through without you knowing anything's wrong. In cold weather, keep a wet filter in an inside coat pocket, against your body, so it never actually freezes.",
+    ],
+  },
+  "Field laundry: eradicating lice, mites, and bedbugs": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Regular cold-water washing cleans dirt off clothing and bedding, but it doesn't reliably kill lice, scabies mites, or bedbug eggs — those need real heat.",
+      "Boiling works best: submerge infested clothing or bedding in a pot of boiling water for a solid 15-20 minutes.",
+      "No way to boil? Seal the items in a heavy-duty black plastic bag and leave it in direct, intense summer sun on dark pavement or a tin roof for at least 8 hours — the inside of the bag needs to get hot, above about 120°F, to actually kill both the bugs and their eggs, not just make them uncomfortable.",
+      "After washing, hang things to dry in direct sunlight rather than shade — sunlight itself has some disinfecting effect on top of just drying things out.",
+    ],
+  },
+  "Running propane safely to an indoor-rated appliance": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never bring the propane tank itself indoors — even a 20-lb tank has a safety valve that can vent gas if it gets too warm, and that gas is heavy enough to pool on the floor and find an ignition source. The tank stays outside, upright, shaded, and ventilated, always.",
+      "If you have an appliance actually rated for indoor use, run a proper high-pressure hose from the outdoor tank through a wall pass-through or a slightly cracked window to reach it, rather than moving the tank itself.",
+      "Before you ever light it: mix dish soap and water and spray every threaded connection on the line. Growing bubbles mean a leak — tighten that fitting before you try to light anything.",
+    ],
+  },
+  "Shoring a sagging ceiling or damaged wall": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Warning signs a ceiling joist or load-bearing wall is failing: doors that suddenly stick in their frames, drywall cracking diagonally out from a door or window corner, or a ceiling that's visibly sagging or bouncy underfoot.",
+      "A simple emergency support, a \"T-shore\": nail a roughly 3-foot horizontal board to the top of a vertical post to form a T shape. Set a matching flat board on the floor directly under the sagging spot to spread the weight out, stand the T-shore up between that floor plate and the sagging area, and tap wooden shims under the base until it's wedged in tight and holding the sag from getting worse.",
+      "Don't try to jack the ceiling back up to perfectly level — forcing it back into position can tear the roof or crack things further up in the structure. The goal is just to stop it from sagging more until a professional can look at it.",
+    ],
+  },
+  "Preserving eggs without refrigeration (water-glassing)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "This only works with fresh, unwashed eggs — washing strips off the natural coating on the shell that keeps bacteria and air out, and once that's gone, water-glassing won't help.",
+      "Mix pickling lime (calcium hydroxide) into non-chlorinated water — about 1 ounce of lime per quart of water — and stir until it's dissolved (the water will look a bit milky).",
+      "Place the unwashed eggs pointy-end down in a food-safe bucket, then pour the lime solution over them until they're covered by at least a couple inches of liquid. Put a tight lid on the bucket and store it somewhere cool and dark.",
+      "Eggs kept this way stay good for cooking, baking, and frying for something like 12-18 months — a real long-term option that needs no electricity at all.",
+    ],
+  },
+  "Managing wet crawlspaces and basement flooding": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Don't pump a flooded basement completely dry right away if the ground outside is still saturated — the water sitting in the soil outside is pressing on your foundation walls, and if you remove all the water pressure from inside too fast, that outside pressure alone can crack or cave the wall in. Pump out only a couple feet of water a day as the floodwater outside also recedes.",
+      "In a wet crawlspace, pull out any soaked fiberglass insulation — wet fiberglass holds moisture right up against the wood floor joists above it, which grows mold and rots the wood within days.",
+      "Laying thick plastic sheeting across the bare dirt floor of a crawlspace, with the seams overlapped, stops ground moisture from evaporating upward into your living space — worth doing any time you're already in there after a flood.",
+    ],
+  },
+  "Maintaining firearms in dusty or freezing conditions": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Standard gun oil thickens in extreme cold and can slow down or jam moving parts — in very cold conditions, some owners strip the oil out entirely and run the action dry, or switch to a dry lubricant like graphite powder made for cold weather.",
+      "In dusty or sandy conditions, the opposite problem happens — wet oil collects grit and turns into a gritty paste that jams things up. Wiping exposed moving parts dry, rather than oiling them heavily, works better when the environment is dirty rather than cold.",
+      "Whatever the conditions, this is routine maintenance to keep a mechanical tool working reliably — check your specific owner's manual for what your equipment's manufacturer actually recommends, since lubrication needs vary by model.",
+    ],
+  },
+  "Long-term waste, pests, vector control": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Flies can go from egg to flying adult in under a week in warm weather, so any exposed food waste, wet pet bedding, or spilled animal feed needs to be buried under a foot of soil or burned within 2 days, not left sitting.",
+      "A simple fly trap: cut the top third off a clear plastic bottle, flip it upside down into the bottom section like a funnel, and bait it with sugar water or meat scraps. Flies find their way in through the cone but can't figure out how to fly back out.",
+      "A simple flea trap: a shallow pan of soapy water on the floor overnight with a small light or candle positioned over it — fleas jump toward the warmth and light, land in the water, and the soap breaks the surface tension so they can't climb back out and drown.",
+      "For ticks specifically: keep grass cut short within about 30 feet of where people spend time, and put down a 3-foot-wide strip of gravel, dry mulch, or crushed stone between any wooded area and your yard — ticks generally won't cross open, dry, sun-exposed ground to get to you.",
+    ],
+  },
+  "Appliance failure and safe restart": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Unplug sensitive electronics, and shut off breakers for the fridge, freezer, and HVAC, as soon as you know the power is out — when the grid comes back, it often sends a surge that can fry control boards and compressors.",
+      "Don't plug a fridge, freezer, or AC unit back in the instant the lights come back on. Utilities often cycle power on and off a few times in the first 10-15 minutes of restoration, and those repeated surges are hard on anything with a compressor. Wait until power has stayed on steadily for at least 15 minutes.",
+      "Give a compressor-based appliance a few minutes of rest even after that: if it's forced to restart against pressure that hasn't had a chance to equalize, the motor can stall, draw a huge amount of current, and trip its own internal safety switch. A 5-minute wait after plugging it back in before expecting it to run normally is a reasonable buffer.",
+      "If you're bringing several big appliances back online, stagger them — one at a time, a few minutes apart — rather than all at once, so you don't overload your home's breaker panel with everything starting up simultaneously.",
+    ],
+  },
+  "Texting vs. calling during network congestion": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A phone call needs a dedicated, continuously-open connection through the cell network the whole time you're talking. When a lot of people try to call at once after a disaster, those connections fill up fast and calls simply won't go through.",
+      "A text message barely uses any of that same capacity — it rides along on a tiny background signal your phone is already sending constantly just to stay connected to the tower. That's why texts often get through even when calls won't connect at all.",
+      "If a call fails, don't keep redialing — that just adds to the congestion for everyone. Send a text instead: keep it short and specific (your status, your exact location, what you need), and skip photos or videos, which need much more bandwidth and are more likely to fail to send.",
+      "A text that doesn't go through right away isn't necessarily lost — it's common for it to sit and then send the moment a brief gap opens up in network traffic, so it's worth letting it try rather than assuming it failed.",
+    ],
+  },
+  "Paper maps, contacts, critical records backup": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Keep a small waterproof notebook with the phone numbers, addresses, and out-of-town contacts for everyone in your family, written in permanent ink — most people can't actually recall these numbers from memory once their phone is dead or broken, since we rely on contact lists so completely.",
+      "Paper maps matter for the same reason digital maps can fail: keep a current state road map and, for your local area, a detailed topographic map, somewhere you can grab them fast. Sealing them or keeping them in a waterproof map case protects them from the weather.",
+      "For the document side of this — deeds, insurance policies, IDs, medical records — see Emergency-document inventory, which covers what to include and how to store it safely. Keep that document set together with your maps and contact book so everything critical is in one place.",
+    ],
+  },
+  "Amateur (ham) radio licensing basics": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Ham radio licensing has three tiers, each unlocking more: Technician (entry-level, a 35-question exam on basic theory and rules) gives you local line-of-sight frequencies through repeaters. General adds long-range HF bands that can reach across the country without needing the internet or cell towers at all. Amateur Extra unlocks the rest.",
+      "Getting licensed before you need it matters — there's a narrow legal exception allowing an unlicensed person to transmit on ham frequencies, but only in a genuine, immediate, life-threatening emergency with no other way to communicate. For everyday practice, testing your setup, or community radio check-ins, you need an actual license.",
+      "The test itself isn't the hard part for most people — it's multiple choice, and the question pools are public, so studying the actual test bank ahead of time, rather than trying to learn amateur radio theory from scratch, is how most people pass the Technician exam.",
+    ],
+  },
+  "Downloading and using offline map packs": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Download offline map areas for your region before you need them, over a strong Wi-Fi connection — offline map data can run into the hundreds of megabytes or more, and that's not something you want to be waiting on during an actual emergency.",
+      "If your mapping app offers it, download both a standard street map layer and a satellite or topographic layer — the topographic layer shows elevation, waterways, and tree cover that a plain street map won't, which matters if you end up off the main roads.",
+      "Your phone's GPS chip talks directly to satellites and works completely offline, with no cell signal or Wi-Fi needed — but it can take a few minutes longer to get an initial location fix without cell towers to help, so give it time and keep the phone with a clear view of the sky while it locks on.",
+      "Offline navigation still drains your battery fast. Keep the phone in airplane mode (GPS still works with airplane mode on) with the screen dimmed and off between checks, rather than leaving the map open and glowing the whole time you're moving.",
+    ],
+  },
+  "Marking private landmarks/hazards on offline maps": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A simple, consistent pin system is worth setting up in advance: one type of marker for water sources (springs, creeks, a working spigot), another for resources (fuel, medical supplies, a safe meeting spot), and another for hazards (a low-water crossing that floods, an unstable bridge, an area to avoid).",
+      "Street addresses can become useless if signs and landmarks are destroyed — learning to read and drop a coordinate (either simple GPS decimal coordinates or a grid system like MGRS/UTM) gives you a way to mark and find a spot that doesn't depend on anything still being standing.",
+      "If you're marking sensitive locations — a supply cache, a fallback meeting spot — avoid labeling them in plain language on a device other people might see. A vague nickname, or keeping that layer of the map in a separate password-protected file, keeps the information private without you having to remember complicated codes.",
     ],
   },
 };
