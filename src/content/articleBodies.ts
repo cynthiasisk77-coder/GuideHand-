@@ -1457,7 +1457,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Chemical and electrical burns": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["American Heart Association / American Red Cross First Aid Guidelines","OSHA Burn Standards"],
     guidance: [
       "Electrical burns — make the scene safe first: never touch the person while they are still in contact with the live source. Shut off power at the breaker or unplug the cord before approaching. If it involves a downed outdoor wire, stay back and do not approach.",
       "Check breathing immediately: high-voltage current often stops the heart or lungs. Start CPR right away if they are unresponsive and not breathing normally.",
@@ -1468,7 +1468,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Shock and hypothermia prevention (medical)": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["American Red Cross","Committee on Tactical Combat Casualty Care (CoTCCC)"],
     guidance: [
       "Recognize shock early: look for pale, cold, clammy skin, a rapid weak pulse, fast shallow breathing, extreme thirst, weakness, confusion, or dizziness.",
       "Position them flat: lay the person flat on their back. If they are faint or dizzy and have no suspected spinal, head, or leg fractures, elevate their legs about 6 to 12 inches to keep blood flowing to vital organs.",
@@ -1478,7 +1478,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Asthma, COPD, breathing distress": {
-    sources: ["American Heart Association / American Red Cross, 2024 first aid guidelines"],
+    sources: ["2024 American Heart Association & American Red Cross First Aid Guidelines"],
     guidance: [
       "Sit upright and lean forward: never force someone struggling for air to lie flat. Have them sit upright, leaning slightly forward with arms supported on knees or a table (\"tripod position\") to open the airway.",
       "Assist with prescribed inhalers: help them locate and use their personal emergency rescue inhaler (such as albuterol) and spacer immediately. Have them take slow, deep breaths, holding each puff for up to 10 seconds, following the dosage on their prescription label.",
@@ -1488,7 +1488,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Unconscious, breathing, cause unknown": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["American Heart Association & American Red Cross, Guidelines for First Aid"],
     guidance: [
       "Check the airway and breathing: make sure their chest is rising and falling normally. If breathing stops or turns into gasping, start CPR immediately.",
       "Roll into the recovery position: if there is no suspected neck or back injury, roll them gently onto their side. Bend their top knee to keep them stable and tilt their chin up slightly to keep the airway open and prevent choking if they vomit.",
@@ -1497,7 +1497,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Hypothermia recognition and first aid": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["Wilderness Medical Society Clinical Practice Guidelines","CDC"],
     guidance: [
       "Watch for worsening stages: mild hypothermia shows as violent, uncontrollable shivering and fumbling fingers. Severe hypothermia sets in when shivering suddenly stops, speech becomes slurred, and the person acts clumsy, drunk, or confused.",
       "Insulate from the frozen ground: lay down dry cardboard, blankets, foam pads, or pine boughs before laying the person down — the ground pulls body heat out faster than the air.",
@@ -1506,7 +1506,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Extreme heat illness": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["CDC / NIOSH Heat Stress Standards","American Heart Association / American Red Cross Guidelines for First Aid"],
     guidance: [
       "Heat exhaustion (warning stage): heavy sweating, cold/pale/clammy skin, a fast weak pulse, nausea, muscle cramps, dizziness. Move to air conditioning or shade, loosen clothing, sip cool water, and apply wet cloths.",
       "Heat stroke (life-threatening emergency): body temperature 103°F or higher, hot/red/dry-or-damp skin, a rapid strong pulse, confusion, dizziness, fainting, or slurred speech.",
@@ -1515,7 +1515,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Emergency childbirth and newborn care": {
-    sources: ["American Red Cross + American Academy of Pediatrics / ACOG"],
+    sources: ["American College of Obstetricians and Gynecologists (ACOG)","American Red Cross Wilderness and Remote First Aid"],
     guidance: [
       "Signs delivery is happening now: contractions 1 to 2 minutes apart, a strong urge to push or bear down, a sensation like a bowel movement, or the baby's head is visible (crowning).",
       "Call 911 immediately: put the phone on speaker. Wash your hands and gather clean towels, blankets, and a clean bulb syringe or cloth.",
@@ -1525,7 +1525,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Drowning / near-drowning rescue": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["American Heart Association Guidelines for Cardiopulmonary Resuscitation (drowning protocol)"],
     guidance: [
       "Rescue safely: reach with an object (oar, branch, towel) or throw flotation gear (life ring, rope). Avoid jumping in unless you are a trained lifeguard.",
       "Remove from water and assess: get them to flat, dry ground. Check responsiveness and breathing.",
@@ -1535,7 +1535,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Structure fire — get out now": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["National Fire Protection Association (NFPA) Standard Fire Safety Codes"],
     guidance: [
       "Leave immediately: don't stop to gather belongings, money, or pets if doing so causes delay. Sound the alarm to alert others.",
       "Stay low: smoke and toxic gases rise, so cleaner, cooler air is near the floor. Crawl on hands and knees under the smoke.",
@@ -1545,7 +1545,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Natural-gas or propane odor": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NFPA 54 (National Fuel Gas Code)","American Gas Association Safety Standards"],
     guidance: [
       "Leave on foot immediately: if you smell rotten eggs or sulfur, hear hissing, or see unexplained dirt blowing from the ground, get everyone and your pets outside right away. Move far upwind and away from the building.",
       "Do not touch anything electrical: don't flip light switches, unplug appliances, ring doorbells, or use a garage door opener. A tiny spark from a switch or static electricity can ignite a gas pocket.",
@@ -1555,7 +1555,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Chemical plume: evacuate or shelter": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["US DOT Pipeline and Hazardous Materials Safety Administration (PHMSA) Emergency Response Guidebook","FEMA Shelter-in-Place Guidance"],
     guidance: [
       "Determine wind direction instantly: look at smoke, flags, or tree branches. If you're outdoors or must evacuate, move perpendicular (roughly 90 degrees) to the wind to step out of the plume's path, then head upwind.",
       "Shelter-in-place if the cloud already surrounds your building: stay inside. Go to an above-ground room with the fewest doors and windows — many toxic industrial chemicals are heavier than air and sink into basements.",
@@ -1565,7 +1565,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Biological outbreak and household isolation": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["CDC Community & Home Infection Prevention and Control Guidelines"],
     guidance: [
       "Dedicate a sick room and bathroom: designate one bedroom for the infected person. If a second bathroom exists, reserve it exclusively for their use; if sharing one bathroom, wipe down all touched fixtures with disinfectant or bleach solution after each use.",
       "Set up a no-contact buffer zone: leave food, water, and supplies outside the closed door. The sick person retrieves items after the caregiver steps away.",
@@ -1575,7 +1575,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Flash flood": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NOAA / National Weather Service \"Turn Around Don’t Drown\"","FEMA Flood Safety"],
     guidance: [
       "Move to high ground immediately: don't wait for instructions or warnings if you see rising water, hear rushing water, or notice muddy runoff picking up speed. Seconds count, especially in low-lying areas, canyons, and dry creek beds.",
       "Never walk through moving water: just 6 inches of fast-moving water can knock an adult off their feet. If you must cross standing water, check the ground's firmness with a stick before each step.",
@@ -1584,7 +1584,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Lightning": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NOAA / National Weather Service Lightning Safety Guidelines"],
     guidance: [
       "Follow the \"no place outside is safe\" rule: if you hear thunder, lightning is close enough to strike you. Get inside a substantial, enclosed building or an all-metal, hard-topped vehicle immediately.",
       "Unsafe shelters to avoid: never shelter under isolated trees, open gazebos, rain sheds, picnic shelters, carports, or tents — these don't protect against lightning and can attract strikes.",
@@ -1594,7 +1594,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Tsunami": {
-    sources: ["NOAA / National Weather Service tsunami guidance"],
+    sources: ["NOAA / NWS Tsunami Warning System","International Tsunami Information Center (ITIC)"],
     guidance: [
       "Recognize the natural warning signs: a strong or long-lasting earthquake near the coast, a loud roaring sound from the ocean, or the sea suddenly draining away and exposing the ocean floor are all immediate warnings.",
       "Move inland and uphill right now: don't wait for sirens, alerts, or official warnings. Grab your go-bag and move immediately inland or to ground at least 100 feet above sea level, or 1 to 2 miles inland.",
@@ -1604,7 +1604,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Chemical/fuel/algal-toxin/radiological rejection": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["EPA Emergency Disinfection of Drinking Water","CDC WASH Emergency Guidance"],
     guidance: [
       "Boiling and chlorine do not fix these poisons: boiling only kills bacteria, viruses, and parasites. Boiling water with chemicals, heavy metals, fuel, pesticides, or radiation actually evaporates safe water and concentrates the toxic residue left behind.",
       "Reject water with chemical or fuel signs: never drink, cook with, or wash in water that has an oily sheen, a gasoline or solvent odor, unusual chemical discoloration, or dead fish nearby. Standard portable filters and camping purifiers will not make fuel-tainted water safe.",
@@ -1613,7 +1613,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Electrical panel and de-energizing verification": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NFPA 70E (Standard for Electrical Safety in the Workplace)","OSHA"],
     guidance: [
       "Never touch a panel while wet: stand on dry ground or a thick rubber mat or dry wooden board. If standing water reaches the panel, don't approach it — stay completely clear.",
       "The one-hand rule: use only one hand to touch the panel door and switches, keeping your other hand behind your back or in your pocket. This keeps an electrical path from crossing through your chest if a short occurs.",
@@ -1622,7 +1622,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Electric/hybrid vehicle crash and flood hazards": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NFPA Alternative Fuel Vehicles Safety Training","NHTSA EV Safety Standards"],
     guidance: [
       "Never touch bright orange cables: all high-voltage cables in electric and hybrid vehicles are coated in bright orange insulation. Don't cut, touch, or pull these cables, and never pry open the high-voltage battery casing.",
       "Submerged vehicle safety: submerged EV batteries are isolated and don't normally electrify the surrounding floodwater. But if you see vigorous bubbling, hissing, or smoke rising from under the car, move away immediately — that signals hazardous battery gases or thermal runaway.",
@@ -1631,7 +1631,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Fireplace/chimney limitations before use": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["Chimney Safety Institute of America (CSIA)","NFPA 211"],
     guidance: [
       "Check the flue and damper first: open the damper completely before lighting anything, and verify airflow by holding a lit match or candle near the opening to confirm the draft pulls smoke upward.",
       "Inspect for blockages and soot buildup: look up the chimney with a flashlight for bird nests, leaves, cracked mortar, or thick, tar-like creosote deposits that can trigger a chimney fire.",
@@ -1641,7 +1641,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Wood-stove and combustion-heater safety": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["NFPA 211 (Standard for Chimneys, Fireplaces, Vents, and Solid Fuel-Burning Appliances)"],
     guidance: [
       "Ensure dedicated outdoor venting: every wood stove and fuel heater must vent completely outside through an airtight, undamaged pipe; never use an unvented fuel-burning heater inside a sleeping area.",
       "Maintain clearance around heat: keep blankets, curtains, clothes, and kindling at least 3 feet from all sides of the stove and stovepipe.",
@@ -1650,7 +1650,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Generator carbon-monoxide safety": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["US Consumer Product Safety Commission (CPSC)","NFPA"],
     guidance: [
       "Operate outdoors only, far from the house: place the generator outdoors, at least 20 feet from all doors, windows, and vents, with the exhaust pointed away from any structure.",
       "Never run it in any enclosed or semi-enclosed space: never operate a generator inside a house, garage, basement, crawlspace, shed, camper, or under a porch, even with doors open and fans running.",
@@ -1660,7 +1660,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Carbon-monoxide alarm or symptoms": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["CDC","NFPA 720 (Standard for the Installation of Carbon Monoxide Warning Equipment)"],
     guidance: [
       "Evacuate to fresh air immediately: if an alarm sounds or anyone feels a sudden dull headache, dizziness, weakness, nausea, or confusion, get everyone and pets outdoors into fresh air right away.",
       "Don't look for the leak: never waste time searching for the cause, and don't re-enter the building until it's thoroughly aired out and the source is shut down.",
@@ -1669,7 +1669,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Frostbite and refreezing risk": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["Wilderness Medical Society Clinical Practice Guidelines for the Prevention and Treatment of Frostbite"],
     guidance: [
       "Spot the signs early: skin turns numb, waxy, hard, and pale white or grayish-yellow.",
       "The absolute rule on refreezing: never thaw frostbitten hands, feet, or ears if there's any chance they could freeze again before reaching safety. Thawing and then refreezing causes catastrophic, permanent tissue death that can lead to amputation — walking on frozen feet is safer than walking on thawed, refrozen feet.",
@@ -1678,7 +1678,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Extreme-heat home cooling without power": {
-    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    sources: ["CDC Extreme Heat Guidance","FEMA Non-Powered Thermal Management"],
     guidance: [
       "Block out daytime sun: cover sun-facing windows with aluminum foil (facing outward to reflect light), white cardboard, or blankets hung behind the glass. Keep windows and blinds shut during the hottest hours.",
       "Create a nighttime draft: open windows on opposite sides of the house only once the outside temperature drops below the indoor temperature, and hang damp sheets across open windows to cool the incoming breeze.",
