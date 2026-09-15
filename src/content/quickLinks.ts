@@ -57,16 +57,18 @@ export const QUICK_ARTICLE_MAP: Record<string, QuickLink> = {
     related: ["Head, neck and spinal injury"],
   },
   Hypothermia: {
+    primary: "Hypothermia recognition and first aid",
     related: ["Winter storm, blizzard, ice storm", "Vehicle stranded in heat or cold", "Shock and hypothermia prevention (medical)"],
   },
   "Heat illness (exhaustion/stroke)": {
-    related: ["Extreme heat illness", "Vehicle stranded in heat or cold", "Dehydration and oral rehydration"],
+    primary: "Extreme heat illness",
+    related: ["Vehicle stranded in heat or cold", "Dehydration and oral rehydration"],
   },
   "Animal emergency (poisoning)": {
     related: ["Pet snakebite and envenomation", "Pet seizure and breathing distress", "Pet trauma, bleeding, fractures, safe transport", "Bloat/GDV warning signs"],
   },
   "Emergency childbirth": {
-    related: ["Emergency childbirth and newborn care"],
+    primary: "Emergency childbirth and newborn care",
   },
   Seizure: {
     related: ["Pet seizure and breathing distress"],

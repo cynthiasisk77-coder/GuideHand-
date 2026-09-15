@@ -1456,4 +1456,152 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never taste food to decide if it's safe, and don't assume cooking spoiled food afterward makes it safe again — some hazards survive cooking.",
     ],
   },
+  "Chemical and electrical burns": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Electrical burns — make the scene safe first: never touch the person while they are still in contact with the live source. Shut off power at the breaker or unplug the cord before approaching. If it involves a downed outdoor wire, stay back and do not approach.",
+      "Check breathing immediately: high-voltage current often stops the heart or lungs. Start CPR right away if they are unresponsive and not breathing normally.",
+      "Treat hidden electrical injuries: electrical current travels inside the body. Look for both an entry wound and an exit wound (often on hands, feet, or where they touched ground). Cover wounds loosely with clean, dry cloth. Keep the person flat and warm to prevent shock.",
+      "Chemical burns — flush immediately: brush off dry chemical powders with a cloth or glove first before adding water. Flush wet chemicals instantly with large amounts of clean, running room-temperature water for at least 15 to 20 minutes.",
+      "Remove contaminated clothing: strip off any clothing, shoes, or jewelry soaked with the chemical while flushing water over the skin. Do not try to neutralize acids with bases or vice versa — the chemical reaction generates extreme heat and worsens the burn.",
+      "Cover clean burns dry: after thorough flushing, cover the burn loosely with a clean, dry, non-stick dressing or cloth. Never apply butter, grease, ointments, or direct ice.",
+    ],
+  },
+  "Shock and hypothermia prevention (medical)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Recognize shock early: look for pale, cold, clammy skin, a rapid weak pulse, fast shallow breathing, extreme thirst, weakness, confusion, or dizziness.",
+      "Position them flat: lay the person flat on their back. If they are faint or dizzy and have no suspected spinal, head, or leg fractures, elevate their legs about 6 to 12 inches to keep blood flowing to vital organs.",
+      "Maintain normal body temperature: shock stops the body from regulating heat. Insulate them from the cold ground with a pad, tarp, or sleeping bag, and wrap their torso in dry blankets. Avoid overheating them to sweating, but never let them get cold.",
+      "Do not give food or drink: even if they complain of extreme thirst, do not give water or food — it can cause choking or vomiting if their level of alertness drops. Moisten their lips with a damp cloth instead.",
+      "Calm and immobilize: keep them still and reassure them quietly. Physical movement and panic accelerate circulatory collapse.",
+    ],
+  },
+  "Asthma, COPD, breathing distress": {
+    sources: ["American Heart Association / American Red Cross, 2024 first aid guidelines"],
+    guidance: [
+      "Sit upright and lean forward: never force someone struggling for air to lie flat. Have them sit upright, leaning slightly forward with arms supported on knees or a table (\"tripod position\") to open the airway.",
+      "Assist with prescribed inhalers: help them locate and use their personal emergency rescue inhaler (such as albuterol) and spacer immediately. Have them take slow, deep breaths, holding each puff for up to 10 seconds, following the dosage on their prescription label.",
+      "Pursed-lip breathing (COPD or panic): if an inhaler is empty or unavailable, have them inhale slowly through the nose for 2 seconds, purse their lips like blowing out a candle, and exhale slowly for 4 seconds. This keeps the airway open longer and slows hyperventilation.",
+      "Clear the immediate air: move away from smoke, dust, cold drafts, engine exhaust, or strong chemical odors that trigger airway spasms. Loosen tight clothing around the neck and chest.",
+      "Watch for respiratory failure: if the person cannot speak more than one word at a time, their lips or fingertips turn gray or blue, or their chest pulls in hard between the ribs with each breath, the airway is failing. If they collapse and stop breathing, begin CPR.",
+    ],
+  },
+  "Unconscious, breathing, cause unknown": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Check the airway and breathing: make sure their chest is rising and falling normally. If breathing stops or turns into gasping, start CPR immediately.",
+      "Roll into the recovery position: if there is no suspected neck or back injury, roll them gently onto their side. Bend their top knee to keep them stable and tilt their chin up slightly to keep the airway open and prevent choking if they vomit.",
+      "Call 911 immediately: state that the person is unresponsive but currently breathing. Stay beside them and watch their breathing constantly until paramedics arrive.",
+      "Do not give anything by mouth: never give water, food, or pills to someone who is unconscious.",
+    ],
+  },
+  "Hypothermia recognition and first aid": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Signs: uncontrolled shivering, slurred speech, clumsy or fumbling hands, extreme tiredness, or confusion. Shivering that stops on its own while the person is still cold means it's getting worse, not better.",
+      "Get out of the cold: move the person indoors or into a sheltered area. Gently remove any wet clothing.",
+      "Warm the core first: wrap them in dry blankets, coats, or sleeping bags, covering the chest, neck, head, and groin. Use skin-to-skin contact or warm, dry packs wrapped in towels against the chest and back — never direct, bare heat.",
+      "Warm drinks only if fully alert: if they can swallow easily, give warm, sweet liquids (no alcohol or caffeine). Never give drinks to someone drowsy or confused.",
+      "Avoid rapid heating: do not rub their arms or legs, do not place them directly in a hot bath, and do not use direct boiling water bottles — any of these can trigger shock.",
+    ],
+  },
+  "Extreme heat illness": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Heat exhaustion (warning stage): heavy sweating, cold/pale/clammy skin, a fast weak pulse, nausea, muscle cramps, dizziness. Move to air conditioning or shade, loosen clothing, sip cool water, and apply wet cloths.",
+      "Heat stroke (life-threatening emergency): body temperature 103°F or higher, hot/red/dry-or-damp skin, a rapid strong pulse, confusion, dizziness, fainting, or slurred speech.",
+      "Act immediately for heat stroke: call 911. Cool the person right now by any means available — immerse them in cold water or an ice bath up to the neck, spray them with cool water and fan aggressively, or place ice packs at the neck, armpits, and groin.",
+      "Do not force fluids: if they are confused, vomiting, or passing out, do not try to make them drink.",
+    ],
+  },
+  "Emergency childbirth and newborn care": {
+    sources: ["American Red Cross + American Academy of Pediatrics / ACOG"],
+    guidance: [
+      "Signs delivery is happening now: contractions 1 to 2 minutes apart, a strong urge to push or bear down, a sensation like a bowel movement, or the baby's head is visible (crowning).",
+      "Call 911 immediately: put the phone on speaker. Wash your hands and gather clean towels, blankets, and a clean bulb syringe or cloth.",
+      "Support the delivery: support the baby's head as it emerges with gentle hands; do not pull the baby out or push on the mother's stomach. If the cord is wrapped around the neck, slip it gently over the head.",
+      "Care for the newborn: dry the baby thoroughly right away with a warm, clean towel. Clear fluid from the mouth and nose with a cloth. Place the baby directly skin-to-skin on the mother's chest and cover both with dry blankets.",
+      "Leave the umbilical cord alone: do not cut the cord unless emergency dispatch explicitly directs you to. Let the placenta deliver naturally — do not pull on the cord.",
+    ],
+  },
+  "Drowning / near-drowning rescue": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Rescue safely: reach with an object (oar, branch, towel) or throw flotation gear (life ring, rope). Avoid jumping in unless you are a trained lifeguard.",
+      "Remove from water and assess: get them to flat, dry ground. Check responsiveness and breathing.",
+      "Start CPR with rescue breaths: if they are not breathing, begin CPR. Unlike sudden cardiac arrest, drowning is a suffocation emergency — give 2 initial rescue breaths before 30 chest compressions, then continue alternating 30 compressions and 2 breaths.",
+      "Do not try to clear water with a Heimlich maneuver: don't waste time trying to squeeze water out of the stomach. Airway management and chest compressions are what restore oxygen.",
+      "A medical checkup is required afterward: even if they wake up, cough out water, and seem fine, get them to an emergency room — lungs can fill with fluid hours later (secondary drowning / pulmonary edema).",
+    ],
+  },
+  "Structure fire — get out now": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Leave immediately: don't stop to gather belongings, money, or pets if doing so causes delay. Sound the alarm to alert others.",
+      "Stay low: smoke and toxic gases rise, so cleaner, cooler air is near the floor. Crawl on hands and knees under the smoke.",
+      "Feel doors before opening: use the back of your hand to feel the door, doorknob, and frame. If it feels warm or hot, don't open it — use a window or a second escape route instead.",
+      "If trapped in a room: close all doors between you and the fire. Seal cracks around doors with towels or bedding (wet if possible). Open a window slightly and wave a bright cloth or flashlight to signal rescuers. Call 911 and tell them your exact room.",
+      "Never go back in: once you're outside at your meeting spot, never re-enter for any reason. Tell arriving firefighters if anyone is missing.",
+    ],
+  },
+  "Natural-gas or propane odor": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Leave on foot immediately: if you smell rotten eggs or sulfur, hear hissing, or see unexplained dirt blowing from the ground, get everyone and your pets outside right away. Move far upwind and away from the building.",
+      "Do not touch anything electrical: don't flip light switches, unplug appliances, ring doorbells, or use a garage door opener. A tiny spark from a switch or static electricity can ignite a gas pocket.",
+      "No flames or phones inside: don't light matches, candles, or lighters. Don't use a cell phone or landline inside the structure — only use a phone once you're safely away from the building.",
+      "Shut off the supply valve only if it's outside and safe to reach: if the main shutoff valve on your exterior gas meter or propane tank is easily accessible and you have a wrench ready, turn it a quarter-turn perpendicular to the pipe. Never go back inside a building to shut off gas.",
+      "Never turn the gas back on yourself: once shut off, the system must stay closed until a qualified professional checks the lines for leaks.",
+    ],
+  },
+  "Chemical plume: evacuate or shelter": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Determine wind direction instantly: look at smoke, flags, or tree branches. If you're outdoors or must evacuate, move perpendicular (roughly 90 degrees) to the wind to step out of the plume's path, then head upwind.",
+      "Shelter-in-place if the cloud already surrounds your building: stay inside. Go to an above-ground room with the fewest doors and windows — many toxic industrial chemicals are heavier than air and sink into basements.",
+      "Shut down airflow immediately: turn off furnaces, air conditioners, and bathroom or kitchen exhaust fans. Close the fireplace damper.",
+      "Seal cracks and openings: tape heavy plastic sheeting (or trash bags) over windows, doors, and vents with duct tape. If tape isn't available, pack wet towels, sheets, or clothing tightly into the gaps under doors and around window frames.",
+      "Cover your breathing: fold a dry or damp towel or cloth over your nose and mouth if fumes seep inside. Stay sealed until you're certain the plume has passed.",
+    ],
+  },
+  "Biological outbreak and household isolation": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Dedicate a sick room and bathroom: designate one bedroom for the infected person. If a second bathroom exists, reserve it exclusively for their use; if sharing one bathroom, wipe down all touched fixtures with disinfectant or bleach solution after each use.",
+      "Set up a no-contact buffer zone: leave food, water, and supplies outside the closed door. The sick person retrieves items after the caregiver steps away.",
+      "Use protection when entering: if the caregiver must enter the room, both the caregiver and the sick person should wear tight-fitting masks (N95 or surgical). The caregiver should wear gloves and wash hands thoroughly with soap and water for 20 seconds immediately after leaving.",
+      "Handle laundry and dishes safely: don't shake dirty bedding or clothing — shaking launches viral particles into the air. Wash their laundry in hot water and dry thoroughly. Wash dishes with hot water and dish soap or run them through a dishwasher; use separate dedicated utensils if water is scarce.",
+      "Contain waste: keep a lined trash can inside the sick room. Tie off the bag tightly before removing it, and wash hands immediately afterward.",
+    ],
+  },
+  "Flash flood": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Move to high ground immediately: don't wait for instructions or warnings if you see rising water, hear rushing water, or notice muddy runoff picking up speed. Seconds count, especially in low-lying areas, canyons, and dry creek beds.",
+      "Never walk through moving water: just 6 inches of fast-moving water can knock an adult off their feet. If you must cross standing water, check the ground's firmness with a stick before each step.",
+      "Never drive into floodwater: 12 inches of water will float most passenger cars, and 24 inches will sweep away trucks and SUVs. If water rises rapidly around your vehicle, abandon it immediately and get to higher ground on foot.",
+      "Avoid storm drains and culverts: debris often blocks these, creating strong suction and sudden releases of water that can pull a person under instantly.",
+    ],
+  },
+  "Lightning": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Follow the \"no place outside is safe\" rule: if you hear thunder, lightning is close enough to strike you. Get inside a substantial, enclosed building or an all-metal, hard-topped vehicle immediately.",
+      "Unsafe shelters to avoid: never shelter under isolated trees, open gazebos, rain sheds, picnic shelters, carports, or tents — these don't protect against lightning and can attract strikes.",
+      "If caught in the open with no shelter: stay away from tall objects, wire fences, metal poles, and open water. Move off ridges and peaks into a lower area or ravine.",
+      "The lightning crouch (absolute last resort): if your hair stands on end or you feel tingling, squat low on the balls of your feet with heels touching, tuck your head, and cover your ears. Keep as little contact with the ground as possible — don't lie flat.",
+      "Indoor precautions: stay away from corded phones, plugged-in electronics, plumbing fixtures (sinks, showers), and concrete basement floors or walls, which often contain reinforcing metal wire.",
+    ],
+  },
+  "Tsunami": {
+    sources: ["NOAA / National Weather Service tsunami guidance"],
+    guidance: [
+      "Recognize the natural warning signs: a strong or long-lasting earthquake near the coast, a loud roaring sound from the ocean, or the sea suddenly draining away and exposing the ocean floor are all immediate warnings.",
+      "Move inland and uphill right now: don't wait for sirens, alerts, or official warnings. Grab your go-bag and move immediately inland or to ground at least 100 feet above sea level, or 1 to 2 miles inland.",
+      "Evacuate on foot if roads are jammed: traffic gridlock is common after coastal quakes. If vehicles stall, walk or run uphill to clear the danger zone.",
+      "Never go to the beach to look: if you can see the wave coming, you're already too close to outrun it.",
+      "Expect multiple waves: the first wave is rarely the largest. Tsunamis arrive as a series of surges that can continue for many hours — stay on high ground until you have absolute confirmation the danger has passed.",
+    ],
+  },
 };
