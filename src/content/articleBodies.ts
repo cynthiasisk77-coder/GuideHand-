@@ -2004,4 +2004,86 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Clear your footing and escape path: clear loose brush, mud, and trip hazards around your feet before cutting, and always keep a clear escape path diagonally backward, away from the falling log or tree.",
     ],
   },
+  "Safe indoor lighting during blackout": {
+    sources: ["National Fire Protection Association (NFPA)","FEMA, Home Fires and Power Outage Safety"],
+    guidance: [
+      "Prioritize battery and solar light: rely on battery-powered LED lanterns, flashlights, headlamps, or glow sticks as your main light source instead of open flames.",
+      "The open-flame candle rule: avoid candles whenever you can — unattended candles cause a large share of residential post-disaster fires.",
+      "If you must use candles: place them in sturdy, non-combustible holders (metal, ceramic, or glass) set inside a wide metal pie tin or bowl, at least 12 inches from anything flammable like curtains, bedding, or paper.",
+      "Never leave a burning candle unattended: put every candle out before leaving the room or going to sleep, and never let children or pets near an open flame.",
+      "Never use outdoor fuel lanterns indoors: kerosene lamps, white-gas lanterns, or liquid-fuel camp lights burn oxygen and release carbon monoxide — never light them in an unventilated indoor room.",
+    ],
+  },
+  "Outdoor cooking placement and fire control": {
+    sources: ["Consumer Product Safety Commission (CPSC)","NFPA 58 (Liquefied Petroleum Gas Code) outdoor cooking guidelines"],
+    guidance: [
+      "Maintain outdoor clearance: set up camp stoves, charcoal grills, and turkey fryers on level bare dirt, gravel, or concrete, at least 10 feet from house walls, wooden deck railings, and low-hanging branches.",
+      "Never cook in enclosed spaces: never use charcoal, propane burners, or camp stoves inside a tent, camper, garage, carport, breezeway, or screened porch, even with the windows open.",
+      "Prep fire control before lighting: keep a working Class ABC fire extinguisher, a shovel, and a bucket of water or sand right next to the cooking area before you strike a match.",
+      "Never leave hot cookers unattended: hot coals and burner flames can flare up instantly from dripping grease. Keep a safe perimeter and keep children and pets back.",
+    ],
+  },
+  "Campfire site and extinguishment": {
+    sources: ["U.S. Forest Service (USFS) Campfire Safety and Extinguishment Protocols","Scouting America"],
+    guidance: [
+      "Choose and prep a safe site: pick a flat spot sheltered from wind, at least 15 feet from tent walls, shrubs, and low branches, and clear pine needles, leaves, and dry grass down to bare soil in a 10-foot circle around the pit.",
+      "Build a containment ring: circle the fire pit with rocks, but avoid smooth, rounded river or creek-bed stones — trapped moisture inside them can boil and make the rocks crack or explode under heat.",
+      "Keep fires manageable: burn small, dry pieces of wood rather than a large bonfire that throws floating embers into surrounding trees.",
+      "The \"Drown, Stir, Feel\" rule: drown the entire fire and all embers with water until hissing stops; stir the ashes and coals with a stick or shovel, mixing in dirt and water and scraping embers from under logs; then feel for heat by holding the back of your bare hand over the coals — repeat until it's cold to the touch.",
+    ],
+  },
+  "Wildland fire ignition restrictions": {
+    sources: ["U.S. Forest Service (USFS)","Bureau of Land Management (BLM) Interagency Fire Restriction Standards"],
+    guidance: [
+      "Know the restriction levels: Stage 1 generally bans open campfires outside designated metal fire rings at developed campsites; Stage 2 bans all campfires, charcoal grills, open flames, and outdoor smoking except inside an enclosed vehicle or building.",
+      "Prohibited equipment during bans: running chainsaws, cutting torches, or welding gear without a spark arrestor and a dedicated water extinguisher is prohibited, and you should never drive or idle a vehicle over dry grass — hot exhaust and catalytic converters spark brushfires easily.",
+      "Shooting and explosives: target shooting with steel-core or tracer ammo, and all recreational explosives or fireworks, are strictly barred during fire restrictions.",
+      "Extinguishment standard where fires are still allowed: keep a shovel and at least 5 gallons of water beside the pit, and drown coals until they're cold to the touch before you leave.",
+    ],
+  },
+  "Temporary shelter and ventilation": {
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21), Shelter Construction","FEMA Emergency Shelter Guidelines"],
+    guidance: [
+      "The two-point airflow rule: any enclosed temporary shelter — a tarp lean-to, emergency tent, or plastic-sheeted shelter — needs a low-level air intake and a high-level exhaust vent to prevent asphyxiation and stop condensation from building up.",
+      "Never burn fuel inside an enclosed shelter: charcoal stoves, propane camp burners, and kerosene heaters can push carbon monoxide to lethal levels in minutes, and fabric walls provide zero dilution.",
+      "Prevent condensation-driven hypothermia: breathing releases a surprising amount of moisture overnight. Without cross-ventilation, it condenses on the shelter walls, drips onto blankets, and strips away clothing insulation, raising hypothermia risk.",
+      "Get the tarp angle and tension right: pitch tarps at least 30 to 45 degrees with firm stake tension — a flat roof collects pooled rainwater that stretches the material and can collapse the shelter.",
+    ],
+  },
+  "Winter outage and safe-room selection": {
+    sources: ["American Red Cross Winter Storm Preparedness","CDC, Stay Safe During a Winter Power Outage"],
+    guidance: [
+      "Pick a small, interior room: choose the room with the fewest exterior walls and windows — an interior bedroom, living room, or central hallway. Smaller rooms hold body heat far better than large open spaces.",
+      "Insulate windows and doors: hang heavy blankets, quilts, or sleeping bags over windows to cut radiant heat loss, and press rolled towels or rugs tightly along the bottom of doors leading to unused rooms.",
+      "Build a shelter within the shelter: pitch a small camping tent inside the chosen room, on a carpet or mattress, or build a blanket fort over a sturdy table — sleeping in that smaller space traps body heat and raises the sleeping temperature noticeably.",
+      "Keep everyone together: gather all family members and pets in the one designated safe room. Shared body heat helps keep the space livable through multi-day sub-freezing outages.",
+    ],
+  },
+  "Temporary toilet / twin-bucket system": {
+    sources: ["The Twin-Bucket Emergency Toilet system (developed by Christchurch emergency response, recognized by FEMA / Red Cross disaster sanitation partners)"],
+    guidance: [
+      "Separate pee and poop into two buckets: use two distinct 5-gallon buckets, one marked exclusively for urine and one for feces. Keeping them separate prevents the odor-causing chemical reaction and keeps the dry bucket manageable.",
+      "The urine bucket: urinate directly into it without adding toilet paper. When full, dilute it with water and pour it onto bare soil or gravel at least 100 feet from any water source, garden, or well.",
+      "The feces bucket: line it with a heavy-duty (3 to 5 mil) contractor trash bag. After every use, cover the waste completely with a layer of dry carbon material — sawdust, dry dirt, peat moss, shredded paper, or dry crushed leaves — to seal in moisture and keep flies out.",
+      "Store it airtight: keep a tight-fitting lid on between uses. Once the bag is about two-thirds full, tie it off securely and store it in a covered, animal-proof outdoor bin until collection resumes.",
+    ],
+  },
+  "General emergency sanitation without running water": {
+    sources: ["CDC Emergency Disinfection and Hygiene","WHO, Sanitation in Emergency Settings"],
+    guidance: [
+      "Protect the clean-water barrier: keep drinking and cooking water physically separate from cleaning and handwashing buckets, and never dip unwashed hands into a clean reserve.",
+      "Set up a gravity handwashing station: poke a small hole near the bottom of a plastic jug with a golf tee or pencil as a plug, or use a jug with a push-spigot. Set it on a crate with a catch basin below, soap on a string, and a clean towel.",
+      "Hand hygiene rules: wash hands with soap and water for 20 seconds, or use a hand sanitizer with at least 60% alcohol, before touching food and after every bathroom use.",
+      "Disinfect food-prep surfaces: wipe counters and cutting boards with a mild bleach solution (1 tablespoon unscented household bleach per gallon of cool water) and let it air-dry before food touches it.",
+    ],
+  },
+  "Mold and wet-building cleanup": {
+    sources: ["EPA, A Brief Guide to Mold, Moisture, and Your Home","CDC, Clean Up After a Flood and Address Mold"],
+    guidance: [
+      "The 24-to-48-hour rule: mold starts growing on damp drywall, carpet, and wood within 24 to 48 hours of water exposure. Open windows and run fans or a dehumidifier right away if you have power to circulate air.",
+      "Wear real protective gear: an N95 or P100 respirator, unvented eye goggles, and heavy rubber gloves before disturbing or tearing out moldy drywall or flooring.",
+      "Discard porous materials: throw away soaked carpet, padding, ceiling tiles, mattresses, upholstered furniture, and drywall cut at least 12 to 24 inches above the high-water line — porous materials can't be fully disinfected once they've soaked up floodwater.",
+      "Clean hard surfaces safely: scrub solid wood, metal, and concrete with soap, clean water, and a stiff brush, then wipe with a disinfectant. Never mix ammonia and bleach together — it creates lethal chloramine gas.",
+    ],
+  },
 };
