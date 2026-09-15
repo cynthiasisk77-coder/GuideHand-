@@ -1947,4 +1947,61 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Tape or wrap method for small leaks: for a low-pressure pinhole leak, dry the pipe surface thoroughly and wrap self-fusing silicone tape or heavy rubber rescue tape, overlapping the split by several inches on each side.",
     ],
   },
+  "Contaminated coat/skin decontamination": {
+    sources: ["ASPCA Animal Poison Control Center","Merck Veterinary Manual, Dermal Decontamination in Small Animals"],
+    guidance: [
+      "Protect yourself first: wear rubber gloves, eye protection, and long sleeves — chemicals and toxins on fur transfer quickly to human skin during washing.",
+      "Stop the animal from self-grooming: put on an Elizabethan cone or wrap a towel snugly around its neck right away, since licking contaminated fur carries external poison straight into their stomach.",
+      "Remove dry powders before water: brush, comb, or vacuum dry chemical powder off the coat first — wetting some dry chemicals triggers caustic reactions or drives them deeper into the skin.",
+      "Wash with dish soap: bathe in warm water with a mild liquid dish soap (like Dawn), which strips oily, chemical, and petroleum residue far better than pet shampoo. Lather and rinse thoroughly with plenty of running water, keeping soap away from eyes and ears.",
+      "Loosen sticky substances with oil first: for matted motor oil, tar, sap, or glue, massage in mineral oil, vegetable oil, or butter to soften it before washing out with dish soap.",
+      "Never use chemical solvents: paint thinner, mineral spirits, kerosene, or gasoline destroy the skin barrier, cause chemical burns, and can absorb into the bloodstream as systemic poison.",
+    ],
+  },
+  "Milk thistle/silymarin evidence and limits": {
+    sources: ["Plumb's Veterinary Drug Handbook","ASPCA Animal Poison Control Center, Silymarin/Silybin Hepatoprotective Guidelines"],
+    guidance: [
+      "Its real veterinary use: purified silymarin (milk thistle's active extract, found in products like Denamarin) is used as a supportive liver antioxidant — it helps stabilize liver cells and protect against specific liver toxins, such as death cap mushroom poisoning.",
+      "It is not an immediate antidote: silymarin supports cell repair over time, but doesn't neutralize poisons directly, reverse kidney failure, or stop an acute toxic reaction. It can't replace emergency decontamination or IV fluids.",
+      "Raw plant versus purified extract: don't feed raw milk thistle plants or unverified human teas to pets. The raw plant can accumulate toxic nitrates, and human herbal capsules often have fillers, added xylitol, or inconsistent dosing that causes digestive distress.",
+      "Watch for drug interactions: milk thistle changes how the liver clears certain prescription drugs. Don't start high doses without veterinary guidance if the animal is on medication for heart disease, seizures, or infections.",
+    ],
+  },
+  "Wild game handling and cooking": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS), Wild Game from Field to Table","CDC, Trichinellosis and CWD Prevention Guidelines"],
+    guidance: [
+      "Field dress immediately: remove the entrails within an hour of harvest so gut bacteria don't migrate into the meat, and keep the carcass elevated off dirt or mud and clear of intestinal contents.",
+      "Cool it fast: get the carcass below 40°F as quickly as you can — bacteria multiply rapidly in warm meat and cause dangerous food poisoning.",
+      "Reject high-risk tissue: never eat the brain, eyes, spinal cord, spleen, or tonsils of deer, elk, or moose, due to Chronic Wasting Disease prions, and avoid cutting through the spinal column with a bone saw.",
+      "Cook to safe temperatures: wild game steaks, roasts, and whole cuts to at least 145°F (with a 3-minute rest), ground wild game to at least 160°F, and wild poultry or waterfowl to 165°F.",
+      "Never undercook bear or boar: wild bear, cougar, and feral hog meat can carry Trichinella parasites. Cook it to at least 165°F throughout — freezing does not reliably kill wild cold-resistant Trichinella.",
+    ],
+  },
+  "Structural damage and unsafe-building signs": {
+    sources: ["FEMA","Applied Technology Council (ATC-20), Post-Earthquake Safety Evaluation of Buildings"],
+    guidance: [
+      "Exterior warning signs: cracked or crumbling foundation walls, shifting or separation between walls and the foundation, a sagging roofline, a chimney leaning or pulling away from the house, or ground cracks near load-bearing walls.",
+      "Interior warning signs: doors or windows that suddenly jam and won't open or close, large diagonal drywall cracks spreading from door-frame corners, sagging or bouncy floors, or daylight visible through gaps at floorboards or wall corners.",
+      "Leave immediately if you detect active shifting: loud groaning, creaking, or popping from the framing, or drywall dust falling from the ceiling, means evacuate everyone outside right away.",
+      "Don't re-enter a compromised structure: never go back into a building that's shifted off its foundation, is missing exterior support posts, or shows water-line marks above floor height, until a professional inspector or structural engineer clears it.",
+    ],
+  },
+  "Water-heater isolation": {
+    sources: ["CDC, Finding Water in an Emergency","Ready.gov / FEMA"],
+    guidance: [
+      "Shut off the heating source first: flip the water heater's breaker at the electrical panel (electric tanks) or turn the gas valve to OFF (gas tanks). Running or draining a tank with the heating element still active burns it out or creates a fire hazard.",
+      "Close the cold-water inlet valve: turn the handle on the cold-water supply pipe at the top of the tank clockwise until it stops — this isolates the water inside from backflow contamination if the municipal supply loses pressure or gets contaminated.",
+      "Relieve tank pressure: open a hot-water faucet anywhere in the house to break the internal vacuum, or gently lift the lever on the Temperature and Pressure relief valve near the top of the tank.",
+      "Use it as an emergency water reservoir: once isolated from the city supply, attach a hose to the drain valve at the bottom to collect the safe, clean water stored inside.",
+    ],
+  },
+  "Chainsaw and cutting-tool safety": {
+    sources: ["OSHA 3269-10N, Chainsaw Safety Guidelines","CDC / NIOSH"],
+    guidance: [
+      "Wear the essential protective gear: chainsaw chaps or cut-resistant pants, heavy leather work boots (steel-toe preferred), non-slip leather gloves, eye protection, and hearing protection before you start the saw.",
+      "Watch for kickback: never cut with the upper tip of the bar — the \"kickback zone.\" Contacting wood or brush with the tip snaps the bar violently up and back toward your face and chest. Keep both hands firmly on the handles with your left thumb locked under the front handlebar.",
+      "Identify wood under tension before cutting: inspect downed storm debris for compression and tension first. Limbs pinned under weight (\"spring poles\") can whip out or snap back violently when cut. Cut a relief notch on the compression side before the final release cut.",
+      "Clear your footing and escape path: clear loose brush, mud, and trip hazards around your feet before cutting, and always keep a clear escape path diagonally backward, away from the falling log or tree.",
+    ],
+  },
 };
