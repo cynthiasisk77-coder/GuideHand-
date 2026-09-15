@@ -2989,4 +2989,60 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never store a large quantity of loose gunpowder inside a sealed, heavy steel safe with no venting. In a fire, a safe like that can't relieve pressure the way a proper ammunition can does, and a full sealed safe can rupture violently instead. If you store bulk powder, use containers actually designed for that purpose, not a repurposed gun safe.",
     ],
   },
+  "Lightning shelter": {
+    sources: ["NOAA/National Weather Service Lightning Safety Guidelines","CDC"],
+    guidance: [
+      "The 30/30 rule: if you count 30 seconds or less between seeing lightning and hearing the thunder, the storm is within about 6 miles — get to real shelter right away. Wait a full 30 minutes after the LAST thunder you hear before going back outside.",
+      "Real shelter means a fully enclosed building (stay away from corded appliances, plumbing, and metal window frames once inside) or a hard-topped car with the windows rolled up — it's the metal shell around you that protects you, not the tires.",
+      "These are NOT real shelter, even though they feel like cover: open-sided pavilions, carports, tents, lean-tos, shallow caves, rock overhangs, or standing under a lone tall tree. All of these still leave you exposed to a strike.",
+      "If you're caught outside with nothing better available: get off ridgelines and hilltops immediately, and stay away from open fields, water, and wire fences. As an absolute last resort, squat down low on the balls of your feet with your heels touching, tuck your head down, and cover your ears — don't lie flat. Keeping your heels together gives electricity a path up one leg and down the other instead of through your chest.",
+    ],
+  },
+  "Heat exhaustion and heat stroke": {
+    sources: ["American College of Sports Medicine","Wilderness Medical Society"],
+    guidance: [
+      "Telling them apart matters: heat exhaustion means heavy sweating, cool or clammy skin, nausea, and weakness, but the person is still thinking clearly. Heat stroke means their body temperature has climbed dangerously high, their skin may be hot and dry or still sweaty, and — the key warning sign — they're confused, acting strangely, stumbling, or losing consciousness. Heat stroke can kill.",
+      "For heat stroke, cooling them down fast matters more than almost anything else. The best method is getting them into a tub or container of cold water with ice, keeping their head above water, while getting emergency help on the way at the same time.",
+      "No tub available: strip off extra clothing, pour or splash cool water over their torso, fan them hard to speed up evaporation, and pack ice packs or cold wet cloths into the armpits, groin, and around the neck — blood vessels run close to the skin in those spots, so cooling there cools the whole body faster.",
+      "Never give anything by mouth to someone who is confused, drifting in and out, or vomiting — they can inhale it into their lungs.",
+    ],
+  },
+  "Structure fire escape": {
+    sources: ["National Fire Protection Association (NFPA) Standard 101","U.S. Fire Administration (USFA)"],
+    guidance: [
+      "You likely have about two minutes from when the smoke alarm sounds to get out safely — modern furniture burns much faster and produces thicker, more toxic smoke than it used to. Don't assume you have longer.",
+      "Before opening any closed door: touch the back of your hand to the doorknob and the gap between the door and frame. If it's warm or hot, don't open it — fire is on the other side. If it feels cool, brace your body against the door, turn your face away, and open it just an inch or two first. If heat, pressure, or dark smoke rushes in, slam it shut again immediately.",
+      "Smoke and superheated air rise, so the breathable air is close to the floor. Get down and crawl on your hands and knees, keeping your head low the whole way out.",
+      "Don't stop for belongings, pets, or anything else. Get out, go to your family's outside meeting spot, and stay there — never go back inside.",
+      "If you're trapped and can't get out: close every door between you and the fire, and stuff the cracks around them with wet towels or clothing to slow smoke from coming through. Crack a window at the top and bottom for air, and hang something bright or light-colored out of it so firefighters can see where you are. If smoke starts pouring in through the window, close it partway.",
+    ],
+  },
+  "Wildfire smoke clean room": {
+    sources: ["EPA Wildfire Smoke: A Guide for Public Health Officials","CDC"],
+    guidance: [
+      "Pick one interior room with as few windows and exterior doors as possible, ideally without a fireplace or vents to the outside, and big enough for your whole household to stay in for a while.",
+      "Seal it up: close the doors and windows tightly, tape over any gaps around window frames, pet doors, and baseboards, and tape plastic sheeting over any vents or windows you're not using. A rolled, damp towel pressed against the bottom of the entry door blocks smoke from creeping in underneath.",
+      "If you have central air: switch it to recirculate mode only, and close the outside air intake if there is one. Run a HEPA air purifier sized for the room if you have one — skip anything marketed as an \"ozone generator,\" which makes indoor air worse, not better.",
+      "A simple homemade filter: tape a MERV-13 furnace filter securely over the intake side of a box fan, sealing the edges with duct tape so air has to pass through the filter to get pulled in. This can meaningfully clean the air in a sealed room.",
+      "Avoid anything that adds more particles to the air in your clean room: candles, gas stoves, smoking, and vacuuming (it kicks settled dust back into the air) all work against you here.",
+    ],
+  },
+  "Fire without a lighter (ferro rod, steel wool, friction)": {
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21)","Wilderness firecraft safety literature"],
+    guidance: [
+      "Ferro (ferrocerium) rod: hold the scraper still and firmly right above your tinder bundle, then pull the rod backward through it, rather than striking the scraper down toward the tinder. This keeps your hand from accidentally smashing into and scattering your tinder nest, and keeps the spark shower aimed where you want it instead of bouncing wildly.",
+      "Steel wool and a 9V battery: use only the extra-fine grade (labeled #0000 or #000), fluffed into a loose, airy nest. Touch both battery terminals to the steel wool at once — it heats the strands red-hot almost instantly, so have your tinder ready and be ready to blow it gently into flame right away. Steel wool burns extremely hot, so keep the battery's terminals taped over and stored separately from the steel wool until you're ready to use it, and don't do this near anything else flammable.",
+      "Friction fire (bow drill): use a softer, non-resinous wood like cedar, basswood, willow, or cottonwood for both pieces. Carve a notch reaching almost to the center of the burned-in depression, and place a dry leaf or piece of bark underneath to catch the hot wood-dust coal without it touching bare, possibly damp ground. Once you have a coal, transfer it into a nest of dry, shredded bark and blow gently and steadily until it catches flame.",
+      "All three methods involve real heat and sparks — practice them somewhere you can safely contain a small fire, not for the first time in an actual emergency.",
+    ],
+  },
+  "Improvised skillet-support / cook-fire rig": {
+    sources: ["U.S. Forest Service Campfire Safety Guidelines","Boy Scouts of America Fieldcraft Standards"],
+    guidance: [
+      "Never use rocks pulled from a riverbed, creek, or anywhere they might be wet or porous (river stones, shale, slate) to build a fire ring or cooking stand. Trapped moisture inside them turns to steam when heated and can make them explode violently, throwing sharp fragments. Only use dry, dense stones collected from high, dry ground.",
+      "Three-stone stand: set three flat stones of matching height in a triangle around your coals. Three points naturally sit stable on uneven ground — a fourth stone almost always makes it wobble instead.",
+      "Keyhole trench: dig a small round pit for your main fire, connected to a narrower trench (about 6-8 inches wide) running off to the side. Rake hot coals into the narrow trench and set your pan or grate directly across its walls — it holds the cooking surface low, flat, and stable while keeping you a little further from the open flame.",
+      "Hanging a pot instead: drive a sturdy forked green branch into the ground at an angle over the fire (or set up two forked posts with a bar across them), and notch a green wooden hook to hang your pot's handle from. This is more stable than trying to balance a pot on rocks or wire.",
+    ],
+  },
 };
