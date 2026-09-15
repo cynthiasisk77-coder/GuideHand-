@@ -2086,4 +2086,31 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Clean hard surfaces safely: scrub solid wood, metal, and concrete with soap, clean water, and a stiff brush, then wipe with a disinfectant. Never mix ammonia and bleach together — it creates lethal chloramine gas.",
     ],
   },
+  "Pregnancy considerations across scenarios": {
+    sources: ["American College of Obstetricians and Gynecologists (ACOG)","CDC Pregnancy and Disaster Preparedness"],
+    guidance: [
+      "Manage hydration and heat carefully: pregnant people dehydrate and overheat faster than usual. Drink clean water regularly to head off early contractions and heat-triggered dizziness.",
+      "Sleeping and resting position: when lying down, rest on the left side to keep body weight off the large vein carrying blood from the lower body back to the heart, which preserves blood flow to the placenta.",
+      "Avoid heavy lifting and flood exposure: don't lift heavy debris or wade through contaminated floodwater — it carries bacteria that can trigger serious infections or pregnancy complications.",
+      "Watch for warning signs: get medical care immediately for vaginal bleeding, leaking clear fluid, a severe headache or vision changes (signs of preeclampsia), sharp persistent abdominal pain, or a noticeable drop in baby's movement.",
+      "Stay ready for emergency delivery: keep clean towels, receiving blankets, and a copy of prenatal records in the go-bag in case labor starts fast, away from a clinic.",
+    ],
+  },
+  "Family communication plan and rendezvous points": {
+    sources: ["Ready.gov / FEMA Family Emergency Communication Plan","American Red Cross"],
+    guidance: [
+      "Designate an out-of-area contact: pick a friend or relative at least 100 miles away. Local cell networks often jam during disasters, but long-distance calls often route through more easily.",
+      "Pick three specific meeting spots: an immediate spot right outside your home (a specific tree or the mailbox) for sudden events like a house fire; a neighborhood spot — a nearby park, library, or neighbor's house — if you can't get back to your street; and a regional spot, a landmark or building in an adjacent town, if the whole community evacuates.",
+      "Keep physical contact cards: write emergency phone numbers, meeting locations, and medical notes on paper cards kept in each family member's wallet, backpack, or bug-out bag, so a dead phone doesn't erase critical information.",
+    ],
+  },
+  "Evacuation zones and shelter locations": {
+    sources: ["Federal Emergency Management Agency (FEMA)","American Red Cross, Sheltering in an Emergency"],
+    guidance: [
+      "Know your zone designation: coastal and riverfront counties assign letters or numbers to evacuation zones based on flood, storm surge, or wildfire risk. Learn your specific zone before an incident happens, not during one.",
+      "Public shelters are a baseline refuge: emergency municipal shelters provide basic safety, water, and protection from the elements, but generally don't supply bedding, specialized baby formula, your prescriptions, or pet care unless it's a designated co-located pet shelter.",
+      "Arrive prepared: bring your go-bag with your own blankets, medications, personal hygiene items, and critical ID documents.",
+      "Tell staff about medical needs right away: when you arrive, alert intake staff immediately if anyone in your group needs electricity for medical equipment, has mobility limitations, or has dietary restrictions.",
+    ],
+  },
 };
