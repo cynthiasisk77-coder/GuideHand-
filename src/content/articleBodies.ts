@@ -55,6 +55,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Networks get congested during emergencies — redialing repeatedly makes it worse for everyone.",
       "If a call fails, wait before redialing; try texting instead, since texts often get through when calls don't.",
       "Keep a battery- or hand-crank-powered NOAA Weather Radio as an internet-independent information source.",
+      "Cell towers keep running on backup batteries for a while after grid power fails, but usually only 2 to 8 hours before those batteries run down — after that, assume there's no cell service at all, not just a bad connection.",
+      "Constantly trying to call or refresh apps drains your phone's battery fast for no benefit once towers are actually down. Switch to airplane mode (or turn the phone off) to save power for when you actually need it, and check back periodically instead of continuously.",
     ],
   },
   "NOAA Weather Radio": {
@@ -63,6 +65,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "NOAA Weather Radio All Hazards broadcasts continuous NWS warnings/watches/forecasts 24/7 over 1,000+ transmitters, plus non-weather hazards (earthquakes, chemical releases, AMBER alerts, 911 outages).",
       "It needs a dedicated receiver on one of seven VHF frequencies — not a phone app, no cell service or Wi-Fi or grid power needed if battery/crank powered.",
       "Keep a battery-powered or hand-crank receiver in your kit and know your area's frequency in advance.",
+      "NOAA broadcasts on one of seven dedicated frequencies between 162.400 and 162.550 MHz — a dedicated NOAA radio (not a phone app) will already be tuned to scan these.",
     ],
   },
   "AM/FM emergency broadcasts": {
@@ -71,6 +74,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "The Emergency Alert System (EAS) delivers authenticated alerts via AM/FM/satellite radio and broadcast/cable/satellite TV — one path of FEMA's IPAWS, alongside Wireless Emergency Alerts and NOAA Weather Radio.",
       "IPAWS authenticates and validates alerts before they reach any of these paths.",
       "Keep a battery-powered AM/FM radio as a backup needing no cell network, data plan, or working tower.",
+      "High-power AM stations (the big 50,000-watt ones) often have their own hardened backup generators and can keep broadcasting through a widespread outage. At night, AM signals travel hundreds of miles further than during the day, so scanning the AM dial after dark can pick up a distant station carrying emergency information even if every local station is down.",
     ],
   },
   "Emergency alert verification and rumor control": {
@@ -238,6 +242,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Individual cat-hole: for one-time use on the move, dig 6-8 inches deep and 4-6 inches wide in dark organic topsoil, where soil bacteria breaks pathogens down fastest.",
       "Straddle trench for a small group: for a semi-permanent site, dig a trench 12 inches wide, 18-24 inches deep, and 3-6 feet long, with a shovel kept at hand. Cover each use immediately with 2-3 inches of loose soil and wood ash to control odor and keep flies from carrying pathogens to food.",
       "Close it out properly: once waste is within 6 inches of the surface, backfill completely, mound the soil slightly so rain sheds off, and pack it down.",
+      "Sizing for a group: as a rough rule of thumb, plan for about 1 linear foot of trench per person per week of use — a family of four sheltering for two weeks would need roughly an 8-foot trench.",
     ],
   },
   "Water, electricity, gas, propane shutoffs": {
@@ -1127,6 +1132,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Children: unbuckle the oldest first — they can help move themselves and younger siblings toward the opening.",
       "Do NOT wait for the car to fill with water to \"equalize pressure\" — that is a dangerous myth. Get out immediately instead.",
       "Keep a spring-loaded window-breaking/seatbelt-cutting tool within reach of the driver's seat.",
+      "Power windows usually still work for something like a minute after the car hits the water, before the electrical system shorts out — try them immediately rather than assuming they're already dead.",
+      "If you have to break a window, aim for the very bottom corner of a SIDE window, not the windshield — side windows are tempered glass and shatter easily with a sharp point (like a spring-loaded center punch); the windshield is laminated safety glass and won't break the same way no matter how hard you hit it.",
+      "True last resort, only if you truly cannot get a window open or broken and the doors won't budge: as water keeps rising, take a breath before it reaches your face, and wait — once the cabin is completely full and the pressure equalizes, the door will actually push open with normal force. This is only for when every faster option has already failed, not a reason to wait instead of trying to get out immediately.",
     ],
   },
   "Driving into flood water (Turn Around, Don't Drown)": {
@@ -1147,6 +1155,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "COLD — Tie a brightly colored cloth to the antenna. Raise the hood if it isn't actively snowing.",
       "COLD — Wrap up fully, including your head, in every blanket/coat available.",
       "COLD — Run the engine/heater about 10 minutes each hour, window cracked, and confirm the exhaust pipe isn't blocked by snow (carbon monoxide risk).",
+      "COLD — Re-check that the exhaust pipe is clear every single hour, not just once — snow keeps drifting and can block it again while you're not looking.",
+      "COLD — No extra blankets? Seat upholstery, floor mats, and trunk liner all work as improvised insulation layered over your clothes. If there are multiple people, huddle together in the center of the car — sharing body heat helps more than sitting apart.",
+      "COLD — Only run the interior dome light while the engine is running, to save your battery for when you actually need the heater or the horn.",
       "HEAT — If the cabin gets too hot to safely stay in, get everyone (people and pets) out into shade, away from the travel lane.",
       "HEAT — Pavement can burn skin/paws — keep shoes on, keep pets off asphalt.",
       "HEAT — Hood up, hazards on, stay with (or right next to) the vehicle so it can be seen.",
@@ -1365,6 +1376,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "MURS (Multi-Use Radio Service): also licensed by rule with certified equipment — a 5-channel short-distance VHF service, shared and prone to interference.",
       "Amateur (ham) radio: normally requires passing a test and getting an FCC license under Part 97 — learn, test, and get licensed before an emergency, not during one.",
       "Being ABLE to receive a frequency doesn't mean you're allowed to transmit on it. A radio that can tune to a frequency isn't automatically certified or legal for that service.",
+      "Once you actually have radios, don't leave them on and transmitting constantly — it drains batteries fast. A simple schedule works well: turn radios on for a few minutes at a set time every hour (like the top of the hour), announce who you are, your status, and location, then switch to listening for a few minutes before turning off again.",
+      "A few commonly used channels if you don't have a pre-arranged plan: MURS channel 3 (151.940 MHz) or FRS/GMRS channel 1 (462.5625 MHz) for people nearby; GMRS channel 20 (462.675 MHz) for longer range; CB channel 9 (27.065 MHz) is the official emergency channel, and channel 19 (27.185 MHz) is commonly used for road and traffic info.",
       "Federal rule (47 CFR §97.403) does allow an amateur station to use any means available for genuine emergencies involving immediate safety of life or property when normal systems are down — but that's a narrow emergency allowance, not blanket permission to use ham frequencies casually during any disaster.",
     ],
   },
@@ -1634,6 +1647,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never walk through moving water: just 6 inches of fast-moving water can knock an adult off their feet. If you must cross standing water, check the ground's firmness with a stick before each step.",
       "Never drive into floodwater: 12 inches of water will float most passenger cars, and 24 inches will sweep away trucks and SUVs. If water rises rapidly around your vehicle, abandon it immediately and get to higher ground on foot.",
       "Avoid storm drains and culverts: debris often blocks these, creating strong suction and sudden releases of water that can pull a person under instantly.",
+      "If you get swept into moving water: don't try to stand up once it's more than knee-deep and moving fast — your foot can wedge between rocks or debris on the bottom and the current can push you under. Instead, float on your back with your feet pointed downstream so your feet hit obstacles instead of your head, and angle your body roughly 45 degrees to the current to gradually work your way toward the bank.",
     ],
   },
   "Lightning": {
@@ -1842,6 +1856,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Protect your head and neck: flying debris causes most injuries and deaths. Cover yourself with a thick mattress, sleeping bags, or heavy blankets, and put on a bike, sports, or construction helmet if you have one. Crouch low on your knees and cover the back of your head with your hands.",
       "Mobile homes and vehicles are not safe: never try to ride out a tornado in a mobile home, manufactured house, camper, or vehicle. Leave immediately for a sturdy permanent structure or storm shelter. If you're caught outdoors with no structure nearby, lie flat in a low ditch or depression, cover your head, and stay alert for flash-flood runoff.",
       "Avoid large open-span rooms: stay out of gymnasiums, cafeterias, auditoriums, and big-box store showrooms, where broad roofs collapse easily under severe wind pressure.",
+      "Never shelter under a highway overpass — this is one of the most persistent tornado myths, and it's actually more dangerous than staying in a low vehicle or ditch nearby. Overpasses funnel and speed up the wind, and flying debris gets pulled through the gap with nowhere for you to anchor yourself.",
+      "If you're driving and a tornado is visible: don't try to outrun it in traffic or a city. If you can clearly drive away at a right angle to its path, do that. If you're stuck, pull over away from trees and overpasses, keep your seatbelt on, get down below window level, and cover yourself with a coat or blanket.",
     ],
   },
   "Hurricane watch/warning/evacuation": {
@@ -2279,6 +2295,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Designate an out-of-area check-in contact: one relative or friend in a different region as the communication hub, with everyone checking in by text if local calls fail.",
       "Carry physical emergency cards: every household member, kids included, gets a laminated card with full contact numbers, meeting-point addresses, and regional contact details.",
       "Know the federal reunification channels: the National Emergency Child Locator Center (NECLC) and the Unaccompanied Minor Registry (UMR) are the official channels if a family gets separated during a large-scale evacuation — keep them recorded.",
+      "Agree on a simple rule in advance for what to do if you're separated when something happens during work or school hours: stay where you are until your normal commute time, then head straight home along your usual route if it's safe to do so. Don't improvise a new meeting spot in the moment — a plan only works if everyone already knows it.",
+      "Don't go looking for a missing family member in the first 24 hours unless you know for certain they're in danger. It feels wrong to wait, but search parties and the missing person often end up missing each other entirely, especially with no phones working — staying put is usually what actually gets you reunited faster.",
+      "Leave a physical note if you have to move from your agreed meeting point: a simple written note with the date and time, where you're headed, and when you'll check back, left somewhere obvious (taped to the door, under a specific rock, in a mailbox) can tell an arriving family member what happened even with no phones working at all.",
     ],
   },
   "Hurricane plan": {
@@ -2535,6 +2554,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Use a signal mirror correctly: hold it near your face, extend your other hand to frame the search plane or ridge in a \"V\" between your fingers, then tilt the mirror until the reflection flashes between them. A mirror flash can be seen up to 20 miles away on a clear day.",
       "Build ground-to-air markers: make letters at least 10 feet tall and 3 feet wide from rocks, logs, or trampled earth on a beach, snowfield, or clearing — a large \"V\" means you need assistance, an \"X\" means you need medical help.",
       "Control your smoke color: heap green leafy branches, damp moss, or wet grass on hot coals for dense white smoke against a clear sky, or burn dry pine resin or small scraps of rubber for dark smoke against gray or snowy backgrounds.",
+      "From a fixed spot like your home: a car horn or air horn works as a loud acoustic signal the same way a whistle does — three blasts, pause, listen, repeat. For a visual marker searchers can spot from a road or the air, a large piece of brightly colored cloth or a painted mark on your roof works even when you can't build a ground signal.",
     ],
   },
   "Off-grid hygiene and field sanitation": {
@@ -3043,6 +3063,24 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Three-stone stand: set three flat stones of matching height in a triangle around your coals. Three points naturally sit stable on uneven ground — a fourth stone almost always makes it wobble instead.",
       "Keyhole trench: dig a small round pit for your main fire, connected to a narrower trench (about 6-8 inches wide) running off to the side. Rake hot coals into the narrow trench and set your pan or grate directly across its walls — it holds the cooking surface low, flat, and stable while keeping you a little further from the open flame.",
       "Hanging a pot instead: drive a sturdy forked green branch into the ground at an angle over the fire (or set up two forked posts with a bar across them), and notch a green wooden hook to hang your pot's handle from. This is more stable than trying to balance a pot on rocks or wire.",
+    ],
+  },
+  "Emergency biohazard spill cleanup (blood and body fluids)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Put on waterproof gloves before touching anything — nitrile or doubled-up latex — and eye protection if there's any risk of splashing. Never touch blood, vomit, or wound drainage with bare hands.",
+      "Cover the spill with something absorbent first — paper towels, dry sawdust, even cat litter — to soak it up and stop it from spreading further before you clean.",
+      "Mix a disinfecting solution: 1 part regular unscented household bleach to 9 parts water (roughly 1.5 cups of bleach per gallon of water). Make it fresh — bleach solution loses strength within about a day.",
+      "Flood the area with the bleach solution and let it sit wet on the surface for a full 10 to 20 minutes before wiping it up — that contact time is what actually kills bloodborne germs like hepatitis and HIV, not just the bleach touching the surface briefly.",
+      "Scrape up solid waste into a plastic bag, double-bag it, seal it tightly, and throw it away. Wash your hands thoroughly with soap and warm water for at least 30 seconds afterward, even though you wore gloves.",
+    ],
+  },
+  "Neighborhood/community mutual-aid security": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "With phones and internet down, useful information mostly travels by people actually talking to each other nearby — a habit of checking in with neighbors becomes much more valuable than it normally is.",
+      "A simple daily check-in point works well: pick one spot (the end of the street, a specific driveway) and a fixed time each day that neighbors informally gather to share what they've each learned, flag anyone who needs help (elderly neighbors, someone low on medication), and keep an eye on each other's property.",
+      "This isn't about forming an armed patrol — it's basic mutual awareness: knowing who's still home, who's struggling, and what's actually happening on your street, which is often more accurate than rumors.",
     ],
   },
 };
