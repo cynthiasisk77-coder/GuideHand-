@@ -596,6 +596,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Before moving livestock across state lines, contact the receiving state's State Veterinarian's Office first — interstate movement often has health/inspection requirements.",
       "Ahead of any disaster, keep barns/shelter structures in good repair and arrange alternate shelter space in advance.",
       "Contact your local FSA county office in advance — programs and requirements are administered locally and can change.",
+      "Never lock animals in a closed barn during a wildfire threat: a wooden barn traps heat like a chimney. If you truly can't evacuate them by trailer before roads close, turn them loose into a cleared, well-grazed pasture with the gates pinned wide open instead.",
+      "If animals can't be moved in time, mark them for reunification: paint your phone number on their side with livestock paint, or braid a waterproof tag into the mane or tail.",
+      "Don't return animals to a pasture that was recently flooded: floodwater can leave behind sharp debris, chemical residue, and contaminated standing water. Check any hay that got wet before feeding it — wet hay can heat up on its own or grow dangerous mold.",
     ],
   },
   "Carcass handling and zoonotic disease": {
@@ -801,6 +804,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "After cooling, loosely cover with a clean, nonadherent dry dressing. Protect the person from hypothermia, especially a child or large burn.",
       "Get urgent care for: a full-thickness burn, a partial-thickness burn bigger than the person's palm, a burn on the face/hands/feet/genitals, an electrical or chemical burn, or any sign of smoke inhalation.",
       "Do not use butter, oil, toothpaste, or ice directly on a burn. Do not break blisters or pull off melted-in clothing.",
+      "Rough-estimate how much skin is burned: a hand's whole surface (palm plus fingers) is about 1% of a person's body. One whole arm is about 9%, one whole leg about 18%, the chest and stomach together about 18%. This helps you describe the burn accurately when you call for help.",
     ],
   },
   "Poison exposure by eye, skin, inhalation": {
@@ -953,6 +957,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Do not try to catch, trap, or kill the snake — that risks another bite and wastes critical time.",
       "Do not drive yourself to care — dizziness or loss of consciousness can follow a bite.",
       "Keep the person calm and as still as possible and get emergency transport.",
+      "Position the bitten limb at or slightly below heart level and keep it still — this slows how fast venom spreads. Remove rings, watches, and tight clothing near the bite right away, before swelling makes that impossible.",
+      "If you know or suspect a coral snake (not a pit viper): coral snake venom affects the nervous system differently, and the pressure-immobilization technique is used instead — wrap the whole bitten limb snugly with an elastic bandage, about as tight as you'd wrap a sprained ankle, then splint it and get emergency care. Watch closely for breathing trouble.",
     ],
   },
   "Tick bite, rabies exposure, animal bite (human)": {
@@ -962,6 +968,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Consult a healthcare provider after any such bite. Severity, location (bites near the head are higher-risk), and the animal species (bats, raccoons, skunks, foxes are high-risk US rabies vectors) all factor into whether rabies post-exposure prophylaxis (wound care plus immune globulin and vaccine series) should start immediately.",
       "For a tick bite, CDC maintains an interactive \"Tick Bite Bot\" tool to help decide when it needs medical follow-up.",
       "For ordinary bite-wound care and infection risk beyond rabies, see the dedicated \"Dog/animal bite wound care and infection risk\" entry.",
+      "Remove an attached tick correctly: grasp it as close to the skin as you can with fine-tipped tweezers and pull straight up with steady, even pressure. Don't twist, jerk, or try to burn it off or smother it in petroleum jelly — those make it more likely to leave mouth-parts behind or inject more saliva. Clean the bite afterward and watch the area for a spreading rash or flu-like symptoms over the next month.",
     ],
   },
   "Pesticide exposure": {
@@ -1200,6 +1207,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Antibiotics are not automatically needed — most tooth pain is managed with pain control and an actual dental procedure.",
       "Escalate to 911/ER (not just \"see a dentist soon\") for trouble breathing/swallowing, or facial swelling with fever.",
       "See a dentist as soon as reachable even if pain is currently mild.",
+      "If a permanent tooth gets completely knocked out: pick it up by the crown (the white part), never the root. If the person is alert, try gently pushing it back into its socket right away and have them bite down gently on gauze to hold it. If it won't go back in, keep it from drying out — in a cup of cold milk or tucked in the person's cheek — and get to a dentist fast. It has the best chance of being saved within about an hour.",
     ],
   },
   "Eye injury and chemical irrigation": {
@@ -1417,6 +1425,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Move to the basement or the middle of the building, away from exterior walls, windows, doors, and the roof.",
       "Stay inside and stay tuned to official information. Sheltering for at least 24 hours can significantly cut fallout exposure in many situations, but follow official instructions over a fixed timer.",
       "If you were outside during or after the event, see \"Radiation shelter and decontamination\" for removing contamination once you're inside.",
+      "Know that fallout radiation fades fast at first: it's most intense in the first hour, drops to about a tenth of that by 7 hours, to about a hundredth by roughly 2 days, and to a thousandth within about 2 weeks. That's exactly why officials say to shelter for at least 24-48 hours before any short trip outside, and why the first day matters most.",
     ],
   },
   "Dirty bomb vs. nuclear explosion distinction": {
@@ -1436,6 +1445,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Bag the removed clothing and keep it away from people and pets.",
       "Wash exposed skin and hair with soap and water when it's available, without harsh scrubbing, then put on clean clothes.",
       "Do not take potassium iodide (KI) on your own. It only protects the thyroid from radioactive iodine under specific conditions, doesn't protect against other radioactive material or external radiation, and should only be taken when public-health or emergency officials specifically say to.",
+      "Remember the three things that protect you: time (spend as little time as possible in an exposed area), distance (getting twice as far from a radiation source cuts your exposure to a quarter), and shielding (put dense material between you and the outside). Dense mass matters most — a few feet of packed earth or a couple feet of concrete blocks the large majority of radiation, which is exactly why a below-ground shelter is so much safer than an upper floor.",
     ],
   },
   "Junctional bleeding and wound packing": {
@@ -1505,6 +1515,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Insulate from the frozen ground: lay down dry cardboard, blankets, foam pads, or pine boughs before laying the person down — the ground pulls body heat out faster than the air.",
       "Warm the core, not the limbs: focus heat on the chest, neck, and back using dry towels, layers, and warm water bottles wrapped in cloth. Never apply hot water or bare hot packs directly to the skin, and never rub cold arms or legs — rubbing forces cold, stagnant blood straight to the heart, which can trigger cardiac arrest.",
       "Only offer warm drinks if fully alert: if they can sit up and talk clearly, give warm, sugary water or broth. Never force liquids into someone who is drowsy or nodding off.",
+      "Know the rough stages: mild hypothermia is heavy shivering but still clear-headed; moderate is violent shivering with clumsy hands and confusion; severe is when shivering actually stops, muscles go rigid, and the person is barely responsive or unconscious — that's the most dangerous stage, not a sign they're improving.",
     ],
   },
   "Extreme heat illness": {
@@ -1564,6 +1575,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Shut down airflow immediately: turn off furnaces, air conditioners, and bathroom or kitchen exhaust fans. Close the fireplace damper.",
       "Seal cracks and openings: tape heavy plastic sheeting (or trash bags) over windows, doors, and vents with duct tape. If tape isn't available, pack wet towels, sheets, or clothing tightly into the gaps under doors and around window frames.",
       "Cover your breathing: fold a dry or damp towel or cloth over your nose and mouth if fumes seep inside. Stay sealed until you're certain the plume has passed.",
+      "If you were caught in the plume before getting inside: strip off your outer layer of clothing as soon as you're safely indoors — this alone removes most of what landed on you. Cut clothing off rather than pulling it over your head so you don't drag contamination across your face. Bag it, seal the bag, and keep it away from people and pets. Wash exposed skin with plenty of water and mild soap, but don't scrub hard — that can push contaminants deeper into your skin.",
     ],
   },
   "Biological outbreak and household isolation": {
@@ -2751,6 +2763,31 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Stack trays with airflow gaps: separate trays vertically with 3-4 inch wooden corner blocks for uninterrupted cross-ventilation. Heat dries food by carrying away evaporated moisture, and poor airflow causes mold before the food actually dries.",
       "Add a solar chimney to speed it up: enclose the rack in a dark-painted box or black poly film with an intake at the bottom and an exhaust chimney at top — the passive convective draft speeds drying with no electric fan.",
       "Protect from insects and night humidity: cover intake and exhaust openings with fine mosquito netting, and bring racks inside or cover them airtight before sunset so nighttime humidity doesn't rehydrate the food.",
+    ],
+  },
+  "Pet evacuation kit and records": {
+    sources: ["FEMA / American Red Cross Pet Disaster Preparedness Guidelines","AVMA Emergency Preparedness"],
+    guidance: [
+      "Use a proper travel crate: hard-sided, well-ventilated, and big enough for the animal to stand, turn around, and lie down. Write the animal's name, medical needs, and your contact info on it in permanent marker.",
+      "Pack a 14-day kit: food and water in spill-proof bowls, a manual can opener, litter or waste bags, a leash, and a muzzle (even a gentle pet may bite when scared or hurt), plus a 30-day supply of any daily medication.",
+      "Keep vaccination records with the kit: shelters that co-locate pets under the federal PETS Act require proof of vaccination (rabies and bordetella for dogs especially) and ID (microchip number, collar tag) before they'll take the animal in.",
+    ],
+  },
+  "Emergency-document inventory": {
+    sources: ["Ready.gov Emergency Financial First Aid Kit (EFFAK)","National Institute of Standards and Technology (NIST) Data Storage Standards"],
+    guidance: [
+      "Follow the 3-2-1 rule: keep three copies of every essential document, on two different types of media, with at least one copy stored somewhere else entirely (not in the house).",
+      "Set up a simple hardware backup: put digitized copies on two identical encrypted USB drives (or encrypt them yourself with something like BitLocker or VeraCrypt) — one in your go-bag, one in a fireproof safe or a relative's house.",
+      "Know what belongs on the list: government IDs, birth and marriage certificates, passports, Social Security cards, property deeds, lease, vehicle title, insurance policy pages (home, auto, life), immunization and medical records, a list of key account numbers, and a few recent photos of family members and pets for identification.",
+      "Keep physical backups too: print copies on waterproof paper, or seal them in heavy waterproof document pouches in an indexed binder.",
+    ],
+  },
+  "Grid-down barter mechanics and resource staging": {
+    sources: ["Red Cross International Humanitarian Logistics","Department of Defense Civil Affairs Field Manuals"],
+    guidance: [
+      "Know gold and silver won't help you at first: in the first phase of a real crisis, precious metals can't be eaten, worn, or used to purify water — they only become useful again once things stabilize and basic needs are already being met some other way.",
+      "Stock what actually trades in a crisis: medical and sanitation items (pain relievers, antibiotics, antiseptic, wound dressings, soap, water purification tablets), fuel and maintenance items (small propane canisters, stabilized gasoline, lamp oil, matches, lighters, motor oil, paracord), and food/comfort items (salt, sugar, pepper, coffee or tea, hard liquor — useful both as a trade good and a wound antiseptic — and baking soda).",
+      "Keep trading away from home: never do an exchange at your house or your supply cache. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
     ],
   },
 };

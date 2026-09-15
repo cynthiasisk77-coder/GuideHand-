@@ -247,7 +247,7 @@ export const CATEGORIES: Category[] = [
     topics: [
       { title: "Unknown pet poison response", status: "specialist", priority: "P0", note: "ASPCA + Merck Veterinary Manual" },
       { title: "Dog/cat NSAID and acetaminophen boundaries", status: "specialist", priority: "P0", note: "FDA Center for Veterinary Medicine + ASPCA" },
-      { title: "Pet evacuation kit and records", status: "verified", priority: "P2", note: "" },
+      { title: "Pet evacuation kit and records", status: "verified", priority: "P2", note: "FEMA/Red Cross + AVMA" },
       { title: "Veterinary activated-charcoal decision boundary", status: "specialist", priority: "P0", note: "ACVECC + Merck Veterinary Manual" },
       { title: "Milk thistle/silymarin evidence and limits", status: "specialist", priority: "P1", note: "Plumb's Veterinary Drug Handbook + ASPCA" },
       { title: "Dog xylitol exposure", status: "specialist", priority: "P0", note: "FDA + AAHA" },
@@ -477,7 +477,7 @@ export const CATEGORIES: Category[] = [
       { title: "Tools and repair-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Pet-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Hygiene-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
-      { title: "Emergency-document inventory", status: "partial", priority: "P2", note: "" },
+      { title: "Emergency-document inventory", status: "verified", priority: "P2", note: "Ready.gov EFFAK + NIST" },
       { title: "Fuel inventory", status: "verified", priority: "P1", note: "NFPA 30 + Small Engine Manufacturers Association" },
       { title: "Calculated days-of-water/food remaining", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Expiring-soon and missing-supplies alerts", status: "partial", priority: "P2", note: "Spec exists" },
@@ -499,6 +499,7 @@ export const CATEGORIES: Category[] = [
       { title: "Family separation / reunification plan", status: "verified", priority: "P1", note: "Ready.gov/FEMA + AAP" },
       { title: "Bug-out / evacuation plan (general)", status: "verified", priority: "P1", note: "Ready.gov/FEMA + American Red Cross" },
       { title: "Shelter-in-place plan", status: "verified", priority: "P1", note: "CDC + FEMA" },
+      { title: "Grid-down barter mechanics and resource staging", status: "verified", priority: "P3", note: "Red Cross + DoD Civil Affairs" },
     ],
   },
   {
