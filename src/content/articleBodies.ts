@@ -851,7 +851,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Remove any remaining substance from the mouth without forcing fingers into the throat.",
       "Preserve the container/label/pill bottle/plant sample or a photo. Note age, weight, substance, possible amount, time, and symptoms.",
       "Call Poison Control (1-800-222-1222) whenever there's any connection available — exact treatment depends on the substance, dose, timing, age, and symptoms.",
-      "For a caustic/burning product, Poison Control may advise a small amount of water or milk only if the person is conscious, not convulsing, and can swallow safely — this is not a universal rule, ask first.",
+      "For a caustic/burning product, Poison Control may advise a small amount (commonly 4-8 ounces) of water or milk only if the person is conscious, not convulsing, and can swallow safely — this is not a universal rule, ask first. Don't give more than that; an overfull stomach is more likely to vomit the caustic substance back up, causing the same burn a second time.",
       "Do NOT induce vomiting (ipecac is no longer recommended). Never give anything by mouth to someone drowsy, convulsing, or unresponsive.",
     ],
   },
@@ -912,6 +912,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Use a commercial oral rehydration salts (ORS) packet mixed exactly per its label with safe water when available.",
       "Give frequent small sips — about one spoonful every minute or two works well. Gulping a full cup at once tends to trigger vomiting and undoes the progress. If vomiting occurs anyway, pause briefly and restart more slowly.",
+      "Don't give anti-diarrhea medication (like Imodium) if there's a high fever or blood in the stool — it stops the gut from moving, which traps the bacteria and toxins inside the body instead of letting them pass, and can make things worse.",
       "Household fallback ONLY if no ORS packet is available: 1 liter safe water + 6 level teaspoons sugar + 1/2 level teaspoon table salt, stirred until dissolved. Make a fresh batch every 24 hours. More salt/sugar is NOT better — a mixing error can worsen illness, especially in a child.",
       "Separate the ill person's waste and utensils from shared food prep; wash hands with soap and safe water.",
       "Get care fast for: blood in stool, diarrhea over 3 days, fever over 102°F, repeated vomiting that prevents fluids staying down, little/no urine, severe dizziness standing, confusion, severe abdominal pain, or worsening illness in a pregnant person, infant, older adult, or immunocompromised person.",
@@ -966,6 +967,11 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Exceptions where movement is necessary: to perform CPR, or if bleeding can't otherwise be controlled.",
       "Do not remove a helmet unless necessary to give CPR. Keep an infant/child in their car seat unless removal is necessary for CPR.",
       "Why this matters: improper handling of a real spinal injury can cause permanent paralysis that proper immobilization would have prevented.",
+      "Watch for signs the injury is more serious than it looks: one pupil noticeably bigger than the other, clear fluid or blood coming from the ears or nose, bruising behind the ears or around both eyes with no direct hit to the face, repeated vomiting, worsening confusion, or an arm or leg that suddenly goes weak. These point to bleeding or swelling inside the skull and need emergency care, not a wait-and-see approach.",
+      "If the skull itself feels soft, dented, or has loose fragments: don't press on it. Cover it loosely with clean gauze instead.",
+      "If they need to vomit: roll their whole body together as one unit, keeping the head, neck, and back in a straight line the entire time, so they don't choke without you having to bend or twist the spine.",
+      "Anyone knocked unconscious, even briefly, has a concussion. Keep them resting somewhere quiet and dim. You don't need to keep them awake all night, but checking on them every 2-3 hours for the first 12 hours — making sure they know their name, where they are, and can move both arms and legs normally — is a reasonable way to catch it early if something's wrong.",
+      "Plain acetaminophen (Tylenol) is fine for a headache after a head injury. Avoid aspirin, ibuprofen, or naproxen for the first 48 hours — those thin the blood and can make bleeding inside the skull worse.",
     ],
   },
   "Smoke inhalation and carbon monoxide": {
@@ -989,6 +995,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Keep the person calm and as still as possible and get emergency transport.",
       "Position the bitten limb at or slightly below heart level and keep it still — this slows how fast venom spreads. Remove rings, watches, and tight clothing near the bite right away, before swelling makes that impossible.",
       "If you know or suspect a coral snake (not a pit viper): coral snake venom affects the nervous system differently, and the pressure-immobilization technique is used instead — wrap the whole bitten limb snugly with an elastic bandage, about as tight as you'd wrap a sprained ankle, then splint it and get emergency care. Watch closely for breathing trouble.",
+      "Track how fast the swelling is spreading: draw a line on the skin at the edge of the swelling with a pen or marker, and write the time next to it. Redraw the line every 15-30 minutes — if the swelling keeps crossing the old lines quickly, that tells responders how the venom is progressing even before you reach care.",
     ],
   },
   "Tick bite, rabies exposure, animal bite (human)": {
@@ -1355,6 +1362,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Reject without opening or tasting: a leaking, bulging, or swollen container; a cracked or damaged jar or lid; liquid or foam that spurts out when you open it; food that's discolored, moldy, or smells wrong; or any home-canned item where you don't know the canning method or storage history.",
       "A normal smell is not proof the food is safe.",
       "If you suspect a jar or can is contaminated, dispose of it without tasting it — don't pour it down the drain or feed it to animals; seal it in a bag and discard it in household trash, or follow your local health department's guidance for a larger amount.",
+      "If someone may have already eaten contaminated food, botulism looks different from typical food poisoning — it usually doesn't cause vomiting or diarrhea at all. Instead it attacks the nerves starting from the head down: blurred or double vision, drooping eyelids, trouble speaking or swallowing, a dry mouth, then weakness spreading down into the chest and arms. Treat this as a medical emergency — it can progress to trouble breathing.",
+      "A rolling boil for a full 10 minutes destroys the botulism toxin completely, if you're cooking food you're genuinely unsure about rather than discarding it outright.",
     ],
   },
   "General power outage": {
@@ -1405,6 +1414,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Don't touch stored water or the inside of the container with your hands or an unclean scoop.",
       "How to tell if a plastic container is safe for water: look for a small recycling triangle with a number inside, usually on the bottom. #1 (PET), #2 (HDPE), #4 (LDPE), and #5 (PP) are all fine for water. Avoid #3 (PVC) and #6 (polystyrene) entirely, and only use #7 if it's specifically labeled BPA-free.",
       "Never reuse a barrel or drum that held anything other than food, even if it's labeled food-grade plastic — chemical residue from fuel, pesticides, or solvents soaks into the plastic itself and can't be washed out. If you're repurposing a used food-grade drum (syrup, juice concentrate), wash it with hot soapy water, then sanitize with about 1 tablespoon of plain unscented bleach per gallon of water swished across every interior surface, and rinse well before filling.",
+      "If you're filling a barrel for long-term storage and your water comes from a private well or another untreated source, add about 1/8 teaspoon (roughly 8 drops) of plain unscented bleach per gallon before sealing it — for a full 55-gallon drum, that's about 2 teaspoons. Seal tightly with the threaded cap (a bung wrench helps get it snug), and store the barrel up off bare concrete on a wood pallet, out of direct sunlight.",
     ],
   },
   "Tap water suspected unsafe": {
@@ -3128,6 +3138,58 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "If a knife, nail, stick, or piece of rebar is stuck deep in the body, do not pull it out. It's acting like a cork, physically blocking a hole in a blood vessel — pulling it free can let serious, uncontrollable bleeding start from deep inside, often impossible to stop outside of a hospital.",
       "Leave the object exactly where it is. Build up padding on both sides of it using rolled towels, bulky gauze, or folded clothing, then wrap tape or cloth strips around the padding and the body to hold the object still so it can't shift or wobble while the person is moved.",
       "The one exception: if the object has gone straight through the cheek or jaw and is actively blocking the airway so the person genuinely can't breathe at all, it may need to come out to save their airway. Outside of that specific situation, leave it in place and get emergency help.",
+    ],
+  },
+  "Abdominal evisceration: organs exposed": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "If a wound is bad enough that internal organs are visibly exposed, never try to push them back inside — doing so carries dirt and bacteria into a space that's normally sterile, and can also kink the intestines.",
+      "Keep the exposed organs damp — dried-out tissue dies. Cover them with a clean towel, sheet, or gauze that's soaked in clean warm water or saline, and don't let it dry out.",
+      "Lay a piece of plastic wrap or a clean plastic bag loosely over the damp covering — this holds in moisture and body heat without pressing on the wound.",
+      "Lay the person flat on their back with their knees bent up toward their chest if possible — this takes tension off the abdominal muscles and eases pressure on the area.",
+    ],
+  },
+  "Blunt internal bleeding recognition": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "After a hard fall or a vehicle crash, internal bleeding doesn't always show on the outside. Watch for: bruising spreading across the belly or sides, a belly that becomes hard, swollen, and tense — almost like a wooden board instead of soft — and signs of shock (pale, cold, sweaty skin, a racing pulse, dizziness, extreme thirst, feeling faint).",
+      "Keep them lying flat with their legs propped up slightly, and keep them warm with dry blankets — losing body heat makes bleeding and shock worse.",
+      "Don't give them anything to eat or drink, even if they ask for it — only dampen their lips with a wet cloth if they're thirsty. Drinking sends blood to the gut instead of vital organs, can trigger vomiting, and complicates surgery if they need an emergency operation later.",
+      "This is always a call-for-help-immediately situation — internal bleeding can be life-threatening even with no obvious external wound.",
+    ],
+  },
+  "Cellulitis: red streaks spreading from a wound": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A cut, scrape, or bite that's spreading angry redness outward, especially with red streaks running up an arm or leg toward the armpit or groin, along with chills or fever, means the infection may be entering the bloodstream — this can turn serious quickly.",
+      "Mark the edge of the redness with a pen and write the time next to it. Check again in a couple of hours — if the redness has spread past your line, the infection is progressing and this needs medical care as soon as you can get it, not a wait-and-see approach.",
+      "In the meantime: keep the limb elevated and as still as possible, and apply warm, damp compresses. If you have antibiotics specifically kept on hand for exactly this kind of emergency, and know the right one and dose for it, this is the situation they're meant for — this isn't a reason to start any antibiotics you happen to have lying around from an old prescription.",
+    ],
+  },
+  "Severe nosebleeds that won't stop": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never tilt the head back — that sends blood down the throat instead of out the nose, which can cause vomiting and doesn't actually help the bleeding stop. Sit upright and lean slightly forward instead, letting it drain out the front into a cloth or bowl.",
+      "Pinch the soft lower part of the nose — not the hard bony bridge — firmly between your thumb and finger, and hold continuous pressure while breathing through your mouth.",
+      "Hold for a full 10 to 15 minutes without letting go to check. Peeking early breaks apart the clot that's trying to form and resets the clock.",
+      "Still bleeding after 15 minutes? Blow the nose once, firmly, to clear out any large clots, then try again — this time, if you have it on hand, soak a small piece of gauze or cotton in a nasal decongestant spray before packing it gently into the nostril and pinching again.",
+    ],
+  },
+  "Black widow, brown recluse, and scorpion stings": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Black widow bites cause sharp pain followed within 30-60 minutes by intense cramping that spreads from the bite into the belly, back, and thighs — the stomach can even feel rigid, similar to appendicitis. Wash the bite, apply a cloth-wrapped ice pack for 10 minutes at a time, keep the person calm and resting, and use ibuprofen or acetaminophen for pain. Get medical care, especially for children, older adults, or anyone with heart problems.",
+      "Brown recluse bites are usually painless at first. Over the next several hours, a blister forms with a pale ring around it — over the following days, the center can darken, sink in, and the skin around it can die, leaving an open sore. Wash it, keep it elevated, apply a cool compress, and never apply heat — heat speeds up the tissue damage. Watch daily for spreading redness, which would mean a bacterial infection on top of the bite.",
+      "Scorpion stings usually cause intense burning pain with little or no visible mark — the skin can become so sensitive that a light touch nearby hurts. Wash the area and apply a cold compress. If you notice muscle twitching, unusual eye movements, heavy drooling, or trouble swallowing, that's a sign of a more serious reaction — keep them positioned on their side so they don't choke, and get medical care right away.",
+    ],
+  },
+  "Evacuation routes: avoiding gridlock": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Major roads can turn into parking lots within just a couple hours of a mandatory evacuation order or widespread panic. If you didn't leave in the first wave, assume the interstate isn't your best option anymore.",
+      "Don't rely only on a GPS app during a real crisis — cell towers can fail, and even when they don't, everyone's app tends to reroute them onto the same few alternate roads, creating new jams. Keep a paper map of your area and know a couple of back routes in advance — smaller roads that locals use, not just the highway.",
+      "Keep your vehicle ready before you ever need to evacuate: try to keep the gas tank at least half full at all times, since gas station pumps don't work without grid power. A spare tire, a tow strap, and a portable tire inflator are worth keeping in the vehicle too.",
+      "If your vehicle gets permanently stuck in gridlock with real danger — fire or floodwater — closing in: don't wait it out. Grab your go-bag, pull the car to the shoulder if you can so emergency vehicles can still get through, lock it, and continue on foot.",
     ],
   },
 };
