@@ -85,6 +85,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "RUN — evacuate if there's an accessible escape path, using cover and concealment, moving away from the threat.",
       "HIDE — if evacuation isn't possible, get into a secure area with a lockable door, or find cover to break the attacker's line of sight.",
       "FIGHT — as an absolute last resort, when neither running nor hiding is possible, commit fully to incapacitating the attacker.",
+      "When it's safe to do so, call 911 — give your location, the number of shooters if known, and a physical description.",
       "Most active-shooter incidents are over in 10-15 minutes, before law enforcement typically arrives — this is why individual preparedness matters.",
       "Don't assume \"run\" is always safest without assessing the actual exits and the threat's location first.",
     ],
@@ -448,6 +449,57 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never burn poison ivy, poison oak, or poison sumac, or brush piles that may contain them.",
       "Burning releases urushiol (the same oil causing skin rash) into the smoke — inhaling it can cause severe internal respiratory reactions, not just external rash.",
       "If burning contaminated brush is truly unavoidable, use at minimum a NIOSH-certified R-95/P-95-or-better particulate respirator.",
+    ],
+  },
+  "Poison ivy, oak, and sumac: skin contact and rash": {
+    sources: ["CDC", "American Academy of Dermatology"],
+    guidance: [
+      "Rinse exposed skin with any water you can find as soon as possible — plain water alone removes most of the oil (urushiol) if you do it within 10-30 minutes. Speed matters far more than having soap.",
+      "No water yet? Rubbing alcohol, hand sanitizer, or briskly wiping with a dry cloth can strip oil off skin as a stopgap until you reach water.",
+      "The oil is what spreads it, not the rash fluid itself — wash exposed clothing, shoes, tools, and pet fur too, or you can keep re-exposing yourself after you've already cleaned your skin.",
+      "For itching without any products on hand: a cool water soak or compress, or a paste of baking soda or plain oatmeal mixed with water, calms the skin.",
+      "Loose, breathable clothing over the area cuts down on friction and spreading.",
+      "Get real medical care if the rash covers a large area, involves the face, eyes, or genitals, or shows signs of infection — increasing redness, warmth, pus, or fever.",
+    ],
+  },
+  "Getting water from vegetation (solar still method)": {
+    sources: ["U.S. Army Survival Manual, FM 21-76", "Ready.gov"],
+    guidance: [
+      "Tie a clear plastic bag around a leafy, living branch or clump of grass in direct sunlight, with the lowest corner of the bag dipping slightly below the rest so condensation collects there.",
+      "The plant's own moisture condenses inside the bag as it heats up in the sun. This yields small amounts of drinkable water over several hours — a supplement, not a fast or high-volume source.",
+      "This works with almost any living, unsprayed vegetation, which is what makes it safer than trying to identify a specific plant to cut and drink from — you don't need to know the species.",
+      "Avoid using plants you know are toxic (like oleander) for this. Ordinary grass, leaves, or non-toxic shrubs and trees are fine.",
+      "Treat this water the same as any other found water source if there's any doubt — boil or otherwise purify it before drinking.",
+    ],
+  },
+  "Dandelion: a common, safe wild edible": {
+    sources: ["USDA PLANTS Database", "university extension services"],
+    guidance: [
+      "Dandelion (Taraxacum officinale) grows across nearly all of North America and Europe — lawns, fields, sidewalk cracks, disturbed soil — and is one of the easiest wild plants to identify with real confidence.",
+      "Look for a low rosette of jagged-edged leaves, a hollow stem with milky sap, and a bright yellow flower that later turns into a white puffball seed head. No dangerous plant is commonly mistaken for it.",
+      "The entire plant — leaves, flowers, and root — is edible and non-toxic, unlike most wild plants, which is why it's worth knowing on sight.",
+      "Avoid picking from lawns or roadsides that may have been treated with pesticide or herbicide, or are right next to heavy traffic.",
+      "This is a food-safety fact, not a treatment for any condition — it's useful because it's common and safe to eat, not because it cures anything.",
+    ],
+  },
+  "Clover: a common, safe wild edible": {
+    sources: ["USDA PLANTS Database", "university extension services"],
+    guidance: [
+      "White and red clover (Trifolium repens and Trifolium pratense) grow in lawns, fields, and roadsides across nearly all of North America and Europe — one of the most common plants there is.",
+      "Identify it by the classic three-leaflet leaf (each leaflet often with a faint pale V-mark) and a round pom-pom flower head, white or pink-purple. There's no toxic plant commonly confused with it.",
+      "Leaves and flowers are edible raw or cooked; raw leaves are easier to digest in small amounts, since large raw quantities can cause bloating.",
+      "Avoid clover from lawns or areas that may have been treated with pesticide or herbicide.",
+      "Like dandelion, this is a food-safety fact — a plant worth recognizing because it's everywhere and safe, not a remedy for anything.",
+    ],
+  },
+  "Broadleaf plantain: a common, safe wild edible": {
+    sources: ["USDA PLANTS Database", "university extension services"],
+    guidance: [
+      "Broadleaf plantain (Plantago major) is a low weed found in lawns, sidewalk cracks, and disturbed soil almost everywhere in North America and Europe. It is not related to the banana-like plantain fruit.",
+      "Identify it by the wide oval leaves with thick parallel veins running the length of each leaf, growing in a low rosette, with a thin flower spike rising from the center.",
+      "Young leaves are edible raw in small amounts (older leaves get tough and stringy) or cooked like a leafy green. No dangerous plant is commonly mistaken for it once you know the parallel-vein leaf pattern.",
+      "Avoid picking from lawns or roadsides that may have been treated with pesticide or herbicide.",
+      "As with dandelion and clover, this is a food-safety fact about a plant that's common and safe to eat — it's listed here for identification, not as a treatment for anything.",
     ],
   },
   "Psychological first aid and grief support": {
@@ -939,6 +991,17 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Antihistamines (e.g. diphenhydramine) may help skin symptoms like hives, but do nothing for airway swelling or shock — never treat this as \"good enough.\"",
       "If breathing stops or normal breathing fails, begin CPR and use an AED if available.",
       "Watch for a delayed second wave of symptoms (biphasic reaction) even after apparent improvement — get to medical care regardless.",
+    ],
+  },
+  "Mild allergic reaction or hives without antihistamine": {
+    sources: ["American College of Allergy, Asthma & Immunology (ACAAI)", "American Academy of Dermatology (AAD)"],
+    guidance: [
+      "This is for a MILD reaction only — localized itching, hives, or a rash, with normal breathing and no swelling of the face, lips, tongue, or throat. Any of those signs is anaphylaxis, not this — see \"Anaphylaxis when no epinephrine is available\" and treat it as a medical emergency instead.",
+      "There is no plant or home remedy that reliably does what an antihistamine does. A mild reaction is managed by easing symptoms while the body clears the trigger on its own, usually within hours to a couple of days.",
+      "A cool water soak or compress reduces itching and swelling more than almost anything else available without medication.",
+      "Remove the trigger if it's still present — rinse the skin if it's a contact reaction, remove a stinger if visible.",
+      "Loose clothing and not scratching helps; broken skin from scratching can get infected on top of the reaction.",
+      "Recheck within the hour. Spreading, worsening, or any breathing/swallowing/swelling symptom means this has become the emergency version — escalate immediately.",
     ],
   },
   "Dog/animal bite wound care and infection risk": {

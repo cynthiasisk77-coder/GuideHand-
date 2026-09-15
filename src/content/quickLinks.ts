@@ -1,4 +1,4 @@
-// "Emergency Now" quick cards are short versions of full articles that live in other categories.
+// "What To Do In An Emergency" quick cards are short versions of full articles that live in other categories.
 // primary: the full article whose steps are shown on the quick card until a dedicated card is written.
 // related: other full articles worth one tap from that card. All values are exact topic titles.
 export interface QuickLink {

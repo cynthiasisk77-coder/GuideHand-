@@ -2,11 +2,10 @@ import { useMemo } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
-import { CallButton } from '@/components/call-button';
 import { Icon } from '@/components/icon';
-import { Calm } from '@/constants/calm';
+import { Calm, Fonts } from '@/constants/calm';
 import { EMERGENCY_CATEGORY, PRIORITY_HUMAN, PRIORITY_ORDER, getQuickTile } from '@/constants/categoryStyle';
-import { PRIORITY_COLOR, STATUS_LABEL } from '@/constants/status';
+import { priorityColor, priorityTextColor, STATUS_LABEL } from '@/constants/status';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { getCategoryBySlug, getTopicsForCategory } from '@/lib/content';
 
@@ -32,14 +31,17 @@ export default function CategoryScreen() {
       <Stack.Screen options={{ title: name }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <Text style={[styles.subhead, { color: c.textSecondary }]}>
-            {categoryData?.note ? categoryData.note : `${written} of ${topics.length} topics written`}
-          </Text>
-
-          {isEmergency ? <CallButton style={styles.call} /> : null}
+          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Category</Text>
+            <Text style={[styles.title, { color: c.onBlue }]}>{name}</Text>
+            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>
+              {categoryData?.note ? categoryData.note : `${written} of ${topics.length} topics written`}
+            </Text>
+          </View>
 
           {topics.map((item) => {
             const quick = isEmergency ? getQuickTile(item.title) : undefined;
+            const stripeColor = priorityColor(item.priority, c);
             return (
               <Pressable
                 key={item.slug}
@@ -51,12 +53,14 @@ export default function CategoryScreen() {
                   styles.card,
                   { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.8 : 1 },
                 ]}>
-                <View style={[styles.stripe, { backgroundColor: PRIORITY_COLOR[item.priority] }]} />
+                <View style={[styles.stripe, { backgroundColor: stripeColor }]} />
                 <View style={styles.cardBody}>
                   <Text style={[styles.cardTitle, { color: c.text }]}>{quick ? quick.label : item.title}</Text>
                   <View style={styles.metaRow}>
-                    <View style={[styles.pill, { backgroundColor: PRIORITY_COLOR[item.priority] }]}>
-                      <Text style={styles.pillText}>{PRIORITY_HUMAN[item.priority]}</Text>
+                    <View style={[styles.pill, { backgroundColor: stripeColor }]}>
+                      <Text style={[styles.pillText, { color: priorityTextColor(item.priority, c.text) }]}>
+                        {PRIORITY_HUMAN[item.priority]}
+                      </Text>
                     </View>
                     <Text style={[styles.metaText, { color: c.textSecondary }]}>{STATUS_LABEL[item.status]}</Text>
                     {!item.hasBody ? (
@@ -64,7 +68,7 @@ export default function CategoryScreen() {
                     ) : null}
                   </View>
                 </View>
-                <Icon name="chevron" size={18} color={c.chevron} />
+                <Icon name="chevron" size={18} color={c.textSecondary} />
               </Pressable>
             );
           })}
@@ -85,13 +89,23 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: SIDE,
   },
+  headerBlock: {
+    borderRadius: 20,
+    padding: 16,
+    gap: 6,
+    marginBottom: 14,
+  },
+  eyebrow: {
+    fontSize: 11,
+    fontFamily: Fonts.mono,
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
+  title: { fontSize: 22, fontFamily: Fonts.display },
   subhead: {
     fontSize: 13,
     lineHeight: 18,
-    marginBottom: 14,
-  },
-  call: {
-    marginBottom: Spacing.three,
+    fontFamily: Fonts.body,
   },
   card: {
     flexDirection: 'row',
@@ -113,7 +127,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 16,
-    fontWeight: '700',
+    fontFamily: Fonts.displaySemibold,
     lineHeight: 21,
   },
   metaRow: {
@@ -122,15 +136,14 @@ const styles = StyleSheet.create({
     gap: 8,
     flexWrap: 'wrap',
   },
-  metaText: { fontSize: 12 },
+  metaText: { fontSize: 12, fontFamily: Fonts.body },
   pill: {
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 999,
   },
   pillText: {
-    color: '#FFFFFF',
     fontSize: 11,
-    fontWeight: '700',
+    fontFamily: Fonts.bodyBold,
   },
 });

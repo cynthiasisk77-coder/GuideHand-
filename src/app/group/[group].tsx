@@ -3,7 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'r
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
 import { Icon } from '@/components/icon';
-import { Calm, TEAL } from '@/constants/calm';
+import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { findGroupBySlug } from '@/content/groups';
 import { getCategoryBySlug, getTopicsForCategory, slugify } from '@/lib/content';
@@ -46,7 +46,11 @@ export default function GroupScreen() {
       <Stack.Screen options={{ title: group.name }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <Text style={[styles.sectionLabel, { color: c.textSecondary }]}>PICK ONE</Text>
+          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Category group</Text>
+            <Text style={[styles.title, { color: c.onBlue }]}>{group.name}</Text>
+            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>{group.sub}</Text>
+          </View>
           {rows.map((row) => (
             <Pressable
               key={row.slug}
@@ -54,16 +58,16 @@ export default function GroupScreen() {
               onPress={() => router.push({ pathname: '/category/[category]', params: { category: row.slug } })}
               style={({ pressed }) => [
                 styles.row,
-                { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
+                { backgroundColor: c.card, borderColor: c.blue, borderWidth: 1.5, opacity: pressed ? 0.7 : 1 },
               ]}>
-              <View style={[styles.icon, { backgroundColor: c.iconBg }]}>
-                <Icon name={group.icon} color={TEAL} />
+              <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                <Icon name={group.icon} color={c.blue} />
               </View>
               <View style={styles.rowText}>
                 <Text style={[styles.rowName, { color: c.text }]}>{row.name}</Text>
                 <Text style={[styles.rowSub, { color: c.textSecondary }]}>{row.count} topics</Text>
               </View>
-              <Icon name="chevron" size={18} color={c.chevron} />
+              <Icon name="chevron" size={18} color={c.textSecondary} />
             </Pressable>
           ))}
         </View>
@@ -83,13 +87,20 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: SIDE,
   },
-  sectionLabel: {
-    fontSize: 11,
-    fontWeight: '800',
-    letterSpacing: 1.2,
-    marginBottom: 8,
-    marginLeft: 2,
+  headerBlock: {
+    borderRadius: 20,
+    padding: 16,
+    gap: 6,
+    marginBottom: 14,
   },
+  eyebrow: {
+    fontSize: 11,
+    fontFamily: Fonts.mono,
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
+  title: { fontSize: 22, fontFamily: Fonts.display },
+  subhead: { fontSize: 13, lineHeight: 18, fontFamily: Fonts.body },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -107,6 +118,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rowText: { flex: 1, minWidth: 0 },
-  rowName: { fontSize: 15, fontWeight: '700' },
-  rowSub: { fontSize: 12, marginTop: 1 },
+  rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
+  rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
 });

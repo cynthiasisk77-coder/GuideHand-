@@ -18,7 +18,7 @@ export interface Category {
 
 export const CATEGORIES: Category[] = [
   {
-    name: "Emergency Now",
+    name: "What To Do In An Emergency",
     note: "Quick numbered-step versions of the full articles below.",
     topics: [
       { title: "Severe bleeding (tourniquet)", status: "specialist", priority: "P0", note: "Full article drafted" },
@@ -60,6 +60,7 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency childbirth and newborn care", status: "specialist", priority: "P0", note: "Red Cross + AAP/ACOG" },
       { title: "Severe allergic reaction / epinephrine", status: "specialist", priority: "P0", note: "" },
       { title: "Anaphylaxis when no epinephrine is available", status: "verified", priority: "P0", note: "ASCIA + AAAAI/ACAAI" },
+      { title: "Mild allergic reaction or hives without antihistamine", status: "verified", priority: "P2", note: "ACAAI + AAD" },
       { title: "Asthma, COPD, breathing distress", status: "specialist", priority: "P0", note: "2024 AHA/Red Cross" },
       { title: "Diabetes, insulin interruption, hypoglycemia", status: "specialist", priority: "P0", note: "" },
       { title: "Seizure", status: "specialist", priority: "P0", note: "" },
@@ -360,6 +361,11 @@ export const CATEGORIES: Category[] = [
       { title: "Most dangerous look-alike poisonous plants", status: "verified", priority: "P0", note: "Poison Control" },
       { title: "Universal edibility test, with real limitations stated plainly", status: "partial", priority: "P1", note: "Deliberately kept low-confidence — framed as a caution about a flawed popular method, not an endorsement" },
       { title: "Plants never to touch or burn", status: "verified", priority: "P0", note: "CDC/NIOSH" },
+      { title: "Poison ivy, oak, and sumac: skin contact and rash", status: "verified", priority: "P2", note: "CDC + American Academy of Dermatology" },
+      { title: "Getting water from vegetation (solar still method)", status: "verified", priority: "P2", note: "US Army FM 21-76 + Ready.gov" },
+      { title: "Dandelion: a common, safe wild edible", status: "verified", priority: "P3", note: "USDA + university extension services" },
+      { title: "Clover: a common, safe wild edible", status: "verified", priority: "P3", note: "USDA + university extension services" },
+      { title: "Broadleaf plantain: a common, safe wild edible", status: "verified", priority: "P3", note: "USDA + university extension services" },
       { title: "Basic tree ID for firewood/tinder only", status: "new", priority: "P3", note: "Non-medicinal" },
     ],
   },

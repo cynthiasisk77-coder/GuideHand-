@@ -4,13 +4,13 @@ import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
 import { Icon } from '@/components/icon';
-import { Calm, RED, TEAL } from '@/constants/calm';
+import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { CATEGORY_GROUPS, slugifyGroup } from '@/content/groups';
-import { getCategorySummaries, searchTopics, slugify } from '@/lib/content';
-import * as Linking from 'expo-linking';
+import { getCategorySummaries, getP0TopicsForCategories, searchTopics } from '@/lib/content';
 
-const EMERGENCY_NAME = 'Emergency Now';
+const EMERGENCY_NAME = 'What To Do In An Emergency';
+const ACCENT_CYCLE = ['blue', 'plum', 'sage'] as const;
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -20,6 +20,10 @@ export default function HomeScreen() {
 
   const categories = useMemo(() => getCategorySummaries(), []);
   const emergency = categories.find((cat) => cat.name === EMERGENCY_NAME);
+  const p0Count = useMemo(
+    () => getP0TopicsForCategories(categories.map((cat) => cat.name)).length,
+    [categories]
+  );
   const results = useMemo(() => searchTopics(query), [query]);
   const searching = query.trim().length > 0;
 
@@ -27,42 +31,27 @@ export default function HomeScreen() {
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
-        <View style={styles.topbar}>
-          <Text style={[styles.title, { color: c.text }]}>GuideHand</Text>
-        </View>
-
         <View style={styles.content}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Call 911"
-            onPress={() => Linking.openURL('tel:911').catch(() => {})}
-            style={({ pressed }) => [
-              styles.callBtn,
-              { borderColor: RED, backgroundColor: c.card, opacity: pressed ? 0.8 : 1 },
-            ]}>
-            <Icon name="phone" size={20} color={RED} />
-            <View style={styles.callText}>
-              <Text style={[styles.callTitle, { color: RED }]}>Call 911</Text>
-              <Text style={[styles.callSub, { color: c.textSecondary }]}>If you have signal, call first</Text>
+          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+            <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
+            <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
+            <View style={[styles.search, { backgroundColor: c.card }]}>
+              <Icon name="search" size={16} color={c.blue} />
+              <TextInput
+                value={query}
+                onChangeText={setQuery}
+                placeholder="Search every topic"
+                placeholderTextColor={c.textSecondary}
+                style={[styles.searchInput, { color: c.text }]}
+                autoCorrect={false}
+                clearButtonMode="while-editing"
+              />
             </View>
-          </Pressable>
-
-          <View style={[styles.search, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-            <Text style={styles.searchIcon}>🔍</Text>
-            <TextInput
-              value={query}
-              onChangeText={setQuery}
-              placeholder="Search every topic"
-              placeholderTextColor={c.textSecondary}
-              style={[styles.searchInput, { color: c.text }]}
-              autoCorrect={false}
-              clearButtonMode="while-editing"
-            />
           </View>
 
           {searching ? (
             <View style={styles.section}>
-              <Text style={[styles.sectionLabel, { color: c.textSecondary }]}>
+              <Text style={[styles.sectionLabel, { color: c.blue }]}>
                 {results.length === 0
                   ? `No topics match "${query.trim()}"`
                   : `${results.length} result${results.length === 1 ? '' : 's'}`}
@@ -85,56 +74,60 @@ export default function HomeScreen() {
                     <Text style={[styles.rowName, { color: c.text }]}>{item.topic.title}</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>{item.categoryName}</Text>
                   </View>
-                  <Icon name="chevron" size={18} color={c.chevron} />
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
               ))}
             </View>
           ) : (
             <>
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.textSecondary }]}>RIGHT NOW</Text>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>RIGHT NOW</Text>
                 {emergency ? (
                   <Pressable
                     accessibilityRole="button"
-                    onPress={() => router.push({ pathname: '/category/[category]', params: { category: slugify(EMERGENCY_NAME) } })}
+                    onPress={() => router.push({ pathname: '/emergency' })}
                     style={({ pressed }) => [
                       styles.row,
                       styles.rowEmergency,
-                      { backgroundColor: c.card, borderColor: RED, opacity: pressed ? 0.85 : 1 },
+                      { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
                     ]}>
-                    <View style={[styles.icon, { backgroundColor: c.emergencyIconBg }]}>
-                      <Icon name="siren" color={RED} />
+                    <View style={[styles.icon, { backgroundColor: c.dangerSoft }]}>
+                      <Icon name="siren" color={c.danger} />
                     </View>
                     <View style={styles.rowText}>
-                      <Text style={[styles.rowName, { color: c.text }]}>Emergency Now</Text>
-                      <Text style={[styles.rowSub, { color: c.textSecondary }]}>{emergency.topicCount} life-or-death situations</Text>
+                      <Text style={[styles.rowName, { color: c.text }]}>What To Do In An Emergency</Text>
+                      <Text style={[styles.rowSub, { color: c.textSecondary }]}>{p0Count} life-threatening situations, step by step</Text>
                     </View>
-                    <Icon name="chevron" size={18} color={c.chevron} />
+                    <Icon name="chevron" size={18} color={c.textSecondary} />
                   </Pressable>
                 ) : null}
               </View>
 
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.textSecondary }]}>LOOK SOMETHING UP</Text>
-                {CATEGORY_GROUPS.map((group) => (
-                  <Pressable
-                    key={group.name}
-                    accessibilityRole="button"
-                    onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
-                    style={({ pressed }) => [
-                      styles.row,
-                      { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
-                    ]}>
-                    <View style={[styles.icon, { backgroundColor: c.iconBg }]}>
-                      <Icon name={group.icon} color={TEAL} />
-                    </View>
-                    <View style={styles.rowText}>
-                      <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
-                      <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
-                    </View>
-                    <Icon name="chevron" size={18} color={c.chevron} />
-                  </Pressable>
-                ))}
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
+                {CATEGORY_GROUPS.map((group, i) => {
+                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+                  return (
+                    <Pressable
+                      key={group.name}
+                      accessibilityRole="button"
+                      onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
+                      style={({ pressed }) => [
+                        styles.row,
+                        styles.rowAccented,
+                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
+                      ]}>
+                      <View style={[styles.icon, { backgroundColor: c[`${accent}Soft`] }]}>
+                        <Icon name={group.icon} color={c[accent]} />
+                      </View>
+                      <View style={styles.rowText}>
+                        <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
+                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
+                      </View>
+                      <Icon name="chevron" size={18} color={c.textSecondary} />
+                    </Pressable>
+                  );
+                })}
               </View>
 
               <Text style={[styles.footer, { color: c.textSecondary }]}>
@@ -152,50 +145,37 @@ const SIDE = Spacing.three;
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  scroll: {},
-  topbar: {
-    paddingTop: 56,
-    paddingBottom: 14,
-    paddingHorizontal: SIDE,
-  },
-  title: { fontSize: 22, fontWeight: '700' },
+  scroll: { paddingTop: 56, paddingBottom: 40 },
   content: {
     width: '100%',
     maxWidth: MaxContentWidth,
     alignSelf: 'center',
     paddingHorizontal: SIDE,
   },
-  callBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  headerBlock: {
+    borderRadius: 20,
+    padding: 16,
     gap: 12,
-    borderWidth: 1.5,
-    borderRadius: 14,
-    paddingVertical: 13,
-    paddingHorizontal: 16,
-    marginBottom: 12,
+    marginBottom: 4,
   },
-  callText: { flex: 1 },
-  callTitle: { fontSize: 17, fontWeight: '700' },
-  callSub: { fontSize: 12, marginTop: 1 },
+  title: { fontSize: 24, fontFamily: Fonts.display },
+  subtitle: { fontSize: 13, marginTop: -8, fontFamily: Fonts.body },
   search: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    borderWidth: 1,
     borderRadius: 12,
     paddingHorizontal: 14,
-    marginBottom: 6,
   },
-  searchIcon: { fontSize: 15 },
-  searchInput: { flex: 1, paddingVertical: 11, fontSize: 15 },
+  searchInput: { flex: 1, paddingVertical: 11, fontSize: 15, fontFamily: Fonts.body },
   section: { marginTop: 22 },
   sectionLabel: {
     fontSize: 11,
-    fontWeight: '800',
+    fontFamily: Fonts.mono,
     letterSpacing: 1.2,
     marginBottom: 8,
     marginLeft: 2,
+    textTransform: 'uppercase',
   },
   row: {
     flexDirection: 'row',
@@ -207,6 +187,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   rowEmergency: { borderWidth: 1.5, borderLeftWidth: 3 },
+  rowAccented: { borderWidth: 1.5 },
   icon: {
     width: 40,
     height: 40,
@@ -215,13 +196,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   rowText: { flex: 1, minWidth: 0 },
-  rowName: { fontSize: 15, fontWeight: '700' },
-  rowSub: { fontSize: 12, marginTop: 1 },
+  rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
+  rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
   footer: {
     marginTop: 24,
     marginBottom: 12,
     fontSize: 11.5,
     textAlign: 'center',
     lineHeight: 17,
+    fontFamily: Fonts.body,
   },
 });

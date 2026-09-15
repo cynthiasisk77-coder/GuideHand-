@@ -1,6 +1,6 @@
-// Groups the 21 browsable categories (everything except Emergency Now) into a
-// small set of top-level buckets, so the home screen shows ~9 choices instead
-// of 21+. Exact category names must match categories.ts.
+// Groups the 22 browsable categories (everything except What To Do In An Emergency) into a
+// small set of top-level buckets, so the home screen shows a manageable list
+// instead of 22+ flat categories. Exact category names must match categories.ts.
 export interface CategoryGroup {
   name: string;
   sub: string;
@@ -10,10 +10,16 @@ export interface CategoryGroup {
 
 export const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    name: "Medical & Family",
-    sub: "Medical & First Aid, Family needs",
-    categories: ["Medical & First Aid", "Family & Special Needs"],
+    name: "First Aid",
+    sub: "Medical care and first aid steps",
+    categories: ["Medical & First Aid"],
     icon: "medical",
+  },
+  {
+    name: "Family",
+    sub: "Special needs, caregiving, family plans",
+    categories: ["Family & Special Needs"],
+    icon: "family",
   },
   {
     name: "Weather & Disasters",
@@ -34,22 +40,40 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     icon: "home",
   },
   {
-    name: "Getting Around",
-    sub: "Cars, getting out, finding your way",
-    categories: ["Vehicles & Mechanics", "Evacuation", "Navigation"],
+    name: "Travel & Evacuation",
+    sub: "Cars and getting out",
+    categories: ["Vehicles & Mechanics", "Evacuation"],
     icon: "car",
   },
   {
-    name: "Animals & Nature",
-    sub: "Pets, farm animals, plants",
-    categories: ["Animals & Pets", "Plants — Basic Emergency Reference"],
+    name: "Maps & Navigation",
+    sub: "Paper maps, compass, finding your way",
+    categories: ["Navigation"],
+    icon: "compass",
+  },
+  {
+    name: "Animals & Pets",
+    sub: "Pets and farm animals",
+    categories: ["Animals & Pets"],
     icon: "paw",
   },
   {
-    name: "Tools & Communication",
-    sub: "Fixing things, radios, staying in touch",
-    categories: ["Tools & Repairs", "Communication"],
+    name: "Plants",
+    sub: "Poisonous look-alikes, safe wild plants",
+    categories: ["Plants — Basic Emergency Reference"],
+    icon: "leaf",
+  },
+  {
+    name: "Tools & Repairs",
+    sub: "Fixing things, basic repairs",
+    categories: ["Tools & Repairs"],
     icon: "tools",
+  },
+  {
+    name: "Communication",
+    sub: "Radios, staying in touch",
+    categories: ["Communication"],
+    icon: "radio",
   },
   {
     name: "Plan Ahead",

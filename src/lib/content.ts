@@ -90,6 +90,24 @@ export function getRelatedTopics(title: string): TopicRef[] {
   return related.map(findTopicByTitle).filter((r): r is TopicRef => Boolean(r));
 }
 
+// Every genuinely life-threatening (P0) topic from a given set of category
+// names, regardless of which category "owns" it — used by the emergency
+// fan-out so someone can find their crisis by type without knowing which of
+// 20+ categories it's filed under.
+export function getP0TopicsForCategories(categoryNames: string[]): TopicRef[] {
+  const results: TopicRef[] = [];
+  for (const cat of CATEGORIES) {
+    if (!categoryNames.includes(cat.name)) continue;
+    const categorySlug = slugify(cat.name);
+    for (const t of cat.topics) {
+      if (t.priority === "P0") {
+        results.push({ categorySlug, categoryName: cat.name, topic: withMeta(t) });
+      }
+    }
+  }
+  return results;
+}
+
 export type SearchResult = TopicRef;
 
 export function searchTopics(query: string): SearchResult[] {

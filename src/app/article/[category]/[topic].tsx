@@ -1,14 +1,25 @@
 import { useMemo } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Alert, Linking, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
-import { CallButton } from '@/components/call-button';
 import { Icon } from '@/components/icon';
-import { Calm } from '@/constants/calm';
+import { Calm, Fonts } from '@/constants/calm';
 import { PRIORITY_HUMAN } from '@/constants/categoryStyle';
-import { PRIORITY_COLOR, STATUS_EXPLANATION, STATUS_LABEL } from '@/constants/status';
+import { priorityColor, priorityTextColor, STATUS_EXPLANATION, STATUS_LABEL } from '@/constants/status';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { getCategoryBySlug, getRelatedTopics, getTopic, resolveArticleBody } from '@/lib/content';
+
+// The only place in the app a 911 mention is tappable at all — and even here
+// it takes a deliberate second tap on a confirmation, so it can't be dialed
+// by a phone bumped in a pocket. Everywhere else "call 911" is plain text.
+const SAFEGUARDED_CALL_TOPIC = 'Active shooter / active attacker response';
+
+function confirmAndCall911() {
+  Alert.alert('Call 911?', undefined, [
+    { text: 'Cancel', style: 'cancel' },
+    { text: 'Call', style: 'destructive', onPress: () => Linking.openURL('tel:911').catch(() => {}) },
+  ]);
+}
 
 export default function ArticleScreen() {
   const { category, topic } = useLocalSearchParams<{ category: string; topic: string }>();
@@ -30,39 +41,60 @@ export default function ArticleScreen() {
     );
   }
 
-  const urgent = topicData.priority === 'P0';
+  const pillColor = priorityColor(topicData.priority, c);
+  const isCallStep = (line: string) => topicData.title === SAFEGUARDED_CALL_TOPIC && line.includes('911');
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: categoryData?.name ?? 'Article' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <Text style={[styles.title, { color: c.text }]}>{topicData.title}</Text>
-          <View style={styles.metaRow}>
-            <View style={[styles.pill, { backgroundColor: PRIORITY_COLOR[topicData.priority] }]}>
-              <Text style={styles.pillText}>{PRIORITY_HUMAN[topicData.priority]}</Text>
+          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Article</Text>
+            <Text style={[styles.title, { color: c.onBlue }]}>{topicData.title}</Text>
+            <View style={styles.metaRow}>
+              <View style={[styles.pill, { backgroundColor: pillColor }]}>
+                <Text style={[styles.pillText, { color: priorityTextColor(topicData.priority, c.text) }]}>
+                  {PRIORITY_HUMAN[topicData.priority]}
+                </Text>
+              </View>
+              <Text style={[styles.metaText, { color: c.onBlueSoft }]}>{STATUS_LABEL[topicData.status]}</Text>
             </View>
-            <Text style={[styles.metaText, { color: c.textSecondary }]}>{STATUS_LABEL[topicData.status]}</Text>
           </View>
-
-          {urgent ? <CallButton style={styles.call} /> : null}
 
           {body ? (
             <>
-              <Text style={[styles.stepsHeading, { color: c.textSecondary }]}>WHAT TO DO</Text>
+              <Text style={[styles.stepsHeading, { color: c.blue }]}>WHAT TO DO</Text>
               {resolved?.sourceTitle ? (
                 <Text style={[styles.sourceNote, { color: c.textSecondary }]}>
                   {`Steps from the full article "${resolved.sourceTitle}".`}
                 </Text>
               ) : null}
-              {body.guidance.map((line, i) => (
-                <View key={i} style={[styles.step, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-                  <View style={[styles.stepNumber, { backgroundColor: c.iconBg }]}>
-                    <Text style={[styles.stepNumberText, { color: c.text }]}>{i + 1}</Text>
+              {body.guidance.map((line, i) =>
+                isCallStep(line) ? (
+                  <Pressable
+                    key={i}
+                    accessibilityRole="button"
+                    accessibilityLabel="Call 911, with confirmation"
+                    onPress={confirmAndCall911}
+                    style={({ pressed }) => [
+                      styles.step,
+                      { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.8 : 1 },
+                    ]}>
+                    <View style={[styles.stepNumber, { backgroundColor: c.blueSoft }]}>
+                      <Icon name="phone" size={14} color={c.blue} />
+                    </View>
+                    <Text style={[styles.stepText, { color: c.text }]}>{line}</Text>
+                  </Pressable>
+                ) : (
+                  <View key={i} style={[styles.step, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+                    <View style={[styles.stepNumber, { backgroundColor: c.blueSoft }]}>
+                      <Text style={[styles.stepNumberText, { color: c.blue }]}>{i + 1}</Text>
+                    </View>
+                    <Text style={[styles.stepText, { color: c.text }]}>{line}</Text>
                   </View>
-                  <Text style={[styles.stepText, { color: c.text }]}>{line}</Text>
-                </View>
-              ))}
+                )
+              )}
 
               <View style={[styles.sources, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
                 <Text style={[styles.sourcesLabel, { color: c.text }]}>Sources</Text>
@@ -85,7 +117,7 @@ export default function ArticleScreen() {
 
           {related.length > 0 ? (
             <View style={styles.related}>
-              <Text style={[styles.stepsHeading, { color: c.textSecondary }]}>SEE ALSO</Text>
+              <Text style={[styles.stepsHeading, { color: c.blue }]}>SEE ALSO</Text>
               {related.map((r) => (
                 <Pressable
                   key={`${r.categorySlug}-${r.topic.slug}`}
@@ -107,7 +139,7 @@ export default function ArticleScreen() {
                       {r.topic.hasBody ? '' : ' · not written yet'}
                     </Text>
                   </View>
-                  <Icon name="chevron" size={18} color={c.chevron} />
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
               ))}
             </View>
@@ -133,37 +165,44 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingHorizontal: SIDE,
   },
+  headerBlock: {
+    borderRadius: 20,
+    padding: 16,
+    gap: 10,
+    marginBottom: 18,
+  },
+  eyebrow: {
+    fontSize: 11,
+    fontFamily: Fonts.mono,
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
   title: {
-    fontSize: 24,
-    fontWeight: '800',
-    lineHeight: 30,
-    marginBottom: 8,
+    fontSize: 21,
+    fontFamily: Fonts.display,
+    lineHeight: 27,
   },
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    marginBottom: 16,
   },
-  metaText: { fontSize: 12.5 },
+  metaText: { fontSize: 12.5, fontFamily: Fonts.body },
   pill: {
     paddingHorizontal: 10,
     paddingVertical: 3,
     borderRadius: 999,
   },
   pillText: {
-    color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '700',
-  },
-  call: {
-    marginBottom: Spacing.three,
+    fontFamily: Fonts.bodyBold,
   },
   stepsHeading: {
     fontSize: 11,
-    fontWeight: '800',
+    fontFamily: Fonts.mono,
     letterSpacing: 1.2,
     marginBottom: Spacing.two,
+    textTransform: 'uppercase',
   },
   step: {
     flexDirection: 'row',
@@ -183,13 +222,14 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   stepNumberText: {
-    fontSize: 14,
-    fontWeight: '800',
+    fontSize: 13,
+    fontFamily: Fonts.monoMedium,
   },
   stepText: {
     flex: 1,
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: Fonts.body,
   },
   sources: {
     marginTop: Spacing.three,
@@ -198,10 +238,11 @@ const styles = StyleSheet.create({
     padding: 14,
     gap: 6,
   },
-  sourcesLabel: { fontSize: 13, fontWeight: '700' },
+  sourcesLabel: { fontSize: 13, fontFamily: Fonts.bodyBold },
   sourceLine: {
     fontSize: 13,
     lineHeight: 19,
+    fontFamily: Fonts.body,
   },
   notYet: {
     borderWidth: 1,
@@ -215,24 +256,27 @@ const styles = StyleSheet.create({
   },
   notYetTitle: {
     fontSize: 17,
-    fontWeight: '700',
+    fontFamily: Fonts.displaySemibold,
     textAlign: 'center',
   },
   notYetText: {
     textAlign: 'center',
     lineHeight: 21,
     fontSize: 13.5,
+    fontFamily: Fonts.body,
   },
   statusExplain: {
     marginTop: Spacing.four,
     lineHeight: 19,
     textAlign: 'center',
     fontSize: 12.5,
+    fontFamily: Fonts.body,
   },
   sourceNote: {
     marginBottom: Spacing.two,
     lineHeight: 19,
     fontSize: 13,
+    fontFamily: Fonts.body,
   },
   related: {
     marginTop: Spacing.four,
@@ -251,7 +295,7 @@ const styles = StyleSheet.create({
   },
   relatedTitle: {
     fontSize: 15,
-    fontWeight: '700',
+    fontFamily: Fonts.displaySemibold,
     lineHeight: 20,
   },
 });
