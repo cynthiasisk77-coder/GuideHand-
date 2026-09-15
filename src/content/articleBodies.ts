@@ -2169,4 +2169,78 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Move livestock early: get trailers moving before roads flood or close. If evacuation isn't possible, open interior paddock gates so animals can reach higher, open ground away from low-lying barns or barbed wire.",
     ],
   },
+  "Bug-out / evacuation plan (general)": {
+    sources: ["Ready.gov / FEMA Evacuation Guidelines","American Red Cross, Be Red Cross Ready"],
+    guidance: [
+      "Set specific departure triggers ahead of time: an official order, active smoke or floodwater approaching the property, or sudden loss of a critical power-dependent system all count as \"go now.\"",
+      "Map primary and alternate routes: pre-select several driving and walking paths out of the area in different directions, avoiding choke points like low bridges, flood-prone valleys, or single-access rural roads.",
+      "Keep the vehicle and bags ready: fuel tank at least half full at all times, tires and fluids checked regularly, and individual 72-hour go-bags staged near your primary exit.",
+      "Stage at least two destination options: a friend or family member's home in another county, a motel outside the region, or a designated public shelter.",
+      "Run a 5-minute departure drill: practice loading bags, securing pets, shutting off critical utilities, and being out the door within 5 minutes of the alarm.",
+    ],
+  },
+  "Shelter-in-place plan": {
+    sources: ["Centers for Disease Control and Prevention (CDC)","FEMA Shelter-in-Place Guidance"],
+    guidance: [
+      "Know the difference between hazard types: sealing an interior room is for hazardous chemical or biological plumes; taking cover in a reinforced low-level room is for severe weather and tornadoes — they call for different rooms.",
+      "Pick the safe room in advance: an interior room on an upper floor with few doors and windows for airborne chemical plumes (many toxic chemicals sink and pool low), or a basement or interior ground-floor room for tornadoes, blast, or high wind.",
+      "Keep a sealing kit right in that room: heavy plastic sheeting or thick contractor bags, duct tape, a utility knife, and clean towels, so you can seal door edges, windows, and HVAC vents fast.",
+      "Know the shutdown sequence: switch off heating, air conditioning, and all exhaust fans, and close the fireplace damper, so you're not pulling contaminated outside air into the building.",
+      "Keep supplies staged in the room: a battery radio, extra flashlights, 3 days of water and non-perishable food, prescriptions, and hygiene supplies.",
+    ],
+  },
+  "Winter storm plan": {
+    sources: ["Centers for Disease Control and Prevention (CDC)","Ready.gov Winter Weather Preparedness"],
+    guidance: [
+      "Stock the essentials: at least a 3-day (ideally 2-week) supply of no-cook non-perishable food, 1 gallon of water per person per day, and a battery or hand-crank radio.",
+      "Set up the warm room in advance: a small interior room that traps body heat, drafts sealed at the windows with towels or heavy blankets, sleeping bags and cold-weather clothing staged inside.",
+      "Winterize the plumbing: insulate exposed pipes, open under-sink cabinets on outside walls to let indoor heat circulate, and let cold-water faucets drip slightly during hard freezes to relieve line pressure.",
+      "Keep the vehicle ready: fuel tank at least half full, with jumper cables, sand or cat litter for traction, a flashlight, warm coats, gloves, blankets, and a window scraper on board.",
+    ],
+  },
+  "Medical emergency plan (household-specific)": {
+    sources: ["American Heart Association (AHA)","American Red Cross Emergency Medical Preparedness Guidelines"],
+    guidance: [
+      "Write up a medical profile for every household member: existing diagnoses, daily medications with exact dosages, drug allergies, implanted medical hardware, and preferred hospital.",
+      "Assign clear roles in advance: who does first aid, who secures pets or meets emergency personnel in the driveway, and who gathers medication bottles and medical paperwork.",
+      "Stage medical equipment in one place: trauma supplies, tourniquets, glucose tablets, rescue inhalers, and epinephrine autoinjectors, kept in a single clearly labeled spot everyone in the family knows.",
+      "Identify a backup care option: an alternate care facility or walk-in clinic outside your immediate neighborhood in case the local ER is overwhelmed or roads are blocked.",
+    ],
+  },
+  "Family separation / reunification plan": {
+    sources: ["Ready.gov / FEMA Family Emergency Communication Plan","American Academy of Pediatrics"],
+    guidance: [
+      "Set three progressive meeting points: immediate, right outside the home (a mailbox or tree); neighborhood, within walking distance (a park or library); and out-of-town, like a relative's house, if the whole area evacuates.",
+      "Designate an out-of-area check-in contact: one relative or friend in a different region as the communication hub, with everyone checking in by text if local calls fail.",
+      "Carry physical emergency cards: every household member, kids included, gets a laminated card with full contact numbers, meeting-point addresses, and regional contact details.",
+      "Know the federal reunification channels: the National Emergency Child Locator Center (NECLC) and the Unaccompanied Minor Registry (UMR) are the official channels if a family gets separated during a large-scale evacuation — keep them recorded.",
+    ],
+  },
+  "Hurricane plan": {
+    sources: ["Ready.gov / FEMA Hurricane Safety Guidelines","American Red Cross Hurricane Preparedness Checklist"],
+    guidance: [
+      "Act at the 48- and 36-hour marks: at a Hurricane Watch (48 hours), check fuel, test batteries, review evacuation routes, and secure outdoor furniture and debris. At a Hurricane Warning (36 hours), put up plywood or storm shutters, stage supplies, and be ready to evacuate if you're in a storm-surge or flood zone.",
+      "Know your shelter-vs-evacuate line: evacuate immediately if ordered, if you're in a coastal evacuation zone, or if your home is a mobile home, manufactured home, or RV. If sheltering in a sturdy permanent home outside a flood zone, move to a small windowless interior room on the lowest level before winds reach tropical-storm strength.",
+      "Stage water and utilities before landfall: fill bathtubs and containers with water for flushing and sanitation before pressure drops, and turn the fridge and freezer to their coldest settings, keeping doors shut.",
+      "Follow the post-storm re-entry rule: wait for official confirmation that roads and bridges are clear before returning. Treat every downed line as energized, avoid standing floodwater, and inspect the foundation and gas lines before moving back in.",
+    ],
+  },
+  "Flood evacuation plan": {
+    sources: ["FEMA","Ready.gov Flood Safety and Evacuation Planning"],
+    guidance: [
+      "Know your flood threshold and terrain: learn your property's risk relative to local creeks, bayous, and retention ponds, and know the rainfall rate or river stage that starts cutting off your access roads (islanding risk).",
+      "Map primary and secondary high-ground routes: chart at least two driving and walking routes to higher elevation, and never route an evacuation across a low-water crossing, a bridge over fast runoff, or a dip prone to flash flooding.",
+      "Pack a waterproofed 72-hour kit: go-bags in waterproof dry bags or heavy plastic bins near an exit, with ID, property titles, insurance, and prescriptions sealed in watertight sleeves.",
+      "Know the utility and departure trigger: if rising water threatens the house, shut off the main breaker and water valve before leaving, only if you can do it safely on dry ground — and leave while roads are still dry, never wait until water reaches the driveway.",
+    ],
+  },
+  "Wildfire evacuation plan": {
+    sources: ["National Fire Protection Association (NFPA) Firewise USA","Ready.gov / CAL FIRE Wildfire Action Plan"],
+    guidance: [
+      "Set departure triggers now: don't wait for a mandatory order if you smell heavy smoke, see active fire, or get a warning. High wind makes wildfire outrun vehicles, so leave early while routes are still clear of smoke and abandoned cars.",
+      "Prep the home perimeter if there's time: shut all windows and doors to kill interior drafts, turn off propane at the main valve, move patio furniture and cushions at least 30 feet from the house, and leave exterior and interior lights on so firefighters can find it through smoke.",
+      "Dress for radiant heat: full-length pants, a long-sleeved 100% cotton or wool shirt (no synthetics, which melt onto skin), heavy leather boots, leather gloves, and an N95 or P100 respirator.",
+      "Set up the vehicle for a fast exit: back it into the driveway with doors unlocked and keys in the ignition, windows fully up, headlights and hazards on, and climate control on internal recirculation so it doesn't pull in embers and smoke.",
+    ],
+  },
 };
