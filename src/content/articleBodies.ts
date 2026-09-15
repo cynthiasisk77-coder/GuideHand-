@@ -684,14 +684,6 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "After power returns, check the circuit breaker first and reset the pressure switch to \"auto\" if the pump doesn't restart on its own.",
     ],
   },
-  "Food dehydration and humidity limits": {
-    sources: ["National Center for Home Food Preservation (University of Georgia)"],
-    guidance: [
-      "NCHFP is the actual gold-standard research body for home food preservation, including dehydration.",
-      "Dehydrators come in horizontal (heating element/fan on the side, more even heat) and vertical designs — design affects drying evenness.",
-      "Specific safe temperature/time parameters for particular foods (meat/jerky has its own pre-heating step, distinct from produce) still need direct confirmation against nchfp.uga.edu.",
-    ],
-  },
   "Retained-heat cooking, low-fuel": {
     sources: ["General retained-heat/haybox cooking references", "FoodSafety.gov danger-zone principle"],
     guidance: [
@@ -1919,6 +1911,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Avoid all contact with blackwater: raw sewage carries harmful bacteria, viruses, and parasites. Wear rubber boots, heavy waterproof gloves, and eye protection if you have to walk near backed-up areas, and keep children and pets completely away.",
       "Don't use chemical drain openers on backed-up sewage: caustic chemicals sit trapped in standing toilet or shower water, creating a splash-burn hazard without clearing the underlying main-line blockage.",
       "Signs of drainfield/septic failure: spongy, foul-smelling, wet soil over the septic tank or drainfield, slow drainage across every household fixture at once, or gurgling in the plumbing. Switch to a separate twin-bucket emergency toilet until the ground drains and the tank can be pumped.",
+      "During a flood, ration water strictly: if the drainfield is waterlogged or submerged, stop running washing machines, dishwashers, and long showers — extra water forces sewage back into floor drains.",
+      "Never pump a flooded tank: pumping out a septic tank while the surrounding soil is still underwater removes the ballast weight holding it down, and groundwater pressure can pop the tank out of the ground or collapse a plastic one.",
+      "Block backflow points: plug low basement floor drains, basement toilets, and laundry sinks with mechanical test plugs or sandbags to stop sewage back-siphoning as groundwater rises.",
+      "Inspect after the water recedes: check the drainfield for sinkholes, scouring, or exposed pipework, and have the tank pumped only once groundwater drops below the outlet baffle.",
     ],
   },
   "Roof leak and temporary tarp": {
@@ -2358,7 +2354,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["Society of Primitive Technology Technical Bulletins","U.S. Department of the Interior, Traditional Native Tanning Methods"],
     guidance: [
       "Flesh and scrape first: pin the fresh hide flat over a smooth scraping log or fleshing beam and scrape off every trace of meat, fat, and membrane with a dull drawknife or scraper. Incomplete fleshing causes immediate bacterial decay and hair slippage.",
-      "Make rawhide: soak the fleshed hide in a wood-ash-and-water solution (or hydrated lime) for 3 to 6 days until hair wipes off easily. Rinse thoroughly in running water, neutralize with a weak vinegar wash, stretch tight in a wooden frame, and let it dry stiff.",
+      "Make rawhide: submerge the scraped hide in a cold-water bath saturated with clean hardwood ashes (or hydrated lime) for 3 to 6 days until the hair slides off with light scraper passes. Rinse in several changes of clear water (a splash of vinegar helps neutralize the alkali) until the slippery feel is gone, then lace it tight inside a wooden frame through holes punched 2 inches apart around the edge and let it dry stiff and rock-hard.",
       "Brain-tan for soft buckskin: every animal's brain has enough natural oil to tan its own hide. Simmer the brain in a cup of water into a smooth warm slurry, then work it deep into both sides of the dried, hairless skin.",
       "Work and smoke the hide: pull and stretch the drying hide continuously over a cable or smooth log edge until the fibers are completely soft, then smoke it over a smoldering punky-wood fire for several hours — the smoke's compounds keep the leather pliable even after it gets wet.",
       "Bark-tan as an alternative to brain-tanning: simmer inner bark from oak, chestnut, hemlock, or sumac in a non-iron pot (iron reacts with tannins and stains the leather) until the water is a deep tea color, then cool it completely — a hot bath scalds and hardens raw hide. Soak the hide in a weak bath first for several days, then move it through progressively stronger tannin baths over 3 to 6 weeks. It's fully tanned when a sliced cross-section shows tannin color all the way through, with no raw white line in the middle.",
@@ -2513,6 +2509,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Manage fuel and heat: burn clean, dense hardwood charcoal. Forced air through charcoal easily reaches the 1,600-2,000°F glowing orange-to-yellow heat needed to hammer and shape carbon steel.",
       "Improvise an anvil: a heavy section of railroad track, a large sledgehammer head bedded into a hardwood stump, or a flat unweathered granite boulder all work as a base.",
       "Harden and temper basic tool steel: heat high-carbon steel (leaf springs, coil springs, old files) until cherry red and no longer magnetic, then quench immediately in warm oil to harden it. Sand it clean, gently reheat until it shows a straw-to-bronze oxide color (temper), and air-cool to avoid brittle shattering.",
+      "Build a proper bellows for continuous airflow: a wooden box or accordion with two flexible leather or canvas chambers and flap valves (a leather flap weighted with a small block over each intake hole) gives a steady, non-pulsing blast instead of the surges from a hand pump. Run heavy iron pipe — never aluminum, copper, or plastic, which melt — from the bellows into the base of the fire, and add a foot-pedal treadle with a counterweight so both hands stay free for tongs and hammer.",
     ],
   },
   "Emergency lime and quicklime production": {
@@ -2673,6 +2670,87 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Use weirs in moving or tidal water: build a V-shaped stone or stake wall pointing downstream in a creek, or toward shore on a tidal flat, to funnel fish toward a holding pen or basket trap at the point.",
       "Anchor and place it well: weight the trap to the bottom with flat stones lashed inside the frame, tether it to a solid root with dark line, and place it near drop-offs, submerged brush, or cut-banks where fish naturally shelter.",
       "Bait it: crushed freshwater mussels, earthworms, insects, or perforated cans of spoiled meat in a mesh pouch behind the funnel draw fish in.",
+    ],
+  },
+  "Emergency charcoal gasification (wood gas for engines)": {
+    sources: ["FEMA, Construction of a Simplified Wood Gas Generator for Fueling Internal Combustion Engines in a Petroleum Emergency","National Academy of Sciences"],
+    guidance: [
+      "Understand the principle: a wood gasifier partially burns dry biomass or charcoal in an oxygen-starved chamber at 1,400-1,800°F, breaking it down into a flammable synthetic gas (carbon monoxide and hydrogen).",
+      "Use charcoal, not raw wood, for engine use: pure hardwood charcoal produces very little tar, while raw wood chips produce heavy tars that quickly foul engine valves and piston rings.",
+      "Build a cleanup and cooling train: route the gas through a cyclone separator (drops out fly ash), then an air-cooled radiator pipe (cools the gas so it's denser), then a final filter of wood shavings, dry straw, or dense felt to trap fine soot.",
+      "Mix air and gas correctly: feed the cooled, clean gas into the intake manifold ahead of the carburetor, with a ball or gate valve on a secondary air intake to manually balance the roughly 1:1 air-to-gas ratio needed for smooth running.",
+    ],
+  },
+  "Emergency glass cutting and improvised glazing": {
+    sources: ["Traditional Glazing Standards","Department of the Interior, Preservation of Historic Wooden Windows"],
+    guidance: [
+      "Never cut glass dry: dip the carbide scoring wheel in light machine oil, kerosene, or vegetable oil before scoring to lubricate the wheel and keep microscopic chips from dulling the cut.",
+      "Score in one continuous pass: hold the cutter perpendicular to the glass and pull it in one smooth stroke edge to edge, listening for a steady \"zipper\" sound. Never re-trace a score line — that shatters the edge.",
+      "Snap it cleanly: slide a matchstick, wire, or pencil under the scored line at the sheet's edge, place your palms flat on either side of the score, and press down firmly to fracture it along the line.",
+      "Glaze the frame: secure the cut pane in the wooden sash with small headless steel brads tapped flush, then seal the perimeter with linseed-oil-and-whiting putty or pure silicone caulk pressed into a neat 45-degree bevel.",
+    ],
+  },
+  "Natural mortar and cob wall construction": {
+    sources: ["International Code Council (ICC) Appendix U, Cob Construction Standards","Peace Corps Appropriate Building Technologies"],
+    guidance: [
+      "Mix the cob: 1 part subsoil clay, 2-3 parts coarse sharp sand, and 1 part long chopped dry straw. Trample the damp mix on a canvas tarp, using the tarp's corners to roll it into a cohesive, non-sticky loaf.",
+      "Build without forms: place cob by hand in thick courses directly on the wall, pressing each softball-sized lump into the previous layer with your thumbs or a wooden stomper to eliminate voids, tapering slightly as you go up.",
+      "Pace the courses: lay no more than 12-18 inches of wall height per day, and let each lift dry to leather-hard before adding the next — otherwise the lower courses slump under the fresh weight.",
+      "Give it \"good hat and good boots\": a raised stone or concrete stem wall (12-18 inches above grade) stops ground moisture from wicking up, and a roof eave overhanging at least 2 feet shields the mud walls from driving rain.",
+    ],
+  },
+  "Emergency water well disinfection (shock chlorination)": {
+    sources: ["EPA, Emergency Disinfection of Private Wells","CDC Drinking Water Protocols"],
+    guidance: [
+      "Calculate the casing volume first: multiply casing diameter and standing water depth to find the water volume — a 4-inch casing holds about 0.65 gallons per foot, a 6-inch casing about 1.5 gallons per foot.",
+      "Use the right bleach concentration: plain, unscented 5-6% household bleach, aiming for 100-200 ppm chlorine — roughly 1 quart of bleach per 50-100 gallons of standing well water.",
+      "Circulate it through the whole system: pour the diluted bleach down the casing, then hose water from an outdoor bib back into the well head until you smell chlorine at the hose, washing down the full casing.",
+      "Run every tap until you smell chlorine, then let it sit: open every indoor and outdoor faucet until chlorine odor reaches each one, shut them off, and let the water sit in the well and pipes for 12-24 hours before flushing the whole system through an outside hose onto bare ground (never into the septic tank) until the smell is gone.",
+    ],
+  },
+  "Manual hand-drilling for shallow water (sludge and auger methods)": {
+    sources: ["Peace Corps, Hand Dug Wells and Manual Drilling","UNICEF Water Engineering Technical Notes"],
+    guidance: [
+      "Hand-auger in cohesive soil: in clay or loam, an earth auger with threaded pipe extensions can reach 15-25 feet. Turn it clockwise, pull it up every 6-12 inches to clear cuttings, and drop in temporary PVC casing as you go to stop the hole collapsing.",
+      "Sludge in sandy riverbeds: sink an open steel pipe by working it up and down rhythmically while keeping water flowing into the hole, using your palm over the top as a one-way check valve on the upstroke to force muddy slurry out.",
+      "Set the well screen: once you hit clean, coarse water-bearing sand or gravel, drop in a slotted PVC well point (0.010-inch slots) attached to solid riser pipe all the way to the bottom.",
+      "Pack and seal it: pour clean pea gravel around the screen to stabilize it, then fill the top 5 feet with bentonite clay or concrete so contaminated surface runoff can't track down the borehole.",
+    ],
+  },
+  "Emergency grain fermentation (lactic acid preservation and silage)": {
+    sources: ["FAO, Silage Making for Small-Scale Farmers","USDA Agricultural Research Service"],
+    guidance: [
+      "Pack it airtight: pound damp, crushed grain, forage, or chopped root crops tightly into a clean container, forcing out every air pocket — the anaerobic environment lets beneficial Lactobacillus thrive while suppressing mold and rot.",
+      "Let the acid build: as the lactic acid bacteria consume the natural starches, they drop the pH below 4.0, which is what halts decay and preserves the feed for months without refrigeration.",
+      "Seal out air completely: cover the packed feed with heavy plastic, weight it down with wet sand or stones for continuous compression, and seal with an airtight lid fitted with a simple water-lock vent to let CO2 escape.",
+      "Know what spoiled looks like: good silage smells tangy and acidic, like sauerkraut. Discard it immediately if it smells foul or like ammonia, or if you see white or black fuzzy mold.",
+    ],
+  },
+  "Field pottery and clay vessel production (water storage and cooking)": {
+    sources: ["Primitive Technology Technical Papers","Smithsonian Institution Traditional Native Ceramics"],
+    guidance: [
+      "Test your clay: roll a damp lump into a pencil-thick rope and wrap it around your finger. If it bends without cracking, it has enough clay; if it cracks or crumbles, wash out some of the sand first.",
+      "Add temper for strength: knead in 15-20% finely crushed river sand, pounded mussel shells, or crushed pre-fired pottery (grog) — temper gives steam an escape path during firing so the vessel doesn't explode.",
+      "Build with coils: form a flat base disc, then build the walls with concentric coils of even thickness, blending each seam smooth inside and out with a river stone and wooden paddle to remove air pockets.",
+      "Fire it slowly: dry the vessel in shade for at least 2 weeks (any leftover moisture causes steam explosions), pre-warm it by a campfire, then stack it over dry wood in a pit, cover with bark and manure, and burn hot for 2-4 hours until it glows dull orange.",
+    ],
+  },
+  "Emergency field soap fabrication (cold-process lard soap)": {
+    sources: ["University Agricultural Extension, Home Soap Making","Practical Action Technical Guidelines"],
+    guidance: [
+      "Render the fat: simmer raw pork lard or beef tallow on low heat until it clears, strain out the cracklings through cloth, and let it cool to lukewarm (about 100-110°F).",
+      "Check your lye strength: use clear, boiled-down hardwood ash lye water concentrated until a raw egg or small potato floats with a nickel-sized patch showing above the surface.",
+      "Stir to trace: pour the warm lye slowly into the warm fat in a thin stream, stirring constantly in one direction with a wooden paddle (avoid splashing — lye burns skin) until it thickens to warm-pudding consistency and a drizzled drop leaves a raised trail (\"trace\").",
+      "Mold and cure: pour into cloth-lined wooden boxes or cardboard forms, wrap in a blanket to hold the heat for 24 hours while it saponifies, then cut into bars and cure on slats in a dry, ventilated space for 4-6 weeks before use.",
+    ],
+  },
+  "Food dehydration and humidity limits": {
+    sources: ["National Center for Home Food Preservation (NCHFP), Drying Foods at Home", "USDA Technical Bulletins"],
+    guidance: [
+      "Build safe frames and screens: use rectangular frames of non-resinous, untreated wood (poplar, ash, fir) with food-grade nylon mesh, polyester cheesecloth, or stainless screening. Never galvanized hardware cloth, aluminum screening, or fiberglass mesh — they leach zinc, aluminum, or glass fibers into acidic foods.",
+      "Stack trays with airflow gaps: separate trays vertically with 3-4 inch wooden corner blocks for uninterrupted cross-ventilation. Heat dries food by carrying away evaporated moisture, and poor airflow causes mold before the food actually dries.",
+      "Add a solar chimney to speed it up: enclose the rack in a dark-painted box or black poly film with an intake at the bottom and an exhaust chimney at top — the passive convective draft speeds drying with no electric fan.",
+      "Protect from insects and night humidity: cover intake and exhaust openings with fine mosquito netting, and bring racks inside or cover them airtight before sunset so nighttime humidity doesn't rehydrate the food.",
     ],
   },
 };

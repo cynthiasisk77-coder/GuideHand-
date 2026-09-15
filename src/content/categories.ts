@@ -152,7 +152,7 @@ export const CATEGORIES: Category[] = [
       { title: "Thawing, refreezing, ice-crystal rule", status: "verified", priority: "P1", note: "CDC/FoodSafety.gov" },
       { title: "Dry ice ventilation and handling", status: "verified", priority: "P1", note: "Cornell EHS + NIH ORS" },
       { title: "Retained-heat cooking, low-fuel", status: "partial", priority: "P1", note: "Haybox technique" },
-      { title: "Food dehydration and humidity limits", status: "partial", priority: "P2", note: "" },
+      { title: "Food dehydration and humidity limits", status: "verified", priority: "P2", note: "NCHFP + USDA" },
       { title: "Water-bath vs. pressure canning", status: "verified", priority: "P0", note: "CDC + NCHFP" },
       { title: "Botulism warning signs and disposal", status: "verified", priority: "P0", note: "CDC" },
       { title: "Rodent/insect contamination", status: "verified", priority: "P1", note: "FDA" },
@@ -348,6 +348,7 @@ export const CATEGORIES: Category[] = [
       { title: "Sharpening tools and knives safely", status: "verified", priority: "P3", note: "OSHA/CPSC" },
       { title: "Improvised lever/pry/lift techniques", status: "specialist", priority: "P2", note: "FEMA US&R" },
       { title: "Basic rigging and lifting safety limits", status: "specialist", priority: "P2", note: "OSHA 1910.184 + ASME B30" },
+      { title: "Emergency glass cutting and improvised glazing", status: "verified", priority: "P2", note: "Traditional Glazing Standards + DOI" },
     ],
   },
   {
@@ -376,6 +377,7 @@ export const CATEGORIES: Category[] = [
       { title: "Corn nixtamalization (hominy and masa from wood ash)", status: "verified", priority: "P3", note: "FAO" },
       { title: "Emergency pit-smoking and meat preservation", status: "verified", priority: "P2", note: "USDA FSIS + US Forest Service" },
       { title: "Off-grid meat curing (dry salt and brine preservation)", status: "verified", priority: "P2", note: "USDA FSIS + UGA NCHFP" },
+      { title: "Emergency grain fermentation (lactic acid preservation and silage)", status: "verified", priority: "P3", note: "FAO + USDA ARS" },
     ],
   },
   {
@@ -386,6 +388,8 @@ export const CATEGORIES: Category[] = [
       { title: "Well-water pump manual operation (deep and shallow wells)", status: "verified", priority: "P2", note: "EPA + Water Systems Council" },
       { title: "Charcoal/sand bio-sand water filters (slow-sand column)", status: "verified", priority: "P2", note: "WHO + CAWST" },
       { title: "Emergency spring tapping and seep development", status: "verified", priority: "P2", note: "EPA + Peace Corps" },
+      { title: "Emergency water well disinfection (shock chlorination)", status: "verified", priority: "P2", note: "EPA + CDC" },
+      { title: "Manual hand-drilling for shallow water (sludge and auger methods)", status: "verified", priority: "P3", note: "Peace Corps + UNICEF" },
     ],
   },
   {
@@ -396,6 +400,7 @@ export const CATEGORIES: Category[] = [
       { title: "Rocket stoves and biochar basics", status: "verified", priority: "P3", note: "Aprovecho Research Center + International Biochar Initiative" },
       { title: "Thatch and shingle primitive roofing", status: "verified", priority: "P3", note: "Peace Corps" },
       { title: "Wilderness thermal reflector shelters", status: "verified", priority: "P2", note: "US Army FM 21-76" },
+      { title: "Emergency charcoal gasification (wood gas for engines)", status: "verified", priority: "P3", note: "FEMA + National Academy of Sciences" },
     ],
   },
   {
@@ -412,6 +417,9 @@ export const CATEGORIES: Category[] = [
       { title: "Emergency mud stucco and wattle-and-daub construction", status: "verified", priority: "P3", note: "Practical Action" },
       { title: "Emergency hide glue and natural resins", status: "verified", priority: "P3", note: "Society of Primitive Technology" },
       { title: "Emergency hide tanning and rawhide production", status: "verified", priority: "P3", note: "Society of Primitive Technology + DOI" },
+      { title: "Natural mortar and cob wall construction", status: "verified", priority: "P3", note: "ICC Appendix U + Peace Corps" },
+      { title: "Field pottery and clay vessel production (water storage and cooking)", status: "verified", priority: "P3", note: "Primitive Technology Papers + Smithsonian" },
+      { title: "Emergency field soap fabrication (cold-process lard soap)", status: "verified", priority: "P3", note: "University Extension + Practical Action" },
     ],
   },
   {
