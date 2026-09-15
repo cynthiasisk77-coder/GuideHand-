@@ -3824,4 +3824,16 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Keep maintenance consumables stocked alongside the tools themselves, not as an afterthought: a couple of mill bastard files for sharpening edges, a combination oil stone, a quart of plain non-detergent oil, and spare hickory or ash handles with steel wedges to rehang a broken tool head.",
     ],
   },
+  "Home emergency supply cache (72 hours to 2 weeks)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Water: 1 gallon per person per day, minimum 2 weeks — half for drinking, half for sanitation. Store it in food-grade 5-gallon jugs or a bathtub bladder liner for fast pre-storm filling, and keep both a chemical backup (plain 6% unscented bleach, 8 drops per gallon, or chlorine dioxide tablets) and a mechanical backup (a 0.1-micron hollow-fiber filter with a backflush syringe) on hand in case your stored water runs out or gets contaminated.",
+      "Food: ready-to-eat canned proteins, beans, stews, peanut butter, and dried fruit for the first few days, backed by bulk rice, oats, and dry beans sealed in Mylar with oxygen absorbers for the longer stretch. Keep two manual can openers — one will get lost or broken — and a simple single-burner stove with fuel.",
+      "Medical: trauma control (a real windlass tourniquet like a CAT or SOFTT-W, compressed gauze, pressure bandages, chest seals) plus everyday first aid (a SAM splint, elastic wrap, gauze pads, tape, antiseptic). Keep a 30-day reserve of any daily prescription, plus fever reducers, anti-diarrheals, an antihistamine, oral rehydration salts, clove oil for a toothache, burn gel, and eye wash saline.",
+      "Power, light, and communication: a headlamp per person plus lanterns and glow sticks (safe to use even if you suspect a gas leak, unlike an open flame), a large reserve of AA/AAA batteries and a 10,000-20,000 mAh USB power bank, a foldable 20-60W solar panel, and a hand-crank or battery NOAA weather radio plus a whistle and signal mirror.",
+      "Sanitation: a 5-gallon bucket toilet with a snap-on seat, heavy contractor bags, and a dry cover material (sawdust, peat moss, or wood chips), plus disinfectant wipes, soap, hand sanitizer, heavy trash bags, and a dedicated wash bucket. Keep toilet paper and feminine hygiene products sealed in waterproof bags.",
+      "Shelter and tools: wool blankets, Mylar bivy sacks, and a grommeted rain tarp for warmth; a multi-tool, a 12-inch adjustable wrench sized for your main gas shutoff, a crowbar, and duct tape for repairs; a fixed-blade knife, a bow saw, and 100 feet of paracord for cutting and rigging; leather work gloves, N95 masks, and safety goggles for protection.",
+      "Security, documents, and navigation: small-denomination cash (card readers don't work without power), a waterproof pouch with copies of IDs, deeds, and insurance policies plus a handwritten contact book, and hardcopy local and state road maps in a waterproof sleeve.",
+    ],
+  },
 };

@@ -569,6 +569,7 @@ export const CATEGORIES: Category[] = [
       { title: "Shelter-in-place plan", status: "verified", priority: "P1", note: "CDC + FEMA" },
       { title: "Grid-down barter mechanics and resource staging", status: "verified", priority: "P3", note: "Red Cross + DoD Civil Affairs" },
       { title: "Documenting storm and disaster damage for insurance and legal claims", status: "partial", priority: "P3", note: "" },
+      { title: "Home emergency supply cache (72 hours to 2 weeks)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
