@@ -97,6 +97,7 @@ export const CATEGORIES: Category[] = [
       { title: "Black widow, brown recluse, and scorpion stings", status: "partial", priority: "P1", note: "" },
       { title: "Emergency tooth extraction (true last resort only)", status: "partial", priority: "P2", note: "" },
       { title: "Crush syndrome: why timing matters before freeing a trapped limb", status: "partial", priority: "P1", note: "" },
+      { title: "Blast injury: lung and ear trauma", status: "partial", priority: "P1", note: "" },
       { title: "High-altitude sickness: AMS, HAPE, and HACE", status: "specialist", priority: "P0", note: "Wilderness Medical Society" },
     ],
   },
@@ -224,6 +225,7 @@ export const CATEGORIES: Category[] = [
       { title: "Battery watt-hour budgeting (calculator)", status: "verified", priority: "P2", note: "NEC Article 690/706 + DOE" },
       { title: "Emergency candle and lamp making (animal tallow and plant oils)", status: "verified", priority: "P3", note: "Penn State Extension" },
       { title: "Faraday protection for radios and electronics", status: "partial", priority: "P3", note: "" },
+      { title: "Freeing someone from a live household electrical source", status: "partial", priority: "P0", note: "" },
     ],
   },
   {
@@ -415,6 +417,7 @@ export const CATEGORIES: Category[] = [
       { title: "Pemmican (traditional long-term meat and fat preservation)", status: "verified", priority: "P3", note: "USDA Historical Food Technology Bulletins" },
       { title: "Meat smoking: hot smoking vs. cold smoking safety", status: "partial", priority: "P2", note: "" },
       { title: "Testing stored grains for dangerous mold (mycotoxins)", status: "partial", priority: "P2", note: "" },
+      { title: "Zeer pot: off-grid evaporative cooling", status: "partial", priority: "P3", note: "" },
     ],
   },
   {

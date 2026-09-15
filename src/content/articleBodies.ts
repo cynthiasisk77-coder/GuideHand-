@@ -1672,6 +1672,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never drive into floodwater: 12 inches of water will float most passenger cars, and 24 inches will sweep away trucks and SUVs. If water rises rapidly around your vehicle, abandon it immediately and get to higher ground on foot.",
       "Avoid storm drains and culverts: debris often blocks these, creating strong suction and sudden releases of water that can pull a person under instantly.",
       "If you get swept into moving water: don't try to stand up once it's more than knee-deep and moving fast — your foot can wedge between rocks or debris on the bottom and the current can push you under. Instead, float on your back with your feet pointed downstream so your feet hit obstacles instead of your head, and angle your body roughly 45 degrees to the current to gradually work your way toward the bank.",
+      "Watch out for \"strainers\" — a fallen tree or pile of branches and debris across the water. If the current is sweeping you toward one, don't let your legs go under it; flip onto your stomach, swim hard toward it, and pull yourself up and over the top the way you'd climb over a fence, rather than letting the water push you underneath it.",
     ],
   },
   "Lightning": {
@@ -2962,6 +2963,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "For someone who nearly drowned, give rescue breaths before starting chest compressions, even though normal CPR usually starts with compressions — with drowning, the person needs air first because the core problem is lack of oxygen, not a heart problem.",
       "Don't try to push water out of someone's lungs with abdominal thrusts (the Heimlich maneuver) — it doesn't work for that and can cause them to vomit and choke instead.",
       "Someone who was rescued and seems fine can still get seriously sick over the next 1-3 days from water that got into their lungs — watch for ongoing cough, chest pain, crackly breathing, or fever, and get medical care if any of that shows up even after the immediate emergency seems over.",
+      "If you fall through ice yourself: turn back toward the direction you came from — that's the ice that held your weight a moment ago. Get your forearms flat on the ice shelf, then kick your legs hard behind you in the water until your body comes up nearly horizontal at the surface, and slide your chest up onto the ice rather than trying to pull yourself straight up, which usually just breaks more ice. Once your chest is out, roll your whole body away from the hole like a log instead of standing — spreading your weight out keeps you from breaking through again — and don't stand up until you're sure you've reached solid ice or dry ground.",
     ],
   },
   "Off-grid masonry heater construction (thermal mass heating)": {
@@ -3445,6 +3447,34 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Be realistic about what you can fix: a break above the knee or hock (a femur or shoulder injury) genuinely needs a veterinary surgical facility — there's no field fix for that. A lower-leg break, below the knee or hock, can often be stabilized well enough for transport or comfort.",
       "For a lower-leg fracture: wrap the leg heavily with thick padding (towels, cotton sheeting, a folded blanket — a couple of inches all the way around), then place a rigid support alongside it — a length of PVC pipe split down the middle, a 2x4, or similar — running from the ground past the joint above the break. Wrap it snugly with vet wrap or heavy tape from the bottom up to hold the joint still.",
       "This is about keeping the animal stable and comfortable until a vet can take over, not a substitute for real veterinary care.",
+    ],
+  },
+  "Freeing someone from a live household electrical source": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "This is about ordinary household electricity — a person shocked by an appliance, outlet, or indoor wiring — not a downed outdoor power line, which needs a completely different response (see Downed power lines and electrified water).",
+      "Never touch them with your bare hands while they're still in contact with the source — their muscles can be locked in a contraction that pulls your hand in too, making you a second casualty instead of a rescuer.",
+      "Cut the power first if you can: flip the breaker or unplug the source. That's always safer and faster than trying to physically separate them.",
+      "If you can't reach the power source fast enough, use something completely dry and non-conductive to push or pull them away from it — a dry wooden broom handle, a dry 2x4, a length of PVC pipe, or a thick dry wool blanket looped around them to drag them clear. Never use anything metal, anything wet, or damp cloth — those conduct electricity too.",
+      "Once they're clear, check breathing and responsiveness right away and start CPR if needed — electrical shock can stop the heart even without any visible burn.",
+    ],
+  },
+  "Blast injury: lung and ear trauma": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A powerful explosion's shockwave can injure the lungs and ears without leaving a mark on the outside of the chest — someone can look basically fine right after and get much worse over the following hours.",
+      "Watch for, in the hours after being near a blast: coughing up pink or bloody frothy material, real shortness of breath, chest tightness, or bluish lips or fingertips. Any of these after an explosion is an emergency, even if they seemed okay at first.",
+      "Keep them sitting upright or propped up rather than lying flat, and keep them as still and calm as possible — exertion makes lung injury worse faster.",
+      "Ear symptoms — sudden pain, muffled hearing or ringing, or a little blood or fluid draining from the ear canal — usually mean a ruptured eardrum. Don't rinse or put anything down into the ear canal; just lay a clean, dry piece of gauze loosely over the outer ear to catch drainage, and get it checked out.",
+    ],
+  },
+  "Zeer pot: off-grid evaporative cooling": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A zeer pot uses plain water evaporating through unglazed clay to cool food by roughly 10-25°F below the outside air temperature, with no electricity or ice needed.",
+      "You need two unglazed terra-cotta pots, one that fits inside the other with about an inch or two of gap all around — unglazed is important, since the water needs to be able to seep through the clay itself.",
+      "Plug the drainage hole in the bottom of both pots. Pour a couple inches of clean, coarse sand into the bottom of the larger pot, sit the smaller pot on top of it so the rims line up, then fill the gap between the two pot walls completely with more sand.",
+      "Soak the sand thoroughly with clean water until it can't hold any more. Put your food in the dry inner pot, cover the top with a damp cloth, and set the whole thing somewhere shaded with a bit of airflow. Re-wet the sand a couple of times a day to keep it working.",
     ],
   },
 };
