@@ -104,6 +104,27 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>YOUR SUPPLIES</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/supply-cache' })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.sageSoft }]}>
+                    <Icon name="checklist" color={c.sage} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Home Supply Cache</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Check off what you have, add what&apos;s missing</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
                 {CATEGORY_GROUPS.map((group, i) => {
                   const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];

@@ -20,6 +20,10 @@ const PATHS: Record<string, string> = {
   leaf: "M11 20a7 7 0 0 1-7-7c0-5.5 4.5-10 11-10 3 0 5 2 5 5 0 6.5-4.5 11-9 11z M4 13c3.5 0 7-3.5 9-8",
   radio: "M12 20v-4.5 M7.5 8.5a6.4 6.4 0 0 1 9 0 M5 6a10 10 0 0 1 14 0",
   family: "M5 20c0-3 1.8-5.2 4-5.2s4 2.2 4 5.2 M13.5 20c0-2.4 1.5-4.2 3.3-4.2s3.2 1.8 3.2 4.2",
+  check: "m5 13 4 4 10-10",
+  checklist: "M5 4h14v17H5z M9 3.5h6v2.5H9z M8 11.3l1.4 1.4L12.5 10 M8 16.3l1.4 1.4 3.1-2.7",
+  plus: "M12 5v14M5 12h14",
+  trash: "M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {
