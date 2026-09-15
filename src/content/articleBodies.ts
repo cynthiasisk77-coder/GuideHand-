@@ -1774,4 +1774,60 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Speed determines survival: once acute kidney failure sets in, the damage is permanent. Aggressive IV fluid therapy at a veterinary clinic within the first 6 to 18 hours is the only thing that can save the kidneys.",
     ],
   },
+  "Tornado warning shelter": {
+    sources: ["NOAA / National Severe Storms Laboratory (NSSL)","FEMA Tornado Protection and Shelter Guidance"],
+    guidance: [
+      "Best location inside a building: go to the lowest floor available, ideally a basement or storm cellar. With no basement, use an interior room or hallway on the ground floor with no windows — a bathroom, closet, or center hallway.",
+      "Put as many walls between you and the storm as possible: exterior walls and roofs take the brunt of wind force, so the center of the building gives the most protection.",
+      "Protect your head and neck: flying debris causes most injuries and deaths. Cover yourself with a thick mattress, sleeping bags, or heavy blankets, and put on a bike, sports, or construction helmet if you have one. Crouch low on your knees and cover the back of your head with your hands.",
+      "Mobile homes and vehicles are not safe: never try to ride out a tornado in a mobile home, manufactured house, camper, or vehicle. Leave immediately for a sturdy permanent structure or storm shelter. If you're caught outdoors with no structure nearby, lie flat in a low ditch or depression, cover your head, and stay alert for flash-flood runoff.",
+      "Avoid large open-span rooms: stay out of gymnasiums, cafeterias, auditoriums, and big-box store showrooms, where broad roofs collapse easily under severe wind pressure.",
+    ],
+  },
+  "Hurricane watch/warning/evacuation": {
+    sources: ["NOAA / National Hurricane Center (NHC)","Ready.gov / FEMA Hurricane Preparedness"],
+    guidance: [
+      "Know the difference between watch and warning: a Hurricane Watch means hurricane-force conditions are possible in your area within 48 hours; a Hurricane Warning means sustained winds of 74 mph or higher are expected within 36 hours.",
+      "Heed evacuation orders immediately: if local officials or emergency broadcasts call for evacuation, leave right away. Once winds reach tropical storm strength (around 39 mph), high-profile bridges close, roads flood, and emergency response stops.",
+      "Secure the exterior of your home: cover glass windows with storm shutters or 5/8-inch exterior-grade plywood cut to fit ahead of time. Taping windows does not stop glass from breaking, and makes the shards larger and more dangerous. Bring patio furniture, grills, garbage cans, and loose yard tools indoors.",
+      "Store emergency utilities before landfall: turn refrigerators and freezers to their coldest setting and keep the doors closed to hold the cold longer during a power failure. Fill bathtubs, clean sinks, and spare jugs with water for flushing toilets and sanitation once water pressure drops.",
+    ],
+  },
+  "Storm surge evacuation": {
+    sources: ["NOAA National Hurricane Center Storm Surge Unit","FEMA"],
+    guidance: [
+      "Recognize the deadliest hurricane threat: storm surge — water pushed ashore by powerful hurricane winds — causes nearly half of all hurricane-related deaths and rises far faster than rainfall flooding.",
+      "Horizontal evacuation is essential: you can't ride out major storm surge by climbing to a second story or roof. Rising water and waves undermine foundations and can collapse entire structures. The only real defense is evacuating inland, out of the surge zone.",
+      "Know your evacuation zone beforehand: storm surge zones are based on ground elevation and water proximity, not flood insurance zones. If you're in an assigned coastal or bayou evacuation zone, leave the moment an order is issued.",
+      "Leave before water reaches access roads: low-lying coastal roads and causeways flood hours before the hurricane's center arrives. Wait too long and your vehicle can easily get trapped or swept away.",
+    ],
+  },
+  "Power-dependent medical equipment failure plan": {
+    sources: ["U.S. Department of Health and Human Services (HHS emPOWER Program)","American Red Cross Disability and Disaster Preparedness"],
+    guidance: [
+      "Prioritize life-support devices immediately: know which equipment is non-negotiable for survival (ventilators, oxygen concentrators, IV infusion pumps, dialysis) versus comfort or therapy (a standard CPAP, nebulizers).",
+      "Have manual and unpowered backups ready: keep a manual resuscitator bag (bag-valve-mask) accessible for anyone on a ventilator, plus manual blood pressure cuffs and hand-cranked or bulb suction devices.",
+      "Conserve oxygen supply: if an oxygen concentrator loses power, switch immediately to backup compressed gas cylinders. Conserve tank volume by keeping the person resting flat or seated quietly to reduce their oxygen demand.",
+      "Keep battery banks conditioned: maintain a dedicated UPS or lithium battery power station solely for critical devices. Know its exact runtime in hours, and turn off display backlights, heating humidifiers on breathing circuits, and accessory alarms that drain the battery faster.",
+      "Set a relocation threshold in advance: don't wait until the last battery dies to act. Once remaining backup power drops below 25% or 2 to 3 hours of runtime, evacuate immediately to a predetermined shelter, fire station, or hospital with emergency generator power.",
+    ],
+  },
+  "Water inventory and treatment supplies": {
+    sources: ["CDC","FEMA, Food and Water in an Emergency"],
+    guidance: [
+      "Baseline survival calculation: store at least 1 gallon of potable water per person per day for a minimum of 3 days, and aim for a 2-week supply when you have the space. Add 0.5 to 1 gallon per day extra for pets, nursing mothers, hot climates, or anyone sick.",
+      "Safe storage containers: use only heavy-duty, food-grade plastic containers (marked HDPE, recycling symbol #2 or #4) or factory-sealed bottled water. Never store water in a container that previously held bleach, chemicals, motor oil, or milk — milk proteins can't be cleaned out and will breed bacteria.",
+      "Disinfection chemical storage: keep plain, unscented household liquid chlorine bleach (5% to 9% sodium hypochlorite) less than 6 to 12 months old, since bleach loses potency over time, especially in heat. Store calcium hypochlorite pool shock or sodium dichloroisocyanurate (NaDCC) tablets in airtight, moisture-proof containers for longer-term storage.",
+      "Mechanical filtration inventory: stock hollow-fiber membrane filters (0.1 to 0.2 micron rating) to remove bacteria and parasites, along with replacement cartridges, a backwash syringe to clear clogs, and coffee filters or clean bandanas to strain out heavy mud before filtering.",
+    ],
+  },
+  "Medical/prescription/OTC inventory and expirations": {
+    sources: ["U.S. Food and Drug Administration (FDA), Drug Expiration Dates","American Medical Association (AMA) Emergency Prescription Preparedness"],
+    guidance: [
+      "Keep a prescription reserve: maintain at least a 7 to 14 day emergency buffer (ideally 30 days) of critical daily medications — insulin, blood pressure medication, heart medication, inhalers. Rotate stock by using the oldest bottles first and putting new refills at the back of the shelf.",
+      "Stock critical over-the-counter items: fever reducers and pain relievers (acetaminophen, ibuprofen), antihistamines (diphenhydramine), anti-diarrheals (loperamide), oral rehydration salt packets, antiseptic wash, and topical antibiotic ointment.",
+      "Understand what expiration dates actually mean: the printed date guarantees full potency and stability. Solid dry tablets like ibuprofen often stay meaningfully effective well past that date if kept cool and dry — but never rely on expired liquid suspensions, opened eye drops, nitroglycerin, or insulin, which lose potency fast or can grow bacteria.",
+      "Watch temperature-sensitive drugs closely: keep insulin, biologics, and liquid antibiotics between 36°F and 46°F as long as you can. During an outage, an unopened insulin vial kept at moderate room temperature (below 86°F) stays usable for up to 28 days — just protect it from freezing and direct sunlight.",
+    ],
+  },
 };

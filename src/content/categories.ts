@@ -90,9 +90,9 @@ export const CATEGORIES: Category[] = [
   {
     name: "Disasters",
     topics: [
-      { title: "Tornado warning shelter", status: "verified", priority: "P1", note: "" },
-      { title: "Hurricane watch/warning/evacuation", status: "partial", priority: "P1", note: "" },
-      { title: "Storm surge evacuation", status: "partial", priority: "P1", note: "" },
+      { title: "Tornado warning shelter", status: "verified", priority: "P1", note: "NOAA/NSSL + FEMA" },
+      { title: "Hurricane watch/warning/evacuation", status: "verified", priority: "P1", note: "NOAA/NHC + Ready.gov/FEMA" },
+      { title: "Storm surge evacuation", status: "verified", priority: "P1", note: "NOAA NHC Storm Surge Unit + FEMA" },
       { title: "River / prolonged inland flood", status: "pending", priority: "P1", note: "Not yet drafted" },
       { title: "Flash flood", status: "verified", priority: "P0", note: "NOAA/NWS + FEMA" },
       { title: "Driving into flood water (Turn Around, Don't Drown)", status: "verified", priority: "P0", note: "NWS + FEMA + CDC" },
@@ -164,7 +164,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Shelter & Heat",
     topics: [
-      { title: "Tornado warning shelter", status: "verified", priority: "P1", note: "" },
+      { title: "Tornado warning shelter", status: "verified", priority: "P1", note: "NOAA/NSSL + FEMA" },
       { title: "Lightning shelter", status: "verified", priority: "P0", note: "" },
       { title: "Heat exhaustion and heat stroke", status: "verified", priority: "P0", note: "" },
       { title: "Wildfire smoke clean room", status: "partial", priority: "P1", note: "" },
@@ -387,7 +387,7 @@ export const CATEGORIES: Category[] = [
     name: "Family & Special Needs",
     topics: [
       { title: "Disability, mobility, sensory, caregiver needs", status: "verified", priority: "P1", note: "Red Cross + Ready.gov" },
-      { title: "Power-dependent medical equipment failure plan", status: "partial", priority: "P0", note: "" },
+      { title: "Power-dependent medical equipment failure plan", status: "verified", priority: "P0", note: "HHS emPOWER Program + American Red Cross" },
       { title: "Children in emergencies (age-appropriate prep)", status: "new", priority: "P2", note: "" },
       { title: "Elderly-specific emergency needs", status: "verified", priority: "P2", note: "CDC + Administration for Community Living" },
       { title: "Pregnancy considerations across scenarios", status: "partial", priority: "P1", note: "" },
@@ -402,8 +402,8 @@ export const CATEGORIES: Category[] = [
     note: "Feature design exists; none of the tracking screens are built yet.",
     topics: [
       { title: "Food inventory (item/qty/calories/expiration/location)", status: "partial", priority: "P2", note: "Spec exists" },
-      { title: "Water inventory and treatment supplies", status: "partial", priority: "P0", note: "Spec exists" },
-      { title: "Medical/prescription/OTC inventory and expirations", status: "partial", priority: "P0", note: "Spec exists" },
+      { title: "Water inventory and treatment supplies", status: "verified", priority: "P0", note: "CDC + FEMA" },
+      { title: "Medical/prescription/OTC inventory and expirations", status: "verified", priority: "P0", note: "FDA + AMA" },
       { title: "Power inventory (batteries/banks/solar/fuel)", status: "partial", priority: "P1", note: "Spec exists" },
       { title: "Tools and repair-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
       { title: "Pet-supply inventory", status: "partial", priority: "P2", note: "Spec exists" },
