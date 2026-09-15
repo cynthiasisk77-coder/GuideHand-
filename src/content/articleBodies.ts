@@ -243,6 +243,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Straddle trench for a small group: for a semi-permanent site, dig a trench 12 inches wide, 18-24 inches deep, and 3-6 feet long, with a shovel kept at hand. Cover each use immediately with 2-3 inches of loose soil and wood ash to control odor and keep flies from carrying pathogens to food.",
       "Close it out properly: once waste is within 6 inches of the surface, backfill completely, mound the soil slightly so rain sheds off, and pack it down.",
       "Sizing for a group: as a rough rule of thumb, plan for about 1 linear foot of trench per person per week of use — a family of four sheltering for two weeks would need roughly an 8-foot trench.",
+      "Respect the water table, not just distance: keep the bottom of any pit or trench latrine at least 4 feet above the seasonal high water table. If you hit damp or muddy soil while digging, stop — you're too close to groundwater and risk contaminating it.",
     ],
   },
   "Water, electricity, gas, propane shutoffs": {
@@ -674,6 +675,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never siphon fuel by mouth: inhaling or swallowing gasoline or diesel causes severe chemical pneumonitis and fluid buildup in the lungs, which can be fatal.",
       "Use mechanical fuel transfer instead: a manual shake-siphon hose (with a one-way check ball), a rubber squeeze-bulb primer, or a battery-operated transfer pump.",
       "Ground the containers first: set metal or plastic fuel cans on bare ground before transferring — siphoning generates static electricity that can ignite gasoline vapor if the can is sitting in a plastic truck bed.",
+      "A jiggle/shake siphon makes the check-ball method easy: fit a length of fuel hose with a one-way check-ball valve on the intake end, submerge that end in the fuel source, and rapidly shake the hose up and down. The ball lets fuel in on the downstroke and seals on the upstroke, priming the flow in seconds without any suction at all.",
     ],
   },
   "Solar panel, charge controller, power-bank chain": {
@@ -685,6 +687,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Undersized wire is a real fire risk on low-voltage systems, since they carry much higher current than household wiring for the same power — when in doubt, size up rather than down, and never substitute ordinary household wire (Romex) for battery/inverter cabling.",
       "Ground the system: connect the inverter's metal case and the battery's negative terminal to a real earth ground (a copper ground rod driven into the soil), not just to each other — this is what lets safety devices actually trip if something goes wrong instead of leaving the whole system live.",
       "Keep connections dry and never work on a live circuit. A 25-30% safety margin over calculated load is a commonly recommended sizing buffer.",
+      "Panel angle matters as much as panel size: output is highest when sunlight hits the panel face at a dead-on 90 degrees, and a panel left flat can lose up to 40% of its winter output. As a rough rule, set the tilt equal to your latitude in spring and fall, latitude minus 15 degrees (flatter) in summer, and latitude plus 15 degrees (steeper) in winter. Even a thin branch shadow crossing part of the array can cut the whole string's output by half or more, so keep it clear of shade during peak midday hours.",
     ],
   },
   "Phone low-power settings and battery budgeting": {
@@ -739,6 +742,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Don't let greywater sit in a closed container for more than about 24 hours — bacteria multiply fast in standing greywater and it starts behaving like blackwater. Use it or route it out the same day.",
       "A simple disposal option is a soakaway pit: dig a hole roughly 3-4 feet deep and 3 feet wide, at least 100 feet from any well, spring, or open water, fill it with clean fist-sized gravel or stones, and let greywater drain into it below the surface so it doesn't pool or attract insects. A simple mesh strainer or cloth over the drain first catches food bits, hair, and grease before they clog the pit.",
       "Never spray raw greywater overhead with a sprinkler, and never let it touch anything you'd eat raw — leafy greens, lettuce, herbs. Route it below the soil surface instead, like the soakaway pit above, not onto the leaves of food you're not going to cook first.",
+      "Standing greywater isn't just a smell problem — water pooling on bare ground becomes a mosquito breeding site within 48 to 72 hours. If a soakaway pit isn't practical, a French drain works too: a sloped 2-foot-deep, 1-foot-wide trench filled with gravel, a perforated pipe laid on top, then covered with landscape fabric and 6 inches of soil, draining water below the surface with nothing standing for insects to breed in.",
     ],
   },
   "Scene safety and triage order": {
@@ -829,6 +833,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Do NOT close a deep, puncture, bite, crush, or contaminated wound yourself with glue/staples. Do not close an animal or human bite at all — get it evaluated (infection, tetanus, and rabies decisions can be time-sensitive).",
       "For the best chance of avoiding infection, irrigation matters more than what you irrigate with — even plain clean water works if you use enough of it and enough force. A large syringe, or a plastic bottle with a small pinhole poked in the cap that you squeeze hard, both create enough pressure to actually flush debris out rather than just rinse the surface.",
       "A wound that's too dirty or too old to close (see above) can still be cared for: loosely pack it with clean, saline-moistened gauze so it can drain, and cover with a dry dressing. Change the dressing daily or every other day. It will heal from the inside out over time — that's normal for a wound that couldn't be closed, not a sign something's wrong.",
+      "A simple normal-saline recipe if plain water stings too much: dissolve 2 level teaspoons of non-iodized table or canning salt into 1 quart of water that's been boiled 10-15 minutes with the lid on, then cooled to room temperature. Store it in a boiled, tightly lidded glass jar, and discard or re-boil whatever's left after 24 hours.",
     ],
   },
   "Thermal burns": {
@@ -1286,6 +1291,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Any chemical splash or embedded foreign body = emergency care, not wait-and-see.",
       "Loose debris like sand or an eyelash: don't rub it. Pull the upper eyelid down and out over the lower lashes — this alone often sweeps it loose so you can flush it out.",
       "If something is impaled or stuck in the eye and you're covering it while waiting for help: cover BOTH eyes, not just the injured one. Eyes move together, so if the healthy eye moves, the injured eye moves the same way and can drive the object in deeper. Covering both keeps the injured eye still.",
+      "For debris that won't flush out and you suspect is caught under the upper eyelid: gently roll the upper lid up and back over a clean cotton swab to expose its underside, then lift the speck away with the moistened tip of another swab. Only do this for loose surface debris — for anything embedded, stick with the shield-and-cover approach above.",
     ],
   },
   "Non-opioid medication overdose": {
@@ -2067,6 +2073,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Drain the remaining pressure: open the lowest cold-water faucets in the house plus an outdoor hose bib to drain water trapped in the lines and relieve pressure at the leak.",
       "Improvised rubber-and-clamp patch: cut a strip of thick rubber (a bicycle inner tube, heavy garden hose, or rubber boot works) and wrap it tightly around the split section. Secure it with an adjustable metal hose clamp tightened directly over the tear.",
       "Tape or wrap method for small leaks: for a low-pressure pinhole leak, dry the pipe surface thoroughly and wrap self-fusing silicone tape or heavy rubber rescue tape, overlapping the split by several inches on each side.",
+      "Two-part epoxy putty for a steadier leak: shut off the water and dry the pipe surface, then knead a two-part plumbing epoxy putty between your fingers until the color is uniform. Press it firmly into and around the crack and let it cure rock-hard (15-25 minutes) before restoring pressure.",
     ],
   },
   "Contaminated coat/skin decontamination": {
@@ -2225,6 +2232,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Text instead of calling: texts use far less network bandwidth than calls and often slip through congested cell towers when voice calls fail.",
       "Set three distinct meeting points: an immediate spot just outside the house (a specific tree, mailbox, or driveway edge) for a sudden emergency like a fire; a neighborhood spot — a library, park, or community center — if your street is blocked; and a regional spot, a relative's home, civic building, or place of worship in a neighboring town, if the whole city evacuates.",
       "Carry paper contact cards: don't rely only on phone address books. Give every family member, kids included, a laminated card in their backpack with the out-of-town contact's name, number, and the agreed meeting points.",
+      "Put real distance on your out-of-town contact — 200 to 500 miles outside your region, past the reach of a single regional disaster. Keep the actual message simple: one check-in text with your status and general location (\"John safe, moving toward Rally Point 2\") lets that person relay updates to everyone else, instead of the whole family trying to call each other through jammed local circuits.",
     ],
   },
   "Evacuation zones and shelter locations": {
@@ -2395,6 +2403,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Respect battery depth-of-discharge limits: never drain lead-acid or AGM batteries below 50% of rated capacity without permanent plate damage. Lithium iron phosphate (LiFePO4) batteries can safely go to 80-90%.",
       "Size the inverter for both continuous and surge watts: the continuous rating must exceed everything running at once, and the surge rating needs headroom for motorized appliances (fridges, pumps), which can briefly draw 2 to 3 times their running wattage on startup.",
       "Once you know your daily watt-hour need, you can size solar panels to actually replace it: divide your daily watt-hours by your area's average peak sun hours (roughly 4 in winter, 5-6 in summer for most of the US). A 600Wh daily need divided by 4 peak sun hours means you need at least 150W of panels just to break even on an average day — plan for more than the bare minimum to cover cloudy stretches.",
+      "Match the inverter's wave type to what you're running: a pure sine wave inverter produces smooth power safe for variable-speed motors, medical equipment like CPAPs, and electronics with digital control boards. A cheaper modified sine wave inverter puts out a choppy, stair-stepped signal that's fine for simple resistive loads (space heaters, incandescent bulbs) but can make sensitive electronics hum, run hot, and burn out early.",
     ],
   },
   "Sump-pump failure": {
@@ -2709,6 +2718,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Render tallow for solid candles: chop raw animal fat into small cubes, simmer on low with a splash of water until the fat clears and cracklings float, then strain through cheesecloth. Cool and pour around a centered wick in a hollow tube — tallow sets into a hard, smokeless fuel.",
       "Build a liquid oil lamp: pour a non-mineral vegetable oil (olive, canola, sunflower, or melted lard) into a small heat-safe bowl or can. Anchor a natural wick through bent foil or wire, leaving about 1/4 inch exposed above the oil.",
       "Make a proper wick: tightly braided 100% cotton cord, unbleached linen string, or dried rush pith work well. Never use synthetic line — it melts, smokes toxic fumes, and chokes off the flame.",
+      "A floating wick keeps the flame steady: cut a small circle from a tin-can lid (or twist a copper-wire spiral) as a float, thread the wick through its center with only 1/8 to 1/4 inch exposed above it — much longer and it smokes heavily — and let it float on 1-2 inches of oil in a wide-mouth jar. Let the wick soak a couple of minutes before lighting.",
     ],
   },
   "Off-grid meat curing (dry salt and brine preservation)": {
@@ -3159,6 +3169,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Get the wet boots and socks off as soon as you can, and pat the skin dry gently with a clean towel — don't rub.",
       "Let the feet warm up gradually at normal room temperature. Never warm them near an open fire, with hot water, or on a heating pad, and never rub or massage them — the skin is fragile at this point and can peel off.",
       "Prop the feet up on a pack or rolled blanket to help bring the swelling down, and once they're dry, put on clean, completely dry wool socks.",
+      "Early signs to watch for, before it progresses this far: cold, pale, wrinkled skin on the soles, numbness, and a heavy, wooden feeling in the feet — burning pain usually shows up later, once the feet start rewarming.",
+      "Prevent it with sock rotation: change into a dry pair of wool socks at least twice a day and never sleep in wet socks or boots. With no spare dry pair on hand, dry the wet ones inside your sleeping bag against your chest, or tied to the outside of your pack.",
+      "Plain talc or zinc oxide powder on clean, dry feet helps keep skin dry and cuts friction between changes.",
+      "Wash the feet gently with warm water and mild soap before drying — then the same warming and no-rubbing care above applies as the skin recovers.",
     ],
   },
   "Choking when you're alone (self-rescue)": {
@@ -3424,6 +3438,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Seal the room's air vents with plastic sheeting and tape, and press a damp towel against the base of the door to the hallway. Then set a box fan in a cracked-open window, facing outward, and seal the rest of the window opening around the fan with cardboard and tape.",
       "Running that fan continuously pulls air in from under the hallway door and pushes it outside — meaning air generally moves INTO the sick room, not out of it and into the rest of the house. You can rough-check this by holding a lit incense stick or smoke source near the gap under the hallway door — the smoke should get pulled inward, not blown back at you.",
       "Set up a clean-to-dirty routine at the door: keep clean masks, gloves, and eye protection on a small table just outside. Put them on before going in. Coming out, take the gloves off inside the room (turning them inside out) and drop them in a lined bin there, wash your hands, then step out, close the door, and only then remove your mask and eye protection — touching only the straps, never the front — and wash your hands again.",
+      "Keep the sick room's dishes and laundry fully separate: wash its dishes by hand in scalding, soapy water with a splash of bleach rather than mixing them into the household load, and dedicate a sealed bucket for soiled bedding and clothing — soak it in boiling or chlorinated water before it ever goes through a general wash.",
     ],
   },
   "Trapped in a building collapse: what to do until help arrives": {
@@ -3604,6 +3619,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "A simple fly trap: cut the top third off a clear plastic bottle, flip it upside down into the bottom section like a funnel, and bait it with sugar water or meat scraps. Flies find their way in through the cone but can't figure out how to fly back out.",
       "A simple flea trap: a shallow pan of soapy water on the floor overnight with a small light or candle positioned over it — fleas jump toward the warmth and light, land in the water, and the soap breaks the surface tension so they can't climb back out and drown.",
       "For ticks specifically: keep grass cut short within about 30 feet of where people spend time, and put down a 3-foot-wide strip of gravel, dry mulch, or crushed stone between any wooded area and your yard — ticks generally won't cross open, dry, sun-exposed ground to get to you.",
+      "For an enclosed outhouse or box privy, build a fly trap into the structure itself: run a 4-inch vent pipe from under the pit up through the roof, extending a foot above the peak, and cover the top with fine steel or bronze mesh. Flies in the dark pit head toward the daylight coming down the pipe and get trapped against the screen — pair this with a tight-sealing gasket on the seat lid.",
     ],
   },
   "Appliance failure and safe restart": {
@@ -3655,6 +3671,125 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "A simple, consistent pin system is worth setting up in advance: one type of marker for water sources (springs, creeks, a working spigot), another for resources (fuel, medical supplies, a safe meeting spot), and another for hazards (a low-water crossing that floods, an unstable bridge, an area to avoid).",
       "Street addresses can become useless if signs and landmarks are destroyed — learning to read and drop a coordinate (either simple GPS decimal coordinates or a grid system like MGRS/UTM) gives you a way to mark and find a spot that doesn't depend on anything still being standing.",
       "If you're marking sensitive locations — a supply cache, a fallback meeting spot — avoid labeling them in plain language on a device other people might see. A vague nickname, or keeping that layer of the map in a separate password-protected file, keeps the information private without you having to remember complicated codes.",
+    ],
+  },
+  "Hand tool maintenance and rust prevention off-grid": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Scrape tools clean right after use: dirt and sawdust trap moisture against bare steel, so brush or scrape it off with a wire brush or putty knife before storing — never put a tool away caked in dirt.",
+      "Seal bare metal with mineral oil, motor oil, or paste wax to block out air and moisture — skip vegetable or cooking oils, which turn gummy and rancid and attract pests.",
+      "Wooden handles need oil too: rub hickory or ash handles with boiled linseed oil about twice a year. Dry wood shrinks and cracks, which loosens the tool head. Wipe off the excess, and hang any oily rags outdoors, laid flat — balled-up linseed-oil rags can spontaneously combust.",
+      "Remove surface rust without chemicals: scrub it off with steel wool dipped in kerosene, or soak small iron parts in plain white vinegar for 4-8 hours to dissolve the oxidation. Rinse well, dry immediately over heat, and re-oil right away.",
+    ],
+  },
+  "Small engine pull-cord and fuel line replacement": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Replacing a snapped pull cord: unbolt the starter recoil housing from the engine shroud (usually 3-4 small bolts), then manually turn the internal pulley clockwise until the recoil spring is tensioned, backing off one turn until the cord eyelet lines up with the exit hole. Wedge a screwdriver into the pulley to hold it there.",
+      "Feed the new nylon starter rope through, tie a figure-eight knot, seat it into the pulley recess, then pull the screwdriver and let the spring draw the rope back in smoothly.",
+      "Fuel lines harden and crack faster than people expect: modern ethanol fuel breaks down small rubber or vinyl fuel lines within 2-3 seasons, causing air leaks and stalling. Pull the old line off the carburetor and tank fittings, and cut the new line with an angled tip to make threading it through tight grommets easier.",
+      "A drop of WD-40 or soapy water on the fitting lets the new line slide into place without splitting the rubber.",
+    ],
+  },
+  "Field handwashing stations: the tippy-tap build": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Hang a clean 1-gallon jug (water or milk jug) from a tree branch or wooden tripod by its handle, using a cord.",
+      "Poke a small nail-sized hole near the bottom corner opposite the handle, and hang a bar of soap in a mesh bag or old stocking from the same branch, right next to the jug.",
+      "Tie a second cord to the jug's neck and run it down to a foot-lever stick resting on the ground. Stepping on the lever tilts the jug forward so a thin stream trickles out the hole; releasing your foot lets it swing level and stop.",
+      "This keeps hands off any shared spigot, handle, or faucet valve entirely — worth setting up anywhere several people are sharing a wash station.",
+    ],
+  },
+  "Improvised hot and cold packs": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Cold pack for acute swelling or a sprain: double-bag crushed ice, snow, or cold stones in a damp cloth. Never put ice directly against bare skin, and limit any single application to 15-20 minutes to avoid frostbite.",
+      "An alcohol-gel slush pack stays flexible: mix 2 parts water with 1 part 70% rubbing alcohol in a sealed freezer bag. The alcohol keeps it from freezing solid, so it molds around an ankle or wrist instead of sitting as a hard block.",
+      "Hot pack for muscle aches: fill a clean tube sock with about 2 cups of dry rice, beans, or corn and knot the end. Warm it in a pot over low, indirect heat (or near a wood stove) — test it against your inner wrist before applying — and it'll hold heat for 30-45 minutes.",
+    ],
+  },
+  "Safe indoor kerosene heater maintenance and wick trimming": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Use 1-K clear kerosene only — never red-dyed diesel, jet fuel, or gasoline. Even a pint of gasoline mixed into a kerosene tank can cause an explosive vapor fire when lit. Good kerosene looks crystal-clear; yellow or cloudy fuel means toxic sulfur fumes and a carbon-coated wick.",
+      "Dry-burn the wick monthly: let the heater run outdoors until it burns completely out of fuel on its own. This burns off the tar and carbon crust on the wick and restores a clean, bright flame.",
+      "Trim the wick edge level with sharp scissors, snipping any frayed threads or uneven spots.",
+      "Test the tip-over shutoff before each heating season: bumping the heater should make the weight drop and the wick retract instantly. If it doesn't, the heater isn't safe to use until it's fixed.",
+    ],
+  },
+  "Documenting storm and disaster damage for insurance and legal claims": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Before you clear a single board or rake any debris, walk the property's four corners and take sweeping wide-angle photos and video of everything, showing full structural context (the whole house with the missing roof section) rather than tight close-ups — adjusters can reject an unverified close-up as lacking context.",
+      "Photograph the serial and model plates on any wrecked heavy equipment, generators, well control boxes, solar inverters, and major appliances before they're hauled off.",
+      "Keep a handwritten paper log — not just your phone — of the date, time, weather conditions, what you observed, and the names and badge numbers of any responders or officials who inspected the site. A physical notebook survives a dead phone or lost cloud backup.",
+    ],
+  },
+  "Offline route downloads (primary/alternate)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never rely on a single route: major interstates and state highways routinely gridlock within about two hours of a large-scale evacuation order. Download both a primary route (your fastest normal way out) and at least one alternate that uses rural or farm-to-market roads and county bypasses instead of the highway.",
+      "Check that your alternate actually holds up in bad weather: rural low-water bridges and small river crossings are usually the first things to wash out in a regional flood, so verify the alternate route's crossings are solid, not just shorter.",
+      "Download a wide corridor, not just a thin line: pad your cached map area at least 15 miles on either side of your route so you can see (and route around) fallen trees, checkpoints, or blocked roads without needing a cell signal.",
+    ],
+  },
+  "Immediate/neighborhood/regional meeting places": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Set three tiers of meeting point, not just one. Immediate: right outside your door or property gate — a specific tree or landmark — for a fast structural evacuation like a house fire.",
+      "Neighborhood: a walking-distance spot outside your immediate street, like a crossroads, fire station, or neighborhood entrance, for when the house itself is compromised or cordoned off.",
+      "Regional: a specific site 20-50 miles away in a different town or county — a trusted relative's home, a library, a municipal building — for wide-area disasters where cell networks are down and the whole town is evacuating.",
+      "Agree on all three ahead of time with everyone in the household, including kids, and write them down somewhere that doesn't depend on a working phone.",
+    ],
+  },
+  "Vehicle evacuation kit": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Core fluids and mechanical reserves: a gallon of drinking water per passenger, a gallon of premixed coolant, a full-size spare tire (check its PSI monthly), a mechanical bottle jack, and a heavy-duty 20-foot tow strap.",
+      "Off-grid mobility tools: a 12-volt air compressor that clips onto your battery terminals, a tire plug kit with insertion handles, and a folding shovel for digging a tire out of mud or sand.",
+      "Sustenance and shelter: 72 hours of dry rations that won't make you thirstier (ration bars, trail mix), two wool or space blankets, a DC-to-USB inverter, and a paper road atlas in the seatback pocket as backup to any phone map.",
+      "Keep the tank above half: grid-down gas stations can't pump fuel, and idle traffic in gridlock burns through gas fast — never let an evacuation vehicle drop below half a tank.",
+    ],
+  },
+  "Household drill schedule and results": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Rotate drills quarterly between a rapid nighttime fire/smoke egress, a storm-shelter staging drill, and a full vehicle bug-out load.",
+      "Make it a real test, not a walkthrough: kill the main breaker to practice nighttime navigation in actual darkness, or load the vehicle without phones or spoken directions.",
+      "After each drill, log three things: time-to-clear (minutes from alarm to everyone assembled), gear discrepancies (missing boots, dead headlamps, expired batteries), and choke points (a blocked hallway, a jammed gate lock). Fix whatever failed before the next drill, not after the next real emergency.",
+    ],
+  },
+  "Non-escalatory de-escalation techniques": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Stand at an angle, not squared up chest-to-chest, keep your hands open and visible around chest height, and hold 6-8 feet of space — squaring off and closing distance both read as confrontational even when you don't mean them to.",
+      "Slow your voice down (roughly 20% slower than normal) and keep your pitch low. Don't match an agitated person's volume or speed, and stick to short, concrete sentences.",
+      "Acknowledge the stress without giving up ground: something like \"I hear you — we're both just trying to keep our families safe. Let's step back and figure this out\" works far better than telling someone to \"calm down,\" which tends to do the opposite.",
+      "Know when to stop trying: if the person won't lower their volume, makes a direct threat, or keeps closing distance despite you asking for space, stop engaging and get behind physical cover instead.",
+    ],
+  },
+  "Safe-room / panic-room concept": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Pick the lowest interior room with no outside walls or windows — an interior bathroom, a reinforced hallway, or a large central closet.",
+      "Harden the door: fit a solid-core wood or steel door with heavy-duty slide-barrel bolts top and bottom (a standard doorknob latch won't hold under pressure), and fasten 3/4-inch exterior-grade plywood to the inside of the door and surrounding wall framing to blunt flying debris.",
+      "Stage gear inside ahead of time: helmets for head protection, heavy leather work gloves, thick blankets or a mattress to pull over everyone, and a battery-powered weather radio.",
+    ],
+  },
+  "Pet evacuation plan": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never leave an animal locked in a stall, barn, or on a short chain if you can't get it out — if there's no time to trailer livestock before roads close, open every stall door and pasture gate instead so they at least have a route to higher, open ground.",
+      "Mark livestock in a way that survives losing paperwork: spray-paint your phone number across the animal's side with weather-resistant livestock marking paint, or clip on an aluminum ear tag. A laminated card with contact info braided into a horse's mane works too.",
+      "Plan for pets to bolt: a stressed dog or cat will run at the sound of sirens or thunder, so have a secure crate and leash staged and ready, not something you're hunting for while already trying to leave.",
+    ],
+  },
+  "Children in emergencies (age-appropriate prep)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "In a chaotic evacuation — smoke, a crowd, a structural collapse — kids and disoriented elderly relatives can be separated in seconds. Don't rely on a paper card in a pocket; write key details in permanent waterproof marker on a vinyl wristband, a laminated tag, or the inside cuff of their jacket.",
+      "Include: full legal name, date of birth, blood type, any life-threatening allergies (like penicillin or severe asthma), and two out-of-area contact numbers.",
+      "Keep identifying details off the outside of clothing or a backpack in plain sight — a stranger reading a child's name off their bag can use it to fake familiarity and lure them away.",
     ],
   },
 };
