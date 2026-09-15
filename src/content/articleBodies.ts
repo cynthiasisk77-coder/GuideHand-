@@ -373,11 +373,11 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Basic knots for emergencies": {
-    sources: ["Scouting America"],
+    sources: ["U.S. Army Survival Manual (FM 21-76)","Ashley Book of Knots (ABOK)"],
     guidance: [
-      "Bowline: forms a loop at a rope's end that won't slip or tighten under load — historically used for rescue (looping around a person's torso to hoist them to safety).",
-      "Clove hitch: ties a rope to a post or pole; the standard start/finish for most lashings.",
-      "Square knot: joins two ropes of similar diameter.",
+      "Bowline (\"the king of knots\"): a secure, fixed loop at a rope's end that won't slip or shrink under load, yet unties easily afterward. Use it for rescue lines, tie-down points, or hanging gear. Form a small loop in the standing part, pass the working end up through it, around the standing line, then back down through the loop, and pull it firm.",
+      "Taut-line hitch: an adjustable friction hitch that slides to change tension, then locks in place under load. Good for tent guy-lines, shelter tarps, and antenna lashings. Wrap the working end around the anchor line twice toward the anchor, then once more on the outside toward the load, and pull tight to set it.",
+      "Trucker's hitch: a mechanical-advantage knot that cinches a load two to three times tighter than pulling by hand. Use it for strapping down roof tarps or bulky gear. Form a slip loop in the middle of the line, run the working end through an anchor point, feed it back through the slip loop, pull hard to tighten, then lock it off with two half-hitches.",
     ],
   },
   "Rope and cordage strength basics": {
@@ -635,11 +635,13 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Manual siphon-pump legal/safety boundaries": {
-    sources: ["CDC, \"Don't Siphon Gasoline\" PSA"],
+    sources: ["CDC / NIOSH, Chemical and Hydrocarbon Ingestion Hazards","OSHA Fuel Storage and Transfer Protocols"],
     guidance: [
-      "Never siphon gasoline by mouth. Swallowing gasoline can cause vomiting, and gasoline reaching the lungs (aspiration) can cause chemical pneumonia — a real, potentially fatal lung injury — from even a small amount.",
-      "Use a hand-operated siphon pump or squeeze-bulb siphon instead of your mouth, every time, regardless of experience or urgency.",
-      "The legal side (moving fuel between containers/vehicles can be regulated in some jurisdictions) remains a minor open note — the safety warning applies regardless.",
+      "Follow the gravity rule: the hose's outlet end must sit lower than the surface of the liquid in the supply container for gravity flow to keep going.",
+      "Prime a water siphon safely: submerge the whole hose in the water until every air bubble is out and it's completely full, seal both ends with your thumbs, move one end to the lower container, then release to start the flow.",
+      "Never siphon fuel by mouth: inhaling or swallowing gasoline or diesel causes severe chemical pneumonitis and fluid buildup in the lungs, which can be fatal.",
+      "Use mechanical fuel transfer instead: a manual shake-siphon hose (with a one-way check ball), a rubber squeeze-bulb primer, or a battery-operated transfer pump.",
+      "Ground the containers first: set metal or plastic fuel cans on bare ground before transferring — siphoning generates static electricity that can ignite gasoline vapor if the can is sitting in a plastic truck bed.",
     ],
   },
   "Solar panel, charge controller, power-bank chain": {
@@ -2241,6 +2243,79 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Prep the home perimeter if there's time: shut all windows and doors to kill interior drafts, turn off propane at the main valve, move patio furniture and cushions at least 30 feet from the house, and leave exterior and interior lights on so firefighters can find it through smoke.",
       "Dress for radiant heat: full-length pants, a long-sleeved 100% cotton or wool shirt (no synthetics, which melt onto skin), heavy leather boots, leather gloves, and an N95 or P100 respirator.",
       "Set up the vehicle for a fast exit: back it into the driveway with doors unlocked and keys in the ignition, windows fully up, headlights and hazards on, and climate control on internal recirculation so it doesn't pull in embers and smoke.",
+    ],
+  },
+  "Damaged roof, windows, weatherproofing": {
+    sources: ["FEMA","National Roofing Contractors Association (NRCA) Emergency Home Repair Guidelines"],
+    guidance: [
+      "Safety first: never get on a wet roof or work during high wind. Secure the ladder at a 4:1 slope, extend it three feet past the roofline, and tie it off at the top.",
+      "Prep the surface: sweep away loose shingles, branches, and dirt so the patch lies flat against the wooden decking.",
+      "Choose underlayment or a tarp: for small punctures, use self-adhering modified bitumen (peel-and-stick ice-and-water shield) or heavy 30-lb roofing felt tacked down with plastic-capped roofing nails.",
+      "Follow the bottom-to-top overlap rule: layer material from the eaves upward toward the peak. Each higher sheet overlaps the lower one by at least 4 to 6 inches, and runs over the ridge so rain sheds cleanly without running underneath.",
+    ],
+  },
+  "Fuel inventory": {
+    sources: ["National Fire Protection Association (NFPA 30: Flammable and Combustible Liquids Code)","Small Engine Manufacturers Association"],
+    guidance: [
+      "Use the right containers: dedicated, heavy-duty, vapor-sealed safety cans certified by UL, ASTM, or DOT — red for gasoline, yellow for diesel, blue for kerosene. Never glass jugs, milk jugs, or open buckets.",
+      "Add a stabilizer before storage: untreated pump gasoline starts breaking down and forming engine-clogging varnish within 30 to 90 days. Mix in a fuel stabilizer (like STA-BIL or Sea Foam) as you fill the container, which extends shelf life to 12 to 24 months.",
+      "Buy ethanol-free fuel for long-term storage when you can: ethanol absorbs moisture from the air, which causes phase separation and corrodes carburetors in generators, chainsaws, and pumps.",
+      "Keep safe storage clearance: a well-ventilated, detached shed or garage at least 50 feet from occupied living space, pilot lights, water heaters, and spark sources — and never more than 25 gallons inside a residential garage.",
+    ],
+  },
+  "Battery watt-hour budgeting (calculator)": {
+    sources: ["National Electrical Code (NEC Article 690/706)","Department of Energy (DOE) Off-Grid and Emergency Power Systems"],
+    guidance: [
+      "Calculate total daily watt-hours: multiply each critical device's wattage by the hours it runs per day (watts × hours = watt-hours). A 60W CPAP run for 8 hours is 480Wh a day; add up every device for your daily baseline.",
+      "Account for inverter conversion loss: inverters converting 12V DC battery power to 120V AC typically run 80% to 85% efficient. Divide your total AC watt-hour need by 0.85 so the battery bank actually covers the loss.",
+      "Respect battery depth-of-discharge limits: never drain lead-acid or AGM batteries below 50% of rated capacity without permanent plate damage. Lithium iron phosphate (LiFePO4) batteries can safely go to 80-90%.",
+      "Size the inverter for both continuous and surge watts: the continuous rating must exceed everything running at once, and the surge rating needs headroom for motorized appliances (fridges, pumps), which can briefly draw 2 to 3 times their running wattage on startup.",
+    ],
+  },
+  "Sump-pump failure": {
+    sources: ["Federal Emergency Management Agency (FEMA), Protecting Your Home from Sump Pump Failures and Flooding"],
+    guidance: [
+      "Diagnose the failure fast: check for a tripped breaker, an unplugged cord, a float switch stuck on debris or jammed against the pit wall, or a jammed impeller.",
+      "Clear a mechanical jam safely: disconnect power completely before putting your hands in the pit, then check the base intake screen for gravel, stones, or sludge blocking the impeller.",
+      "Set up a 12V DC backup: a dedicated marine deep-cycle battery running an auxiliary bilge pump or a second sump pump with its own check valve and independent discharge line.",
+      "Bail or siphon manually as a last resort: with no power and no backup pump, bail the pit with a 5-gallon bucket into drainage sloped away from the house, or run a continuous siphon with a garden hose out a basement window to lower ground.",
+    ],
+  },
+  "Improvised repairs (duct tape, tarp, zip-tie fixes)": {
+    sources: ["U.S. Army Field Manual (FM 4-30.31), Recovery and Field Repair Operations"],
+    guidance: [
+      "Splint cracked wooden handles: align the fracture on a shovel, axe, or rake handle, bind it tightly with metal hose clamps or wire, and sandwich the crack between two rigid wood or metal splint slats lashed with paracord.",
+      "Bond plastics and small housings: mix cyanoacrylate (super glue) with baking soda for an instant, hard composite weld on cracked plastic. Wrap high-stress joints in self-fusing silicone tape or fiberglass repair wrap.",
+      "Replace lost fasteners in the field: swap a lost shear pin, cotter pin, or small bolt temporarily with heavy bailing wire, a cut framing nail bent at the tip, or a heavy steel paperclip to keep equipment running.",
+      "Restore a cutting edge without power tools: use an 8 or 10-inch bastard mill file, single forward strokes across the bevel at a steady 20 to 30 degree angle — never file backward.",
+    ],
+  },
+  "Improvised lever/pry/lift techniques": {
+    sources: ["FEMA Urban Search & Rescue (US&R), Structural Collapse Shoring and Lifting Operations"],
+    guidance: [
+      "Pick the right mechanical advantage: use a Class 1 lever (a pry bar over a fulcrum) with the fulcrum as close to the load as possible and your hands at the far end of the lever, to maximize lifting force.",
+      "Give the fulcrum a stable base: never set a lever directly on soft soil, crumbling masonry, or a slick surface. Put a wide, flat wooden block or thick stone under the pivot point so it can't sink or kick out under load.",
+      "Follow \"lift an inch, crib an inch\": when prying up a beam, vehicle, or fallen tree to free someone, slide solid wood blocking (cribbing) underneath as it rises. Never trust the lever or jack alone — if it slips, the load needs to land on wood, not on someone's hands.",
+      "Use the right lever material: thick steel pipe, a solid crowbar, or heavy hardwood (oak, hickory, ash). Never lightweight conduit, hollow aluminum pipe, or brittle dry pine — they can snap suddenly and throw sharp fragments.",
+    ],
+  },
+  "Emergency vehicle extraction (tow straps, winching, traction)": {
+    sources: ["National Off-Road Association (NORA) Vehicle Recovery Protocols","Society of Automotive Engineers (SAE)"],
+    guidance: [
+      "Improvise traction first: if wheels are spinning in mud, sand, or snow, dig out the packed buildup in front of the drive tires, then wedge traction boards, rubber floor mats (carpet side down), coarse gravel, or branches tight under the leading edge of the drive wheels.",
+      "Try deflating the tires: lower pressure to 15-18 PSI (12-15 PSI on soft sand) to widen the tire's footprint and improve grip. Drive slowly and re-inflate with a portable 12V compressor once you're back on firm ground.",
+      "Know the difference between tow straps and kinetic ropes: static tow straps don't stretch and are only for slow, steady towing on flat ground — never jerk against one. Kinetic snatch straps stretch 20-30% and are built for a rolling \"snatch\" pull that snaps a vehicle out of deep mud or ruts.",
+      "Never hook to a trailer hitch ball or suspension part: the shock load can snap a towing ball clean off the shank into a lethal projectile. Connect only to frame-mounted recovery hooks or a hitch-receiver shackle bracket with a heavy-duty rated bow shackle.",
+      "Dampen the line before pulling: drape a heavy recovery dampener, thick jacket, or weighted blanket over the center of a winch cable or tight strap. If it snaps under tension, the weight knocks it to the ground instead of whipping through a windshield.",
+    ],
+  },
+  "Basic rigging and lifting safety limits": {
+    sources: ["OSHA 1910.184 (Rigging Equipment for Material Handling)","American Society of Mechanical Engineers (ASME B30)"],
+    guidance: [
+      "Rig to the Working Load Limit, not the breaking strength: equipment is rated for both Breaking Strength (where it fails) and Working Load Limit (WLL, usually 1/3 to 1/5 of breaking strength). Always rig to the lower WLL — movement, bouncing, and angled pulls add stress well beyond dead weight.",
+      "Watch sling angles: when lifting with two slings or chains in a bridle, keep the angle to the ground steep, ideally 60 degrees or more. Below 30 degrees, tension multiplies fast and can cut your lifting capacity in half.",
+      "Protect against sharp edges: never route straps, ropes, or winch line across a sharp metal edge or concrete corner without heavy padding — thick corner protectors, folded canvas, cut fire hose, or split wood between the strap and the corner.",
+      "Keep everyone out of the fall line: rescuers and helpers stay outside the pinch zone and out from under the swing path of any suspended load, and never stand in line with a loaded winch cable or strap that could whip back if hardware fails.",
     ],
   },
 };
