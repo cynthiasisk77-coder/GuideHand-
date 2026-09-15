@@ -1830,4 +1830,121 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Watch temperature-sensitive drugs closely: keep insulin, biologics, and liquid antibiotics between 36°F and 46°F as long as you can. During an outage, an unopened insulin vial kept at moderate room temperature (below 86°F) stays usable for up to 28 days — just protect it from freezing and direct sunlight.",
     ],
   },
+  "Sepsis warning signs": {
+    sources: ["CDC, Get Ahead of Sepsis","Sepsis Alliance guidelines"],
+    guidance: [
+      "Recognize the core combination: sepsis happens when the body has an extreme, toxic response to an infection it already has — a UTI, pneumonia, an infected cut, a stomach bug, anything.",
+      "Watch for the \"TIME\" red flags: Temperature higher or lower than normal (feverish, or shivering violently with cold skin); Infection signs (a cough, burning urination, a red wound, belly pain); Mental decline (confused, sleepy, slurred speech, hard to wake); Extremely ill (\"I feel like I might die,\" severe body aches, a racing heart, extreme shortness of breath).",
+      "Watch for signs of septic shock: rapid, shallow breathing, mottled or discolored skin or lips, clammy sweat, dizziness, and very little or no urine output.",
+      "Treat it as top-priority and get to clinical care: sepsis deteriorates rapidly into organ failure without IV antibiotics and fluids. Keep the person lying down, warm, and comfortable while getting them evacuated to care.",
+    ],
+  },
+  "Aircraft impact/explosion in a building": {
+    sources: ["National Fire Protection Association (NFPA) High-Rise Building Evacuation Standards","FEMA, Explosions and Building Collapse"],
+    guidance: [
+      "Drop and protect against secondary blasts: if an explosion or impact rocks the building, drop to the floor under a sturdy desk or table immediately to shield yourself from falling ceilings, overhead pipes, and flying glass.",
+      "Evacuate immediately via stairs: don't stay to assess damage. Grab shoes and your go-bag if they're within reach and leave down the nearest emergency stairwell — never use elevators, which can lose power, lock up, or fill with smoke.",
+      "Stay low and check doors: smoke, heat, and vaporized fuel rise fast. Crawl on hands and knees if there's smoke, and feel doorknobs with the back of your hand before opening them to avoid walking into a flash fire.",
+      "Watch for falling debris outside: once out, keep moving away — don't stand right by the entrance. Falling glass and masonry can shower streets blocks away. Move upwind and away from the building's exterior.",
+    ],
+  },
+  "Hot-water tank safe isolation and draining": {
+    sources: ["CDC, Finding Water in an Emergency","FEMA Emergency Water Supplies"],
+    guidance: [
+      "Shut off the power or fuel first: turn off the water heater's dedicated breaker at the electrical panel (electric tanks), or turn the gas control knob to OFF or PILOT (gas tanks). Draining a powered electric tank will burn out the heating elements instantly and can start an electrical fire.",
+      "Shut off the incoming water supply: close the cold-water inlet valve on the pipe entering the top of the tank (clockwise until closed) so contaminated municipal water can't get into the clean reserve.",
+      "Connect a hose and relieve pressure: attach a garden hose to the drain valve at the base of the tank into clean food-grade buckets. Open a hot-water faucet upstairs, or lift the tank's Temperature & Pressure relief valve lever, to break the internal vacuum so water flows freely from the bottom.",
+      "Filter and treat the drained water: the first few gallons may carry sediment, rust, or mineral flakes. Run it through a clean cloth or coffee filter, then boil or chemically disinfect it before drinking.",
+    ],
+  },
+  "River / prolonged inland flood": {
+    sources: ["Ready.gov / FEMA Inland Flooding Hazards","National Weather Service (NWS) River Forecast Centers"],
+    guidance: [
+      "Watch for a slow, steady rise: unlike flash floods that rush in suddenly, river flooding can build over days as upstream runoff, snowmelt, or prolonged heavy rain collects in the main channel.",
+      "Elevate critical utilities and belongings early: if you have advance warning, move valuable gear, dry goods, and battery banks to upper floors, and get electrical appliances up off the floor where you safely can.",
+      "Shut off utilities before water reaches the living space: turn off the main electrical breaker and the main water supply valve before floodwater reaches wall outlets, wiring, or plumbing. Never enter standing water to reach a breaker box.",
+      "Evacuate well before access roads go under: your property can end up surrounded by rising water while the house itself stays dry, cutting off your escape route. Leave early on designated high-ground routes so you don't get stranded without power, clean water, or emergency access.",
+    ],
+  },
+  "Wildfire warning, evacuation, smoke": {
+    sources: ["National Fire Protection Association (NFPA) Firewise USA","Ready.gov / FEMA Wildfire Preparedness"],
+    guidance: [
+      "Leave at the first warning: wind-driven wildfires spread faster than vehicles can outrun and can shift direction erratically. If an evacuation warning or order is issued, pack your go-bag and leave immediately — don't stay behind to wet the roof with a garden hose.",
+      "Prep the house only if you have real spare time: clear dry leaves and pine needles from the porch, close all windows and doors to slow drafts, and shut off exterior propane tanks at the main valve. Leave exterior lights on so firefighters can find the structure through smoke.",
+      "Dress for radiant heat: wear natural-fiber clothing (100% cotton or wool, not synthetics), heavy leather boots, long pants and sleeves, work gloves, and a tight-fitting N95 or P100 respirator for ash and smoke.",
+      "Driving through smoke: headlights and hazards on, windows fully up, AC on max recirculation so it doesn't pull smoke and embers into the cabin. If flames trap you, stay in the vehicle, park away from heavy brush, get below window level, and cover up with a wool or cotton blanket until the fire front passes.",
+    ],
+  },
+  "Earthquake shaking and aftershocks": {
+    sources: ["USGS Earthquake Hazards Program","Ready.gov / FEMA Earthquake Safety"],
+    guidance: [
+      "Drop, Cover, and Hold On: drop onto your hands and knees immediately so the shaking can't knock you down. Get under a sturdy table or desk, cover your head and neck with one arm, and hold onto the table leg with the other until the shaking fully stops.",
+      "No table available: crawl against an interior wall away from windows, tall furniture, mirrors, and anything hanging. Sit with your back to the wall, knees tucked to your chest, both hands clamped over the back of your head and neck.",
+      "Don't run outside during shaking: running out while the ground is moving exposes you to falling bricks, shattered glass, and collapsing facades — the leading cause of earthquake injury. Stay inside until shaking completely stops, then exit calmly via stairs, never elevators.",
+      "Be ready for aftershocks: they can hit seconds, hours, or days later and can collapse already-weakened structures. Check for gas odors, water leaks, or broken wiring, and shut off any damaged utility immediately if it's safe to do so.",
+    ],
+  },
+  "Frozen pipe prevention and thawing": {
+    sources: ["American Red Cross, Preventing and Thawing Frozen Pipes"],
+    guidance: [
+      "Prevent freezing before it starts: open cabinet doors under sinks on outside walls so warm indoor air reaches the pipes, and let cold-water faucets drip slightly — a pencil-lead-thin trickle keeps water moving and relieves pressure.",
+      "Find the freeze point: if a faucet only trickles or stops entirely in freezing weather, leave it open so steam and melting water have somewhere to go, and trace the line toward exterior walls, crawlspaces, or unheated basements.",
+      "Thaw safely: apply gentle, indirect heat with a hair dryer, warm damp towels wrapped around the pipe, or an electric heating pad wrapped loosely around it. Work from the open faucet back toward the blockage so melting water can drain.",
+      "Never use an open flame: a blowtorch, propane torch, kerosene heater, or open flame can superheat steam trapped inside the pipe and make it explode, or ignite the wood framing around it.",
+    ],
+  },
+  "Sewage backup": {
+    sources: ["CDC","EPA, Septic Systems After a Disaster"],
+    guidance: [
+      "Stop using all indoor water immediately: shut off the water supply or stop running faucets, showers, washing machines, and flushing toilets — adding any wastewater pushes sewage higher up through ground-floor drains, tubs, and toilets.",
+      "Avoid all contact with blackwater: raw sewage carries harmful bacteria, viruses, and parasites. Wear rubber boots, heavy waterproof gloves, and eye protection if you have to walk near backed-up areas, and keep children and pets completely away.",
+      "Don't use chemical drain openers on backed-up sewage: caustic chemicals sit trapped in standing toilet or shower water, creating a splash-burn hazard without clearing the underlying main-line blockage.",
+      "Signs of drainfield/septic failure: spongy, foul-smelling, wet soil over the septic tank or drainfield, slow drainage across every household fixture at once, or gurgling in the plumbing. Switch to a separate twin-bucket emergency toilet until the ground drains and the tank can be pumped.",
+    ],
+  },
+  "Septic failure": {
+    sources: ["CDC","EPA, Septic Systems After a Disaster"],
+    guidance: [
+      "Stop using all indoor water immediately: shut off the water supply or stop running faucets, showers, washing machines, and flushing toilets — adding any wastewater pushes sewage higher up through ground-floor drains, tubs, and toilets.",
+      "Avoid all contact with blackwater: raw sewage carries harmful bacteria, viruses, and parasites. Wear rubber boots, heavy waterproof gloves, and eye protection if you have to walk near backed-up areas, and keep children and pets completely away.",
+      "Don't use chemical drain openers on backed-up sewage: caustic chemicals sit trapped in standing toilet or shower water, creating a splash-burn hazard without clearing the underlying main-line blockage.",
+      "Signs of drainfield/septic failure: spongy, foul-smelling, wet soil over the septic tank or drainfield, slow drainage across every household fixture at once, or gurgling in the plumbing. Switch to a separate twin-bucket emergency toilet until the ground drains and the tank can be pumped.",
+    ],
+  },
+  "Roof leak and temporary tarp": {
+    sources: ["FEMA","Federal Alliance for Safe Homes (FLASH), Temporary Emergency Roof Tarping Guidelines"],
+    guidance: [
+      "Catch water inside first: put large buckets or bins right under the drip. If water is pooling behind a sagging ceiling bulge, carefully poke a small hole in the center of the bulge with a screwdriver to drain it into a bucket before the ceiling collapses on its own.",
+      "Never climb onto a wet or windblown roof: don't attempt repairs during active rain, ice, or high wind. Wait until the storm passes and surfaces are dry and winds have died down.",
+      "Tarp placement, the overhang rule: use a heavy-duty waterproof tarp big enough to cover the damage and extend at least 4 feet past it on every side, running the top edge up and over the roof ridge so rain can't run underneath the top seam.",
+      "Secure the edges with 2x4 lumber: wrap the tarp's edges around wooden boards and screw the boards down flat against the decking — never nail directly through bare tarp fabric, since high wind will tear the grommets right out.",
+    ],
+  },
+  "Rainwater collection and first-flush contamination": {
+    sources: ["CDC Rainwater Collection","Texas A&M AgriLife Extension Rainwater Harvesting Guidelines"],
+    guidance: [
+      "The first-flush rule: the first 10 to 20 gallons of roof or tarp runoff wash down accumulated bird droppings, dust, pollen, heavy metals, and debris. Divert and discard that first dirty flush before directing water into your collection barrels.",
+      "Choose clean catchment surfaces: corrugated metal, glass, and food-grade plastic sheeting give the cleanest runoff. Avoid old asphalt-shingle roofs, which leach petroleum hydrocarbons, and lead-flashed roofs.",
+      "Pre-filter debris: keep a fine mesh screen over the intake opening to block leaves, twigs, and insects.",
+      "Always treat before drinking: collected rainwater isn't automatically safe to drink. Filter out fine silt, then bring it to a rolling boil or disinfect it with plain unscented bleach before drinking or cooking with it.",
+    ],
+  },
+  "UV purification methods (e.g. SODIS, UV pens)": {
+    sources: ["World Health Organization (WHO) Solar Water Disinfection Technical Notes","CDC Water Treatment Technologies for Remote Operations"],
+    guidance: [
+      "Pre-filter first: UV light can't penetrate cloudy, turbid, or muddy water — suspended dirt shields bacteria and parasites from the rays. Filter cloudy water through a clean cloth, coffee filter, or sediment filter until clear before using UV.",
+      "Solar Water Disinfection (SODIS): fill clean, clear, uncolored PET plastic bottles (1 to 2 liters) with clear water. Shake for 20 seconds to add oxygen, then lay the bottles flat on a reflective surface (corrugated metal or foil) in direct sun for at least 6 straight hours, or 2 full days if it's overcast.",
+      "Portable UV pens: submerge the quartz lamp in clear water and stir continuously for the time the manufacturer specifies, usually 60 to 90 seconds per liter, so every part of the water gets an effective dose.",
+      "Know the limits: UV damages the DNA of bacteria, viruses, and parasites to neutralize them, but it removes zero chemicals, heavy metals, pesticides, or dissolved fuel. Never rely on UV alone for chemically or industrially contaminated water.",
+    ],
+  },
+  "Broken water pipe isolation and temp patch": {
+    sources: ["American Red Cross, Repairing Flooded and Damaged Homes","FEMA Home Water System Recovery"],
+    guidance: [
+      "Shut off the main supply valve immediately: find your home's main shutoff (usually a basement, crawlspace, or outdoor meter box near the street) and turn it fully clockwise until the water stops.",
+      "Drain the remaining pressure: open the lowest cold-water faucets in the house plus an outdoor hose bib to drain water trapped in the lines and relieve pressure at the leak.",
+      "Improvised rubber-and-clamp patch: cut a strip of thick rubber (a bicycle inner tube, heavy garden hose, or rubber boot works) and wrap it tightly around the split section. Secure it with an adjustable metal hose clamp tightened directly over the tear.",
+      "Tape or wrap method for small leaks: for a low-pressure pinhole leak, dry the pipe surface thoroughly and wrap self-fusing silicone tape or heavy rubber rescue tape, overlapping the split by several inches on each side.",
+    ],
+  },
 };
