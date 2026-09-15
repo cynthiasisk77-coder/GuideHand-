@@ -95,6 +95,7 @@ export const CATEGORIES: Category[] = [
       { title: "Cellulitis: red streaks spreading from a wound", status: "partial", priority: "P1", note: "" },
       { title: "Severe nosebleeds that won't stop", status: "partial", priority: "P2", note: "" },
       { title: "Black widow, brown recluse, and scorpion stings", status: "partial", priority: "P1", note: "" },
+      { title: "Emergency tooth extraction (true last resort only)", status: "partial", priority: "P2", note: "" },
       { title: "High-altitude sickness: AMS, HAPE, and HACE", status: "specialist", priority: "P0", note: "Wilderness Medical Society" },
     ],
   },
@@ -128,6 +129,8 @@ export const CATEGORIES: Category[] = [
       { title: "Radiation shelter and decontamination", status: "verified", priority: "P0", note: "CDC" },
       { title: "Biological outbreak and household isolation", status: "verified", priority: "P0", note: "CDC" },
       { title: "Aircraft impact/explosion in a building", status: "verified", priority: "P1", note: "NFPA + FEMA" },
+      { title: "Caught in an avalanche", status: "partial", priority: "P1", note: "" },
+      { title: "Escaping quicksand, mudflats, and saturated silt", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -185,6 +188,7 @@ export const CATEGORIES: Category[] = [
       { title: "Winter outage and safe-room selection", status: "verified", priority: "P1", note: "American Red Cross + CDC" },
       { title: "Hypothermia recognition and first aid", status: "verified", priority: "P0", note: "Wilderness Medical Society + CDC" },
       { title: "Trench foot (feet wet and cold for too long)", status: "partial", priority: "P2", note: "" },
+      { title: "Active chimney or flue fire", status: "partial", priority: "P1", note: "" },
       { title: "Frostbite and refreezing risk", status: "verified", priority: "P0", note: "Wilderness Medical Society" },
       { title: "Extreme-heat home cooling without power", status: "verified", priority: "P0", note: "CDC + FEMA" },
       { title: "Safe indoor lighting during blackout", status: "verified", priority: "P1", note: "NFPA + FEMA" },
@@ -214,6 +218,7 @@ export const CATEGORIES: Category[] = [
       { title: "Suspected EMP: what can/cannot be inferred", status: "verified", priority: "P3", note: "CISA/DHS/FEMA" },
       { title: "Battery watt-hour budgeting (calculator)", status: "verified", priority: "P2", note: "NEC Article 690/706 + DOE" },
       { title: "Emergency candle and lamp making (animal tallow and plant oils)", status: "verified", priority: "P3", note: "Penn State Extension" },
+      { title: "Faraday protection for radios and electronics", status: "partial", priority: "P3", note: "" },
     ],
   },
   {
@@ -231,6 +236,7 @@ export const CATEGORIES: Category[] = [
       { title: "Sump-pump failure", status: "verified", priority: "P2", note: "FEMA" },
       { title: "Water-heater isolation", status: "specialist", priority: "P1", note: "CDC + Ready.gov/FEMA — involves electrical/gas shutoff" },
       { title: "Appliance failure and safe restart", status: "new", priority: "P2", note: "" },
+      { title: "High-wind window hardening (plywood vs. duct tape)", status: "partial", priority: "P1", note: "" },
     ],
   },
   {
@@ -282,6 +288,9 @@ export const CATEGORIES: Category[] = [
       { title: "Livestock water, feed, evacuation", status: "verified", priority: "P1", note: "USDA FSA" },
       { title: "Downed fences and escaped animals", status: "partial", priority: "P1", note: "MU/OSU Extension" },
       { title: "Carcass handling and zoonotic disease", status: "verified", priority: "P1", note: "CDC + USDA APHIS" },
+      { title: "Aggressive dog attack defense", status: "partial", priority: "P1", note: "" },
+      { title: "Dog or cat choking", status: "partial", priority: "P1", note: "" },
+      { title: "Livestock bloat: recognizing it and what you can safely do", status: "partial", priority: "P1", note: "" },
     ],
   },
   {
@@ -348,6 +357,7 @@ export const CATEGORIES: Category[] = [
       { title: "Weapon storage safety around children", status: "verified", priority: "P2", note: "American Academy of Pediatrics" },
       { title: "Perimeter alarm and tripwire systems", status: "verified", priority: "P2", note: "US Army FM 3-21.8" },
       { title: "Property fortification and access denial", status: "verified", priority: "P2", note: "FEMA 426 + National Crime Prevention Council" },
+      { title: "Reducing glint and visual signature", status: "partial", priority: "P3", note: "" },
     ],
   },
   {
@@ -362,6 +372,7 @@ export const CATEGORIES: Category[] = [
       { title: "Improvised lever/pry/lift techniques", status: "specialist", priority: "P2", note: "FEMA US&R" },
       { title: "Basic rigging and lifting safety limits", status: "specialist", priority: "P2", note: "OSHA 1910.184 + ASME B30" },
       { title: "Emergency glass cutting and improvised glazing", status: "verified", priority: "P2", note: "Traditional Glazing Standards + DOI" },
+      { title: "Z-drag rescue rig (3:1 mechanical advantage)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -392,6 +403,8 @@ export const CATEGORIES: Category[] = [
       { title: "Off-grid meat curing (dry salt and brine preservation)", status: "verified", priority: "P2", note: "USDA FSIS + UGA NCHFP" },
       { title: "Emergency grain fermentation (lactic acid preservation and silage)", status: "verified", priority: "P3", note: "FAO + USDA ARS" },
       { title: "Pemmican (traditional long-term meat and fat preservation)", status: "verified", priority: "P3", note: "USDA Historical Food Technology Bulletins" },
+      { title: "Meat smoking: hot smoking vs. cold smoking safety", status: "partial", priority: "P2", note: "" },
+      { title: "Testing stored grains for dangerous mold (mycotoxins)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {
@@ -412,6 +425,8 @@ export const CATEGORIES: Category[] = [
   {
     name: "Primitive Fire, Fuel & Shelter",
     topics: [
+      { title: "Carbon-monoxide safe tent and snow-cave heating", status: "partial", priority: "P1", note: "" },
+      { title: "Emergency snow cave construction", status: "partial", priority: "P2", note: "" },
       { title: "Emergency firewood selection and safe burning", status: "verified", priority: "P2", note: "EPA Burnwise + CSIA" },
       { title: "Charcoal production and firebed management", status: "verified", priority: "P3", note: "FAO Forestry + US Forest Service" },
       { title: "Rocket stoves and biochar basics", status: "verified", priority: "P3", note: "Aprovecho Research Center + International Biochar Initiative" },
@@ -464,6 +479,7 @@ export const CATEGORIES: Category[] = [
       { title: "Diaper, menstrual, incontinence waste", status: "verified", priority: "P1", note: "CDC" },
       { title: "Latrine siting", status: "partial", priority: "P1", note: "CDC WASH" },
       { title: "Emergency biohazard spill cleanup (blood and body fluids)", status: "partial", priority: "P2", note: "" },
+      { title: "Chlorine gas from mixing bleach with other cleaners", status: "partial", priority: "P1", note: "" },
       { title: "Greywater disposal", status: "partial", priority: "P1", note: "EPA + state rules vary" },
       { title: "Diarrhea isolation and oral rehydration", status: "specialist", priority: "P0", note: "WHO + CDC" },
       { title: "General emergency sanitation without running water", status: "verified", priority: "P1", note: "CDC + WHO" },

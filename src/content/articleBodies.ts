@@ -251,6 +251,9 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Every household member should know how to shut off gas, water, and electricity — gas leaks and electrical sparking cause many post-disaster fires.",
       "If you smell or hear gas leaking, open a window if safe, then leave the area on foot immediately. Never turn gas back on yourself once shut off — only a professional or the utility should do that.",
       "For water, find the main shutoff valve and turn it clockwise until fully closed. Replace a valve that's rusted or hard to close, before an emergency, not during one.",
+      "Right after a big shake like an earthquake is exactly when a broken gas line is most likely, and exactly when a spark from a light switch could set it off — the moment shaking stops, check for a rotten-egg smell or hissing sound before touching any switch, phone, or flame.",
+      "To actually shut the gas off: go outside to the meter, find the rectangular tab on the pipe just before the meter, and turn it a quarter-turn with a wrench until the tab sits crosswise to the pipe. Once it's off, leave it off — only a professional should turn it back on after checking the lines.",
+      "Shutting the main water valve isn't just about stopping a leak — closing it traps the clean water already inside your pipes and water heater, so it can't get siphoned back out into city mains that may now be cracked and contaminated.",
     ],
   },
   "Generator electrical connection / backfeed prevention": {
@@ -1078,7 +1081,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Initial encounter: stay calm, speak steadily, back away slowly. Do NOT run — this can trigger a chase response.",
       "Black bear attack: do NOT play dead. Try to escape to a car or building. Fight back — punch/kick the face, use rocks, branches, or bear spray.",
       "Grizzly/brown bear attack: PLAY DEAD. Leave your pack on, lie flat on your stomach, hands clasped behind your neck, legs spread. Stay still until the bear leaves.",
-      "Know which species is in your area before you need this — the two responses are opposite.",
+      "Know which species is in your area before you need this — the two responses are opposite. Quick way to tell them apart: a black bear has no shoulder hump and a fairly straight facial profile; a grizzly/brown bear has a visible muscular hump between the shoulders and a dished-in, concave face.",
+      "One exception on the grizzly \"play dead\" rule: if a grizzly has been quietly stalking you for a while, or attacks you inside your tent at night, that's predatory behavior rather than a startled, defensive reaction — in that specific case, fight back instead of playing dead.",
     ],
   },
   "Wild animal encounter: mountain lion/cougar": {
@@ -1814,7 +1818,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Keep containers outside living areas: store them in a well-ventilated shed or detached garage, away from direct sunlight, heaters, water heaters, and electrical panels. Never store fuel inside a home or basement.",
       "Prevent static sparks when filling: place portable cans flat on bare ground before filling — never inside a truck bed, on a plastic bed liner, or in a car trunk. Keep the nozzle in firm contact with the rim of the can the entire time you're filling it.",
       "Leave room for expansion: fill containers to no more than about 95% full. Fuel expands as it warms, and head space keeps vapors from forcing liquid out through the seams or vents.",
-      "No open flames or hot surfaces: never refuel equipment while the engine is running or hot — shut it off and let it cool for 5 to 10 minutes before pouring.",
+      "No open flames or hot surfaces: never refuel equipment while the engine is running or hot — shut it off and let it cool for 5 to 10 minutes before pouring. A hot muffler can exceed 800°F, and fuel vapor near it can ignite instantly.",
+      "If a fuel fire does start: never throw water on it — gasoline and grease fires float on water, and the water can violently splatter burning fuel outward instead of putting it out. Smother it instead: a Class B fire extinguisher, a heavy blanket thrown over it, or a shovelful of dry dirt or sand dropped right on the base of the flames all work by cutting off its oxygen.",
     ],
   },
   "Unknown pet poison response": {
@@ -3190,6 +3195,151 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Don't rely only on a GPS app during a real crisis — cell towers can fail, and even when they don't, everyone's app tends to reroute them onto the same few alternate roads, creating new jams. Keep a paper map of your area and know a couple of back routes in advance — smaller roads that locals use, not just the highway.",
       "Keep your vehicle ready before you ever need to evacuate: try to keep the gas tank at least half full at all times, since gas station pumps don't work without grid power. A spare tire, a tow strap, and a portable tire inflator are worth keeping in the vehicle too.",
       "If your vehicle gets permanently stuck in gridlock with real danger — fire or floodwater — closing in: don't wait it out. Grab your go-bag, pull the car to the shoulder if you can so emergency vehicles can still get through, lock it, and continue on foot.",
+    ],
+  },
+  "Carbon-monoxide safe tent and snow-cave heating": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Heating any enclosed shelter — a snow cave, a sealed tent, a small tarp lean-to — with an open flame, candle, or fuel stove uses up the oxygen inside and can build deadly, odorless carbon monoxide fast.",
+      "Always poke a ventilation hole through the highest point of the roof (a ski pole or stick works), and keep a second air gap clear near the bottom entrance so fresh air can flow in while stale air vents out the top.",
+      "Check the top vent every couple of hours if it's actively snowing — drifting snow can seal it shut without you noticing, turning a ventilated shelter into a sealed one.",
+      "A single small candle can genuinely warm a snow cave by 10-15°F if the shelter is well-insulated from the ground — but never fall asleep with a candle or stove still burning and unvented.",
+    ],
+  },
+  "Emergency snow cave construction": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Cold air is heavier than warm air and sinks — a snow cave uses this on purpose. Dig an entrance tunnel that slopes downward into the snow, then carve a step up into the sleeping chamber so it sits higher than the entrance.",
+      "Carve the sleeping bench itself higher than the top of the entrance hole. Your body heat collects near the higher ceiling around the sleeping area, while the coldest air sinks down and drains out through the lower entrance tunnel instead of pooling around you.",
+      "Smooth the ceiling into a rounded dome rather than leaving it rough or pointed — a rough ceiling drips condensation straight down onto your sleeping bag as it warms, while a smooth dome channels that moisture down the curved walls and away from where you're sleeping.",
+    ],
+  },
+  "Meat smoking: hot smoking vs. cold smoking safety": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Bacteria multiply fastest between about 40°F and 140°F — the whole point of safe smoking is getting meat through that range quickly and then keeping it well outside it.",
+      "Cold smoking (under about 90-100°F) adds flavor and some surface protection against insects, but it does not cook meat or reliably kill the bacteria inside it. Never cold-smoke wild game unless it's already been properly cured in an exact salt-and-nitrate brine first — cold-smoking uncured meat, especially in warm weather, can create exactly the low-oxygen conditions that let botulism grow.",
+      "Hot smoking is the safe method for raw or wild-game meat: keep the smoker between roughly 160-200°F, and make sure the thickest part of the meat reaches at least 165°F all the way through before eating.",
+      "Once meat is fully cooked, you can dry thin strips further with continuous low heat and smoke until the moisture is gone and it snaps rather than bends — that's what makes it shelf-stable.",
+    ],
+  },
+  "Testing stored grains for dangerous mold (mycotoxins)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Wet or poorly dried grain (wheat, rye, corn, barley) can grow molds that produce toxins dangerous enough to cause organ damage or death — cooking does not neutralize them, so the only real defense is catching contaminated grain before you eat it.",
+      "Look closely at the kernels: black or purplish horn-shaped growths replacing normal grains (ergot) mean the whole batch should be thrown out. Powdery green, blue-gray, or chalky white dust on the kernels also means active mold.",
+      "Do a clumping test: reach deep into a bucket of stored grain with a dry hand. If it feels damp, warm, or sticks together in clumps instead of flowing loosely like dry sand, moisture has gotten in and fungal growth has likely started.",
+      "Trust your nose: a sour, musty, damp-basement smell means the grain isn't safe to eat, even after cooking.",
+    ],
+  },
+  "High-wind window hardening (plywood vs. duct tape)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Skip the duct-tape \"X\" — taping glass doesn't stop it from shattering in hurricane or tornado-force wind, and it actually makes things worse by holding the broken shards together into bigger, more dangerous flying sheets of glass.",
+      "Plywood shutters actually work: use exterior-grade plywood at least 5/8 inch thick, cut to overlap the window frame by 4-5 inches on every side, and screw it directly into the house's structural framing — not just the window trim — every 12 inches or so around the border.",
+      "If you can't drill into masonry, spring-steel tension clips made for this purpose can wedge plywood panels tightly into a window's exterior recess without any drilling.",
+    ],
+  },
+  "Z-drag rescue rig (3:1 mechanical advantage)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A Z-drag lets one or two people move something far too heavy to pull directly — a stuck vehicle, a fallen beam, a loaded rescue litter — using rope and simple friction hitches instead of a winch, at roughly three times your actual pulling strength.",
+      "The basic setup: anchor a rope to something solid (a tree, a boulder) behind you, and run it forward to whatever you're moving. Add a friction hitch (a Prusik loop) at the anchor end, clipped back to the anchor — this acts as a one-way brake that lets the rope slide while you pull but locks solid the instant you stop, so the load can't slip backward.",
+      "Then add a second friction hitch further down the same rope, closer to the load, with a pulley or smooth carabiner clipped to it. Run a second length of rope from the anchor, through that traveling pulley, and back to where you're pulling from.",
+      "Every 3 feet of rope you pull moves the load about 1 foot — but with three times the force, which is what lets one or two people shift something weighing hundreds of pounds.",
+    ],
+  },
+  "Aggressive dog attack defense": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Don't run or scream — running triggers a dog's instinct to chase, and screaming can escalate things further. Stand your ground, turn your body sideways rather than facing it head-on, and avoid staring directly into its eyes, which dogs read as a challenge.",
+      "If it charges, give it something else to bite: a backpack, jacket, stick, or bike held between you and the dog gives it something to grab onto besides you.",
+      "If you're knocked down: curl into a ball on your knees, tuck your face down, lace your fingers together behind your neck to protect it, and keep your elbows in tight against your ribs.",
+      "If a dog has clamped onto you or someone else, don't pull away — that tears skin and muscle. If you're helping someone else, lifting the dog's back legs off the ground (like a wheelbarrow) or looping a belt around its neck and pulling upward can get it to let go faster than trying to pry the jaws apart.",
+    ],
+  },
+  "Caught in an avalanche": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "In the first seconds, try to move to the side of the slide path rather than straight down it, and shed anything heavy — skis, a snowboard, a heavy pack — unless you're wearing a dedicated avalanche airbag.",
+      "While you're being carried, fight to stay near the surface — a strong swimming motion with your arms and legs, like a rough breaststroke, helps keep you higher in the moving snow.",
+      "As the slide starts to slow down, this is the critical moment: avalanche snow sets almost like concrete the instant it stops, so you can't dig yourself out afterward. Right as it's slowing, punch one hand straight up toward the surface if you can, and cup your other hand over your mouth and nose to carve out a small air pocket before everything locks solid.",
+      "Once stopped, don't waste air screaming — snow muffles sound almost completely, so yelling won't be heard and just burns through the limited air you have. Breathe slowly, stay as calm as you can, and wait for rescuers to probe the snow.",
+    ],
+  },
+  "Escaping quicksand, mudflats, and saturated silt": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "You can't fully sink in quicksand — a person is less dense than saturated sand and water, so you'll bottom out around waist or chest level and float rather than go under. The real danger is panicking, thrashing, and exhausting yourself, especially somewhere the tide is coming in.",
+      "Don't try to pull a trapped leg straight up — the suction created by wet silt around a submerged limb can take more force than a person can generate.",
+      "Instead: lean back slowly to spread your weight flat across the surface, then gently wiggle and rotate your legs in small circles. This lets water seep down around your feet and breaks the suction gradually. Once your legs feel loose, slide and paddle backward along the surface, like swimming on your back, until you reach solid ground.",
+    ],
+  },
+  "Faraday protection for radios and electronics": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "A solar flare or electromagnetic pulse can induce a damaging voltage spike in small electronics — radios, chargers, spare phones — even when they're switched off.",
+      "A single metal box often still leaks enough to matter, so layering helps: first wrap the powered-off device in something non-conductive (cardboard, bubble wrap, thick cloth) so the metal shield never directly touches the device itself.",
+      "Then wrap that padded bundle tightly in a few complete layers of heavy-duty aluminum foil, folding and crimping the seams closed rather than leaving them loose.",
+      "Finally, place the foil-wrapped bundle inside a sealed metal container — a clean galvanized trash can or steel ammo can with a tight lid works well.",
+      "To sanity-check your setup: seal an active cell phone inside it and call that phone from another line. If it rings, something's leaking and the seals need improving.",
+    ],
+  },
+  "Reducing glint and visual signature": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Sunlight flashing off a watch face, binoculars, a vehicle mirror, or a metal water bottle creates a bright flash that's visible from a long way off, including from the air — worth thinking about if avoiding attention matters to your situation.",
+      "For glass and optics: crossing strips of dull tape over binocular or scope lenses, or stretching dark mesh fabric over them, cuts the reflection while still letting you see through.",
+      "For metal gear: roughing up a shiny surface with sand or rock, or giving it a coat of flat, non-reflective paint, kills the glare. Simply turning a watch face toward the inside of your wrist works too.",
+    ],
+  },
+  "Dog or cat choking": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Watch for: pawing frantically at the mouth, drooling, a blue tinge to the tongue or gums, choking sounds, or collapse.",
+      "If you can clearly see the object stuck in their mouth: press their lips inward over their teeth with one hand — so if they bite down, they bite their own lip instead of your fingers — and sweep the object out with a finger or needle-nose pliers if you can see it clearly. Don't poke blindly down the throat, which can push the object deeper instead of out.",
+      "For a small dog or cat: hold them with their back against your chest, make a fist in the soft area just below their ribs, and push upward and inward firmly, 4 or 5 times in a row.",
+      "For a large dog: stand behind them on all fours, wrap your arms around their belly, make a fist right behind the ribcage, and pull upward and forward toward their spine.",
+      "If they're lying on their side: support their ribs with one hand and press the other hand firmly upward and forward into the soft belly area just behind the ribs.",
+    ],
+  },
+  "Livestock bloat: recognizing it and what you can safely do": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Bloat happens when cattle, sheep, or goats eat too much wet clover, lush spring grass, or grain, and gas gets trapped in their first stomach. The left side of their belly (between the last rib and the hip) swells tight, and the pressure can crush their lungs. Watch for a hard, swollen left flank, groaning, a wide-legged stance, and labored breathing — this can kill an animal within an hour if it's not relieved.",
+      "This is genuinely an emergency-vet-now situation. If you keep livestock, it's worth asking your vet in advance to show you how to pass a stomach tube safely before you ever need it in a crisis — that's a hands-on skill to learn from them, not something to attempt for the first time from a description.",
+      "If you already know how to pass a stomach tube: a hiss and the smell of fermented gas venting means it's working. If instead you get thick foam and no gas escapes (frothy bloat), a few ounces of vegetable or mineral oil poured down the tube can help break up the foam so gas can vent.",
+      "If the animal collapses and is struggling to breathe despite this, that's beyond home first aid — get an emergency vet on the phone immediately, since the next step from there is an invasive one that a vet needs to guide or perform.",
+    ],
+  },
+  "Chlorine gas from mixing bleach with other cleaners": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Mixing bleach with ammonia, vinegar, or many toilet-bowl and drain cleaners creates toxic chlorine or chloramine gas — this can happen by accident when different cleaning products are used one after another without rinsing in between.",
+      "Signs of exposure: sudden violent coughing, burning eyes, a choking feeling, and tightness in the chest.",
+      "Get out into fresh air immediately, and go up rather than down — chlorine gas is heavier than air and sinks into basements and low areas.",
+      "Don't try to neutralize the spill with another cleaner — that can make it worse. Open windows and doors from outside if you can, and let the area air out for several hours before going back in.",
+      "If you were exposed: strip off contaminated clothing outside, and rinse your eyes and skin with clean water for a full 15 minutes.",
+    ],
+  },
+  "Active chimney or flue fire": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Warning signs it's an actual chimney fire, not just a normal fire: a loud roaring sound from the chimney (often described as a jet engine or freight train), dense sparks shooting from the chimney cap outside, or the stovepipe glowing visibly red.",
+      "Cut off the fire's air supply first: close the stove's loading door and shut every air damper and draft control completely. Starving it of oxygen is the fastest way to slow it down.",
+      "Smother the fire in the firebox with a generous layer of baking soda or dry wood ash — never throw water into a hot wood or iron stove, since the sudden temperature change can crack or shatter the metal.",
+      "If you can safely get outside, hose down the roof around the chimney (or pile snow on it) to keep sparks from catching the roof on fire, and call the fire department even if the fire in the stove seems to be dying down — chimney fires can smolder inside the flue and reignite.",
+    ],
+  },
+  "Emergency tooth extraction (true last resort only)": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "This is genuinely a last resort — only for a tooth that's severely infected, causing a high fever or spreading facial swelling, with zero realistic chance of reaching a dentist. Pulling a healthy or repairable tooth causes real, permanent damage, so this isn't a first response to ordinary tooth pain.",
+      "Don't try to pull it straight out with pliers — teeth are held in the jawbone by small fibers all the way around the root, and pulling straight out usually just snaps the tooth off and leaves an infected root buried in the bone, which is worse than where you started.",
+      "The tooth has to be loosened first: with a clean, boiled flat tool (a small screwdriver tip or a dedicated dental tool), work gently down along the gumline between the tooth and the bone, working it back and forth to stretch and tear those small fibers loose. This takes patience — rushing it is how teeth break.",
+      "Once it's genuinely loose and wiggling on its own, grip it low near the gumline with clean pliers. For a front tooth, twist gently side to side. For a back tooth, rock it slowly toward the cheek and then the tongue side in a figure-eight motion rather than pulling straight up, until it lifts free.",
+      "Afterward, control the bleeding: a slightly damp black tea bag pressed firmly into the empty socket, with the person biting down steadily for 45-60 minutes, works better than plain gauze.",
+      "Even after this, see a real dentist or doctor as soon as you possibly can — a field extraction like this can leave bone fragments or an incomplete removal that needs proper follow-up care.",
     ],
   },
 };
