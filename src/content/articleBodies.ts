@@ -1499,11 +1499,10 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Hypothermia recognition and first aid": {
     sources: ["Not yet sourced — confirm the original source before marking this verified"],
     guidance: [
-      "Signs: uncontrolled shivering, slurred speech, clumsy or fumbling hands, extreme tiredness, or confusion. Shivering that stops on its own while the person is still cold means it's getting worse, not better.",
-      "Get out of the cold: move the person indoors or into a sheltered area. Gently remove any wet clothing.",
-      "Warm the core first: wrap them in dry blankets, coats, or sleeping bags, covering the chest, neck, head, and groin. Use skin-to-skin contact or warm, dry packs wrapped in towels against the chest and back — never direct, bare heat.",
-      "Warm drinks only if fully alert: if they can swallow easily, give warm, sweet liquids (no alcohol or caffeine). Never give drinks to someone drowsy or confused.",
-      "Avoid rapid heating: do not rub their arms or legs, do not place them directly in a hot bath, and do not use direct boiling water bottles — any of these can trigger shock.",
+      "Watch for worsening stages: mild hypothermia shows as violent, uncontrollable shivering and fumbling fingers. Severe hypothermia sets in when shivering suddenly stops, speech becomes slurred, and the person acts clumsy, drunk, or confused.",
+      "Insulate from the frozen ground: lay down dry cardboard, blankets, foam pads, or pine boughs before laying the person down — the ground pulls body heat out faster than the air.",
+      "Warm the core, not the limbs: focus heat on the chest, neck, and back using dry towels, layers, and warm water bottles wrapped in cloth. Never apply hot water or bare hot packs directly to the skin, and never rub cold arms or legs — rubbing forces cold, stagnant blood straight to the heart, which can trigger cardiac arrest.",
+      "Only offer warm drinks if fully alert: if they can sit up and talk clearly, give warm, sugary water or broth. Never force liquids into someone who is drowsy or nodding off.",
     ],
   },
   "Extreme heat illness": {
@@ -1602,6 +1601,89 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Evacuate on foot if roads are jammed: traffic gridlock is common after coastal quakes. If vehicles stall, walk or run uphill to clear the danger zone.",
       "Never go to the beach to look: if you can see the wave coming, you're already too close to outrun it.",
       "Expect multiple waves: the first wave is rarely the largest. Tsunamis arrive as a series of surges that can continue for many hours — stay on high ground until you have absolute confirmation the danger has passed.",
+    ],
+  },
+  "Chemical/fuel/algal-toxin/radiological rejection": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Boiling and chlorine do not fix these poisons: boiling only kills bacteria, viruses, and parasites. Boiling water with chemicals, heavy metals, fuel, pesticides, or radiation actually evaporates safe water and concentrates the toxic residue left behind.",
+      "Reject water with chemical or fuel signs: never drink, cook with, or wash in water that has an oily sheen, a gasoline or solvent odor, unusual chemical discoloration, or dead fish nearby. Standard portable filters and camping purifiers will not make fuel-tainted water safe.",
+      "Reject water during harmful algal blooms: stay clear of water covered in green scum, blue-green paint-like slicks, or foul marshy foam. Cyanotoxins produced by algae aren't removed by boiling or standard household bleach.",
+      "Reject fallout-contaminated water: after any nuclear incident, avoid all open surface water (creeks, ponds, rain barrels). Use sealed canned goods, bottled fluids, or water stored inside enclosed pipes and indoor water heater tanks instead.",
+    ],
+  },
+  "Electrical panel and de-energizing verification": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never touch a panel while wet: stand on dry ground or a thick rubber mat or dry wooden board. If standing water reaches the panel, don't approach it — stay completely clear.",
+      "The one-hand rule: use only one hand to touch the panel door and switches, keeping your other hand behind your back or in your pocket. This keeps an electrical path from crossing through your chest if a short occurs.",
+      "Shut down power in order: turn off individual branch circuit breakers one by one first, then flip the large main breaker at the top to OFF. This avoids sudden electrical arcing.",
+      "Verify without power tools: never assume a line is dead just because a switch is flipped. Plug a known-working lamp, radio, or voltage tester into the specific outlets you need to check before touching bare wires.",
+    ],
+  },
+  "Electric/hybrid vehicle crash and flood hazards": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Never touch bright orange cables: all high-voltage cables in electric and hybrid vehicles are coated in bright orange insulation. Don't cut, touch, or pull these cables, and never pry open the high-voltage battery casing.",
+      "Submerged vehicle safety: submerged EV batteries are isolated and don't normally electrify the surrounding floodwater. But if you see vigorous bubbling, hissing, or smoke rising from under the car, move away immediately — that signals hazardous battery gases or thermal runaway.",
+      "Post-flood saltwater fire risk: if an EV was submerged in floodwater (especially saltwater), the battery can develop an internal short hours or days later. Tow or push the vehicle at least 50 feet from any structure, garage, or other cars, and never park it indoors.",
+      "Powering down after a crash: turn off the ignition and remove the key fob at least 20 feet from the car so proximity sensors don't keep high-voltage circuits energized.",
+    ],
+  },
+  "Fireplace/chimney limitations before use": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Check the flue and damper first: open the damper completely before lighting anything, and verify airflow by holding a lit match or candle near the opening to confirm the draft pulls smoke upward.",
+      "Inspect for blockages and soot buildup: look up the chimney with a flashlight for bird nests, leaves, cracked mortar, or thick, tar-like creosote deposits that can trigger a chimney fire.",
+      "Never burn improper fuels: burn only dry, seasoned hardwood — never painted wood, treated lumber, cardboard, plastics, or trash, which release toxic fumes and corrosive chemicals.",
+      "Never use liquid accelerants indoors: don't use gasoline, kerosene, lighter fluid, or alcohol to start or rekindle a fireplace fire.",
+      "Keep an ash barrier and safety zone: keep a sturdy metal fire screen in place at all times to stop popping sparks, and clear rugs, furniture, and paper at least 3 feet from the hearth.",
+    ],
+  },
+  "Wood-stove and combustion-heater safety": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Ensure dedicated outdoor venting: every wood stove and fuel heater must vent completely outside through an airtight, undamaged pipe; never use an unvented fuel-burning heater inside a sleeping area.",
+      "Maintain clearance around heat: keep blankets, curtains, clothes, and kindling at least 3 feet from all sides of the stove and stovepipe.",
+      "Watch the burn rate and airflow: avoid choking down the air supply completely on wet wood — slow, smoldering fires generate large amounts of creosote and carbon monoxide.",
+      "Dispose of hot ashes in metal only: shovel cold ashes into a covered metal bucket on bare dirt, concrete, or stone outside — never into plastic buckets, paper bags, or near wooden porches.",
+    ],
+  },
+  "Generator carbon-monoxide safety": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Operate outdoors only, far from the house: place the generator outdoors, at least 20 feet from all doors, windows, and vents, with the exhaust pointed away from any structure.",
+      "Never run it in any enclosed or semi-enclosed space: never operate a generator inside a house, garage, basement, crawlspace, shed, camper, or under a porch, even with doors open and fans running.",
+      "Protect it from wet weather safely: run it on a dry, level surface under an open canopy-style generator tent; never operate a running generator in standing water or uncovered in falling rain — that risks electrocution.",
+      "Shut off and cool down before refueling: turn off the generator and let the engine cool for 5 to 10 minutes before adding fuel — spilling gas on a hot muffler can ignite immediately.",
+      "Use heavy-duty outdoor extension cords: plug appliances into the generator using grounded, undamaged, outdoor-rated cords sized correctly for the load.",
+    ],
+  },
+  "Carbon-monoxide alarm or symptoms": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Evacuate to fresh air immediately: if an alarm sounds or anyone feels a sudden dull headache, dizziness, weakness, nausea, or confusion, get everyone and pets outdoors into fresh air right away.",
+      "Don't look for the leak: never waste time searching for the cause, and don't re-enter the building until it's thoroughly aired out and the source is shut down.",
+      "Position unconscious people safely: if someone has passed out from the fumes, carry or drag them outside into fresh air and place them on their side (recovery position) so their airway stays clear if they vomit.",
+      "Start CPR if breathing stops: watch their chest constantly; if breathing is absent or they're only gasping, begin chest compressions immediately.",
+    ],
+  },
+  "Frostbite and refreezing risk": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Spot the signs early: skin turns numb, waxy, hard, and pale white or grayish-yellow.",
+      "The absolute rule on refreezing: never thaw frostbitten hands, feet, or ears if there's any chance they could freeze again before reaching safety. Thawing and then refreezing causes catastrophic, permanent tissue death that can lead to amputation — walking on frozen feet is safer than walking on thawed, refrozen feet.",
+      "How to thaw safely, once sheltered for good: immerse the area in warm water, around 100°F to 104°F (comfortable to the touch of an uninjured elbow), for 20 to 30 minutes. Don't use dry, direct heat like a camp stove, open fire, or exhaust pipe — numb skin burns easily without feeling it.",
+      "Protect the damaged tissue: don't rub or massage frostbitten areas, and never pop blisters. Wrap thawed fingers or toes individually with clean, dry cloth strips so they don't stick together.",
+    ],
+  },
+  "Extreme-heat home cooling without power": {
+    sources: ["Not yet sourced — confirm the original source before marking this verified"],
+    guidance: [
+      "Block out daytime sun: cover sun-facing windows with aluminum foil (facing outward to reflect light), white cardboard, or blankets hung behind the glass. Keep windows and blinds shut during the hottest hours.",
+      "Create a nighttime draft: open windows on opposite sides of the house only once the outside temperature drops below the indoor temperature, and hang damp sheets across open windows to cool the incoming breeze.",
+      "Cool the body's pulse points: soak cloths or bandanas in cool water and wrap them around the neck, wrists, groin, and armpits. Sponge arms and legs with water and let it evaporate off the skin.",
+      "Stay on the lowest level: heat rises, so sleep on the ground floor or in a finished basement rather than upper stories. Avoid indoor heat sources like gas burners or ovens.",
     ],
   },
 };
