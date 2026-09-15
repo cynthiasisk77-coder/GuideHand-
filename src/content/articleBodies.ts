@@ -290,6 +290,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Both vehicles in park (or neutral + parking brake for manual), ignition off, accessories/devices off. Remove jewelry — batteries contain acid and metal can create an unintended ground path.",
       "Connect positive (red) clamp to the dead battery's positive terminal, then the other positive clamp to the good battery's positive terminal.",
       "Connect negative (black) clamp to the good battery's negative terminal, then connect the final negative clamp to an unpainted metal surface in the dead vehicle's engine bay — NOT its battery's negative terminal directly. Batteries vent flammable hydrogen gas, and sparking right at the battery risks igniting it.",
+      "Manual push-starting works only on a manual transmission: key to ON/RUN, clutch in, shift to second gear (smoother engagement than first). Get the vehicle rolling to 5-10 mph, release the clutch quickly while pressing the accelerator, then press the clutch back in the instant the engine fires.",
+      "Never try to push-start an automatic: an automatic transmission has no mechanical link to the wheels with the engine off, so push-starting just destroys the transmission clutches without starting the engine.",
     ],
   },
   "Tire change and roadside visibility": {
@@ -1272,11 +1274,13 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Basic snares and deadfalls": {
-    sources: ["Cross-checked bushcraft/survival sources — historical field method, not government-sourced"],
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21), Food Procurement: Traps and Snares"],
     guidance: [
-      "Simple wire snare: bend the wire tip into a small loop, twist to lock it, then pass the free end through to form a running noose. Brass wire, 20-24 gauge, holds shape well.",
-      "Figure-4 deadfall: three carved sticks (vertical post, diagonal lever, bait/trigger stick) balance a heavy rock or log; disturbing the bait releases the trigger.",
-      "Legal caveat: trapping/snaring wildlife is heavily regulated outside a genuine survival emergency — treat as emergency-only technique.",
+      "Know the legal and survival context: primitive snares and untended deadfalls are illegal for civilian hunting under state wildlife codes because they're non-selective. Reserve this knowledge strictly for a declared life-or-death survival scenario.",
+      "Place along active game runs: set snares only at natural pinch points — gaps between fallen logs, rock edges, burrow entrances — where fresh tracks and droppings confirm active travel. Never set one across an open, wide path.",
+      "Size the loop correctly: for small game (cottontail, squirrel), use 20-24 gauge brass or galvanized wire, a loop about fist-sized (roughly 4 inches), hung 3 to 4 inches off the ground, anchored to a solid root or heavy stake.",
+      "Build a Figure-4 or Paiute deadfall: three notched sticks support a heavy flat rock (at least 3 to 5 times the target animal's weight) over a bait stick. Rig the trigger so a light disturbance collapses the sticks cleanly and the stone drops instantly for a humane kill.",
+      "Check traps twice daily: inspect at dawn and dusk to keep meat from spoiling to predators, insects, or heat.",
     ],
   },
   "Fish cleaning and safe handling": {
@@ -2316,6 +2320,185 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Watch sling angles: when lifting with two slings or chains in a bridle, keep the angle to the ground steep, ideally 60 degrees or more. Below 30 degrees, tension multiplies fast and can cut your lifting capacity in half.",
       "Protect against sharp edges: never route straps, ropes, or winch line across a sharp metal edge or concrete corner without heavy padding — thick corner protectors, folded canvas, cut fire hose, or split wood between the strap and the corner.",
       "Keep everyone out of the fall line: rescuers and helpers stay outside the pinch zone and out from under the swing path of any suspended load, and never stand in line with a loaded winch cable or strap that could whip back if hardware fails.",
+    ],
+  },
+  "Off-grid seed saving and viability testing": {
+    sources: ["USDA Seed Storage Guidelines","Organic Seed Alliance"],
+    guidance: [
+      "The \"rag-doll\" germination test: dampen a clean paper towel, lay out 10 seeds in a line, roll it loosely, and seal it in a zip-top bag somewhere warm (70-80°F) for 7 to 10 days. Unroll and count sprouts — 8 of 10 is an 80% germination rate. Below 70%, plant more seed to compensate.",
+      "Harvest only mature, open-pollinated seed: hybrid (F1) varieties won't breed true to the parent plant. Collect from dry pods (beans, peas) once they rattle, or from overripe fruit (tomatoes, squash, melons) before it rots.",
+      "Ferment wet seeds first (tomatoes, cucumbers): scoop seeds into a jar with a little water and let it ferment at room temperature for 2 to 4 days until a mold layer forms — this breaks down the germination-inhibiting gel and kills seed-borne bacteria. Rinse in a fine sieve and discard any floating (dead) seeds.",
+      "Store cool, dark, and dry: dry seeds on parchment or a coffee filter, not a paper towel, which sticks to wet seed, until they crack rather than bend. Store in an airtight glass jar with a desiccant pack below 50°F — storage life roughly doubles for every 10°F drop.",
+    ],
+  },
+  "Emergency grain grinding and flour alternatives": {
+    sources: ["Penn State Agricultural Extension, Processing Whole Grains at Home","FAO, Grains and Flours in Emergency Rations"],
+    guidance: [
+      "Hand-crank mill vs. mortar and pestle: a heavy-duty hand-crank mill with cast-iron or stone burrs works best — run a coarse pass first, then a fine pass for bread-grade flour. With a flat grinding stone or heavy pestle, grind small half-cup batches with a rocking, crushing motion rather than stirring.",
+      "Boil whole grains if you have no mill: simmer whole wheat berries, barley, or oat groats in a 1:3 water ratio for 45 to 60 minutes, or soak overnight in a wide-mouth thermos of boiling water, for tender edible grain with no milling needed.",
+      "Nut and seed flours: dried acorns (cold-water leached until every trace of bitter tannin is gone), mesquite pods, and sunflower seeds can be pounded into dense, high-fat, high-protein flour substitutes.",
+      "Know the shelf life: whole intact grains keep 20+ years sealed with oxygen absorbers. Once milled into flour, the natural oils oxidize fast — use fresh-milled flour within 2 to 4 weeks or freeze it to stop it going rancid.",
+    ],
+  },
+  "Root cellaring and underground cold storage": {
+    sources: ["University of Wisconsin Extension, Storing Vegetables at Home","USDA Agricultural Information Bulletin"],
+    guidance: [
+      "Hit the right temperature and humidity: 32-40°F with 85-95% relative humidity keeps vegetables firm and stops them sprouting.",
+      "Sort ruthlessly: never store a bruised, nicked, cut, or diseased vegetable — even a tiny skin puncture introduces mold that spreads through the whole bin.",
+      "Pack roots in a damp medium: layer carrots, beets, parsnips, and turnips in wooden crates with slightly damp sawdust, clean sand, or peat moss so the roots don't touch, which holds moisture in and light out.",
+      "Keep ethylene producers separate: apples, pears, and ripe fruit give off ethylene gas, which makes potatoes sprout and carrots turn bitter — store them apart. Keep onions and garlic dry (60% humidity), away from the moisture-loving root crops.",
+      "Improvise in-ground storage: bury a clean metal garbage can or chest freezer in a shaded, well-drained bank, layer dry straw on top, add a small vent pipe, and cover with a thick wooden lid topped with 12 inches of soil or straw bales.",
+    ],
+  },
+  "Emergency hide tanning and rawhide production": {
+    sources: ["Society of Primitive Technology Technical Bulletins","U.S. Department of the Interior, Traditional Native Tanning Methods"],
+    guidance: [
+      "Flesh and scrape first: pin the fresh hide flat over a smooth scraping log or fleshing beam and scrape off every trace of meat, fat, and membrane with a dull drawknife or scraper. Incomplete fleshing causes immediate bacterial decay and hair slippage.",
+      "Make rawhide: soak the fleshed hide in a wood-ash-and-water solution (or hydrated lime) for 3 to 6 days until hair wipes off easily. Rinse thoroughly in running water, neutralize with a weak vinegar wash, stretch tight in a wooden frame, and let it dry stiff.",
+      "Brain-tan for soft buckskin: every animal's brain has enough natural oil to tan its own hide. Simmer the brain in a cup of water into a smooth warm slurry, then work it deep into both sides of the dried, hairless skin.",
+      "Work and smoke the hide: pull and stretch the drying hide continuously over a cable or smooth log edge until the fibers are completely soft, then smoke it over a smoldering punky-wood fire for several hours — the smoke's compounds keep the leather pliable even after it gets wet.",
+    ],
+  },
+  "Off-grid refrigeration and cooler management": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS)","CDC Food and Water Safety During Power Outages"],
+    guidance: [
+      "Pre-chill the cooler itself: it absorbs heat from room-temperature items, so chill it with sacrificial ice for a few hours and drain the meltwater before packing pre-chilled or frozen food.",
+      "Use block ice, not cubes: solid blocks melt much slower than cubed or bagged ice because of the lower surface area. Freeze clean water in rinsed 1-gallon jugs to use as blocks — they also give you clean drinking water as they thaw.",
+      "Pack in layers by density: ice blocks on the bottom, raw vacuum-sealed meat against the ice, dairy and prepared food in the middle, delicate produce or bread up top in a dry basket.",
+      "Minimize openings and fill empty space: every lid opening dumps the cold air. Use one cooler for drinks and snacks you grab often and a separate one for perishables, and fill empty air pockets with crumpled newspaper or towels to slow convection.",
+    ],
+  },
+  "Solar cooking and solar box oven basics": {
+    sources: ["Solar Cookers International (SCI) Technical Standards","FAO Household Energy Guidelines"],
+    guidance: [
+      "Understand the greenhouse principle: a solar oven traps solar heat under a clear glass or heat-resistant plastic lid, converting direct sunlight into radiant heat while insulated walls hold it in.",
+      "Keep it aimed at the sun: re-orient the box toward the sun every 30 to 45 minutes to keep sunlight reflecting into the dark cooking chamber.",
+      "Use thin, dark, lidded cookware: dark matte metal pots (graniteware or cast aluminum) absorb heat fastest, and a tight lid keeps steam and heat in.",
+      "Hit a safe temperature: food needs to reach and hold at least 140°F, ideally 180-200°F, to cook and pasteurize safely. Avoid cooking large raw meat cuts on partly cloudy days, when temperatures can drift into the 40-140°F bacterial danger zone.",
+    ],
+  },
+  "Emergency firewood selection and safe burning": {
+    sources: ["EPA Burnwise Guidelines","Chimney Safety Institute of America (CSIA)"],
+    guidance: [
+      "Burn seasoned hardwood: oak, hickory, ash, and hard maple burn hot, hold coals longer, and leave far less creosote than softwoods. Wood needs to be dry and seasoned — grayed ends, visible cracks, and a hollow sound when struck.",
+      "Never burn treated or processed wood: pressure-treated lumber (arsenic and copper), painted or varnished wood, plywood, particleboard, and plastics all release toxic gases like dioxins and hydrogen cyanide when burned.",
+      "Avoid green pine in a closed stove: unseasoned pine and fir are high in sap and resin, burn cool, and coat the chimney flue with flammable creosote fast — a real chimney-fire risk.",
+      "Stack for airflow outdoors: crisscross log-cabin or teepee stacking draws air from the bottom and sends smoke straight up instead of smothering the embers.",
+    ],
+  },
+  "Charcoal production and firebed management": {
+    sources: ["FAO Forestry Paper No. 41, Simple Technologies for Charcoal Making","U.S. Forest Service"],
+    guidance: [
+      "Understand pyrolysis: real charcoal comes from heating hardwood to high temperature with very little oxygen, which drives off moisture, gases, and resin and leaves pure carbon behind.",
+      "Two-drum retort method: pack dry hardwood chunks tightly into a clean 5-gallon metal bucket with a few small vent holes in the lid, and set that inside a larger 55-gallon burn drum surrounded by fire. Once the white smoke and flame from the inner can stop, seal every hole with damp soil to suffocate the batch.",
+      "Never quench hot charcoal with a lot of water: cool it by sealing the container airtight instead — dumping water on glowing coals makes scalding steam and shatters the charcoal into unusable powder.",
+      "Respect the carbon monoxide hazard: DIY charcoal and open braziers produce large amounts of odorless, deadly CO — never burn or use them inside any enclosed room, tent, or porch.",
+    ],
+  },
+  "Rocket stoves and biochar basics": {
+    sources: ["Aprovecho Research Center, Rocket Stove Design Principles","International Biochar Initiative"],
+    guidance: [
+      "The L-shaped combustion chamber: a rocket stove uses an insulated L-shaped elbow (metal pipe packed in perlite, wood ash, or clay) that superheats the burn zone, burning both the wood and the wood-smoke gases for a nearly smokeless, very efficient fire.",
+      "Feed it small: feed pencil- to thumb-sized dry twigs horizontally into the bottom shelf, and keep the air channel under the shelf clear to sustain the draft (the \"rocket roar\").",
+      "Time a biochar quench right: to make biochar, burn biomass in a top-lit updraft container and quench the glowing coals with water, or seal them airtight, right as the flames vanish — before the coals burn down to white mineral ash.",
+    ],
+  },
+  "Perimeter alarm and tripwire systems": {
+    sources: ["U.S. Army Field Manual (FM 3-21.8), Perimeter Security and Early Warning Systems"],
+    guidance: [
+      "Keep it non-lethal: perimeter trip lines should only trigger auditory or visual early warning — bells, a rattle can of pebbles, a light trip-flare. Never rig one as a booby trap; that's dangerous and illegal.",
+      "Set the right height: run trip lines 6 to 12 inches off the ground to catch a walking footfall, or at waist height across a narrow gate or pinch point.",
+      "Choose low-visibility line: dark green or camo monofilament fishing line (10-20 lb test) or dark wire, tied off with light tension to a hair-trigger clothespin or pull-pin rattle trap.",
+      "Keep the line clear: trim underbrush, branches, and tall grass beneath it so wind or small animals don't set off constant false alarms.",
+    ],
+  },
+  "Property fortification and access denial": {
+    sources: ["FEMA 426, Mitigation Measures for Physical Building Security","National Crime Prevention Council (CPTED principles)"],
+    guidance: [
+      "Think in layers: secure the outer boundary (fences, locked gates, posted warnings), then the middle yard (clear sightlines, thorny defensive plants, motion-activated lighting), then the dwelling itself (reinforced strike plates, heavy deadbolts).",
+      "Remove hiding spots: trim tree branches up 6 feet from the ground and cut shrubs below 3 feet within 30 feet of exterior doors and windows.",
+      "Harden the entry points: swap standard 1/2-inch strike-plate screws for 3-inch case-hardened screws driven into the wall's structural studs, add heavy-duty deadbolts, and use a drop-in 2x4 steel security bar across outward-opening doors.",
+      "Protect the windows: anchor sliding doors and windows with a cut-to-size wooden dowel or steel pin dropped in the track, and add shatter-resistant security film to ground-floor glass.",
+    ],
+  },
+  "Emergency vehicle maintenance (fluid leaks, belts, tires)": {
+    sources: ["Department of Transportation (DOT)","Society of Automotive Engineers (SAE) Field Vehicle Recovery Guidelines"],
+    guidance: [
+      "Improvise a belt fix: if an alternator or water-pump serpentine belt snaps, route heavy-duty pantyhose, nylon cord, or zip-tie chains tightly across the pulleys as a temporary limp-home fix, driven gently at low RPM.",
+      "Handle a small radiator leak: let the cooling system cool completely, remove the radiator cap, and add ground black pepper or raw egg white — it circulates to the puncture and seals it under heat. Carry commercial stop-leak putty for a bigger hole.",
+      "Plug a tread puncture as a stopgap: never repair a sidewall puncture. Ream the hole clean, thread a vulcanizing rubber repair string through the needle eye, coat it with rubber cement, push it into the puncture until about 1/2 inch sticks out, then pull the needle straight out without twisting.",
+      "Watch fluid priorities: keep an eye on engine oil, transmission fluid, and brake fluid — a dry radiator can seize the engine within minutes, and low brake fluid risks sudden total pedal loss.",
+    ],
+  },
+  "Gravity-fed water filtration systems (drip-bucket construction)": {
+    sources: ["CDC, Emergency Disinfection of Drinking Water","World Health Organization (WHO)"],
+    guidance: [
+      "Build the two-bucket nesting design: stack two food-grade 5-gallon buckets, and drill holes through the bottom of the upper bucket and the lid of the lower one to mount standard ceramic or hollow-fiber gravity filter elements (like Berkey or Sawyer gravity elements), sealed with rubber washers.",
+      "Pre-filter first: pour cloudy raw water through a clean cotton bandana, coffee filter, or fine cloth over the upper bucket to catch sediment, sand, and algae before it reaches the filter elements, so they don't clog early.",
+      "Know the flow rate and what it removes: a clean system passes roughly 1 to 2 gallons an hour. Sub-micron ceramic elements trap protozoa (Giardia, Cryptosporidium) and bacteria (E. coli, Salmonella); an added activated-carbon core cuts heavy metals, pesticide runoff, and bad tastes.",
+      "Clean it right: when the flow slows a lot, remove the ceramic candles and gently scrub the outer surface with a non-metallic pad under clean running water to remove the silt cake — never use soap or detergent on filter ceramics.",
+    ],
+  },
+  "Field water distillation (solar still evaporation trench)": {
+    sources: ["U.S. Army Survival Manual (FM 21-76 / ATP 3-50.21), Water Procurement"],
+    guidance: [
+      "Dig the pit: roughly 3 feet wide and 2 feet deep, in direct sunlight, with a clean collection cup standing upright in the exact center of the floor.",
+      "Charge it with moisture: pack the pit around the cup with freshly broken green leaves or non-toxic succulent foliage, or pour dirty or brackish water into the surrounding dirt — just keep the cup itself dry and free of splatter.",
+      "Form the condensation cone: drape clear plastic sheeting loosely over the top of the hole and seal the whole perimeter airtight with dirt. Place a small smooth stone in the center of the plastic, directly over the cup, to pull it into an inverted cone at roughly 45 degrees.",
+      "Know the real output: expect about 0.5 to 1 quart of clean water per full day of direct sun — treat this as emergency backup, not your primary water source.",
+    ],
+  },
+  "Emergency food preservation: sun drying and jerky curing": {
+    sources: ["USDA Food Safety and Inspection Service (FSIS), Jerky and Food Safety","National Center for Home Food Preservation (NCHFP)"],
+    guidance: [
+      "Choose lean meat and trim it well: cut away every visible bit of fat from beef or venison before processing — fat holds water and oil that turns rancid fast and ruins the jerky even after drying.",
+      "Slice and salt-cure: slice the meat into strips no thicker than 1/4 inch, along or across the grain. Cure with coarse, non-iodized salt (1 to 2 tablespoons per pound) plus black pepper or vinegar to lower water activity and hold back surface bacteria.",
+      "Hit a safe temperature before drying: the USDA recommends steaming or boiling meat strips to 160°F internal (poultry to 165°F) before dehydrating — dehydrators and smoke pits usually run 145-155°F, which dries meat without reliably killing bacteria in it while raw.",
+      "Sun-dry fruit and vegetables separately: lay sliced apples, peaches, or tomatoes on clean stainless or food-grade plastic mesh screens off the ground, covered with cheesecloth or mosquito netting against flies. Only dry on consecutive sunny days with humidity under 60% and temperatures above 85°F.",
+    ],
+  },
+  "Pest exclusion for emergency grain and seed caches": {
+    sources: ["Utah State University Extension, Storing Grains","Penn State Extension, Pantry Pests Management"],
+    guidance: [
+      "Use food-grade diatomaceous earth: mix in roughly 1 to 2 cups per 50 pounds of stored dry grain, beans, or seed. The microscopic fossilized diatoms cut into the waxy shells of beetles, weevils, and ants and dehydrate them, with no toxic chemical residue in the food.",
+      "Add bay leaves or dried chili as a deterrent: layer whole dry bay leaves or dried chili peppers through grain containers — their natural oils repel pantry moths and grain weevils for short-to-medium storage.",
+      "Freeze raw grain before long-term storage: freeze it at 0°F for at least 4 to 7 days before packing it away long-term — that kills any insect eggs or dormant larvae already inside the kernels.",
+    ],
+  },
+  "Wilderness signaling and search-and-rescue marking": {
+    sources: ["National Association for Search and Rescue (NASAR)","U.S. Air Force Search and Rescue Manual (AFMAN 10-503)"],
+    guidance: [
+      "Follow the rule of three: three of any signal — three whistle blasts, three gunshots five seconds apart, or three fires in a triangle or straight line — is universally recognized by search-and-rescue as a distress call.",
+      "Use a signal mirror correctly: hold it near your face, extend your other hand to frame the search plane or ridge in a \"V\" between your fingers, then tilt the mirror until the reflection flashes between them. A mirror flash can be seen up to 20 miles away on a clear day.",
+      "Build ground-to-air markers: make letters at least 10 feet tall and 3 feet wide from rocks, logs, or trampled earth on a beach, snowfield, or clearing — a large \"V\" means you need assistance, an \"X\" means you need medical help.",
+      "Control your smoke color: heap green leafy branches, damp moss, or wet grass on hot coals for dense white smoke against a clear sky, or burn dry pine resin or small scraps of rubber for dark smoke against gray or snowy backgrounds.",
+    ],
+  },
+  "Off-grid hygiene and field sanitation": {
+    sources: ["World Health Organization (WHO), Hygiene Promotion in Emergencies","Sphere Handbook Standards"],
+    guidance: [
+      "Make field soap from potash and fat: leach clean hardwood ash with soft rainwater to pull out potassium hydroxide (potash lye). Boil rendered animal tallow or lard in a metal pot, slowly stir in the filtered ash water, and simmer until it thickens into a soft, paste-like soap for washing.",
+      "Use wood ash as an emergency scouring agent: cold, sifted white wood ash mixed with a little water is a mildly abrasive, alkaline cleaner that cuts grease off cookware when there's no soap — rinse thoroughly with boiled water after.",
+      "Clean teeth without toothpaste: chew the end of a non-toxic green twig (birch, oak, or willow) into a frayed brush to scrub plaque off mechanically, then rinse with a weak salt-water solution to cut down bacteria.",
+      "Manage menstrual hygiene off-grid: use boiled, sun-bleached cotton rags or a reusable silicone cup. Boil the cup 5 to 10 minutes between cycles, and wash cloth pads in soapy water then dry fully in direct sunlight, which adds some UV sanitization.",
+    ],
+  },
+  "Long-term food storage defense (pests, mylar, oxygen absorbers)": {
+    sources: ["Utah State University Extension, Food Storage Essentials","USDA National Institute of Food and Agriculture"],
+    guidance: [
+      "Use oxygen absorbers only on dry, low-moisture food: white rice, dried pinto beans, rolled oats, and wheat berries (under 10% moisture) go in 5-to-7-mil food-grade Mylar bags with a 300-500cc iron-based oxygen absorber per gallon bag (2,000cc for a 5-gallon bucket) — the iron oxidizes and strips oxygen below 0.01%, suffocating insect larvae, weevils, and mold spores.",
+      "Never use oxygen absorbers on moist food: brown rice, nuts, dried meat, brown sugar, or vegetables that aren't bone-dry should not be packed with oxygen absorbers — removing the oxygen from moist food creates ideal conditions for Clostridium botulinum, the bacteria that causes botulism.",
+      "Heat-seal the Mylar properly: seal the open top with a commercial heat sealer, or a clothing iron on its highest cotton/linen setting pressed over a solid board, leaving a 2-inch gap to drop the oxygen absorber in before the final continuous seal.",
+      "Add rodent-proof secondary containment: Mylar alone won't stop a rodent from chewing through. Store sealed Mylar pouches inside rigid, food-grade 5-gallon HDPE buckets or metal drums with airtight, gasketed lids.",
+    ],
+  },
+  "Well-water pump manual operation (deep and shallow wells)": {
+    sources: ["EPA, Private Drinking Water Wells","Water Systems Council Technical Guidelines"],
+    guidance: [
+      "Know the shallow-vs-deep line: atmospheric pressure limits a suction (pitcher) pump to about 22-25 feet of practical depth. If your water level sits deeper than that, surface suction won't work at all — you need a positive-displacement cylinder pump installed down inside the casing.",
+      "Set up a pitcher pump for a shallow well: mount a cast-iron hand pump to a rigid PVC or galvanized suction pipe run into the shallow water table, and prime it by pouring clean water down the top throat to seal the internal leather cup before working the handle.",
+      "Add an auxiliary deep-well hand pump: install a secondary drop pipe alongside an existing electric submersible pump inside a standard 4 or 6-inch casing. A deep manual pump runs a rod down to a submerged cylinder and lifts water from 200-300 feet with mechanical handle leverage.",
+      "Protect the wellhead from contamination: make sure the casing extends at least 12 inches above the worst expected flood level and is sealed with a screened sanitary well cap, so floodwater, insects, and rodents can't get into the aquifer.",
     ],
   },
 };

@@ -135,6 +135,9 @@ export const CATEGORIES: Category[] = [
       { title: "Saltwater/brackish desalination limits", status: "partial", priority: "P2", note: "" },
       { title: "Chemical/fuel/algal-toxin/radiological rejection", status: "verified", priority: "P0", note: "EPA + CDC WASH" },
       { title: "UV purification methods (e.g. SODIS, UV pens)", status: "verified", priority: "P1", note: "WHO + CDC" },
+      { title: "Gravity-fed water filtration systems (drip-bucket construction)", status: "verified", priority: "P2", note: "CDC + WHO" },
+      { title: "Field water distillation (solar still evaporation trench)", status: "verified", priority: "P2", note: "US Army FM 21-76" },
+      { title: "Well-water pump manual operation (deep and shallow wells)", status: "verified", priority: "P2", note: "EPA + Water Systems Council" },
     ],
   },
   {
@@ -159,6 +162,13 @@ export const CATEGORIES: Category[] = [
       { title: "Wild game handling and cooking", status: "verified", priority: "P1", note: "USDA FSIS + CDC" },
       { title: "Fish toxins and harmful algal blooms", status: "pending", priority: "P0", note: "See Fishing/Trapping/Food Acquisition" },
       { title: "Food rotation / FIFO principles", status: "new", priority: "P3", note: "See Inventory & Supplies" },
+      { title: "Emergency grain grinding and flour alternatives", status: "verified", priority: "P2", note: "Penn State Extension + FAO" },
+      { title: "Root cellaring and underground cold storage", status: "verified", priority: "P2", note: "University of Wisconsin Extension + USDA" },
+      { title: "Off-grid refrigeration and cooler management", status: "verified", priority: "P2", note: "USDA FSIS + CDC" },
+      { title: "Solar cooking and solar box oven basics", status: "verified", priority: "P2", note: "Solar Cookers International + FAO" },
+      { title: "Emergency food preservation: sun drying and jerky curing", status: "verified", priority: "P2", note: "USDA FSIS + NCHFP" },
+      { title: "Pest exclusion for emergency grain and seed caches", status: "verified", priority: "P2", note: "Utah State Extension + Penn State Extension" },
+      { title: "Long-term food storage defense (pests, mylar, oxygen absorbers)", status: "verified", priority: "P2", note: "Utah State Extension + USDA NIFA" },
     ],
   },
   {
@@ -185,6 +195,9 @@ export const CATEGORIES: Category[] = [
       { title: "Damaged roof, windows, weatherproofing", status: "verified", priority: "P2", note: "FEMA + NRCA" },
       { title: "Fire without a lighter (ferro rod, steel wool, friction)", status: "pending", priority: "P2", note: "Withheld pending field-safety review" },
       { title: "Improvised skillet-support / cook-fire rig", status: "pending", priority: "P2", note: "Withheld pending stability/burn-hazard validation" },
+      { title: "Emergency firewood selection and safe burning", status: "verified", priority: "P2", note: "EPA Burnwise + CSIA" },
+      { title: "Charcoal production and firebed management", status: "verified", priority: "P3", note: "FAO Forestry + US Forest Service" },
+      { title: "Rocket stoves and biochar basics", status: "verified", priority: "P3", note: "Aprovecho Research Center + International Biochar Initiative" },
     ],
   },
   {
@@ -238,6 +251,7 @@ export const CATEGORIES: Category[] = [
       { title: "Immediate steps after a car crash", status: "verified", priority: "P1", note: "US DOT + NHTSA" },
       { title: "Spark-plug inspection/replacement", status: "partial", priority: "P2", note: "Closed by the small-engine troubleshooting research (Generac guide)" },
       { title: "Emergency vehicle extraction (tow straps, winching, traction)", status: "specialist", priority: "P2", note: "NORA + SAE" },
+      { title: "Emergency vehicle maintenance (fluid leaks, belts, tires)", status: "verified", priority: "P2", note: "DOT + SAE" },
     ],
   },
   {
@@ -294,6 +308,7 @@ export const CATEGORIES: Category[] = [
       { title: "Identifying safe vs. unsafe routes during a disaster", status: "verified", priority: "P1", note: "Ready.gov/FEMA" },
       { title: "Finding cardinal directions without a compass", status: "verified", priority: "P3", note: "FM 3-25.26 Appendix F" },
       { title: "Marking private landmarks/hazards on offline maps", status: "partial", priority: "P3", note: "" },
+      { title: "Wilderness signaling and search-and-rescue marking", status: "verified", priority: "P2", note: "NASAR + USAF AFMAN 10-503" },
     ],
   },
   {
@@ -330,6 +345,8 @@ export const CATEGORIES: Category[] = [
       { title: "Safe-room / panic-room concept", status: "verified", priority: "P2", note: "Simplified to tornado safe-room" },
       { title: "Neighborhood/community mutual-aid security", status: "new", priority: "P3", note: "No authoritative source found" },
       { title: "Weapon storage safety around children", status: "verified", priority: "P2", note: "American Academy of Pediatrics" },
+      { title: "Perimeter alarm and tripwire systems", status: "verified", priority: "P2", note: "US Army FM 3-21.8" },
+      { title: "Property fortification and access denial", status: "verified", priority: "P2", note: "FEMA 426 + National Crime Prevention Council" },
     ],
   },
   {
@@ -354,6 +371,8 @@ export const CATEGORIES: Category[] = [
       { title: "Field-dressing and safe handling of wild game", status: "verified", priority: "P1", note: "State wildlife agencies + Extension" },
       { title: "Fish cleaning and safe handling", status: "partial", priority: "P1", note: "Standard technique, not government-sourced" },
       { title: "Identifying unsafe/contaminated fishing waters", status: "verified", priority: "P0", note: "EPA" },
+      { title: "Off-grid seed saving and viability testing", status: "verified", priority: "P3", note: "USDA + Organic Seed Alliance" },
+      { title: "Emergency hide tanning and rawhide production", status: "verified", priority: "P3", note: "Society of Primitive Technology + DOI" },
     ],
   },
   {
@@ -383,6 +402,7 @@ export const CATEGORIES: Category[] = [
       { title: "General emergency sanitation without running water", status: "verified", priority: "P1", note: "CDC + WHO" },
       { title: "Mold and wet-building cleanup", status: "verified", priority: "P1", note: "EPA + CDC" },
       { title: "Long-term waste, pests, vector control", status: "pending", priority: "P2", note: "Not yet drafted" },
+      { title: "Off-grid hygiene and field sanitation", status: "verified", priority: "P2", note: "WHO + Sphere Handbook" },
     ],
   },
   {
