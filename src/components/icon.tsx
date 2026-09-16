@@ -24,9 +24,11 @@ const PATHS: Record<string, string> = {
   checklist: "M5 4h14v17H5z M9 3.5h6v2.5H9z M8 11.3l1.4 1.4L12.5 10 M8 16.3l1.4 1.4 3.1-2.7",
   plus: "M12 5v14M5 12h14",
   trash: "M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13",
+  camera: "M4 8h3l1.6-2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {
+  camera: [{ cx: 12, cy: 13, r: 3.4 }],
   paw: [
     { cx: 7.5, cy: 8.5, r: 1.8 },
     { cx: 12, cy: 6.5, r: 1.8 },

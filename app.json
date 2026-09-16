@@ -42,6 +42,13 @@
             "buildArchs": ["arm64-v8a", "armeabi-v7a"]
           }
         }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "GuideHand uses your photo library so you can save pictures of important documents (ID, insurance, deeds) for quick offline access.",
+          "cameraPermission": "GuideHand uses your camera so you can photograph important documents (ID, insurance, deeds) for quick offline access."
+        }
       ]
     ],
     "experiments": {

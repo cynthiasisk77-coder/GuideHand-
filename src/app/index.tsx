@@ -139,6 +139,23 @@ export default function HomeScreen() {
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/document-photos' })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.sageSoft }]}>
+                    <Icon name="camera" color={c.sage} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Document Photos</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>IDs, insurance, deeds — saved for offline access</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
               </View>
 
               <View style={styles.section}>
