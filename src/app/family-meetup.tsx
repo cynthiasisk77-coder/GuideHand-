@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, Vie
 import { Stack, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
+import QRCode from 'react-native-qrcode-svg';
 
 import { Icon } from '@/components/icon';
 import { MeetupCompass } from '@/components/meetup-compass';
@@ -12,6 +13,7 @@ import { findTopicByTitle } from '@/lib/content';
 import type { Coords } from '@/lib/geo';
 import {
   bearingDegrees,
+  buildPlaceCode,
   compassLong,
   compassShort,
   distanceMiles,
@@ -65,6 +67,7 @@ export default function FamilyMeetupScreen() {
   const [location, setLocation] = useState<LocationState>({ kind: 'idle' });
   const [heading, setHeading] = useState<number | null>(null);
 
+  const [showCode, setShowCode] = useState(false);
   const [labelDraft, setLabelDraft] = useState('');
   const [coordsDraft, setCoordsDraft] = useState('');
   const [noteDraft, setNoteDraft] = useState('');
@@ -193,6 +196,11 @@ export default function FamilyMeetupScreen() {
     );
   };
 
+  const selectPoint = (id: string) => {
+    setActiveId(id);
+    setShowCode(false);
+  };
+
   const removePoint = (id: string) => {
     setPoints((prev) => prev.filter((p) => p.id !== id));
     if (activeId === id) setActiveId(null);
@@ -297,6 +305,53 @@ export default function FamilyMeetupScreen() {
                 Write those numbers on paper and hand them to anyone who isn&apos;t with you. Read them over a radio
                 the same way. Coordinates work without a network — a dropped pin in a messaging app does not.
               </Text>
+
+              {showCode ? (
+                <View style={[styles.codeBlock, { borderColor: c.cardBorder }]}>
+                  <View style={styles.codeSurface}>
+                    <QRCode
+                      value={buildPlaceCode({
+                        latitude: active.latitude,
+                        longitude: active.longitude,
+                        label: active.label,
+                      })}
+                      size={168}
+                      color="#000000"
+                      backgroundColor="#FFFFFF"
+                    />
+                  </View>
+                  <Text style={[styles.codeHint, { color: c.textSecondary }]}>
+                    Hold this up to someone else&apos;s phone and have them scan it. The coordinates are inside the
+                    pattern, so it works with both phones in airplane mode — no bars, no Wi-Fi, no account.
+                  </Text>
+                  <Pressable accessibilityRole="button" onPress={() => setShowCode(false)}>
+                    <Text style={[styles.codeToggle, { color: c.blue }]}>Hide the code</Text>
+                  </Pressable>
+                </View>
+              ) : (
+                <View style={styles.shareRow}>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => setShowCode(true)}
+                    style={({ pressed }) => [
+                      styles.shareButton,
+                      { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+                    ]}>
+                    <Icon name="qr" size={16} color={c.blue} />
+                    <Text style={[styles.shareButtonText, { color: c.blue }]}>Show code</Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => router.push({ pathname: '/meetup-scan' })}
+                    style={({ pressed }) => [
+                      styles.shareButton,
+                      { backgroundColor: c.sageSoft, opacity: pressed ? 0.7 : 1 },
+                    ]}>
+                    <Icon name="camera" size={16} color={c.sage} />
+                    <Text style={[styles.shareButtonText, { color: c.sage }]}>Scan a code</Text>
+                  </Pressable>
+                </View>
+              )}
             </View>
           ) : (
             <View style={[styles.emptyState, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
@@ -335,6 +390,16 @@ export default function FamilyMeetupScreen() {
                   {location.kind === 'locating' ? 'Reading GPS…' : 'Show me where I am'}
                 </Text>
               </Pressable>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => router.push({ pathname: '/meetup-scan' })}
+                style={({ pressed }) => [
+                  styles.primaryButton,
+                  { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+                ]}>
+                <Icon name="camera" size={16} color={c.blue} />
+                <Text style={[styles.primaryButtonText, { color: c.blue }]}>Scan a code from someone else</Text>
+              </Pressable>
             </View>
           )}
 
@@ -361,7 +426,7 @@ export default function FamilyMeetupScreen() {
                     <Pressable
                       accessibilityRole="button"
                       accessibilityState={{ selected: isActive }}
-                      onPress={() => setActiveId(point.id)}
+                      onPress={() => selectPoint(point.id)}
                       style={styles.pointPressable}>
                       <View style={[styles.pointIcon, { backgroundColor: isActive ? c.plumSoft : c.bg }]}>
                         <Icon name="pin" size={17} color={isActive ? c.plum : c.textSecondary} />
@@ -558,6 +623,33 @@ const styles = StyleSheet.create({
   coordValue: { fontSize: 16, fontFamily: Fonts.monoMedium },
   fixMeta: { fontSize: 11, fontFamily: Fonts.body, marginTop: 1 },
   shareHint: { fontSize: 12, lineHeight: 17.5, fontFamily: Fonts.body },
+  shareRow: { flexDirection: 'row', gap: 8 },
+  shareButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderRadius: 11,
+    paddingVertical: 11,
+  },
+  shareButtonText: { fontSize: 14, fontFamily: Fonts.bodyBold },
+  codeBlock: {
+    borderWidth: 1,
+    borderRadius: 14,
+    padding: 14,
+    alignItems: 'center',
+    gap: 10,
+  },
+  // The code needs true white behind it and a quiet margin, whatever the theme,
+  // or some scanners will not lock onto it.
+  codeSurface: {
+    backgroundColor: '#FFFFFF',
+    padding: 14,
+    borderRadius: 10,
+  },
+  codeHint: { fontSize: 12, lineHeight: 17.5, fontFamily: Fonts.body, textAlign: 'center' },
+  codeToggle: { fontSize: 13.5, fontFamily: Fonts.bodySemibold, paddingVertical: 2 },
 
   emptyState: {
     borderWidth: 1,

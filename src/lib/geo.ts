@@ -148,3 +148,65 @@ export function parseCoords(input: string): Coords | undefined {
 
   return { latitude, longitude };
 }
+
+/**
+ * A shared meeting place, as it travels between two phones inside a QR code.
+ */
+export interface SharedPlace extends Coords {
+  label?: string;
+}
+
+/**
+ * Builds a `geo:` URI (RFC 5870) for a meeting place. Using the real standard
+ * instead of a GuideHand-only format means the code a person scans here is the
+ * same kind of code a mapping app makes — and the coordinates are still legible
+ * as plain text if someone photographs the code and reads it off a screen.
+ */
+export function buildPlaceCode(place: SharedPlace): string {
+  const lat = place.latitude.toFixed(5);
+  const lon = place.longitude.toFixed(5);
+  const base = `geo:${lat},${lon}?q=${lat},${lon}`;
+  const label = place.label?.trim();
+  return label ? `${base}(${label})` : base;
+}
+
+/**
+ * Reads a scanned code back into a place. Accepts GuideHand's own `geo:` codes,
+ * the map links people paste to each other, and a bare "lat, long" pair — so a
+ * code made somewhere else still works. Returns undefined rather than guessing.
+ */
+export function parsePlaceCode(raw: string): SharedPlace | undefined {
+  const text = raw.trim();
+  if (!text) return undefined;
+
+  // A label in parentheses, the way geo: URIs carry one.
+  const labelMatch = text.match(/\(([^)]{1,80})\)\s*$/);
+  const label = labelMatch ? decodeURIComponent(labelMatch[1].replace(/\+/g, " ")).trim() : undefined;
+  const withoutLabel = labelMatch ? text.slice(0, labelMatch.index).trim() : text;
+
+  const candidates: string[] = [];
+
+  const geoMatch = withoutLabel.match(/^geo:\s*([^?;]+)/i);
+  if (geoMatch) candidates.push(geoMatch[1]);
+
+  // The query parameter map apps use to carry a coordinate pair: ?q= in geo:
+  // URIs and Google links, ?ll= in Apple Maps, ?daddr=/?destination= in
+  // directions links.
+  const queryMatch = withoutLabel.match(/[?&](?:q|ll|sll|daddr|destination)=([^&]+)/i);
+  if (queryMatch) candidates.push(decodeURIComponent(queryMatch[1]));
+
+  // The /@lat,lon,zoom form used in map URLs.
+  const atMatch = withoutLabel.match(/[/@](-?\d+\.\d+),\s*(-?\d+\.\d+)/);
+  if (atMatch) candidates.push(`${atMatch[1]},${atMatch[2]}`);
+
+  candidates.push(withoutLabel);
+
+  for (const candidate of candidates) {
+    // Map URLs often append a zoom level; keep only the first two numbers.
+    const trimmed = candidate.trim().split(",").slice(0, 2).join(",");
+    const coords = parseCoords(trimmed);
+    if (coords) return label ? { ...coords, label } : coords;
+  }
+
+  return undefined;
+}

@@ -51,6 +51,13 @@
         }
       ],
       [
+        "expo-camera",
+        {
+          "cameraPermission": "GuideHand uses your camera to scan a meeting-place code from another persons phone, so you can both save the same spot without any network.",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
         "expo-location",
         {
           "locationAlwaysAndWhenInUsePermission": "GuideHand uses your location so it can tell you how far you are from your family meeting place. Your location stays on this device and is never sent anywhere.",
