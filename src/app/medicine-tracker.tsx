@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { secureGetItem, secureSetItem } from '@/lib/secureData';
 
 import { Icon } from '@/components/icon';
@@ -44,7 +45,9 @@ export default function MedicineTrackerScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    secureSetItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(entries))
+      .then(() => notePersonalDataChanged('Medicines changed'))
+      .catch(() => {});
   }, [entries, loaded]);
 
   const guidance = useMemo(() => findTopicByTitle(GUIDANCE_TOPIC), []);

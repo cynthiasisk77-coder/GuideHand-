@@ -3,6 +3,8 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, Vie
 import { Stack, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { notePersonalDataChanged } from '@/lib/autoBackup';
+
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
@@ -50,7 +52,9 @@ export default function SupplyCacheScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state)).catch(() => {});
+    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+      .then(() => notePersonalDataChanged('Supply cache changed'))
+      .catch(() => {});
   }, [state, loaded]);
 
   const guidance = useMemo(() => findTopicByTitle(GUIDANCE_TOPIC), []);

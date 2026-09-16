@@ -15,9 +15,32 @@ import {
   summarizeCurrentData,
 } from '@/lib/backup';
 import { pickBackupFile, saveBackupFile } from '@/lib/backupFile';
+import {
+  deleteSnapshot,
+  describeExportAge,
+  ExportAge,
+  getLastExport,
+  getSnapshots,
+  recordExport,
+  restoreSnapshot,
+  SnapshotMeta,
+} from '@/lib/autoBackup';
 import { formatBytes } from '@/lib/packTypes';
 
 type Choice = 'everything' | 'no-photos';
+
+// Date.now() can't be called straight from a component body under the React
+// Compiler's purity rule.
+function rightNow(): number {
+  return Date.now();
+}
+
+function formatTakenAt(at: number): string {
+  const date = new Date(at);
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' }) +
+    ', ' +
+    date.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+}
 
 interface PendingRestore {
   file: BackupFile;
@@ -43,16 +66,28 @@ export default function BackupScreen() {
 
   const [pending, setPending] = useState<PendingRestore | null>(null);
   const [restorePassword, setRestorePassword] = useState('');
+  const [snapshots, setSnapshots] = useState<SnapshotMeta[]>([]);
+  const [exportAge, setExportAge] = useState<ExportAge | null>(null);
 
   const refreshSummary = useCallback(async () => {
-    setSummary(await summarizeCurrentData());
+    const [next, saved, lastExport] = await Promise.all([
+      summarizeCurrentData(),
+      getSnapshots(),
+      getLastExport(),
+    ]);
+    setSummary(next);
+    setSnapshots(saved);
+    setExportAge(describeExportAge(lastExport, rightNow()));
   }, []);
 
   useEffect(() => {
     let cancelled = false;
-    summarizeCurrentData()
-      .then((next) => {
-        if (!cancelled) setSummary(next);
+    Promise.all([summarizeCurrentData(), getSnapshots(), getLastExport()])
+      .then(([next, saved, lastExport]) => {
+        if (cancelled) return;
+        setSummary(next);
+        setSnapshots(saved);
+        setExportAge(describeExportAge(lastExport, rightNow()));
       })
       .catch(() => {
         if (!cancelled) setSummary([]);
@@ -76,6 +111,7 @@ export default function BackupScreen() {
     }
     const saved = await saveBackupFile(backupFileName(), built.text);
     if (saved.ok) {
+      await recordExport(rightNow());
       setMessage({
         kind: 'ok',
         text: `Backup made — ${formatBytes(built.bytes)}, ${built.sections} ${
@@ -87,9 +123,30 @@ export default function BackupScreen() {
         }`,
       });
       setPassword('');
+      await refreshSummary();
     } else {
       setMessage({ kind: 'bad', text: saved.reason });
     }
+    setBusy(false);
+  };
+
+  const onRestoreSnapshot = async (snap: SnapshotMeta) => {
+    setBusy(true);
+    setMessage(null);
+    const result = await restoreSnapshot(snap.id);
+    setMessage(
+      result.ok
+        ? { kind: 'ok', text: `Put back the copy from ${formatTakenAt(snap.takenAt)}: ${result.restored.join(', ')}.` }
+        : { kind: 'bad', text: result.reason }
+    );
+    await refreshSummary();
+    setBusy(false);
+  };
+
+  const onDeleteSnapshot = async (snap: SnapshotMeta) => {
+    setBusy(true);
+    await deleteSnapshot(snap.id);
+    await refreshSummary();
     setBusy(false);
   };
 
@@ -142,6 +199,18 @@ export default function BackupScreen() {
               it. A backup makes one file you keep yourself — no account, nothing sent to us.
             </Text>
           </View>
+
+          {exportAge && exportAge.stale ? (
+            <View style={[styles.staleBanner, { backgroundColor: c.dangerSoft, borderColor: c.danger }]}>
+              <Icon name="siren" size={17} color={c.danger} />
+              <Text style={[styles.staleText, { color: c.danger }]}>{exportAge.text}</Text>
+            </View>
+          ) : exportAge ? (
+            <View style={[styles.freshBanner, { backgroundColor: c.sageSoft, borderColor: c.sage }]}>
+              <Icon name="check" size={15} color={c.sage} strokeWidth={2.4} />
+              <Text style={[styles.freshText, { color: c.sage }]}>{exportAge.text}</Text>
+            </View>
+          ) : null}
 
           {message ? (
             <View
@@ -268,8 +337,57 @@ export default function BackupScreen() {
             </Text>
           </Pressable>
 
+          {/* ---- Automatic copies kept on the phone ---- */}
+          <Text style={[styles.sectionLabel, styles.sectionSpaced, { color: c.blue }]}>
+            SAVED AUTOMATICALLY ON THIS PHONE
+          </Text>
+          <Text style={[styles.sectionNote, { color: c.textSecondary }]}>
+            GuideHand keeps its own copies as you go, without being asked. These undo an accidental delete or a bad
+            edit. They do not survive losing the phone — that is what the file above is for.
+          </Text>
+
+          {snapshots.length === 0 ? (
+            <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+              <Text style={[styles.emptyText, { color: c.textSecondary }]}>
+                No copies yet. One is kept the next time you change something.
+              </Text>
+            </View>
+          ) : (
+            snapshots.map((snap) => (
+              <View key={snap.id} style={[styles.snapRow, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+                <View style={styles.snapBody}>
+                  <Text style={[styles.snapWhen, { color: c.text }]}>{formatTakenAt(snap.takenAt)}</Text>
+                  <Text style={[styles.snapWhat, { color: c.textSecondary }]}>
+                    {Object.entries(snap.contents)
+                      .map(([label, count]) => `${count} ${label.toLowerCase()}`)
+                      .join(' · ') || snap.trigger}
+                  </Text>
+                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  disabled={busy}
+                  onPress={() => onRestoreSnapshot(snap)}
+                  style={({ pressed }) => [
+                    styles.snapButton,
+                    { backgroundColor: c.blueSoft, opacity: pressed || busy ? 0.6 : 1 },
+                  ]}>
+                  <Text style={[styles.snapButtonText, { color: c.blue }]}>Put back</Text>
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Delete this saved copy"
+                  disabled={busy}
+                  onPress={() => onDeleteSnapshot(snap)}
+                  hitSlop={8}
+                  style={styles.snapDelete}>
+                  <Icon name="trash" size={15} color={c.textSecondary} />
+                </Pressable>
+              </View>
+            ))
+          )}
+
           {/* ---- Restore ---- */}
-          <Text style={[styles.sectionLabel, styles.sectionSpaced, { color: c.blue }]}>RESTORE FROM A BACKUP</Text>
+          <Text style={[styles.sectionLabel, styles.sectionSpaced, { color: c.blue }]}>RESTORE FROM A FILE</Text>
 
           {pending ? (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.danger, borderWidth: 1.8 }]}>
@@ -393,6 +511,46 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
   sectionSpaced: { marginTop: 26 },
+  sectionNote: { fontSize: 12.5, lineHeight: 18, fontFamily: Fonts.body, marginBottom: 10, marginLeft: 2 },
+
+  staleBanner: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 10,
+    borderWidth: 1.6,
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 14,
+  },
+  staleText: { flex: 1, fontSize: 13, lineHeight: 18.5, fontFamily: Fonts.bodyMedium },
+  freshBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 14,
+  },
+  freshText: { flex: 1, fontSize: 12.5, fontFamily: Fonts.bodyMedium },
+
+  snapRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 8,
+  },
+  snapBody: { flex: 1, minWidth: 0, gap: 1 },
+  snapWhen: { fontSize: 14, fontFamily: Fonts.displaySemibold },
+  snapWhat: { fontSize: 12, fontFamily: Fonts.body },
+  snapButton: { borderRadius: 9, paddingVertical: 8, paddingHorizontal: 14 },
+  snapButtonText: { fontSize: 13, fontFamily: Fonts.bodyBold },
+  snapDelete: { paddingVertical: 8, paddingLeft: 2 },
 
   optionCard: { borderRadius: 14, padding: 14, marginBottom: 8, gap: 7 },
   optionHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },

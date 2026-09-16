@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Alert, Image, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 import { canLock, requestUnlock, UnlockFailure } from '@/lib/deviceLock';
+import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { secureGetItem, secureSetItem } from '@/lib/secureData';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -73,7 +74,9 @@ export default function DocumentPhotosScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    secureSetItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(entries))
+      .then(() => notePersonalDataChanged('Documents changed'))
+      .catch(() => {});
   }, [entries, loaded]);
 
   const pickerOptions: ImagePicker.ImagePickerOptions = useMemo(

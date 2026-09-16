@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { secureGetItem, secureRemoveItem, secureSetItem } from '@/lib/secureData';
 import * as Location from 'expo-location';
 import QRCode from 'react-native-qrcode-svg';
@@ -85,7 +86,9 @@ export default function FamilyMeetupScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    secureSetItem(STORAGE_KEY, JSON.stringify(points)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(points))
+      .then(() => notePersonalDataChanged('Meeting places changed'))
+      .catch(() => {});
   }, [points, loaded]);
 
   useEffect(() => {
