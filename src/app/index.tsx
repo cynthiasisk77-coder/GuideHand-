@@ -216,6 +216,23 @@ export default function HomeScreen() {
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/backup" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                    <Icon name="upload" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Back Up &amp; Restore</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Save your lists and documents to a file, so a lost phone isn&apos;t a lost everything</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
               </View>
 
               <View style={styles.section}>

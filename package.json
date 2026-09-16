@@ -8,6 +8,7 @@
     "@expo-google-fonts/karla": "^0.4.2",
     "@expo/ui": "~57.0.18",
     "@noble/ciphers": "^2.4.0",
+    "@noble/hashes": "^2.4.0",
     "@react-native-async-storage/async-storage": "2.2.0",
     "expo": "~57.0.22",
     "expo-build-properties": "~57.0.17",

@@ -29,6 +29,7 @@ const PATHS: Record<string, string> = {
   qr: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h2.5v2.5H14z M17.5 17.5H20V20h-2.5z M14 20h1.5 M20 14h-1.5",
   download: "M12 3v12M7.5 10.5 12 15l4.5-4.5M4 19h16",
   lock: "M5.5 10.5h13V21h-13z M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3M12 14.5v3",
+  upload: "M12 16V4M7.5 8.5 12 4l4.5 4.5M4 19h16",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {
