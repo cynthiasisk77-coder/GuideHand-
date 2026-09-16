@@ -91,7 +91,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "RUN — evacuate if there's an accessible escape path, using cover and concealment, moving away from the threat.",
       "HIDE — if evacuation isn't possible, get into a secure area with a lockable door, or find cover to break the attacker's line of sight.",
       "FIGHT — as an absolute last resort, when neither running nor hiding is possible, commit fully to incapacitating the attacker.",
-      "When it's safe to do so, call 911 — give your location, the number of shooters if known, and a physical description.",
+      "When it's safe to do so, get word out by whatever route you have — call 911 if you have signal, or tell anyone who does. Give your location, the number of shooters if known, and a physical description.",
       "Most active-shooter incidents are over in 10-15 minutes, before law enforcement typically arrives — this is why individual preparedness matters.",
       "Don't assume \"run\" is always safest without assessing the actual exits and the threat's location first.",
     ],
@@ -99,7 +99,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Suspicious package or explosion threat": {
     sources: ["U.S. Department of Homeland Security", "Ready.gov"],
     guidance: [
-      "Report a suspicious or unattended item to authorities immediately (call 911) with as much detail as possible.",
+      "Report a suspicious or unattended item to authorities immediately — 911 if you have signal, otherwise the nearest staff, security, or police in person — with as much detail as possible.",
       "Seek distance and cover; evacuate if it's safe to move.",
       "Do not approach, touch, or inspect the item. Do not use a two-way radio or cell phone near a suspected device — the transmission could trigger detonation. Do not congregate near the scene.",
     ],
@@ -271,7 +271,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Always assume a downed line is energized, even if it looks dead or isn't sparking.",
       "Stay back — utility-published safe distances vary from about 10 feet up to 30-50+ feet; a downed line can energize the ground itself for many feet around it, especially when wet.",
       "Never touch a downed line or anything it's contacting, and never use any object (including wood or rope) to move it — normally non-conductive materials conduct electricity when even slightly wet.",
-      "Never touch a person in contact with a downed line — call 911 and the utility instead.",
+      "Never touch a person in contact with a downed line. Reach the utility and emergency services instead — 911 if you have signal — and keep everyone back until the line is confirmed dead.",
       "If a line is down near you, shuffle away instead of walking normally: keep both feet together and touching the ground, and slide them along the ground without ever lifting one foot past the other. Keep shuffling until you're at least 35 feet away — double that if the ground is wet.",
       "If a live wire falls on your car while you're inside, stay inside — the metal frame protects you as long as you don't touch the ground and the car at the same time. Only get out if the car catches fire, and if you do, jump clear with both feet together at once, then shuffle away the same way.",
     ],
@@ -384,7 +384,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Carbon-monoxide alarm or symptoms (general)": {
     sources: ["National Fire Protection Association"],
     guidance: [
-      "If a CO alarm sounds, get everyone (and pets, if safe) to fresh air immediately — outdoors or an open window — then call 911 or the fire department from there.",
+      "If a CO alarm sounds, get everyone (and pets, if safe) to fresh air immediately — outdoors or an open window — then call 911 or the fire department from there if you have signal. If you cannot reach anyone, stay outside and warn the neighbours; do not go back in to investigate.",
       "Do not search for the source yourself, and do not re-enter until responders or a qualified technician confirms it's safe.",
       "Symptoms (headache, dizziness, weakness, nausea, confusion) demand the same immediate fresh-air-and-call response even without a working alarm.",
     ],
@@ -763,7 +763,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["American Heart Association, 2025 Adult Basic Life Support Guidelines", "American Red Cross"],
     guidance: [
       "If unresponsive and not breathing (or only gasping), presume cardiac arrest — do not delay CPR trying to find a pulse.",
-      "Shout for help, send someone for an AED and to call 911. If alone with a phone, call first, put it on speaker, then start CPR.",
+      "Shout for help and send someone for an AED. Send someone to reach help any way that works — 911 if there is signal, a radio, or running to find another person. If you are alone with a working phone, call first and put it on speaker, then start CPR. With no phone or no signal, start CPR now.",
       "Place the person on their back on a firm surface if it can be done safely.",
       "Push hard and fast, center of the chest, 100-120 compressions/minute, at least 2 inches deep (not more than 2.4 inches) in an average adult. Let the chest fully recoil.",
       "If trained and willing, 30 compressions to 2 breaths. If not, continue compression-only CPR.",
@@ -865,7 +865,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Unknown swallowed poison, no induced vomiting": {
     sources: ["National Capital Poison Center", "American Heart Association + American Red Cross"],
     guidance: [
-      "If the person collapses, seizes, can't be woken, or has trouble breathing, call 911 immediately and give condition-appropriate first aid.",
+      "If the person collapses, seizes, can't be woken, or has trouble breathing, get emergency help moving immediately — 911 if you have signal — and give condition-appropriate first aid without waiting on it.",
       "Remove any remaining substance from the mouth without forcing fingers into the throat.",
       "Preserve the container/label/pill bottle/plant sample or a photo. Note age, weight, substance, possible amount, time, and symptoms.",
       "Call Poison Control (1-800-222-1222) whenever there's any connection available — exact treatment depends on the substance, dose, timing, age, and symptoms.",
@@ -886,7 +886,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["CDC, \"Lifesaving Naloxone\"", "American Heart Association + American Red Cross"],
     guidance: [
       "Possible signs: can't be woken, slow/absent breathing, gasping, pinpoint pupils, blue/gray lips or nails, choking/snoring/gurgling sounds.",
-      "Call 911. If unresponsive and not breathing normally, begin high-quality CPR (trained rescuers should include breaths).",
+      "Get emergency help moving — 911 if you have signal, or send someone. If unresponsive and not breathing normally, begin high-quality CPR (trained rescuers should include breaths) without waiting for help to arrive.",
       "Give naloxone immediately if available, per the product instructions. Continue CPR.",
       "Give another naloxone dose per instructions if there's no response — more than one dose may be needed for fentanyl or other potent opioids.",
       "If normal breathing returns but they're still unresponsive, place them on their side and monitor continuously — naloxone can wear off before the opioid does. CDC advises monitoring until help arrives or for at least 4 hours.",
@@ -900,7 +900,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Protect the head with something soft, without holding it down. Stay with the person.",
       "When possible, place them on their side once shaking stops so fluids can drain.",
       "Monitor breathing afterward — begin CPR if it's absent or abnormal.",
-      "Call 911 for: a first seizure, one lasting over 5 minutes, repeated seizures without returning to normal, a seizure in water, injury/choking/breathing trouble, pregnancy, an infant under 6 months, or no return to baseline within 5-10 minutes.",
+      "Get emergency help — 911 if you have signal — for: a first seizure, one lasting over 5 minutes, repeated seizures without returning to normal, a seizure in water, injury/choking/breathing trouble, pregnancy, an infant under 6 months, or no return to baseline within 5-10 minutes.",
       "Do not restrain the person or put anything in their mouth (a person cannot swallow their tongue). Don't give food, liquid, or oral medicine until they're fully alert again.",
     ],
   },
@@ -908,7 +908,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["American Heart Association + American Red Cross, 2024 Guidelines for First Aid"],
     guidance: [
       "Possible signs: lip/facial swelling, throat-closing sensation, difficulty breathing, widespread hives, vomiting/diarrhea, dizziness, pallor, or reduced alertness after an exposure.",
-      "Call 911. If they have a prescribed epinephrine autoinjector, use it immediately in the outer thigh — assist if needed.",
+      "Call 911 if you have signal — and either way, if they have a prescribed epinephrine autoinjector, use it immediately in the outer thigh, assisting if needed. Do not wait for help to arrive before giving it.",
       "If symptoms don't improve and help is more than 5-10 minutes out, a second autoinjector dose may be used per their emergency plan.",
       "Keep monitoring. If they become unresponsive and stop breathing normally, begin CPR and use an AED.",
       "Do NOT substitute an antihistamine for epinephrine — it doesn't reverse airway swelling or shock fast enough. Don't make someone weak/faint/in shock stand or walk.",
@@ -920,7 +920,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Possible signs of low blood sugar: shakiness, sweating, hunger, dizziness, weakness, behavior change, or confusion in someone with diabetes/a history of low blood sugar.",
       "Check a glucose meter if available and it won't delay care. Give at least 20g of oral glucose — tablets/gel preferred, plain sugar is a reasonable substitute.",
-      "Recheck in 10 minutes. Call 911 if they don't improve, can't swallow, have a seizure, or lose consciousness.",
+      "Recheck in 10 minutes. Get emergency help — 911 if you have signal — if they don't improve, can't swallow, have a seizure, or lose consciousness.",
       "Once improved, give a longer-lasting snack/meal if the next meal isn't soon.",
       "Do not put food/drink/gel in the mouth of someone unresponsive or unable to swallow. Do not give insulin for suspected LOW blood sugar.",
     ],
@@ -999,7 +999,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Onset is dose-dependent: low-level exposure can take up to ~2 hours to cause symptoms; high-level exposure can do it in ~5 minutes.",
       "A structure fire involving modern furniture, carpet, or plastics can also release other toxic gases beyond CO. Soot around the nose or mouth, a dark or gritty cough, singed facial hair, or a hoarse voice after smoke exposure are all signs the exposure may be more serious than it looks — treat these as a reason to get emergency care fast, even if the person seems to be breathing okay right now, since some of this damage shows up gradually.",
       "Get the person into fresh air as soon as it's safe to do so.",
-      "If unconscious, place them on their side (recovery position) to reduce choking/aspiration risk. Begin CPR if they're not breathing. Call 911 immediately.",
+      "If unconscious, place them on their side (recovery position) to reduce choking/aspiration risk. Begin CPR if they're not breathing. Get emergency help moving at the same time — 911 if you have signal, or send someone.",
       "This is first-aid-layer only — hospital oxygen treatment (and other antidotes hospitals can give for more serious smoke-related poisoning) are clinical steps beyond what you can do in the field, but getting them to that care fast is the point.",
     ],
   },
@@ -1045,7 +1045,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
     guidance: [
       "There is no substitute for epinephrine. Antihistamines and steroids do not stop airway swelling or shock — this is damage control while getting to real treatment, not a home alternative.",
-      "Call 911 / activate every available emergency-transport route immediately.",
+      "Activate every emergency-transport route you actually have, immediately — 911 if you have signal, a radio, a neighbour with a vehicle.",
       "Positioning improves blood return to the heart: lay the person flat with legs elevated if they are dizzy, weak, pale, cold, or clammy.",
       "If breathing difficulty is the main problem, let them sit up with legs stretched out in front instead of lying flat.",
       "If vomiting, pregnant, or unconscious, use the recovery position (on their side).",
@@ -1211,7 +1211,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Check yourself and everyone else in the vehicle for injuries first.",
       "If the car can still be driven safely, move it out of the travel lane, then turn on hazard lights.",
-      "Call 911 — even for a minor crash. This gets an official police report and gets medical help moving if anyone is hurt.",
+      "Call 911 if you have signal — even for a minor crash. This gets an official police report and gets medical help moving if anyone is hurt. With no signal, exchange details and photograph everything, then file the report as soon as you can reach a station.",
       "Adrenaline can mask injury. Watch for pain, stiffness, or mental fogginess over the following hours or days.",
       "Manage the scene for other traffic and first responders until help arrives.",
     ],
@@ -1222,7 +1222,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Never stop your car to confront an aggressive driver, and never chase one.",
       "Avoid eye contact; ignore rude gestures and don't return them; don't brake-check or provoke.",
       "Put distance between your vehicle and theirs — let them pass.",
-      "If they continue following/escalating, drive to the nearest police station or a busy, well-lit public place and call 911 — do not lead them to your home.",
+      "If they continue following or escalating, drive to the nearest police station or a busy, well-lit public place — arriving there in person matters most when you have no signal — and call 911 if you can. Do not lead them to your home.",
       "If they crash further down the road from their own aggressive driving, stop at a safe distance, wait for police, and report what you saw.",
     ],
   },
@@ -1232,8 +1232,8 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Stay calm — panic leads to rushed decisions that can cause a crash. Keep a steady speed.",
       "Do NOT drive straight home or to your actual destination.",
       "Head for the nearest police/fire station, or a busy, well-lit public place.",
-      "Call 911: give your location, direction of travel, and a description of both vehicles.",
-      "If safe, note identifying details of the following vehicle for the 911 call.",
+      "Call 911 if you have signal: give your location, direction of travel, and a description of both vehicles. With no signal, drive to a police station or busy public place instead.",
+      "If safe, note identifying details of the following vehicle to report — whether that ends up being a 911 call or walking into a station.",
     ],
   },
   "Parking lot / walking to your car alone at night": {
@@ -1269,7 +1269,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Cold compress on the outside of the face/cheek, 10-15 minutes on/off.",
       "Pain control: NSAID (ibuprofen) alone or combined with acetaminophen. Never place aspirin directly against the tooth or gum.",
       "Antibiotics are not automatically needed — most tooth pain is managed with pain control and an actual dental procedure.",
-      "Escalate to 911/ER (not just \"see a dentist soon\") for trouble breathing/swallowing, or facial swelling with fever.",
+      "Escalate to emergency care (not just \"see a dentist soon\") for trouble breathing/swallowing, or facial swelling with fever — 911 if you have signal, otherwise get to an ER or clinic however you can.",
       "See a dentist as soon as reachable even if pain is currently mild.",
       "Signs of a tooth abscess specifically, not just general tooth pain: throbbing pain that radiates toward the ear, swelling along the jawline or cheek, a small pimple-like bump on the gum, and pain when you tap the tooth. This needs a dentist — an abscess doesn't resolve on its own.",
       "Warm salt water can help in the meantime: 1/2 teaspoon of salt in 8 ounces of warm water, swished for about 2 minutes every couple of hours. It won't cure the infection, but it draws down some swelling and reduces bacteria in the area.",
@@ -1298,7 +1298,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
   "Non-opioid medication overdose": {
     sources: ["National Poison Control Center (1-800-222-1222)", "Acetaminophen toxicity consensus literature"],
     guidance: [
-      "Call Poison Control (1-800-222-1222), or 911 if unconscious/not breathing normally.",
+      "Call Poison Control (1-800-222-1222) if you have signal, or 911 if unconscious/not breathing normally. With no phone service, treat what you can see in front of you and get them to care however you can.",
       "Do this immediately for any known or suspected overdose — do NOT wait for symptoms.",
       "Have ready: what was taken, how much, when, the person's age/weight/health conditions.",
       "Watch for: nausea, vomiting, right-upper-quadrant abdominal pain, later confusion.",
@@ -1542,7 +1542,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["American Red Cross, \"Life-Threatening External Bleeding\"", "Stop the Bleed / U.S. Department of Defense"],
     guidance: [
       "A tourniquet only works on an arm or leg. For life-threatening bleeding at the groin, shoulder, neck, scalp, or back — where a tourniquet can't be applied — wound packing is the trained technique used instead.",
-      "Call or have someone call 911 immediately; wound packing does not replace emergency transport.",
+      "Get emergency transport moving immediately — 911 if you have signal, or send someone. Wound packing does not replace transport; it buys time to reach it.",
       "This is a trained skill, not something to improvise for the first time in an emergency — strongly consider a formal Stop the Bleed or Red Cross course before you need it.",
       "Never place a tourniquet on the neck, chest, abdomen, or groin — those injuries need direct pressure and packing, not a tourniquet.",
       "Keep monitoring breathing and responsiveness, and treat for shock (keep them warm, avoid unnecessary movement) while waiting for help.",
@@ -1587,7 +1587,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Pursed-lip breathing (COPD or panic): if an inhaler is empty or unavailable, have them inhale slowly through the nose for 2 seconds, purse their lips like blowing out a candle, and exhale slowly for 4 seconds. This keeps the airway open longer and slows hyperventilation.",
       "Clear the immediate air: move away from smoke, dust, cold drafts, engine exhaust, or strong chemical odors that trigger airway spasms. Loosen tight clothing around the neck and chest.",
       "Watch for respiratory failure: if the person cannot speak more than one word at a time, their lips or fingertips turn gray or blue, or their chest pulls in hard between the ribs with each breath, the airway is failing. If they collapse and stop breathing, begin CPR.",
-      "A \"silent chest\" is a red flag, not a good sign: if wheezing suddenly stops but the person is still struggling to breathe, that usually means the airways have closed down so much that air barely moves at all anymore — it's not improvement. Treat this as an immediate 911 emergency.",
+      "A \"silent chest\" is a red flag, not a good sign: if wheezing suddenly stops but the person is still struggling to breathe, that usually means the airways have closed down so much that air barely moves at all anymore — it's not improvement. Treat this as an immediate emergency: get them to help by any route you have, and do not wait to see whether it improves.",
       "If they carry an epinephrine auto-injector and their rescue inhaler isn't helping: epinephrine can also help open the airways in a severe asthma attack, not just allergic reactions. Use it the same way you would for anaphylaxis.",
       "With absolutely nothing else on hand: hot black coffee or breathing warm steam can sometimes take the edge off temporarily, since caffeine is chemically related to a mild asthma medication — this is a weak, last-resort measure, not a substitute for real treatment.",
     ],
@@ -1597,7 +1597,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Check the airway and breathing: make sure their chest is rising and falling normally. If breathing stops or turns into gasping, start CPR immediately.",
       "Roll into the recovery position: if there is no suspected neck or back injury, roll them gently onto their side. Bend their top knee to keep them stable and tilt their chin up slightly to keep the airway open and prevent choking if they vomit.",
-      "Call 911 immediately: state that the person is unresponsive but currently breathing. Stay beside them and watch their breathing constantly until paramedics arrive.",
+      "Get emergency help moving immediately — 911 if you have signal: state that the person is unresponsive but currently breathing. Either way, stay beside them and watch their breathing constantly.",
       "Do not give anything by mouth: never give water, food, or pills to someone who is unconscious.",
     ],
   },
@@ -1618,7 +1618,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Heat exhaustion (warning stage): heavy sweating, cold/pale/clammy skin, a fast weak pulse, nausea, muscle cramps, dizziness. Move to air conditioning or shade, loosen clothing, sip cool water, and apply wet cloths.",
       "Heat stroke (life-threatening emergency): body temperature 103°F or higher, hot/red/dry-or-damp skin, a rapid strong pulse, confusion, dizziness, fainting, or slurred speech.",
-      "Act immediately for heat stroke: call 911. Cool the person right now by any means available — immerse them in cold water or an ice bath up to the neck, spray them with cool water and fan aggressively, or place ice packs at the neck, armpits, and groin.",
+      "Act immediately for heat stroke: send for help — 911 if you have signal — and start cooling right now without waiting on it. Cool the person by any means available — immerse them in cold water or an ice bath up to the neck, spray them with cool water and fan aggressively, or place ice packs at the neck, armpits, and groin.",
       "Do not force fluids: if they are confused, vomiting, or passing out, do not try to make them drink.",
     ],
   },
@@ -1626,7 +1626,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     sources: ["American College of Obstetricians and Gynecologists (ACOG)","American Red Cross Wilderness and Remote First Aid"],
     guidance: [
       "Signs delivery is happening now: contractions 1 to 2 minutes apart, a strong urge to push or bear down, a sensation like a bowel movement, or the baby's head is visible (crowning).",
-      "Call 911 immediately: put the phone on speaker. Wash your hands and gather clean towels, blankets, and a clean bulb syringe or cloth.",
+      "Call 911 immediately if you have signal and put the phone on speaker — a dispatcher can talk you through it. Either way, wash your hands and gather clean towels, blankets, and a clean bulb syringe or cloth.",
       "Support the delivery: support the baby's head as it emerges with gentle hands; do not pull the baby out or push on the mother's stomach. If the cord is wrapped around the neck, slip it gently over the head. If it's wrapped tightly enough that you can't slip it free and the shoulders are about to deliver, that's one of the rare situations where the cord may need to be tied off in two spots and cut between the ties before continuing — this is why staying on the phone with dispatch matters, so someone can walk you through it in the moment.",
       "Care for the newborn: dry the baby thoroughly right away with a warm, clean towel. Clear fluid from the mouth and nose with a cloth. Place the baby directly skin-to-skin on the mother's chest and cover both with dry blankets.",
       "Leave the umbilical cord alone otherwise: do not cut the cord unless it's the tight-nuchal-cord situation above or emergency dispatch explicitly directs you to. Let the placenta deliver naturally, usually within 10-30 minutes — do not pull on the cord to speed it up, which risks severe internal injury to the mother.",
@@ -1650,7 +1650,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Leave immediately: don't stop to gather belongings, money, or pets if doing so causes delay. Sound the alarm to alert others.",
       "Stay low: smoke and toxic gases rise, so cleaner, cooler air is near the floor. Crawl on hands and knees under the smoke.",
       "Feel doors before opening: use the back of your hand to feel the door, doorknob, and frame. If it feels warm or hot, don't open it — use a window or a second escape route instead.",
-      "If trapped in a room: close all doors between you and the fire. Seal cracks around doors with towels or bedding (wet if possible). Open a window slightly and wave a bright cloth or flashlight to signal rescuers. Call 911 and tell them your exact room.",
+      "If trapped in a room: close all doors between you and the fire. Seal cracks around doors with towels or bedding (wet if possible). Open a window slightly and wave a bright cloth or flashlight to signal rescuers. Call 911 if you have signal and tell them your exact room — the cloth at the window is what matters most if you cannot.",
       "Never go back in: once you're outside at your meeting spot, never re-enter for any reason. Tell arriving firefighters if anyone is missing.",
     ],
   },
@@ -2984,7 +2984,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "If you smell rotten eggs or sulfur, or hear hissing near a gas appliance, meter, or line, get everyone — people and pets — outside immediately and move well away from the building.",
       "Don't touch anything electrical on your way out — no light switches, no phones, no garage door openers, nothing that could spark. Don't light a match or lighter either. Even a tiny spark can ignite a gas leak.",
-      "Once you're safely outside and away from the building, call your gas company or 911 — don't go back inside for any reason, including to shut off the gas yourself.",
+      "Once you're safely outside and away from the building, call your gas company or 911 if you have signal. If you cannot reach anyone, warn the neighbours and keep everyone well back. Don't go back inside for any reason, including to shut off the gas yourself.",
       "If your outside gas meter has an easy-to-reach shutoff and you feel safe doing it from outside: look for the rectangular tab on the pipe leading into the meter, and turn it a quarter-turn with a wrench until the tab is crosswise to the pipe — that shuts the gas off.",
       "Once gas has been shut off, never turn it back on yourself. A professional needs to check the lines for leaks and safely relight pilot lights first.",
     ],
