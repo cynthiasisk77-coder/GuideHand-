@@ -198,6 +198,27 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>SAVE FOR OFFLINE</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/content-packs" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                    <Icon name="download" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Content Packs</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Download extra reference now, so it&apos;s there when the signal isn&apos;t</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>YOUR SUPPLIES</Text>
                 <Pressable
                   accessibilityRole="button"

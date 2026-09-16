@@ -1,0 +1,57 @@
+{
+  "catalogVersion": 1,
+  "packs": [
+    {
+      "id": "field-medicine",
+      "name": "Field Medicine Reference",
+      "summary": "Deeper medical reference than the app carries on its own — conditions, symptoms, and what to do when professional care isn't reachable.",
+      "version": 1,
+      "bytes": 0,
+      "articleCount": 0,
+      "license": "Public domain — MedlinePlus, U.S. National Library of Medicine",
+      "attribution": "MedlinePlus, U.S. National Library of Medicine",
+      "icon": "medical",
+      "url": "https://cynthiasisk77-coder.github.io/GuideHand-/packs/field-medicine.json",
+      "published": false
+    },
+    {
+      "id": "disaster-response",
+      "name": "Disaster Response",
+      "summary": "Official guidance for hurricanes, floods, wildfire, earthquakes, and chemical and radiological incidents.",
+      "version": 1,
+      "bytes": 0,
+      "articleCount": 0,
+      "license": "Public domain — FEMA, Ready.gov, and the CDC",
+      "attribution": "FEMA, Ready.gov, and the U.S. Centers for Disease Control and Prevention",
+      "icon": "storm",
+      "url": "https://cynthiasisk77-coder.github.io/GuideHand-/packs/disaster-response.json",
+      "published": false
+    },
+    {
+      "id": "survival-manuals",
+      "name": "Wilderness & Survival Manuals",
+      "summary": "Shelter, fire, water, navigation, and signalling, drawn from the military field manuals these skills were written down in.",
+      "version": 1,
+      "bytes": 0,
+      "articleCount": 0,
+      "license": "Public domain — U.S. Army field manuals",
+      "attribution": "U.S. Army field manuals",
+      "icon": "compass",
+      "url": "https://cynthiasisk77-coder.github.io/GuideHand-/packs/survival-manuals.json",
+      "published": false
+    },
+    {
+      "id": "plants-and-wildlife",
+      "name": "Plants & Wildlife Reference",
+      "summary": "Identification reference for edible and poisonous plants, venomous animals, and dangerous look-alikes.",
+      "version": 1,
+      "bytes": 0,
+      "articleCount": 0,
+      "license": "CC BY-SA 4.0 — Wikipedia",
+      "attribution": "Wikipedia contributors, CC BY-SA 4.0",
+      "icon": "leaf",
+      "url": "https://cynthiasisk77-coder.github.io/GuideHand-/packs/plants-and-wildlife.json",
+      "published": false
+    }
+  ]
+}

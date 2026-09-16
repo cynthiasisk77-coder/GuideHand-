@@ -8,10 +8,23 @@ import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { Calm, Fonts } from '@/constants/calm';
+import { loadInstalledPacksIntoRegistry } from '@/lib/packs';
 
 SplashScreen.preventAutoHideAsync();
 
+// Read any downloaded packs off local storage once, at startup. Content lookups
+// across the app are synchronous, so packs have to be in memory before screens
+// ask for them. A failure here is not fatal: the app's own articles are compiled
+// in and do not depend on this call succeeding.
+let packsRequested = false;
+function loadPacksOnce() {
+  if (packsRequested) return;
+  packsRequested = true;
+  loadInstalledPacksIntoRegistry().catch(() => {});
+}
+
 export default function RootLayout() {
+  loadPacksOnce();
   const colorScheme = useColorScheme();
   const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
   const [fontsLoaded] = useFonts({
@@ -47,6 +60,7 @@ export default function RootLayout() {
         <Stack.Screen name="document-photos" options={{ title: 'Document Photos' }} />
         <Stack.Screen name="family-meetup" options={{ title: 'Family Meetup' }} />
         <Stack.Screen name="meetup-scan" options={{ title: 'Scan a Code' }} />
+        <Stack.Screen name="content-packs" options={{ title: 'Content Packs' }} />
       </Stack>
     </ThemeProvider>
   );
