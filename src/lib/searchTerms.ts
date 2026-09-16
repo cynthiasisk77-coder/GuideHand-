@@ -124,6 +124,14 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
   { match: /\bno power\b|\bpower (is )?out\b|\bblackout\b|\boutage\b/, terms: ["power", "outage", "electricity", "generator"] },
   { match: /\bno heat\b|\bfurnace (is )?out\b|\bhow to stay warm\b/, terms: ["heat", "warmth", "shelter", "heating"] },
 
+  // --- stock on hand: how much is there, and is it still good ---
+  { match: /\b(past|after|beyond|expired?|out of) ?(the |its )?(date|expiry|expiration)\b|\bbest ?by\b|\buse ?by\b|\bstill (good|safe|ok|okay|edible)\b|\bgone off\b/, terms: ["expiring", "expiration", "dates", "alerts", "rotate", "quality", "safety", "spoilage"] },
+  { match: /\b(how (much|many|long))\b.*\b(water|food|left|last|remain|supplies|stock)\b|\brunning out\b|\bhow long (will|can) (it|we|this|they)\b|\bdays of (water|food)\b|\benough (water|food)\b/, terms: ["calculated", "days", "remaining", "inventory", "supply", "ration"] },
+  { match: /\bpower bank\b|\bbattery bank\b|\bhow many charges\b|\bmah\b|\bcharge my phone\b|\bbatteries last\b/, terms: ["power", "inventory", "battery", "banks", "solar", "fuel", "charge"] },
+  { match: /\b(dog|cat|pet|puppy|kitten|animal)s?\b.*\b(food|water|supplies|need|kit|evacuat)|\bfor my (dog|cat|pet)\b/, terms: ["pet", "supply", "inventory", "animals"] },
+  { match: /\btoilet paper\b|\bdiaper|\bperiod\b|\bmenstrual\b|\btampon|\bsanitary\b|\bhygiene\b|\bwash(ing)? hands\b/, terms: ["hygiene", "supply", "inventory", "sanitation", "soap"] },
+  { match: /\b(count|inventor|stocktake|how much do i have|what do i have)\w*\b/, terms: ["inventory", "supply", "count", "quantity"] },
+
   // --- hazards ---
   { match: /\bsmell(s)? gas\b|\bgas leak\b|\bcarbon monoxide\b|\bco detector\b/, terms: ["gas", "leak", "carbon", "monoxide", "evacuate"] },
   { match: /\bfire\b|\bsmoke\b|\bhouse is burning\b/, terms: ["fire", "smoke", "evacuation", "extinguisher"] },
@@ -171,7 +179,14 @@ export const TOOL_TARGETS: ToolTarget[] = [
     sub: "Check off what you have, add what's missing",
     pathname: "/supply-cache",
     icon: "checklist",
-    keywords: ["supply", "supplies", "stockpile", "stock", "checklist", "cache", "store", "storage", "inventory", "prepare", "kit"],
+    keywords: ["supply", "supplies", "stockpile", "stock", "checklist", "cache", "store", "storage", "prepare", "kit"],
+  },
+  {
+    label: "Supply Inventory",
+    sub: "How many days of water and food you actually have",
+    pathname: "/inventory",
+    icon: "checklist",
+    keywords: ["inventory", "count", "quantity", "how", "many", "days", "left", "remaining", "last", "ration", "calories", "gallons", "expire", "expiring", "expiration", "date", "stale", "rotate", "batteries", "fuel", "enough"],
   },
   {
     label: "Content Packs",

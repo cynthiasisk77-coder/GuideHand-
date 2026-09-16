@@ -329,6 +329,23 @@ export default function HomeScreen() {
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/inventory' })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.sageSoft }]}>
+                    <Icon name="checklist" color={c.sage} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Supply Inventory</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Put numbers to it: how many days of water and food you actually have, and what expires next</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => router.push({ pathname: '/medicine-tracker' })}
                   style={({ pressed }) => [
                     styles.row,

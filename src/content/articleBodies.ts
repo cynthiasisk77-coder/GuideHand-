@@ -1937,6 +1937,85 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Set a relocation threshold in advance: don't wait until the last battery dies to act. Once remaining backup power drops below 25% or 2 to 3 hours of runtime, evacuate immediately to a predetermined shelter, fire station, or hospital with emergency generator power.",
     ],
   },
+  "Food inventory (item/qty/calories/expiration/location)": {
+    sources: ["USDA FoodData Central","USDA FSIS, Food Product Dating","FEMA/Ready.gov, Food"],
+    guidance: [
+      "Count calories, not cans. Planning by \"how many cans\" hides the answer you need. Work out people multiplied by days multiplied by calories per person, and you have a target you can measure against.",
+      "Record five things for every item: what it is, how many, calories in one unit, the date on the label, and where it is. Location matters more than people expect \u2014 food in a basement that floods or an attic that bakes is not food you have.",
+      "Rough figures to plan against before you read your own labels: a 15 oz can of beans is around 350 calories, canned chili or stew around 500, a 5 oz can of tuna around 150, a 16 oz jar of peanut butter around 2,650, a pound of dry rice around 1,650, a pound of dry beans around 1,550, a quart of cooking oil around 7,700. Brands differ \u2014 correct these from the label on the thing in your own cupboard.",
+      "Fat is the cheapest calorie by weight and by shelf space. Oil, peanut butter, nuts and shortening carry more than twice the calories per pound that rice or beans do. A cache built only from grain is heavier and bulkier than it needs to be.",
+      "Weight the count toward food that needs no cooking. Fuel is often the thing that runs out first, and dry beans that need two hours of boiling are calories on paper until you have the fuel and the water to cook them.",
+      "Rotate by eating it. Stock that is never touched quietly ages out. Put new purchases behind the old ones and cook from the front.",
+    ],
+  },
+  "Power inventory (batteries/banks/solar/fuel)": {
+    sources: ["FEMA/Ready.gov, Emergency Supply List","NFPA 30, Flammable and Combustible Liquids Code","U.S. Consumer Product Safety Commission"],
+    guidance: [
+      "Count by device, not by battery. Walk the flashlights, the radio, the smoke alarms, the hearing aids, the glucose meter, and write down what each one takes and how many spares you hold for it. A drawer full of AAs is not a plan if the radio takes D cells.",
+      "A power bank delivers less than its label. The cells inside sit near 3.7 volts and USB needs 5, and that conversion costs something \u2014 expect roughly 60 to 70 percent of the printed rating to actually reach the phone. A 20,000 mAh bank is realistically about three and a half charges of a 3,500 mAh phone, not six.",
+      "Lithium cells lose capacity when stored full or stored flat. Top banks up every three to six months and keep them around half charged somewhere cool. A bank last charged two years ago may hold far less than you are counting on.",
+      "Alkaline AA and AAA cells keep roughly 5 to 10 years cool and dry; lithium primary cells keep longer and work far better in the cold. Never store loose cells where their terminals can bridge against coins or each other.",
+      "Gasoline is the perishable fuel. Untreated it begins degrading within 3 to 6 months; stabilised it may hold a year or more. Propane in a sound cylinder does not go off the same way, and kerosene keeps well if sealed and clean.",
+      "Store fuel outside living space, in approved containers, away from anything with a pilot light or a spark. Household quantity limits exist for a reason \u2014 a commonly cited figure is 25 gallons total of Class I and II liquids in containers of 5 gallons or less. Your local fire code is the one that actually binds, so check it.",
+      "A solar panel's rating is a laboratory number. Sixty watts means sixty watts in full perpendicular sun on a clear day. Through cloud, at a slant, or in winter you will see a fraction of it \u2014 plan on well under half unless you can aim it and keep aiming it.",
+    ],
+  },
+  "Tools and repair-supply inventory": {
+    sources: ["FEMA/Ready.gov","OSHA hand and power tool guidance"],
+    guidance: [
+      "Inventory the consumables separately from the tools. A hammer you own once; nails, tape, screws, blades, fuel and glue run out. Only the things that run out need a number beside them.",
+      "Count tape and sheeting by the roll and take it seriously. Duct tape and plastic sheeting are what turn a broken window or a torn roof into a dry room, and both get used far faster than anyone estimates.",
+      "Hold fasteners in the sizes your own house uses. A box of drywall screws will not board a window \u2014 exterior screws and framing nails will.",
+      "Every cordless tool is also a power problem. Record its battery in the power inventory too, and keep at least one hand equivalent \u2014 a hand saw, a brace and bit, a hand drill \u2014 for when there is nothing left to charge from.",
+      "Adhesives and lubricants have dates. Epoxy, construction adhesive and silicone cure inside the tube; penetrating oil and two-stroke mix do not last indefinitely either. Write the purchase date on them.",
+      "A tool you cannot find is a tool you do not have. Record where each cache actually is, especially anything kept outside the house.",
+    ],
+  },
+  "Pet-supply inventory": {
+    sources: ["FEMA/Ready.gov, Pets and Animals","American Veterinary Medical Association"],
+    guidance: [
+      "Plan for every animal the way you plan for a person: several days of food and water at minimum, two weeks where you have the room.",
+      "Water for animals is additional, not shared out of yours. A medium dog can drink half a gallon to a gallon a day in heat; cats far less. Add it to the household total rather than assuming it is covered.",
+      "Keep a two-week reserve of any prescription your animal takes, plus flea and tick treatment. Veterinary supply chains break in the same disruptions human ones do.",
+      "Rotate pet food harder than you rotate your own. The fat in dry kibble goes rancid \u2014 typically within months of opening, and inside about a year even sealed. Write the date on the bag when it comes in.",
+      "Inventory containment and waste, not only food: carrier, leash, harness, litter and scoop, bags, and something absorbent. An animal you cannot contain is an animal you cannot evacuate with.",
+      "Keep a current photo of you together with each animal, and proof of vaccination, alongside your documents. Shelters ask for the vaccination record, and the photo together is what settles a question of whose animal it is.",
+    ],
+  },
+  "Hygiene-supply inventory": {
+    sources: ["CDC, Hygiene and Handwashing","FEMA/Ready.gov","Sphere Handbook, Water Supply, Sanitation and Hygiene Promotion"],
+    guidance: [
+      "This is the category people skip and then miss inside two days. Count it as seriously as food.",
+      "Plan toilet paper per person, not per household. Roughly a roll per person per week is a workable figure \u2014 so two weeks for four people is around eight rolls before anyone has to improvise.",
+      "Handwashing is the highest-value item here by a distance. Diarrhoeal illness spreads quickly once sanitation breaks down, and soap and water beat sanitiser on hands that are visibly dirty. Stock plain soap generously and treat sanitiser as the backup.",
+      "Count menstrual supplies by cycle rather than by guess \u2014 two weeks of disruption can span a period for anyone in the household. A cup or cloth pads remove the supply question from the calculation entirely.",
+      "Diapers outrun every other estimate. A newborn goes through 8 to 12 a day and a toddler 4 to 6, so two weeks is a large box. Check that the size you are holding still fits the child.",
+      "Heavy contractor bags plus a dry cover material \u2014 sawdust, wood ash, cat litter, dry soil \u2014 are what make a bucket toilet survivable. Inventory both. A bucket with no cover material becomes a health problem, not just a smell.",
+      "Keep the bleach you clean with as a separate line from the bleach you keep for treating water, and date both. Bleach loses strength within about 6 to 12 months, faster in heat.",
+    ],
+  },
+  "Calculated days-of-water/food remaining": {
+    sources: ["FEMA/Ready.gov, Water","USDA FoodData Central","U.S. Food and Drug Administration"],
+    guidance: [
+      "The arithmetic, stated plainly: gallons divided by (people times one gallon a day) gives days of water. Total calories divided by (people times calories per person per day) gives days of food. Everything else is bookkeeping.",
+      "One gallon per person per day is Ready.gov's planning figure, and it covers drinking plus minimal sanitation \u2014 not bathing, not laundry, not flushing. In real heat, or for anyone sick, nursing or working hard, it is on the low side.",
+      "The calorie side is where the estimate drifts most. Two thousand a day per adult is the ordinary reference figure and holds up for sitting still in a lit house. Hauling water, clearing debris or staying warm without heat can push the real requirement past three thousand. Running the number both ways tells you the range you are genuinely in.",
+      "Children eat less than adults but not proportionally less, and infants are a separate calculation altogether \u2014 formula, measured in tins and feeds, not in calories off a household average.",
+      "Count only what you can actually open, cook and eat. Fuel, water for cooking, and a working can opener are all part of whether a calorie on the shelf is a calorie you can reach.",
+      "Treat the number as a ceiling, not a promise. It assumes nothing spoils, nothing is shared with a neighbour, nothing is dropped or spilled, and everyone eats exactly to plan. The first of those to fail will not announce itself.",
+    ],
+  },
+  "Expiring-soon and missing-supplies alerts": {
+    sources: ["USDA FSIS, Food Product Dating","U.S. Food and Drug Administration, Infant Formula","FEMA/Ready.gov"],
+    guidance: [
+      "On almost all shelf-stable food in the United States, a printed date is about quality, not safety. Federal regulations do not generally require dating, and \"best by\" is the manufacturer's estimate of peak quality \u2014 not the moment the food turns dangerous.",
+      "Infant formula is the exception, and it is an important one. Its \"use by\" date is federally regulated, and formula past that date may no longer carry the nutrients an infant needs. Do not use it past the date and do not build a plan that assumes you can.",
+      "Condition tells you what a date cannot. Discard any can that bulges, leaks, spurts when opened, is rusted through, or is dented along a seam or the rim. Those are seal failures, and a seal failure carries a botulism risk no matter what the date says.",
+      "Water you bottled yourself is the thing genuinely worth rotating on a schedule \u2014 roughly every six months. Commercially sealed bottled water keeps far longer, and the date on it is a quality date again.",
+      "Rotate rather than discard. Move the oldest to the front, eat it, and put the replacement in behind. A cache that is only ever added to eventually becomes a cache of things nobody wants to eat.",
+      "A gap is as urgent as an expiry, and easier to fix. A row sitting at zero \u2014 no can opener, no batteries in that size, no water set aside for the dog \u2014 fails just as completely as something rotten, and it can be solved today rather than during the event.",
+    ],
+  },
   "Water inventory and treatment supplies": {
     sources: ["CDC","FEMA, Food and Water in an Emergency"],
     guidance: [

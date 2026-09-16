@@ -4,6 +4,10 @@
 // encrypted and backed up together, and it keeps that list from drifting out of
 // sync with the screens as the app grows.
 
+import { HOUSEHOLD_KEY, INVENTORY_KEY } from '@/lib/inventory';
+
+export { HOUSEHOLD_KEY, INVENTORY_KEY };
+
 export const DOCUMENT_PHOTOS_KEY = 'guidehand.document-photos.v1';
 export const MEDICINE_KEY = 'guidehand.medicine-tracker.v1';
 export const MEETUP_POINTS_KEY = 'guidehand.family-meetup.v1';
@@ -13,8 +17,10 @@ export const SUPPLY_CACHE_KEY = 'guidehand.supply-cache.v1';
 /**
  * Keys holding something a person would not want read off a stolen phone.
  *
- * The supply cache is deliberately absent: it is a shopping list of tinned food
- * and batteries, and encrypting it would cost battery to protect nothing.
+ * The supply cache and the inventory are deliberately absent: they are tinned
+ * food and batteries, and encrypting them would cost battery to protect
+ * nothing. Prescriptions never go in either — they live in the medicine
+ * tracker, which is on this list.
  */
 export const ENCRYPTED_KEYS: string[] = [
   DOCUMENT_PHOTOS_KEY,
@@ -38,4 +44,6 @@ export const BACKUP_SECTIONS: BackupSection[] = [
   { key: MEETUP_POINTS_KEY, label: 'Meeting places', sensitive: false },
   { key: MEETUP_ACTIVE_KEY, label: 'Active meeting place', sensitive: false },
   { key: SUPPLY_CACHE_KEY, label: 'Supply cache', sensitive: false },
+  { key: INVENTORY_KEY, label: 'Supply inventory', sensitive: false },
+  { key: HOUSEHOLD_KEY, label: 'Household size', sensitive: false },
 ];
