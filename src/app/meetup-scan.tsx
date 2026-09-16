@@ -95,10 +95,10 @@ export default function MeetupScanScreen() {
       <Stack.Screen options={{ title: 'Scan a Code' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Family Meetup</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>Scan a meeting place</Text>
-            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family Meetup</Text>
+            <Text style={[styles.title, { color: c.text }]}>Scan a meeting place</Text>
+            <Text style={[styles.subhead, { color: c.textSecondary }]}>
               Hold this phone up to the code on someone else&apos;s screen. Nothing is sent over a network — the
               coordinates travel in the pattern itself, so this works with both phones in airplane mode.
             </Text>

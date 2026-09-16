@@ -83,10 +83,10 @@ export default function MedicineTrackerScreen() {
       <Stack.Screen options={{ title: 'Medicine Tracker' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Your Supplies</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>Medicine & Prescriptions</Text>
-            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage }]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Your Supplies</Text>
+            <Text style={[styles.title, { color: c.text }]}>Medicine & Prescriptions</Text>
+            <Text style={[styles.subhead, { color: c.textSecondary }]}>
               {entries.length > 0
                 ? `${stockedCount} of ${entries.length} stocked`
                 : 'Add your prescriptions and OTC essentials below'}

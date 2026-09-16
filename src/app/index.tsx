@@ -37,13 +37,13 @@ export default function HomeScreen() {
 
       <View style={styles.pinnedTop}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <View style={styles.headerWatermark} pointerEvents="none">
-              <Icon name="compass" size={132} color={c.onBlueSoft} strokeWidth={1.4} />
+              <Icon name="compass" size={132} color={c.blue} strokeWidth={1.4} />
             </View>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
-            <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Field Guide</Text>
+            <Text style={[styles.title, { color: c.text }]}>GuideHand</Text>
+            <Text style={[styles.subtitle, { color: c.textSecondary }]}>Emergency Preparedness Guide</Text>
             <View style={[styles.search, { backgroundColor: c.card }]}>
               <Icon name="search" size={16} color={c.blue} />
               <TextInput
@@ -381,7 +381,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -34,
     right: -28,
-    opacity: 0.22,
+    opacity: 0.1,
     transform: [{ rotate: '8deg' }],
   },
   eyebrow: {

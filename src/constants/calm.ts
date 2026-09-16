@@ -1,11 +1,13 @@
-// "Field Notes" design tokens: warm paper, deep-blue header blocks, sage/plum
-// category accents, red reserved only for genuinely life-threatening signals
-// (the What To Do In An Emergency row and P0 priority) — never used decoratively.
+// Design tokens. Surfaces are white and the colour lives at the edges: a card
+// is defined by its border, not by a fill, and each screen carries its identity
+// in a coloured edge rather than a block of solid colour. Red stays reserved for
+// genuinely life-threatening signals — the What To Do In An Emergency row and P0
+// priority — and is never used decoratively.
 export const Calm = {
   light: {
-    bg: "#F2ECDF",
-    card: "#FBF8F1",
-    cardBorder: "#E3D9C3",
+    bg: "#FFFFFF",
+    card: "#FFFFFF",
+    cardBorder: "#DFDCD5",
     text: "#221D17",
     textSecondary: "#7C7263",
     blue: "#3D5D77",
@@ -26,9 +28,9 @@ export const Calm = {
     priorityGoodToKnow: "#C9A54A",
   },
   dark: {
-    bg: "#17140F",
-    card: "#211C15",
-    cardBorder: "#3A3226",
+    bg: "#0F0F11",
+    card: "#17171A",
+    cardBorder: "#31313A",
     text: "#F0E8D9",
     textSecondary: "#AA9E8B",
     blue: "#8FB0C4",

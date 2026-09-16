@@ -218,10 +218,10 @@ export default function FamilyMeetupScreen() {
       <Stack.Screen options={{ title: 'Family Meetup' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Family</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>Family Meetup Point</Text>
-            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family</Text>
+            <Text style={[styles.title, { color: c.text }]}>Family Meetup Point</Text>
+            <Text style={[styles.subhead, { color: c.textSecondary }]}>
               Save where your family agreed to meet. Your phone&apos;s GPS chip talks to satellites, not to a cell
               tower — so this keeps telling you how far away you are with no signal, no Wi-Fi, and no data.
             </Text>

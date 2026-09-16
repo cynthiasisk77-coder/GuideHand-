@@ -189,10 +189,10 @@ export default function DocumentPhotosScreen() {
       <Stack.Screen options={{ title: 'Document Photos' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Your Supplies</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>Document Photos</Text>
-            <Text style={[styles.subhead, { color: c.onBlueSoft }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage }]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Your Supplies</Text>
+            <Text style={[styles.title, { color: c.text }]}>Document Photos</Text>
+            <Text style={[styles.subhead, { color: c.textSecondary }]}>
               {entries.length > 0 ? `${entries.length} saved` : 'Photograph IDs, insurance, deeds — for quick offline access'}
             </Text>
           </View>

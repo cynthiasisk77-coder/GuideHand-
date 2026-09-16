@@ -61,16 +61,16 @@ export default function ArticleScreen() {
       <Stack.Screen options={{ title: categoryData?.name ?? 'Article' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
-            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Article</Text>
-            <Text style={[styles.title, { color: c.onBlue }]}>{topicData.title}</Text>
+          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Article</Text>
+            <Text style={[styles.title, { color: c.text }]}>{topicData.title}</Text>
             <View style={styles.metaRow}>
               <View style={[styles.pill, { backgroundColor: pillColor }]}>
                 <Text style={[styles.pillText, { color: priorityTextColor(topicData.priority, c.text) }]}>
                   {PRIORITY_HUMAN[topicData.priority]}
                 </Text>
               </View>
-              <Text style={[styles.metaText, { color: c.onBlueSoft }]}>{STATUS_LABEL[topicData.status]}</Text>
+              <Text style={[styles.metaText, { color: c.textSecondary }]}>{STATUS_LABEL[topicData.status]}</Text>
             </View>
           </View>
 
