@@ -16,12 +16,6 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     icon: "medical",
   },
   {
-    name: "Family",
-    sub: "Special needs, caregiving, family plans",
-    categories: ["Family & Special Needs"],
-    icon: "family",
-  },
-  {
     name: "Weather & Disasters",
     sub: "Storms, floods, fire, earthquakes",
     categories: ["Disasters", "Security & Safety"],

@@ -108,6 +108,27 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/category/[category]', params: { category: 'family-and-special-needs' } })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.plumSoft }]}>
+                    <Icon name="family" color={c.plum} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Family & Special Needs</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Special needs, caregiving, family plans</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
                 {CATEGORY_GROUPS.map((group, i) => {
                   const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
