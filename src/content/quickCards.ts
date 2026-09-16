@@ -19,7 +19,7 @@ export const QUICK_CARDS: Record<string, QuickCard> = {
   "Thermal burns": {
     subtitle: "For burns from flame, steam, hot liquid, grease, or a hot surface",
     callNow:
-      "Get urgent care for a full-thickness burn, a burn bigger than the person's palm, a burn on the face, hands, feet, or genitals, an electrical or chemical burn, or any sign of smoke inhalation.",
+      "A full-thickness burn, a burn bigger than the person's palm, a burn on the face, hands, feet, or genitals, an electrical or chemical burn, or any sign of smoke inhalation needs real medical care — get there, or get help moving toward you, any way you actually have.",
     steps: [
       {
         headline: "Stop the burning",
@@ -47,7 +47,8 @@ export const QUICK_CARDS: Record<string, QuickCard> = {
 
   "Adult CPR/AED": {
     subtitle: "For a teen or adult who is unresponsive and not breathing normally",
-    callNow: "Shout for help, send someone for an AED and to call 911. If alone with a phone, call first, put it on speaker, then start CPR.",
+    callNow:
+      "Shout for help and send someone for an AED. Try every way you actually have to reach real help — call 911 if you have signal, radio it in, send someone running — but don't wait on that to start CPR.",
     steps: [
       {
         headline: "Check",
@@ -75,7 +76,7 @@ export const QUICK_CARDS: Record<string, QuickCard> = {
   "Fractures, splints, circulation checks": {
     subtitle: "Treat a badly injured or deformed limb as a fracture",
     callNow:
-      "Get emergency care for an open fracture (bone visible through the skin), a limb that turns pale, blue, or cold, or any injury with heavy bleeding.",
+      "An open fracture (bone visible through the skin), a limb that turns pale, blue, or cold, or any injury with heavy bleeding needs real medical care fast — get there, or get help moving toward you, any way you actually have.",
     steps: [
       {
         headline: "Don't move it",
@@ -104,7 +105,7 @@ export const QUICK_CARDS: Record<string, QuickCard> = {
   "Severe bleeding and tourniquet": {
     subtitle: "For life-threatening bleeding from an arm or leg wound",
     callNow:
-      "Pooling or spurting blood, bleeding that continues despite pressure, or bleeding with drowsiness, dizziness, chest pain, or loss of consciousness is life-threatening — call 911 now.",
+      "Pooling or spurting blood, bleeding that continues despite pressure, or bleeding with drowsiness, dizziness, chest pain, or loss of consciousness is life-threatening — get help moving any way you actually have (call, radio, transport) while you control the bleeding below.",
     steps: [
       {
         headline: "Apply pressure",
@@ -129,7 +130,8 @@ export const QUICK_CARDS: Record<string, QuickCard> = {
 
   "Chest and abdominal trauma (open chest wound)": {
     subtitle: "For a wound that penetrates the chest wall",
-    callNow: "Treat any open chest wound as immediately life-threatening. Call 911 and activate every available route to definitive care.",
+    callNow:
+      "Treat any open chest wound as immediately life-threatening. Get help moving any way you actually have (call, radio, transport) while you manage the wound below.",
     steps: [
       {
         headline: "Don't remove objects",
