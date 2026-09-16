@@ -25,10 +25,12 @@ const PATHS: Record<string, string> = {
   plus: "M12 5v14M5 12h14",
   trash: "M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13",
   camera: "M4 8h3l1.6-2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z",
+  pin: "M12 21.5s7-6.9 7-12a7 7 0 1 0-14 0c0 5.1 7 12 7 12z",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {
   camera: [{ cx: 12, cy: 13, r: 3.4 }],
+  pin: [{ cx: 12, cy: 9.5, r: 2.6 }],
   paw: [
     { cx: 7.5, cy: 8.5, r: 1.8 },
     { cx: 12, cy: 6.5, r: 1.8 },

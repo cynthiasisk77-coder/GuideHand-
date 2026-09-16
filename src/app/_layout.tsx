@@ -45,6 +45,7 @@ export default function RootLayout() {
         <Stack.Screen name="supply-cache" options={{ title: 'Supply Cache' }} />
         <Stack.Screen name="medicine-tracker" options={{ title: 'Medicine Tracker' }} />
         <Stack.Screen name="document-photos" options={{ title: 'Document Photos' }} />
+        <Stack.Screen name="family-meetup" options={{ title: 'Family Meetup' }} />
       </Stack>
     </ThemeProvider>
   );

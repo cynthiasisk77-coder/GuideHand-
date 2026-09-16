@@ -151,6 +151,23 @@ export default function HomeScreen() {
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/family-meetup" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.plumSoft }]}>
+                    <Icon name="pin" color={c.plum} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Family Meetup Point</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>How far you are from where you agreed to meet — works with no signal</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
               </View>
 
               <View style={styles.section}>

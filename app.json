@@ -49,6 +49,15 @@
           "photosPermission": "GuideHand uses your photo library so you can save pictures of important documents (ID, insurance, deeds) for quick offline access.",
           "cameraPermission": "GuideHand uses your camera so you can photograph important documents (ID, insurance, deeds) for quick offline access."
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "GuideHand uses your location so it can tell you how far you are from your family meeting place. Your location stays on this device and is never sent anywhere.",
+          "locationWhenInUsePermission": "GuideHand uses your location so it can tell you how far you are from your family meeting place. Your location stays on this device and is never sent anywhere.",
+          "isAndroidBackgroundLocationEnabled": false,
+          "isIosBackgroundLocationEnabled": false
+        }
       ]
     ],
     "experiments": {
