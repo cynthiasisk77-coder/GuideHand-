@@ -76,6 +76,7 @@ export default function RootLayout() {
         <Stack.Screen name="meetup-scan" options={{ title: 'Scan a Code' }} />
         <Stack.Screen name="content-packs" options={{ title: 'Content Packs' }} />
         <Stack.Screen name="backup" options={{ title: 'Back Up & Restore' }} />
+        <Stack.Screen name="ask" options={{ title: 'Ask GuideHand' }} />
       </Stack>
     </ThemeProvider>
   );

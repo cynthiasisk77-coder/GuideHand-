@@ -274,6 +274,23 @@ export default function HomeScreen() {
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/ask" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                    <Icon name="search" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Ask in your own words, answered from your own articles — offline</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/backup" })}
                   style={({ pressed }) => [
                     styles.row,
