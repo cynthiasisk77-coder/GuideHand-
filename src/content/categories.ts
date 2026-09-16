@@ -517,7 +517,7 @@ export const CATEGORIES: Category[] = [
     ],
   },
   {
-    name: "Family & Special Needs",
+    name: "Family & Caregiving",
     topics: [
       { title: "Disability, mobility, sensory, caregiver needs", status: "verified", priority: "P1", note: "Red Cross + Ready.gov" },
       { title: "Power-dependent medical equipment failure plan", status: "verified", priority: "P0", note: "HHS emPOWER Program + American Red Cross" },

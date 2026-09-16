@@ -10,6 +10,7 @@ import { CATEGORY_GROUPS, slugifyGroup } from '@/content/groups';
 import { getCategorySummaries, getP0TopicsForCategories, searchTopics } from '@/lib/content';
 
 const EMERGENCY_NAME = 'What To Do In An Emergency';
+const FIRST_AID_CATEGORY = 'Medical & First Aid';
 const ACCENT_CYCLE = ['blue', 'plum', 'sage'] as const;
 
 export default function HomeScreen() {
@@ -20,6 +21,7 @@ export default function HomeScreen() {
 
   const categories = useMemo(() => getCategorySummaries(), []);
   const emergency = categories.find((cat) => cat.name === EMERGENCY_NAME);
+  const firstAid = categories.find((cat) => cat.name === FIRST_AID_CATEGORY);
   const p0Count = useMemo(
     () => getP0TopicsForCategories(categories.map((cat) => cat.name)).length,
     [categories]
@@ -30,7 +32,8 @@ export default function HomeScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+
+      <View style={styles.pinnedTop}>
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
             <View style={styles.headerWatermark} pointerEvents="none">
@@ -53,6 +56,51 @@ export default function HomeScreen() {
             </View>
           </View>
 
+          <Text style={[styles.sectionLabel, styles.pinnedLabel, { color: c.blue }]}>NEED THIS FAST</Text>
+          {emergency ? (
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push({ pathname: '/emergency' })}
+              style={({ pressed }) => [
+                styles.row,
+                styles.rowEmergency,
+                { backgroundColor: c.dangerSoft, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
+              ]}>
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.card }]}>
+                <Icon name="siren" size={24} color={c.danger} />
+              </View>
+              <View style={styles.rowText}>
+                <Text style={[styles.rowNameBold, { color: c.text }]}>What To Do In An Emergency</Text>
+                <Text style={[styles.rowSub, { color: c.textSecondary }]}>{p0Count} life-threatening situations, step by step</Text>
+              </View>
+              <Icon name="chevron" size={18} color={c.textSecondary} />
+            </Pressable>
+          ) : null}
+
+          {firstAid ? (
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push({ pathname: '/category/[category]', params: { category: 'medical-and-first-aid' } })}
+              style={({ pressed }) => [
+                styles.row,
+                styles.rowEmergency,
+                { backgroundColor: c.orangeSoft, borderColor: c.orange, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+              ]}>
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.card }]}>
+                <Icon name="medical" size={24} color={c.orange} />
+              </View>
+              <View style={styles.rowText}>
+                <Text style={[styles.rowNameBold, { color: c.text }]}>First Aid</Text>
+                <Text style={[styles.rowSub, { color: c.textSecondary }]}>Medical care and first aid steps</Text>
+              </View>
+              <Icon name="chevron" size={18} color={c.textSecondary} />
+            </Pressable>
+          ) : null}
+        </View>
+      </View>
+
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+        <View style={styles.content}>
           {searching ? (
             <View style={styles.section}>
               <Text style={[styles.sectionLabel, { color: c.blue }]}>
@@ -85,33 +133,10 @@ export default function HomeScreen() {
           ) : (
             <>
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>RIGHT NOW</Text>
-                {emergency ? (
-                  <Pressable
-                    accessibilityRole="button"
-                    onPress={() => router.push({ pathname: '/emergency' })}
-                    style={({ pressed }) => [
-                      styles.row,
-                      styles.rowEmergency,
-                      { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
-                    ]}>
-                    <View style={[styles.icon, { backgroundColor: c.dangerSoft }]}>
-                      <Icon name="siren" color={c.danger} />
-                    </View>
-                    <View style={styles.rowText}>
-                      <Text style={[styles.rowName, { color: c.text }]}>What To Do In An Emergency</Text>
-                      <Text style={[styles.rowSub, { color: c.textSecondary }]}>{p0Count} life-threatening situations, step by step</Text>
-                    </View>
-                    <Icon name="chevron" size={18} color={c.textSecondary} />
-                  </Pressable>
-                ) : null}
-              </View>
-
-              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY</Text>
                 <Pressable
                   accessibilityRole="button"
-                  onPress={() => router.push({ pathname: '/category/[category]', params: { category: 'family-and-special-needs' } })}
+                  onPress={() => router.push({ pathname: '/category/[category]', params: { category: 'family-and-caregiving' } })}
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
@@ -121,8 +146,8 @@ export default function HomeScreen() {
                     <Icon name="family" color={c.plum} />
                   </View>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Family & Special Needs</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Special needs, caregiving, family plans</Text>
+                    <Text style={[styles.rowName, { color: c.text }]}>Family & Caregiving</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Caregiving, family plans, and support</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
@@ -225,7 +250,8 @@ const SIDE = Spacing.three;
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  scroll: { paddingTop: 56, paddingBottom: 40 },
+  pinnedTop: { paddingTop: 56 },
+  scroll: { paddingTop: 16, paddingBottom: 40 },
   content: {
     width: '100%',
     maxWidth: MaxContentWidth,
@@ -236,7 +262,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 16,
     gap: 12,
-    marginBottom: 4,
+    marginBottom: 14,
     overflow: 'hidden',
     position: 'relative',
   },
@@ -263,6 +289,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   searchInput: { flex: 1, paddingVertical: 11, fontSize: 15, fontFamily: Fonts.body },
+  pinnedLabel: { marginBottom: 8, marginTop: 0 },
   section: { marginTop: 22 },
   sectionLabel: {
     fontSize: 11,
@@ -281,7 +308,15 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 8,
   },
-  rowEmergency: { borderWidth: 1.5, borderLeftWidth: 3 },
+  rowEmergency: {
+    borderWidth: 2.5,
+    marginBottom: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
+    elevation: 3,
+  },
   rowAccented: { borderWidth: 1.5 },
   icon: {
     width: 40,
@@ -290,8 +325,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  iconLarge: { width: 46, height: 46, borderRadius: 13 },
   rowText: { flex: 1, minWidth: 0 },
   rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
+  rowNameBold: { fontSize: 16.5, fontFamily: Fonts.display },
   rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
   footer: {
     marginTop: 24,

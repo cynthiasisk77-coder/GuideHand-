@@ -10,22 +10,10 @@ export interface CategoryGroup {
 
 export const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    name: "First Aid",
-    sub: "Medical care and first aid steps",
-    categories: ["Medical & First Aid"],
-    icon: "medical",
-  },
-  {
-    name: "Weather & Disasters",
-    sub: "Storms, floods, fire, earthquakes",
-    categories: ["Disasters", "Security & Safety"],
-    icon: "storm",
-  },
-  {
-    name: "Food & Water",
-    sub: "Food safety, drinking water, fishing",
-    categories: ["Food", "Water", "Fishing / Trapping / Food Acquisition"],
-    icon: "water",
+    name: "Maps & Navigation",
+    sub: "Paper maps, compass, finding your way",
+    categories: ["Navigation"],
+    icon: "compass",
   },
   {
     name: "Home, Power & Shelter",
@@ -34,16 +22,22 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     icon: "home",
   },
   {
+    name: "Food & Water",
+    sub: "Food safety, drinking water, fishing",
+    categories: ["Food", "Water", "Fishing / Trapping / Food Acquisition"],
+    icon: "water",
+  },
+  {
+    name: "Weather & Disasters",
+    sub: "Storms, floods, fire, earthquakes",
+    categories: ["Disasters", "Security & Safety"],
+    icon: "storm",
+  },
+  {
     name: "Travel & Evacuation",
     sub: "Cars and getting out",
     categories: ["Vehicles & Mechanics", "Evacuation"],
     icon: "car",
-  },
-  {
-    name: "Maps & Navigation",
-    sub: "Paper maps, compass, finding your way",
-    categories: ["Navigation"],
-    icon: "compass",
   },
   {
     name: "Animals & Pets",

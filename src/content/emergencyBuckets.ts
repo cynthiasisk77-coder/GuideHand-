@@ -14,7 +14,7 @@ export const EMERGENCY_BUCKETS: EmergencyBucket[] = [
   {
     name: "Someone's Hurt or Sick",
     sub: "Bleeding, not breathing, burns, poisoning, and more",
-    categories: ["Medical & First Aid", "Family & Special Needs", "Sanitation & Hygiene"],
+    categories: ["Medical & First Aid", "Family & Caregiving", "Sanitation & Hygiene"],
     icon: "medical",
   },
   {
