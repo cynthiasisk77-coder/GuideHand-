@@ -1,12 +1,19 @@
 import { useCallback, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { useLLMChatSession } from 'react-native-executorch';
+import { models, useLLMChatSession } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
-import { AskModelChoice } from '@/lib/askModels';
+import { AskModelChoice, AskModelKey } from '@/lib/askModels';
+
+// The one place the library's model table is read. Kept in this file because
+// this file is the native-only half — the web build resolves ask-engine.web.tsx
+// instead and never loads any of it.
+function configFor(key: AskModelKey): unknown {
+  return models.llm[key];
+}
 
 interface Palette {
   bg: string;
@@ -47,7 +54,7 @@ export function AskEngine({ model, c, onChangeModel }: AskEngineProps) {
   const [phase, setPhase] = useState<Phase>({ kind: 'idle' });
   const [streamed, setStreamed] = useState('');
 
-  const llm = useLLMChatSession(model.config as never, {
+  const llm = useLLMChatSession(configFor(model.modelKey) as never, {
     // The grounding instruction is pinned as the system message so it survives
     // every turn rather than being something the model can talk itself out of.
     initialMessages: [{ role: 'system', content: SYSTEM_PROMPT }],

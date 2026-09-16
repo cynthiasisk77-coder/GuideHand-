@@ -7,7 +7,14 @@
 // articles, a small model is doing comprehension rather than recall, which is
 // the thing small models are actually good at.
 
-import { models } from 'react-native-executorch';
+// Deliberately no import from react-native-executorch. That package is native
+// code, and reaching for it here would pull TurboModuleRegistry into every
+// screen that shows this list — which on the web takes down the whole app, not
+// just this feature. So this file holds plain data, and the model itself is
+// looked up inside the engine, which only ever loads on a phone.
+
+/** Names in the library's own model table. Resolved on the device. */
+export type AskModelKey = 'LFM2_5_350M' | 'LLAMA3_2_1B' | 'LLAMA3_2_3B';
 
 export interface AskModelChoice {
   id: string;
@@ -17,7 +24,7 @@ export interface AskModelChoice {
   summary: string;
   /** True for the one most people should pick. */
   recommended: boolean;
-  config: unknown;
+  modelKey: AskModelKey;
 }
 
 export const ASK_MODELS: AskModelChoice[] = [
@@ -28,7 +35,7 @@ export const ASK_MODELS: AskModelChoice[] = [
     summary:
       'Quickest to download, lightest on the battery. Good at reading your articles back in plain words, which is what it is here to do.',
     recommended: true,
-    config: models.llm.LFM2_5_350M,
+    modelKey: 'LFM2_5_350M',
   },
   {
     id: 'llama3.2-1b',
@@ -37,7 +44,7 @@ export const ASK_MODELS: AskModelChoice[] = [
     summary:
       'Writes more naturally and handles a vague question better. Noticeably heavier on the battery and slower to answer.',
     recommended: false,
-    config: models.llm.LLAMA3_2_1B,
+    modelKey: 'LLAMA3_2_1B',
   },
   {
     id: 'llama3.2-3b',
@@ -46,7 +53,7 @@ export const ASK_MODELS: AskModelChoice[] = [
     summary:
       'The best answers, and the worst fit for an emergency. Long download, heavy storage, and it will drain a phone you may not be able to recharge.',
     recommended: false,
-    config: models.llm.LLAMA3_2_3B,
+    modelKey: 'LLAMA3_2_3B',
   },
 ];
 
