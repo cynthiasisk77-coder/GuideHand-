@@ -9,6 +9,8 @@ import { useColorScheme } from 'react-native';
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { loadInstalledPacksIntoRegistry } from '@/lib/packs';
+import { encryptLegacyData } from '@/lib/secureData';
+import { ENCRYPTED_KEYS } from '@/lib/personalData';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,8 +25,20 @@ function loadPacksOnce() {
   loadInstalledPacksIntoRegistry().catch(() => {});
 }
 
+// Anything saved before encryption existed is still sitting in the clear. Read
+// it once at startup and write it back encrypted, so it doesn't stay exposed
+// until the person happens to edit that screen. Reading and writing go through
+// the same code either way, so a failure here leaves the data usable.
+let migrationRequested = false;
+function encryptExistingDataOnce() {
+  if (migrationRequested) return;
+  migrationRequested = true;
+  encryptLegacyData(ENCRYPTED_KEYS).catch(() => {});
+}
+
 export default function RootLayout() {
   loadPacksOnce();
+  encryptExistingDataOnce();
   const colorScheme = useColorScheme();
   const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
   const [fontsLoaded] = useFonts({

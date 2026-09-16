@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { secureGetItem, secureSetItem } from '@/lib/secureData';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 
 import { Icon } from '@/components/icon';
@@ -72,10 +72,10 @@ export default function MeetupScanScreen() {
       note: '',
     };
     try {
-      const raw = await AsyncStorage.getItem(STORAGE_KEY);
+      const raw = await secureGetItem(STORAGE_KEY);
       const existing: MeetupPoint[] = raw ? JSON.parse(raw) : [];
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify([...existing, point]));
-      await AsyncStorage.setItem(ACTIVE_KEY, point.id);
+      await secureSetItem(STORAGE_KEY, JSON.stringify([...existing, point]));
+      await secureSetItem(ACTIVE_KEY, point.id);
       setSaved(true);
     } catch {
       setSaved(false);

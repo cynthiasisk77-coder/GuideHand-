@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { secureGetItem, secureSetItem } from '@/lib/secureData';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -34,7 +34,7 @@ export default function MedicineTrackerScreen() {
   const [expirationDraft, setExpirationDraft] = useState('');
 
   useEffect(() => {
-    AsyncStorage.getItem(STORAGE_KEY)
+    secureGetItem(STORAGE_KEY)
       .then((raw) => {
         if (raw) setEntries(JSON.parse(raw));
       })
@@ -44,7 +44,7 @@ export default function MedicineTrackerScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
   }, [entries, loaded]);
 
   const guidance = useMemo(() => findTopicByTitle(GUIDANCE_TOPIC), []);
@@ -179,7 +179,7 @@ export default function MedicineTrackerScreen() {
           </View>
 
           <Text style={[styles.footer, { color: c.textSecondary }]}>
-            Saved on this device only. Nothing here is sent anywhere.
+            Saved on this device only, encrypted. Nothing here is sent anywhere.
           </Text>
         </View>
       </ScrollView>

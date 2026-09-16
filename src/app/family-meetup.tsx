@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { secureGetItem, secureRemoveItem, secureSetItem } from '@/lib/secureData';
 import * as Location from 'expo-location';
 import QRCode from 'react-native-qrcode-svg';
 
@@ -74,7 +74,7 @@ export default function FamilyMeetupScreen() {
   const [addError, setAddError] = useState('');
 
   useEffect(() => {
-    Promise.all([AsyncStorage.getItem(STORAGE_KEY), AsyncStorage.getItem(ACTIVE_KEY)])
+    Promise.all([secureGetItem(STORAGE_KEY), secureGetItem(ACTIVE_KEY)])
       .then(([rawPoints, rawActive]) => {
         if (rawPoints) setPoints(JSON.parse(rawPoints));
         if (rawActive) setActiveId(rawActive);
@@ -85,13 +85,13 @@ export default function FamilyMeetupScreen() {
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(points)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(points)).catch(() => {});
   }, [points, loaded]);
 
   useEffect(() => {
     if (!loaded) return;
-    if (activeId) AsyncStorage.setItem(ACTIVE_KEY, activeId).catch(() => {});
-    else AsyncStorage.removeItem(ACTIVE_KEY).catch(() => {});
+    if (activeId) secureSetItem(ACTIVE_KEY, activeId).catch(() => {});
+    else secureRemoveItem(ACTIVE_KEY).catch(() => {});
   }, [activeId, loaded]);
 
   const refreshLocation = useCallback(async (): Promise<Coords | undefined> => {
@@ -535,7 +535,7 @@ export default function FamilyMeetupScreen() {
           ) : null}
 
           <Text style={[styles.footer, { color: c.textSecondary }]}>
-            Saved on this device only. GuideHand never sends your location anywhere.
+            Saved on this device only, encrypted. GuideHand never sends your location anywhere.
           </Text>
         </View>
       </ScrollView>

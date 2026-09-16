@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Alert, Image, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { canLock, requestUnlock, UnlockFailure } from '@/lib/deviceLock';
+import { secureGetItem, secureSetItem } from '@/lib/secureData';
 import * as ImagePicker from 'expo-image-picker';
 
 import { Icon } from '@/components/icon';
@@ -31,19 +32,48 @@ export default function DocumentPhotosScreen() {
   const [pendingUri, setPendingUri] = useState<string | null>(null);
   const [labelDraft, setLabelDraft] = useState('');
   const [busy, setBusy] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const [unlockError, setUnlockError] = useState<UnlockFailure | null>(null);
+  const [checkingLock, setCheckingLock] = useState(true);
+
+  // Ask the phone to confirm it's really them before any photo is read. If the
+  // device has no fingerprint, face or passcode set there is nothing to check
+  // against, so it opens — and says so, rather than pretending to be locked.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const lockable = await canLock();
+      if (cancelled) return;
+      if (!lockable) {
+        setUnlocked(true);
+        setUnlockError({ ok: false, reason: 'unavailable' });
+        setCheckingLock(false);
+        return;
+      }
+      const result = await requestUnlock('Unlock your saved documents');
+      if (cancelled) return;
+      if (result.ok) setUnlocked(true);
+      else setUnlockError(result);
+      setCheckingLock(false);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
-    AsyncStorage.getItem(STORAGE_KEY)
+    if (!unlocked) return;
+    secureGetItem(STORAGE_KEY)
       .then((raw) => {
         if (raw) setEntries(JSON.parse(raw));
       })
       .catch(() => {})
       .finally(() => setLoaded(true));
-  }, []);
+  }, [unlocked]);
 
   useEffect(() => {
     if (!loaded) return;
-    AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
+    secureSetItem(STORAGE_KEY, JSON.stringify(entries)).catch(() => {});
   }, [entries, loaded]);
 
   const pickerOptions: ImagePicker.ImagePickerOptions = useMemo(
@@ -107,6 +137,50 @@ export default function DocumentPhotosScreen() {
     if (expandedId === id) setExpandedId(null);
   };
 
+  const retryUnlock = async () => {
+    setCheckingLock(true);
+    const result = await requestUnlock('Unlock your saved documents');
+    if (result.ok) {
+      setUnlocked(true);
+      setUnlockError(null);
+    } else {
+      setUnlockError(result);
+    }
+    setCheckingLock(false);
+  };
+
+  if (!unlocked) {
+    return (
+      <View style={[styles.container, styles.lockScreen, { backgroundColor: c.bg }]}>
+        <Stack.Screen options={{ title: 'Document Photos' }} />
+        <View style={[styles.lockCard, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+          <View style={[styles.lockIcon, { backgroundColor: c.blueSoft }]}>
+            <Icon name="lock" size={24} color={c.blue} />
+          </View>
+          <Text style={[styles.lockTitle, { color: c.text }]}>Locked</Text>
+          <Text style={[styles.lockBody, { color: c.textSecondary }]}>
+            {checkingLock
+              ? 'Waiting for your fingerprint, face, or passcode…'
+              : unlockError?.reason === 'cancelled'
+                ? 'Your passport and ID photos stay locked until you unlock them.'
+                : 'That didn&apos;t match. Try again to see your saved documents.'}
+          </Text>
+          <Pressable
+            accessibilityRole="button"
+            disabled={checkingLock}
+            onPress={retryUnlock}
+            style={({ pressed }) => [
+              styles.lockButton,
+              { backgroundColor: c.blueSoft, opacity: pressed || checkingLock ? 0.6 : 1 },
+            ]}>
+            <Icon name="lock" size={16} color={c.blue} />
+            <Text style={[styles.lockButtonText, { color: c.blue }]}>Unlock</Text>
+          </Pressable>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Document Photos' }} />
@@ -122,7 +196,10 @@ export default function DocumentPhotosScreen() {
 
           <View style={[styles.privacyNote, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
             <Text style={[styles.privacyText, { color: c.textSecondary }]}>
-              Saved on this device only. Nothing here is uploaded or sent anywhere — treat this the same as carrying the
+              {unlockError?.reason === 'unavailable'
+                ? 'Encrypted and saved on this device only. This phone has no fingerprint, face unlock, or passcode set, so GuideHand cannot lock this screen — set one in your phone settings and it will. '
+                : 'Encrypted and locked behind your fingerprint or passcode, saved on this device only. '}
+              Nothing here is uploaded or sent anywhere — treat this the same as carrying the
               physical documents.
             </Text>
           </View>
@@ -225,6 +302,37 @@ const SIDE = Spacing.three;
 const isWeb = Platform.OS === 'web';
 
 const styles = StyleSheet.create({
+  lockScreen: { alignItems: 'center', justifyContent: 'center', paddingHorizontal: Spacing.three },
+  lockCard: {
+    width: '100%',
+    maxWidth: 380,
+    borderWidth: 1,
+    borderRadius: 18,
+    padding: 24,
+    alignItems: 'center',
+    gap: 10,
+  },
+  lockIcon: {
+    width: 54,
+    height: 54,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 2,
+  },
+  lockTitle: { fontSize: 20, fontFamily: Fonts.display },
+  lockBody: { fontSize: 13.5, lineHeight: 19, textAlign: 'center', fontFamily: Fonts.body },
+  lockButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    borderRadius: 11,
+    paddingVertical: 12,
+    paddingHorizontal: 28,
+    marginTop: 6,
+  },
+  lockButtonText: { fontSize: 14.5, fontFamily: Fonts.bodyBold },
   container: { flex: 1 },
   scroll: { paddingTop: 18, paddingBottom: 40 },
   content: {
