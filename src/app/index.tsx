@@ -33,6 +33,10 @@ export default function HomeScreen() {
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.blueDeep }]}>
+            <View style={styles.headerWatermark} pointerEvents="none">
+              <Icon name="compass" size={132} color={c.onBlueSoft} strokeWidth={1.4} />
+            </View>
+            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
             <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
             <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
             <View style={[styles.search, { backgroundColor: c.card }]}>
@@ -104,6 +108,33 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
+                {CATEGORY_GROUPS.map((group, i) => {
+                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+                  return (
+                    <Pressable
+                      key={group.name}
+                      accessibilityRole="button"
+                      onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
+                      style={({ pressed }) => [
+                        styles.row,
+                        styles.rowAccented,
+                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
+                      ]}>
+                      <View style={[styles.icon, { backgroundColor: c[`${accent}Soft`] }]}>
+                        <Icon name={group.icon} color={c[accent]} />
+                      </View>
+                      <View style={styles.rowText}>
+                        <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
+                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
+                      </View>
+                      <Icon name="chevron" size={18} color={c.textSecondary} />
+                    </Pressable>
+                  );
+                })}
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>YOUR SUPPLIES</Text>
                 <Pressable
                   accessibilityRole="button"
@@ -158,33 +189,6 @@ export default function HomeScreen() {
                 </Pressable>
               </View>
 
-              <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
-                {CATEGORY_GROUPS.map((group, i) => {
-                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
-                  return (
-                    <Pressable
-                      key={group.name}
-                      accessibilityRole="button"
-                      onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
-                      style={({ pressed }) => [
-                        styles.row,
-                        styles.rowAccented,
-                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
-                      ]}>
-                      <View style={[styles.icon, { backgroundColor: c[`${accent}Soft`] }]}>
-                        <Icon name={group.icon} color={c[accent]} />
-                      </View>
-                      <View style={styles.rowText}>
-                        <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
-                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
-                      </View>
-                      <Icon name="chevron" size={18} color={c.textSecondary} />
-                    </Pressable>
-                  );
-                })}
-              </View>
-
               <Text style={[styles.footer, { color: c.textSecondary }]}>
                 GuideHand is a reference, not a substitute for emergency services or medical care.
               </Text>
@@ -212,6 +216,21 @@ const styles = StyleSheet.create({
     padding: 16,
     gap: 12,
     marginBottom: 4,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  headerWatermark: {
+    position: 'absolute',
+    top: -34,
+    right: -28,
+    opacity: 0.22,
+    transform: [{ rotate: '8deg' }],
+  },
+  eyebrow: {
+    fontSize: 11,
+    fontFamily: Fonts.mono,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
   },
   title: { fontSize: 24, fontFamily: Fonts.display },
   subtitle: { fontSize: 13, marginTop: -8, fontFamily: Fonts.body },
