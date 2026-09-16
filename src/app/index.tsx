@@ -7,7 +7,8 @@ import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { CATEGORY_GROUPS, slugifyGroup } from '@/content/groups';
-import { getCategorySummaries, getP0TopicsForCategories, searchTopics } from '@/lib/content';
+import { getCategorySummaries, getP0TopicsForCategories } from '@/lib/content';
+import { search } from '@/lib/search';
 
 const EMERGENCY_NAME = 'What To Do In An Emergency';
 const FIRST_AID_CATEGORY = 'Medical & First Aid';
@@ -26,8 +27,9 @@ export default function HomeScreen() {
     () => getP0TopicsForCategories(categories.map((cat) => cat.name)).length,
     [categories]
   );
-  const results = useMemo(() => searchTopics(query), [query]);
+  const results = useMemo(() => search(query), [query]);
   const searching = query.trim().length > 0;
+  const resultCount = results.articles.length;
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
@@ -47,7 +49,7 @@ export default function HomeScreen() {
               <TextInput
                 value={query}
                 onChangeText={setQuery}
-                placeholder="Search every topic"
+                placeholder="Search, or just say what's wrong"
                 placeholderTextColor={c.textSecondary}
                 style={[styles.searchInput, { color: c.text }]}
                 autoCorrect={false}
@@ -103,29 +105,83 @@ export default function HomeScreen() {
         <View style={styles.content}>
           {searching ? (
             <View style={styles.section}>
-              <Text style={[styles.sectionLabel, { color: c.blue }]}>
-                {results.length === 0
-                  ? `No topics match "${query.trim()}"`
-                  : `${results.length} result${results.length === 1 ? '' : 's'}`}
+              {results.tools.length > 0 ? (
+                <>
+                  <Text style={[styles.sectionLabel, { color: c.blue }]}>JUMP TO</Text>
+                  {results.tools.map((hit) => (
+                    <Pressable
+                      key={hit.tool.pathname}
+                      accessibilityRole="button"
+                      onPress={() => router.push(hit.tool.pathname as never)}
+                      style={({ pressed }) => [
+                        styles.row,
+                        styles.rowAccented,
+                        { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                      ]}>
+                      <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                        <Icon name={hit.tool.icon} color={c.blue} />
+                      </View>
+                      <View style={styles.rowText}>
+                        <Text style={[styles.rowName, { color: c.text }]}>{hit.tool.label}</Text>
+                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{hit.tool.sub}</Text>
+                      </View>
+                      <Icon name="chevron" size={18} color={c.textSecondary} />
+                    </Pressable>
+                  ))}
+                </>
+              ) : null}
+
+              <Text
+                style={[
+                  styles.sectionLabel,
+                  results.tools.length > 0 ? styles.sectionLabelSpaced : null,
+                  { color: c.blue },
+                ]}>
+                {resultCount === 0
+                  ? `Nothing found for "${query.trim()}"`
+                  : `${resultCount} result${resultCount === 1 ? '' : 's'}`}
               </Text>
-              {results.map((item) => (
+
+              {resultCount === 0 && results.tools.length === 0 ? (
+                <View style={[styles.noResults, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+                  <Text style={[styles.noResultsText, { color: c.textSecondary }]}>
+                    Try fewer words, or say it plainly — &quot;can&apos;t breathe&quot;, &quot;drank bleach&quot;,
+                    &quot;power is out&quot;.
+                  </Text>
+                </View>
+              ) : null}
+
+              {results.articles.map((hit) => (
                 <Pressable
-                  key={`${item.categorySlug}-${item.topic.slug}`}
+                  key={`${hit.doc.categorySlug}-${hit.doc.topicSlug}`}
                   accessibilityRole="button"
                   onPress={() =>
                     router.push({
                       pathname: '/article/[category]/[topic]',
-                      params: { category: item.categorySlug, topic: item.topic.slug },
+                      params: { category: hit.doc.categorySlug, topic: hit.doc.topicSlug },
                     })
                   }
                   style={({ pressed }) => [
                     styles.row,
-                    { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
+                    {
+                      backgroundColor: c.card,
+                      borderColor: hit.doc.priority === 'P0' ? c.danger : c.cardBorder,
+                      borderWidth: hit.doc.priority === 'P0' ? 1.5 : 1,
+                      opacity: pressed ? 0.7 : 1,
+                    },
                   ]}>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>{item.topic.title}</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>{item.categoryName}</Text>
+                    <Text style={[styles.rowName, { color: c.text }]}>{hit.doc.title}</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>
+                      {hit.doc.categoryName}
+                      {hit.doc.fromPack ? ` · ${hit.doc.fromPack}` : ''}
+                    </Text>
                   </View>
+                  {hit.doc.priority === 'P0' ? (
+                    <View style={[styles.urgentPill, { backgroundColor: c.dangerSoft }]}>
+                      <Text style={[styles.urgentPillText, { color: c.danger }]}>URGENT</Text>
+                    </View>
+                  ) : null}
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
               ))}
@@ -385,6 +441,11 @@ const styles = StyleSheet.create({
   rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
   rowNameBold: { fontSize: 16.5, fontFamily: Fonts.display },
   rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
+  sectionLabelSpaced: { marginTop: 18 },
+  urgentPill: { paddingHorizontal: 7, paddingVertical: 3, borderRadius: 999 },
+  urgentPillText: { fontSize: 9, fontFamily: Fonts.mono, letterSpacing: 0.8 },
+  noResults: { borderWidth: 1, borderRadius: 14, padding: 14 },
+  noResultsText: { fontSize: 13.5, lineHeight: 19.5, fontFamily: Fonts.body },
   footer: {
     marginTop: 24,
     marginBottom: 12,
