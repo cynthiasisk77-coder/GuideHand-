@@ -1,0 +1,449 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { Stack } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Location from 'expo-location';
+
+import { OfflineMap } from '@/components/offline-map';
+import { Icon } from '@/components/icon';
+import { Calm, Fonts } from '@/constants/calm';
+import { MaxContentWidth, Spacing } from '@/constants/theme';
+import { Coords, formatCoords } from '@/lib/geo';
+import {
+  boundsAround,
+  contains,
+  estimateBytes,
+  formatBytes,
+  MAP_ATTRIBUTION,
+  MapRegion,
+  OFFLINE_MAPS_KEY,
+  REGION_SIZES,
+  RegionSize,
+  regionId,
+} from '@/lib/offlineMaps';
+import { downloadRegion, listPackIds, removeRegion } from '@/lib/offlineMapPacks';
+import type { MapMarker } from '@/components/offline-map';
+import { MEETUP_POINTS_KEY } from '@/lib/personalData';
+import { secureGetItem } from '@/lib/secureData';
+
+// A GPS fix indoors, in a basement, or in airplane mode can simply never
+// arrive — the call does not fail, it waits. Without a ceiling on it the
+// person taps Download, watches a spinner forever, and is told nothing.
+const LOCATION_TIMEOUT_MS = 20_000;
+
+function withTimeout<T>(work: Promise<T>, ms: number): Promise<T | undefined> {
+  return Promise.race([
+    work,
+    new Promise<undefined>((resolve) => setTimeout(() => resolve(undefined), ms)),
+  ]);
+}
+
+type Download =
+  | { kind: 'idle' }
+  | { kind: 'working'; percent: number; label: string }
+  | { kind: 'failed'; message: string };
+
+export default function MapsScreen() {
+  const scheme = useColorScheme();
+  const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+
+  const [regions, setRegions] = useState<MapRegion[]>([]);
+  const [loaded, setLoaded] = useState(false);
+  const [here, setHere] = useState<Coords | undefined>(undefined);
+  const [locating, setLocating] = useState(false);
+  const [locationError, setLocationError] = useState<string | undefined>(undefined);
+  const [size, setSize] = useState<RegionSize>(REGION_SIZES[1]);
+  const [name, setName] = useState('');
+  const [download, setDownload] = useState<Download>({ kind: 'idle' });
+  const [viewing, setViewing] = useState<MapRegion | undefined>(undefined);
+  // The places you already agreed to meet, drawn on the map. Without these the
+  // map is just a map; with them it is the thing you are actually navigating to.
+  const [meetupPoints, setMeetupPoints] = useState<MapMarker[]>([]);
+  const mounted = useRef(true);
+
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.getItem(OFFLINE_MAPS_KEY)
+      .then(async (raw) => {
+        const stored: MapRegion[] = raw ? JSON.parse(raw) : [];
+        // The tiles are the truth, not our list. If a pack was cleared by the
+        // OS or a reinstall, the row for it is a lie and gets dropped.
+        const alive = await listPackIds();
+        if (!mounted.current) return;
+        setRegions(alive.length > 0 ? stored.filter((r) => alive.includes(r.id)) : stored);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (mounted.current) setLoaded(true);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) return;
+    AsyncStorage.setItem(OFFLINE_MAPS_KEY, JSON.stringify(regions)).catch(() => {});
+  }, [regions, loaded]);
+
+  useEffect(() => {
+    secureGetItem(MEETUP_POINTS_KEY)
+      .then((raw) => {
+        if (!raw || !mounted.current) return;
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) return;
+        setMeetupPoints(
+          parsed
+            .filter((p) => typeof p?.latitude === 'number' && typeof p?.longitude === 'number')
+            .map((p) => ({ id: String(p.id), label: String(p.label || 'Meeting place'), latitude: p.latitude, longitude: p.longitude }))
+        );
+      })
+      .catch(() => {});
+  }, []);
+
+  const findMe = useCallback(async (): Promise<Coords | undefined> => {
+    setLocating(true);
+    setLocationError(undefined);
+    try {
+      // The permission prompt can hang too, not just the fix — a dialog nobody
+      // answers never resolves. The ceiling covers the whole flow, so there is
+      // no path through here that leaves a spinner turning forever.
+      const permission = await withTimeout(Location.requestForegroundPermissionsAsync(), LOCATION_TIMEOUT_MS);
+      if (!permission) {
+        setLocationError('Location is not responding on this device. Try again, or check GuideHand\u2019s permissions in Settings.');
+        return undefined;
+      }
+      if (permission.status !== 'granted') {
+        setLocationError('GuideHand needs location permission to know which area to download.');
+        return undefined;
+      }
+      const fix = await withTimeout(
+        Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }),
+        LOCATION_TIMEOUT_MS
+      );
+      if (!fix) {
+        setLocationError(
+          'No GPS fix yet. Step outside or near a window and try again \u2014 the chip needs a clear view of the sky, and it can take a minute the first time.'
+        );
+        return undefined;
+      }
+      const coords = { latitude: fix.coords.latitude, longitude: fix.coords.longitude };
+      if (mounted.current) setHere(coords);
+      return coords;
+    } catch {
+      setLocationError('Could not get a position. Step outside or near a window and try again.');
+      return undefined;
+    } finally {
+      if (mounted.current) setLocating(false);
+    }
+  }, []);
+
+  const start = async () => {
+    // One tap should work from cold, so find the position first if we have to.
+    const center = here ?? (await findMe());
+    if (!center) return;
+
+    const id = regionId();
+    const label = name.trim() || `${size.label} — ${formatCoords(center)}`;
+    setDownload({ kind: 'working', percent: 0, label });
+
+    try {
+      // The pack id comes back from the tile store, which generates it. Storing
+      // our own would give a row that cannot delete or verify the real thing.
+      const packId = await downloadRegion(
+        { id, center, radiusMiles: size.radiusMiles, minZoom: size.minZoom, maxZoom: size.maxZoom },
+        (percent) => {
+          if (mounted.current) setDownload({ kind: 'working', percent, label });
+        }
+      );
+      if (!mounted.current) return;
+      setRegions((prev) => [
+        { id: packId, name: label, center, radiusMiles: size.radiusMiles, minZoom: size.minZoom, maxZoom: size.maxZoom, downloadedAt: Date.now() },
+        ...prev,
+      ]);
+      setName('');
+      setDownload({ kind: 'idle' });
+    } catch (error) {
+      if (!mounted.current) return;
+      setDownload({ kind: 'failed', message: error instanceof Error ? error.message : 'The download stopped.' });
+    }
+  };
+
+  const forget = async (region: MapRegion) => {
+    await removeRegion(region.id).catch(() => {});
+    setRegions((prev) => prev.filter((r) => r.id !== region.id));
+    setViewing((current) => (current?.id === region.id ? undefined : current));
+  };
+
+  const bounds = here ? boundsAround(here, size.radiusMiles) : undefined;
+  const estimate = bounds ? estimateBytes(bounds, size.minZoom, size.maxZoom) : undefined;
+  const busy = download.kind === 'working';
+
+  if (viewing) {
+    return (
+      <View style={[styles.container, { backgroundColor: c.bg }]}>
+        <Stack.Screen options={{ title: viewing.name }} />
+        <OfflineMap
+          region={viewing}
+          here={here}
+          markers={meetupPoints.filter((point) => contains(viewing, point))}
+          c={c}
+          onClose={() => setViewing(undefined)}
+        />
+      </View>
+    );
+  }
+
+  return (
+    <View style={[styles.container, { backgroundColor: c.bg }]}>
+      <Stack.Screen options={{ title: 'Offline Maps' }} />
+      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+        <View style={styles.content}>
+          <View
+            style={[
+              styles.headerBlock,
+              { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue },
+            ]}>
+            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Navigation</Text>
+            <Text style={[styles.title, { color: c.text }]}>Offline Maps</Text>
+            <Text style={[styles.subhead, { color: c.textSecondary }]}>
+              Download the streets around you now, while you have signal. Once they are on the phone
+              the map opens with no service at all — no data, no Wi-Fi, airplane mode, towers down.
+            </Text>
+          </View>
+
+          {/* --- what you already hold ------------------------------------ */}
+          {regions.length > 0 ? (
+            <>
+              <Text style={[styles.sectionLabel, { color: c.blue }]}>ON THIS PHONE</Text>
+              {regions.map((region) => (
+                <View
+                  key={region.id}
+                  style={[styles.regionRow, { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 4, borderLeftColor: c.sage }]}>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={() => setViewing(region)}
+                    style={({ pressed }) => [styles.regionMain, { opacity: pressed ? 0.7 : 1 }]}>
+                    <Icon name="pin" size={17} color={c.sage} />
+                    <View style={styles.regionText}>
+                      <Text style={[styles.regionName, { color: c.text }]} numberOfLines={1}>
+                        {region.name}
+                      </Text>
+                      <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
+                        {region.radiusMiles} miles out · {formatCoords(region.center)}
+                      </Text>
+                    </View>
+                    <Icon name="chevron" size={16} color={c.textSecondary} />
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={`Delete ${region.name}`}
+                    onPress={() => forget(region)}
+                    hitSlop={8}
+                    style={({ pressed }) => [styles.regionDelete, { opacity: pressed ? 0.6 : 1 }]}>
+                    <Icon name="trash" size={16} color={c.textSecondary} />
+                  </Pressable>
+                </View>
+              ))}
+            </>
+          ) : null}
+
+          {/* --- download a new one --------------------------------------- */}
+          <Text style={[styles.sectionLabel, { color: c.blue, marginTop: regions.length > 0 ? 18 : 0 }]}>
+            DOWNLOAD AN AREA
+          </Text>
+
+          <Pressable
+            accessibilityRole="button"
+            disabled={locating || busy}
+            onPress={findMe}
+            style={({ pressed }) => [
+              styles.locateRow,
+              { backgroundColor: c.card, borderColor: here ? c.sage : c.cardBorder, opacity: pressed || locating ? 0.7 : 1 },
+            ]}>
+            {locating ? <ActivityIndicator size="small" color={c.blue} /> : <Icon name="compass" size={17} color={here ? c.sage : c.blue} />}
+            <View style={styles.regionText}>
+              <Text style={[styles.locateTitle, { color: c.text }]}>
+                {here ? 'Centred on where you are' : 'Use where I am now'}
+              </Text>
+              <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
+                {here ? formatCoords(here) : 'Tap to get a position from the GPS chip'}
+              </Text>
+            </View>
+          </Pressable>
+
+          {locationError ? (
+            <Text style={[styles.error, { color: c.danger }]}>{locationError}</Text>
+          ) : null}
+
+          <View style={styles.sizeWrap}>
+            {REGION_SIZES.map((option) => {
+              const active = size.id === option.id;
+              const optionBounds = here ? boundsAround(here, option.radiusMiles) : undefined;
+              const optionSize = optionBounds ? estimateBytes(optionBounds, option.minZoom, option.maxZoom) : undefined;
+              return (
+                <Pressable
+                  key={option.id}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: active }}
+                  disabled={busy}
+                  onPress={() => setSize(option)}
+                  style={({ pressed }) => [
+                    styles.sizeCard,
+                    {
+                      backgroundColor: c.card,
+                      borderColor: active ? c.blue : c.cardBorder,
+                      borderWidth: active ? 1.8 : 1,
+                      opacity: pressed ? 0.75 : 1,
+                    },
+                  ]}>
+                  <View style={styles.sizeHead}>
+                    <Text style={[styles.sizeName, { color: c.text }]}>{option.label}</Text>
+                    {optionSize !== undefined ? (
+                      <Text style={[styles.sizeBytes, { color: active ? c.blue : c.textSecondary }]}>
+                        ~{formatBytes(optionSize)}
+                      </Text>
+                    ) : null}
+                  </View>
+                  <Text style={[styles.sizeNote, { color: c.textSecondary }]}>{option.note}</Text>
+                </Pressable>
+              );
+            })}
+          </View>
+
+          <TextInput
+            value={name}
+            onChangeText={setName}
+            placeholder="Call it something — Home, Mom's, the cabin"
+            placeholderTextColor={c.textSecondary}
+            editable={!busy}
+            style={[styles.field, { color: c.text, borderColor: c.cardBorder, backgroundColor: c.card }]}
+            returnKeyType="done"
+          />
+
+          {download.kind === 'working' ? (
+            <View style={[styles.progressCard, { backgroundColor: c.card, borderColor: c.blue }]}>
+              <View style={styles.progressHead}>
+                <ActivityIndicator size="small" color={c.blue} />
+                <Text style={[styles.progressText, { color: c.text }]}>
+                  Downloading — {Math.round(download.percent)}%
+                </Text>
+              </View>
+              <View style={[styles.track, { backgroundColor: c.cardBorder }]}>
+                <View style={[styles.fill, { backgroundColor: c.blue, width: `${Math.max(2, download.percent)}%` }]} />
+              </View>
+              <Text style={[styles.progressNote, { color: c.textSecondary }]}>
+                Keep this screen open until it finishes. Stay on Wi-Fi if you can.
+              </Text>
+            </View>
+          ) : (
+            <Pressable
+              accessibilityRole="button"
+              disabled={busy}
+              onPress={start}
+              style={({ pressed }) => [
+                styles.primary,
+                { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+              ]}>
+              <Icon name="download" size={17} color={c.blue} />
+              <Text style={[styles.primaryText, { color: c.blue }]}>
+                {estimate !== undefined ? `Download this area (~${formatBytes(estimate)})` : 'Download this area'}
+              </Text>
+            </Pressable>
+          )}
+
+          {download.kind === 'failed' ? (
+            <Text style={[styles.error, { color: c.danger }]}>{download.message}</Text>
+          ) : null}
+
+          <Text style={[styles.footer, { color: c.textSecondary }]}>
+            {MAP_ATTRIBUTION}. Map data is free and openly licensed — no account, no key, nothing
+            that can expire out from under you.
+          </Text>
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
+
+const SIDE = Spacing.three;
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  scroll: { paddingTop: 18, paddingBottom: 40 },
+  content: { width: '100%', maxWidth: MaxContentWidth, alignSelf: 'center', paddingHorizontal: SIDE },
+
+  headerBlock: { borderRadius: 20, padding: 16, gap: 6, marginBottom: 14 },
+  eyebrow: { fontSize: 11, fontFamily: Fonts.mono, letterSpacing: 1.2, textTransform: 'uppercase' },
+  title: { fontSize: 22, fontFamily: Fonts.display },
+  subhead: { fontSize: 13, lineHeight: 19, fontFamily: Fonts.body },
+
+  sectionLabel: { fontSize: 11, fontFamily: Fonts.mono, letterSpacing: 1.2, marginBottom: 8, marginLeft: 2 },
+
+  regionRow: { flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderRadius: 12, marginBottom: 7 },
+  regionMain: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 12, paddingHorizontal: 12 },
+  regionText: { flex: 1, gap: 2 },
+  regionName: { fontSize: 14.5, fontFamily: Fonts.displaySemibold },
+  regionMeta: { fontSize: 12, fontFamily: Fonts.body },
+  regionDelete: { paddingHorizontal: 12, paddingVertical: 14 },
+
+  locateRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 11,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    marginBottom: 10,
+  },
+  locateTitle: { fontSize: 14, fontFamily: Fonts.bodySemibold },
+
+  sizeWrap: { gap: 7, marginBottom: 10 },
+  sizeCard: { borderRadius: 13, padding: 12, gap: 4 },
+  sizeHead: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  sizeName: { flex: 1, fontSize: 14.5, fontFamily: Fonts.displaySemibold },
+  sizeBytes: { fontSize: 12, fontFamily: Fonts.monoMedium },
+  sizeNote: { fontSize: 12.5, lineHeight: 17.5, fontFamily: Fonts.body },
+
+  field: {
+    borderWidth: 1,
+    borderRadius: 11,
+    paddingHorizontal: 12,
+    paddingVertical: 11,
+    fontSize: 14,
+    fontFamily: Fonts.body,
+    marginBottom: 10,
+  },
+
+  primary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    borderRadius: 12,
+    paddingVertical: 14,
+  },
+  primaryText: { fontSize: 14.5, fontFamily: Fonts.bodyBold },
+
+  progressCard: { borderWidth: 1.5, borderRadius: 13, padding: 13, gap: 9 },
+  progressHead: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  progressText: { fontSize: 14, fontFamily: Fonts.bodyBold },
+  track: { height: 6, borderRadius: 3, overflow: 'hidden' },
+  fill: { height: 6, borderRadius: 3 },
+  progressNote: { fontSize: 12, lineHeight: 17, fontFamily: Fonts.body },
+
+  error: { fontSize: 12.5, lineHeight: 18, fontFamily: Fonts.body, marginTop: 8, marginBottom: 4 },
+
+  footer: {
+    marginTop: 20,
+    marginBottom: 12,
+    fontSize: 11.5,
+    textAlign: 'center',
+    lineHeight: 17,
+    fontFamily: Fonts.body,
+  },
+});

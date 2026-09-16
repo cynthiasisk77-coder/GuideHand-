@@ -329,7 +329,7 @@ export const CATEGORIES: Category[] = [
       { title: "Reading a paper/topographic map", status: "verified", priority: "P2", note: "FM 3-25.26 (US Army)" },
       { title: "Compass use and orientation", status: "verified", priority: "P2", note: "FM 3-25.26 + MSU Extension" },
       { title: "Land navigation without GPS", status: "verified", priority: "P2", note: "FM 3-25.26" },
-      { title: "Downloading and using offline map packs", status: "partial", priority: "P2", note: "App feature" },
+      { title: "Downloading and using offline map packs", status: "verified", priority: "P2", note: "Built: Offline Maps screen. OpenStreetMap via OpenFreeMap" },
       { title: "Identifying safe vs. unsafe routes during a disaster", status: "verified", priority: "P1", note: "Ready.gov/FEMA" },
       { title: "Finding cardinal directions without a compass", status: "verified", priority: "P3", note: "FM 3-25.26 Appendix F" },
       { title: "Marking private landmarks/hazards on offline maps", status: "partial", priority: "P3", note: "" },

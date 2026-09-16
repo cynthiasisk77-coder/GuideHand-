@@ -138,6 +138,8 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
   { match: /\bflood|\bwater (is )?rising\b/, terms: ["flood", "water", "evacuation", "rising"] },
   { match: /\btornado\b|\bhurricane\b|\bearthquake\b|\bwildfire\b|\bstorm\b/, terms: ["disaster", "shelter", "warning", "evacuation"] },
 
+  { match: /\b(offline|download(ed)?|saved?) ?maps?\b|\bmaps? (offline|without|with no) (signal|service|internet|data)\b|\bno (signal|service) map\b/, terms: ["offline", "maps", "download", "streets", "navigate"] },
+
   // --- navigation ---
   { match: /\blost\b|\bdon'?t know where i am\b|\bturned around\b/, terms: ["lost", "navigation", "orientation", "bearings"] },
   { match: /\bwhich way\b|\bwhat direction\b|\bfind north\b/, terms: ["compass", "direction", "navigation", "cardinal"] },
@@ -153,6 +155,13 @@ export interface ToolTarget {
 }
 
 export const TOOL_TARGETS: ToolTarget[] = [
+  {
+    label: "Offline Maps",
+    sub: "Streets on your phone that work with no signal",
+    pathname: "/maps",
+    icon: "compass",
+    keywords: ["map", "maps", "offline", "download", "street", "streets", "road", "roads", "navigate", "navigation", "route", "directions", "area", "town", "lost", "tiles"],
+  },
   {
     label: "Family Meetup Point",
     sub: "How far you are from where you agreed to meet",
