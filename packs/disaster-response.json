@@ -1,0 +1,179 @@
+{
+  "id": "disaster-response",
+  "name": "Disaster Response",
+  "version": 1,
+  "license": "Public domain — FEMA, Ready.gov, and the CDC",
+  "attribution": "FEMA, Ready.gov, and the U.S. Centers for Disease Control and Prevention",
+  "articles": [
+    {
+      "title": "The first 24 hours after a hurricane",
+      "category": "Disasters",
+      "priority": "P0",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Stay put until you are told the area is clear, and treat a sudden calm as the eye rather than the end. The far side of the eyewall arrives with the wind from the opposite direction, and it arrives fast. More people are hurt going outside during the calm than at any other point in the storm.",
+        "When you do go out, go out looking down. Standing water hides live wires, open drains, displaced manhole covers, snakes and sewage. Six inches of moving water will take your feet; a foot will float most cars. Do not drive through it to find out which.",
+        "Treat every downed line as live, including cable and phone lines, which can be energised by contact with a power line further along. Stay back the length of a car, and further if the ground is wet. If a line is across your car with you in it, stay in the car until the utility says otherwise.",
+        "Generators kill people after the storm, not during it. Outdoors only, at least twenty feet from the house, and pointed away from every window, door and vent — including the neighbour's. Carbon monoxide has no smell and gives no warning. A battery carbon-monoxide alarm inside is the only thing that will wake you.",
+        "Photograph the damage before you move anything or start clearing. Wide shots showing the whole room or the whole side of the house, then close shots of specific damage, and keep receipts for anything you buy to make it safe. An insurer pays on evidence, and the evidence disappears the moment cleanup starts.",
+        "Assume the tap water is unsafe until the utility says otherwise, and that means for brushing teeth and washing food as well as drinking. A boil-water notice after a storm is normal — pressure loss lets contamination into the pipes."
+      ]
+    },
+    {
+      "title": "Going back into a flooded house",
+      "category": "Disasters",
+      "priority": "P0",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Do not go in at all if the building is visibly shifted off its foundation, if walls are bowed, if the roofline sags, or if you can see cracks you have not seen before. Floodwater undermines what a house stands on, and the damage that drops a ceiling is usually not the damage you can see from outside.",
+        "Turn the power off at the main breaker before you go in, and do it from outside or from a dry spot if there is any way to. If reaching the panel means standing in water, do not reach it — call the utility. Never restore power to a circuit that has been under water until an electrician has looked at it.",
+        "Smell at the door before you step in. Gas means leave, leave the door open, and call it in from somewhere else — no lights, no switches, no phone calls inside, no lighter. A switch flipped either way makes a spark.",
+        "Wear boots and heavy gloves, not sandals. The floor will have glass, nails, and displaced furniture under a layer of silt you cannot see through.",
+        "Floodwater is not rainwater. Assume it carries sewage, fuel, pesticides and whatever came out of the garage. Anything porous that soaked in it — mattresses, upholstered furniture, carpet and its pad, particle board, insulation — is not salvageable and should go. Wash anything that stays with hot water and detergent, then disinfect.",
+        "Get it dry within twenty-four to forty-eight hours if you possibly can. Mould starts in that window, and once it is into the wall cavity the job stops being cleaning and starts being demolition. Open everything, run fans, run a dehumidifier if you have power, and pull baseboards to let the cavity breathe.",
+        "Throw away food that touched floodwater, including sealed jars and anything with a screw top or a crimped lid — the seal is not designed to keep contaminated water out. Undamaged commercially canned goods can be kept if you scrub and disinfect the outside of the can first."
+      ]
+    },
+    {
+      "title": "After the shaking stops: aftershocks and what not to walk into",
+      "category": "Disasters",
+      "priority": "P0",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Expect aftershocks and expect the big one among them to come soon. They are usually smaller, but they land on a building that is already damaged, and the second shake is what brings down what the first one cracked. Drop, cover and hold on again each time — do not run outside.",
+        "Do not go back into a damaged building to get things. Not for documents, not for pets you can call from the doorway, not for anything. The people hurt after an earthquake are largely the ones who went back in.",
+        "Check yourself and the people with you before anything else, then the building: gas smell, water running where it should not be, sparking, cracks in the chimney or the foundation. Shut off gas only if you smell or hear it leaking — a gas supply turned off needlessly has to be relit by the utility, and that can take weeks after an earthquake.",
+        "Stay clear of masonry — chimneys, brick facing, parapets, garden walls. Damaged masonry comes down in the aftershocks, and it comes down outward.",
+        "Text rather than call. Voice networks saturate immediately after an earthquake while text messages will often still get through, and every unnecessary call makes it worse for someone trying to reach emergency help.",
+        "If you are trapped: do not shout unless you can hear someone close. Shouting exhausts you and fills your lungs with dust. Tap on a pipe or a wall in a steady rhythm — it carries further than a voice, it costs you almost nothing, and it is recognisably deliberate."
+      ]
+    },
+    {
+      "title": "Coming home after a wildfire",
+      "category": "Disasters",
+      "priority": "P1",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Wait for the official all-clear. A fire that has passed leaves burning material in root systems and under ash that can flare days later, and re-entry roads are often the only access left for crews still working.",
+        "Ash is not dust. It is caustic and it contains whatever burned — treated timber, plastics, asbestos in older buildings, household chemicals. Wear an N95 or better, goggles, gloves, long sleeves and boots, and do not let children or pets into it.",
+        "Do not dry-sweep or use a leaf blower. Both put the ash back into the air where you will breathe it. Mist it lightly with water first and use a shovel and heavy bags, or a HEPA vacuum.",
+        "Watch for ground that is still hot. Stump holes and root channels burn underground and can stay hot enough to burn through a boot for days after the surface looks cold. Test suspicious ground with a long tool before you put weight on it.",
+        "Do not drink the tap water until the utility clears it. Fire can melt plastic service lines and draw benzene and other contaminants into the system, and boiling does not remove those — boiling concentrates them. This is a different problem from a normal boil-water notice and needs a different answer.",
+        "Check the roof and the gutters for embers that landed and are still smouldering, and keep checking for several days. Most homes lost in a wildfire are lost to embers rather than to the fire front."
+      ]
+    },
+    {
+      "title": "Boil-water notices: what they actually mean",
+      "category": "Water",
+      "priority": "P0",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "A boil-water notice means the utility cannot currently promise the water is free of bacteria and parasites. It is usually issued because pressure dropped — a main broke, the power to the pumps failed, the system flooded — and when pressure drops, whatever is around the pipe can be drawn into it.",
+        "Bring it to a rolling boil and hold it there for one full minute, three minutes above 6,500 feet. A rolling boil is the one you cannot stir flat. Then let it cool on its own — do not add ice from the machine.",
+        "It applies to more than drinking: brushing teeth, washing produce you will eat raw, making ice, mixing formula, and topping up a pet's bowl. Handwashing with soap is generally fine, and so is showering if you do not swallow any, but bath a small child with a washcloth rather than letting them sit in it.",
+        "Bottled water is the better answer for infant formula if you have it, and for anyone whose immune system is compromised.",
+        "A do-not-drink or do-not-use notice is a different and more serious thing, and boiling makes it worse rather than better. It means chemical contamination — fuel, solvents, a treatment failure — and boiling concentrates those. Do not boil, do not drink, and wait for the utility.",
+        "When the notice is lifted, run every cold tap for five minutes before you use it, flush and clean the ice maker and throw out the first two or three batches, and change the filter on the fridge line. The pipe inside your house still holds the old water."
+      ]
+    },
+    {
+      "title": "Shelter in place properly for a chemical release",
+      "category": "Disasters",
+      "priority": "P0",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Go inside and go up if the release is heavier than air, which most industrial gases are — they pool low, in basements and low ground. Going up one floor is often the whole difference.",
+        "Shut every window and outside door. Turn off anything that moves air between inside and out: the furnace, air conditioning, bathroom and kitchen extractor fans, and the fireplace damper. You are trying to make the house hold the air it already has.",
+        "Pick one small interior room with as few windows as possible, take a phone and a radio in, and seal the door edges and any vents with plastic sheeting and duct tape. Wet towels along the bottom of the door work when you have nothing else.",
+        "This is a short-term measure and it is meant to be. The air in a sealed room runs down, so it buys you the hours until the plume passes — not a day. Keep a radio on and come out when you are told to, not when it feels safe.",
+        "If you were outside and exposed: take the clothes off before you go into the clean room, cutting a shirt off rather than pulling it over your head, bag them, and leave the bag outside. Rinse with lots of lukewarm water and soap. Do not scrub hard — broken skin absorbs more.",
+        "If you are told to evacuate instead of shelter, evacuate. The choice between the two is made on which way the plume is going, and that is information you do not have from your window."
+      ]
+    },
+    {
+      "title": "What to do when the power comes back",
+      "category": "Power & Lighting",
+      "priority": "P1",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Turn things back on a few at a time over several minutes rather than all at once. Everything in the neighbourhood restarting together is what trips the restored circuit and takes it down again.",
+        "Look in the freezer before you look anywhere else, and judge it on ice rather than on smell. Food with ice crystals still in it, or at 40°F or below, can be refrozen — the quality suffers, the safety does not. Anything that has been above 40°F for more than two hours goes, and that includes food that looks and smells fine. When in doubt, throw it out.",
+        "A freezer left shut holds safe temperatures for about 48 hours when full, about 24 when half full. A fridge holds about 4 hours. Those numbers only hold if the door stayed closed, which is the argument for deciding what you want before you open it.",
+        "Check the water heater and the well pump if you have them, and reset the ground-fault outlets in the kitchen, bathrooms, garage and outside — those trip on an outage and the circuit will look dead until you press the button.",
+        "Anything that got wet stays off until an electrician has seen it, however well it seems to have dried.",
+        "Refill and recharge before you do anything else: phone banks, flashlight batteries, water containers, and the car's tank. Outages after a storm often come in waves, and the second one catches people who used everything up in the first."
+      ]
+    },
+    {
+      "title": "Proving the damage: photographs, records and the claim",
+      "category": "Preparedness Plans",
+      "priority": "P1",
+      "sources": [
+        "FEMA and Ready.gov"
+      ],
+      "guidance": [
+        "Photograph before you clean, and photograph more than feels reasonable. Start with a wide shot that establishes the whole room or the whole side of the building, then move in on the specific damage, then get a shot with something in it for scale — a tape measure, a ruler, your hand.",
+        "Get the water line in the picture if there is one. A photograph showing how high the water stood on a wall, with a tape held against it, settles arguments that words do not.",
+        "Do the temporary repairs that stop it getting worse — tarp the roof, board the window, pull the soaked carpet — and photograph those too. An insurer generally expects you to prevent further damage, and generally will not pay for damage you let continue. Keep every receipt for materials.",
+        "Do not throw damaged property away until it has been seen or photographed thoroughly, and keep a written list as you go: what it was, roughly when you bought it, roughly what it cost. Memory after a disaster is worse than anyone expects.",
+        "Report the loss as early as you can, even before you have the full picture. Claim queues after a large event are long and the position in them is set by when you called.",
+        "Do the inventory before anything happens if you possibly can. A walk through the house with a phone camera, narrating what things are and opening drawers and cupboards, takes twenty minutes and is worth more than any list you will write afterwards. Keep a copy somewhere that is not the house."
+      ]
+    },
+    {
+      "title": "Going to a public shelter",
+      "category": "Evacuation",
+      "priority": "P1",
+      "sources": [
+        "FEMA and Ready.gov",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Go early if you are going. Shelters fill, routes close, and arriving in the dark in bad weather is how people end up in the ditch instead of the shelter.",
+        "Bring what nobody there can give you: prescription medicines in their own labelled containers with a written list of doses, glasses, hearing-aid batteries, chargers, and anything a child or an elderly person cannot be settled without. Assume the shelter has food, water, a cot and a bathroom, and not much else.",
+        "Bring the paperwork — identification, insurance policies, a card with the family contact numbers on it. Photographs of the documents on a phone are better than nothing, and a printed card matters when the phone is dead.",
+        "Ask about pets before you arrive rather than after. Many general shelters cannot take animals, but a co-located pet shelter is often set up nearby; you will need a carrier, food, and vaccination records.",
+        "Say at check-in if anyone in your group needs medical support, power for a device, help moving, or a quiet space. Shelters can usually arrange these and usually cannot guess.",
+        "It will be loud, lit, and short on privacy. Earplugs, an eye mask and a book are small things that make a bad night survivable, and they are the things nobody thinks to pack."
+      ]
+    },
+    {
+      "title": "Mould after water damage",
+      "category": "Sanitation & Hygiene",
+      "priority": "P2",
+      "sources": [
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "The clock is twenty-four to forty-eight hours from the water getting in. Dry it inside that window and mould mostly does not start; miss it and it will, in the wall cavity and under the floor where you cannot see it.",
+        "Dry means moving air and removing water, not opening a window on a humid day. Fans pointed at wet surfaces, a dehumidifier if you have power, wet material pulled out, and baseboards off so the cavity can breathe.",
+        "Hard surfaces — tile, metal, sealed wood, glass — clean up with detergent and water and drying. Porous things that stayed wet do not: carpet and its pad, ceiling tiles, insulation, particle board, upholstered furniture, mattresses. Those go.",
+        "You do not need to identify the species. The advice is the same whatever colour it is: if it is growing, get rid of it and fix the water that is feeding it. Testing costs money and changes nothing about what you do.",
+        "Wear an N95 or better, goggles without vents, and gloves. Open windows for ventilation while you work and keep anyone with asthma, an allergy, or a weakened immune system out of the area entirely.",
+        "Do not mix bleach with ammonia or with any other cleaner. The gas it makes is the thing that sends people to hospital after a flood, and plenty of household cleaners contain ammonia without saying so plainly.",
+        "A patch bigger than about ten square feet, anything in the ductwork, or anything from sewage is a job for a remediation contractor rather than a weekend."
+      ]
+    }
+  ]
+}

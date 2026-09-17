@@ -53,13 +53,13 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       summary:
         "Official guidance for hurricanes, floods, wildfire, earthquakes, and chemical and radiological incidents.",
       version: 1,
-      bytes: 0,
-      articleCount: 0,
+      bytes: 18346,
+      articleCount: 10,
       license: "Public domain — FEMA, Ready.gov, and the CDC",
       attribution: "FEMA, Ready.gov, and the U.S. Centers for Disease Control and Prevention",
       icon: "storm",
       url: `${PACK_BASE}/disaster-response.json`,
-      published: false,
+      published: true,
     },
     {
       id: "survival-manuals",
