@@ -46,7 +46,7 @@ export default function GroupScreen() {
       <Stack.Screen options={{ title: group.name }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Category group</Text>
             <Text style={[styles.title, { color: c.text }]}>{group.name}</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>{group.sub}</Text>

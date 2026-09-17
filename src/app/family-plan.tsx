@@ -149,7 +149,7 @@ export default function FamilyPlanScreen() {
           <View
             style={[
               styles.headerBlock,
-              { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum },
+              { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum },
             ]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family</Text>
             <Text style={[styles.title, { color: c.text }]}>Family Plan</Text>

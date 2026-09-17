@@ -95,7 +95,7 @@ export default function MeetupScanScreen() {
       <Stack.Screen options={{ title: 'Scan a Code' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family Meetup</Text>
             <Text style={[styles.title, { color: c.text }]}>Scan a meeting place</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>

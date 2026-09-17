@@ -205,7 +205,7 @@ export default function MapsScreen() {
           <View
             style={[
               styles.headerBlock,
-              { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue },
+              { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue },
             ]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Navigation</Text>
             <Text style={[styles.title, { color: c.text }]}>Offline Maps</Text>

@@ -183,7 +183,7 @@ export default function InventoryScreen() {
             style={[
               styles.headerBlock,
               {
-                backgroundColor: c.card,
+                backgroundColor: c.headerBg,
                 borderWidth: 1,
                 borderColor: c.cardBorder,
                 borderLeftWidth: 5,

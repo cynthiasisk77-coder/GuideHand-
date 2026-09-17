@@ -191,7 +191,7 @@ export default function BackupScreen() {
       <Stack.Screen options={{ title: 'Back Up & Restore' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Your Data</Text>
             <Text style={[styles.title, { color: c.text }]}>Back Up &amp; Restore</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>

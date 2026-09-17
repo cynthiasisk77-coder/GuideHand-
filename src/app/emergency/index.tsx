@@ -24,7 +24,7 @@ export default function EmergencyIndexScreen() {
       <Stack.Screen options={{ title: 'What To Do In An Emergency' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.danger }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.danger }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Emergency</Text>
             <Text style={[styles.title, { color: c.text }]}>What&apos;s happening?</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>

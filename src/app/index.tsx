@@ -37,7 +37,7 @@ export default function HomeScreen() {
 
       <View style={styles.pinnedTop}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <View style={styles.headerWatermark} pointerEvents="none">
               <Icon name="compass" size={132} color={c.blue} strokeWidth={1.4} />
             </View>

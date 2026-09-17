@@ -1,38 +1,52 @@
-// Design tokens. Surfaces are white and the colour lives at the edges: a card
-// is defined by its border, not by a fill, and each screen carries its identity
-// in a coloured edge rather than a block of solid colour. Red stays reserved for
-// genuinely life-threatening signals — the What To Do In An Emergency row and P0
+// Design tokens.
+//
+// Everything sits in one pale blue-green family, in three steps: the page is
+// the middle tone, cards lift a shade above it, and the header block on each
+// screen drops two shades below. That ordering is what gives depth without any
+// white and without a single hard line — a card reads as raised because it is
+// lighter than the page, not because it has been outlined.
+//
+// The text is a deep blue-green rather than a warm black, because warm text on
+// a cool ground reads as a mistake.
+//
+// Colour still lives at the edges: each screen carries its identity in a
+// coloured left edge, not a block of fill. Red stays reserved for genuinely
+// life-threatening signals — the What To Do In An Emergency row and P0
 // priority — and is never used decoratively.
 export const Calm = {
   light: {
-    bg: "#FFFFFF",
-    card: "#FFFFFF",
-    cardBorder: "#DFDCD5",
-    text: "#221D17",
-    textSecondary: "#7C7263",
-    blue: "#3D5D77",
-    blueSoft: "#CFDEE5",
+    // The three steps, lightest to darkest: card, page, header.
+    card: "#F3F9F7",
+    bg: "#E6F0ED",
+    headerBg: "#D1E3DE",
+    cardBorder: "#C2D6D1",
+    text: "#1C2A27",
+    textSecondary: "#5F7169",
+    blue: "#33607A",
+    blueSoft: "#C4DBE6",
     blueDeep: "#1E3A54",
-    onBlue: "#F5EFE1",
+    onBlue: "#F3F9F7",
     onBlueSoft: "#A9C0CE",
-    sage: "#6E8659",
-    sageSoft: "#DEE5D0",
-    plum: "#7D5C74",
-    plumSoft: "#E7DBE3",
+    sage: "#5E7F55",
+    sageSoft: "#D2E3C5",
+    plum: "#7A5670",
+    plumSoft: "#E3D2DD",
     danger: "#B3261E",
-    dangerSoft: "#F5DBD8",
-    orange: "#B8641C",
-    orangeSoft: "#F3DFC7",
-    priorityUrgent: "#7C99B3",
-    priorityImportant: "#7A9B5E",
-    priorityGoodToKnow: "#C9A54A",
+    dangerSoft: "#F6D9D4",
+    orange: "#B0601A",
+    orangeSoft: "#F2DBBE",
+    priorityUrgent: "#6E8FA8",
+    priorityImportant: "#6E9455",
+    priorityGoodToKnow: "#BE9A3E",
   },
   dark: {
-    bg: "#0F0F11",
-    card: "#17171A",
-    cardBorder: "#31313A",
-    text: "#F0E8D9",
-    textSecondary: "#AA9E8B",
+    // Same three steps, same family, inverted: the card is the lightest.
+    card: "#15201E",
+    bg: "#0D1614",
+    headerBg: "#1B2926",
+    cardBorder: "#2B3C38",
+    text: "#E5EFEC",
+    textSecondary: "#8FA39D",
     blue: "#8FB0C4",
     blueSoft: "#263A44",
     blueDeep: "#2E4E6C",

@@ -218,7 +218,7 @@ export default function FamilyMeetupScreen() {
       <Stack.Screen options={{ title: 'Family Meetup' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family</Text>
             <Text style={[styles.title, { color: c.text }]}>Family Meetup Point</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>

@@ -62,7 +62,7 @@ export default function ArticleScreen() {
       <Stack.Screen options={{ title: categoryData?.name ?? 'Article' }} />
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
-          <View style={[styles.headerBlock, { backgroundColor: c.card, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
+          <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Article</Text>
             <Text style={[styles.title, { color: c.text }]}>{topicData.title}</Text>
             <View style={styles.metaRow}>
