@@ -74,7 +74,7 @@ export default function HomeScreen() {
             </View>
           </View>
 
-          <Text style={[styles.sectionLabel, styles.pinnedLabel, { color: c.blue }]}>NEED THIS FAST</Text>
+          <Text style={[styles.sectionLabel, styles.pinnedLabel, { color: c.onBgSoft }]}>NEED THIS FAST</Text>
           {emergency ? (
             <Pressable
               accessibilityRole="button"
@@ -82,16 +82,16 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.danger, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
+                { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: 'rgba(255,255,255,0.16)' }]}>
-                <Icon name="siren" size={24} color="#FFFFFF" />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.blueSoft }]}>
+                <Icon name="siren" size={24} color={c.text} />
               </View>
               <View style={styles.rowText}>
-                <Text style={[styles.rowNameBold, { color: '#FFFFFF' }]}>What To Do In An Emergency</Text>
-                <Text style={[styles.rowSub, { color: 'rgba(255,255,255,0.82)' }]}>{p0Count} life-threatening situations, step by step</Text>
+                <Text style={[styles.rowNameBold, { color: c.text }]}>What To Do In An Emergency</Text>
+                <Text style={[styles.rowSub, { color: c.textSecondary }]}>{p0Count} life-threatening situations, step by step</Text>
               </View>
-              <Icon name="chevron" size={18} color="rgba(255,255,255,0.75)" />
+              <Icon name="chevron" size={18} color={c.textSecondary} />
             </Pressable>
           ) : null}
 
@@ -102,16 +102,16 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.blueDeep, borderColor: c.blueDeep, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+                { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: 'rgba(255,255,255,0.14)' }]}>
-                <Icon name="medical" size={24} color="#FFFFFF" />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.blueSoft }]}>
+                <Icon name="medical" size={24} color={c.text} />
               </View>
               <View style={styles.rowText}>
-                <Text style={[styles.rowNameBold, { color: '#FFFFFF' }]}>First Aid</Text>
-                <Text style={[styles.rowSub, { color: 'rgba(255,255,255,0.82)' }]}>Medical care and first aid steps</Text>
+                <Text style={[styles.rowNameBold, { color: c.text }]}>First Aid</Text>
+                <Text style={[styles.rowSub, { color: c.textSecondary }]}>Medical care and first aid steps</Text>
               </View>
-              <Icon name="chevron" size={18} color="rgba(255,255,255,0.75)" />
+              <Icon name="chevron" size={18} color={c.textSecondary} />
             </Pressable>
           ) : null}
         </View>
@@ -133,7 +133,7 @@ export default function HomeScreen() {
               </Pressable>
               {results.tools.length > 0 ? (
                 <>
-                  <Text style={[styles.sectionLabel, { color: c.blue }]}>JUMP TO</Text>
+                  <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>JUMP TO</Text>
                   {results.tools.map((hit) => (
                     <Pressable
                       key={hit.tool.pathname}
@@ -241,7 +241,7 @@ export default function HomeScreen() {
           ) : (
             <>
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>ASK IT</Text>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>ASK IT</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/ask" })}
@@ -262,7 +262,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY PLAN</Text>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>FAMILY PLAN</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/family-plan" })}
@@ -282,8 +282,36 @@ export default function HomeScreen() {
                 </Pressable>
               </View>
 
+              
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY</Text>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>LOOK SOMETHING UP</Text>
+                {CATEGORY_GROUPS.map((group, i) => {
+                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+                  return (
+                    <Pressable
+                      key={group.name}
+                      accessibilityRole="button"
+                      onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
+                      style={({ pressed }) => [
+                        styles.row,
+                        styles.rowAccented,
+                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
+                      ]}>
+                      <View style={[styles.icon, { backgroundColor: c[`${accent}Soft`] }]}>
+                        <Icon name={group.icon} color={c[accent]} />
+                      </View>
+                      <View style={styles.rowText}>
+                        <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
+                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
+                      </View>
+                      <Icon name="chevron" size={18} color={c.textSecondary} />
+                    </Pressable>
+                  );
+                })}
+              </View>
+
+<View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>FAMILY</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => router.push({ pathname: '/category/[category]', params: { category: 'family-and-caregiving' } })}
@@ -338,34 +366,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>LOOK SOMETHING UP</Text>
-                {CATEGORY_GROUPS.map((group, i) => {
-                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
-                  return (
-                    <Pressable
-                      key={group.name}
-                      accessibilityRole="button"
-                      onPress={() => router.push({ pathname: '/group/[group]', params: { group: slugifyGroup(group.name) } })}
-                      style={({ pressed }) => [
-                        styles.row,
-                        styles.rowAccented,
-                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
-                      ]}>
-                      <View style={[styles.icon, { backgroundColor: c[`${accent}Soft`] }]}>
-                        <Icon name={group.icon} color={c[accent]} />
-                      </View>
-                      <View style={styles.rowText}>
-                        <Text style={[styles.rowName, { color: c.text }]}>{group.name}</Text>
-                        <Text style={[styles.rowSub, { color: c.textSecondary }]}>{group.sub}</Text>
-                      </View>
-                      <Icon name="chevron" size={18} color={c.textSecondary} />
-                    </Pressable>
-                  );
-                })}
-              </View>
-
-              <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>SAVE FOR OFFLINE</Text>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>SAVE FOR OFFLINE</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/content-packs" })}
@@ -403,7 +404,7 @@ export default function HomeScreen() {
               </View>
 
               <View style={styles.section}>
-                <Text style={[styles.sectionLabel, { color: c.blue }]}>YOUR SUPPLIES</Text>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>YOUR SUPPLIES</Text>
                 <Pressable
                   accessibilityRole="button"
                   onPress={() => router.push({ pathname: '/supply-cache' })}
@@ -474,7 +475,7 @@ export default function HomeScreen() {
                 </Pressable>
               </View>
 
-              <Text style={[styles.footer, { color: c.textSecondary }]}>
+              <Text style={[styles.footer, { color: c.onBgSoft }]}>
                 GuideHand is a reference, not a substitute for emergency services or medical care.
               </Text>
             </>
