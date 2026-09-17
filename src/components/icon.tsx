@@ -15,6 +15,9 @@ const PATHS: Record<string, string> = {
   phone:
     "M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z",
   chevron: "m9 6 6 6-6 6",
+  // A back arrow with a shaft, not a bare chevron. At header size a lone
+  // chevron reads as decoration; an arrow reads as "go back".
+  arrowLeft: "M19 12H5 M12 19l-7-7 7-7",
   search: "m21 21-4.3-4.3",
   compass: "M12 7.5l1.8 4.5-1.8 4.5-1.8-4.5z",
   leaf: "M11 20a7 7 0 0 1-7-7c0-5.5 4.5-10 11-10 3 0 5 2 5 5 0 6.5-4.5 11-9 11z M4 13c3.5 0 7-3.5 9-8",

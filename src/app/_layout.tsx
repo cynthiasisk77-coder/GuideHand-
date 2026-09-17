@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { HeaderBack } from '@/components/header-back';
 import { Calm, Fonts } from '@/constants/calm';
 import { loadInstalledPacksIntoRegistry } from '@/lib/packs';
 import { encryptLegacyData } from '@/lib/secureData';
@@ -63,7 +64,12 @@ export default function RootLayout() {
           headerStyle: { backgroundColor: c.headerBg },
           headerShadowVisible: false,
           headerTitleStyle: { fontWeight: '700', color: c.text, fontFamily: Fonts.displaySemibold },
-          headerBackTitle: 'Back',
+          // Our own back button on every screen, not the navigator's. The
+          // built-in one takes itself away whenever React Navigation decides
+          // there is no history to go back to, and a screen with no way out is
+          // worse than a button that occasionally just goes home.
+          headerBackVisible: false,
+          headerLeft: () => <HeaderBack color={c.text} />,
         }}>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="group/[group]" options={{ title: 'Category' }} />
