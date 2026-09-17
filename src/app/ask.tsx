@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Stack } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AskEngine } from '@/components/ask-engine';
@@ -10,6 +10,10 @@ import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { ASK_MODELS, ASK_MODEL_KEY, AskModelChoice, findAskModel } from '@/lib/askModels';
 
 export default function AskScreen() {
+  // Carried over when someone gives up on searching and taps through. Retyping
+  // the question they just typed is the kind of small friction that stops
+  // people using a thing at all.
+  const { q } = useLocalSearchParams<{ q?: string }>();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -78,7 +82,7 @@ export default function AskScreen() {
           {!loaded ? (
             <ActivityIndicator color={c.blue} style={styles.loading} />
           ) : chosen ? (
-            <AskEngine model={chosen} c={c} onChangeModel={forget} />
+            <AskEngine model={chosen} c={c} onChangeModel={forget} initialQuestion={q} />
           ) : (
             <>
               <Text style={[styles.sectionLabel, { color: c.blue }]}>CHOOSE WHAT TO DOWNLOAD</Text>

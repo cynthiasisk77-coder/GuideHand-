@@ -53,8 +53,24 @@ export default function HomeScreen() {
                 placeholderTextColor={c.textSecondary}
                 style={[styles.searchInput, { color: c.text }]}
                 autoCorrect={false}
-                clearButtonMode="while-editing"
               />
+              {/* clearButtonMode is iOS-only and renders nothing on Android,
+                  which left people searching with no way back to the home
+                  screen short of deleting every character. This is a real
+                  button, on every platform, sized to be hit in a hurry. */}
+              {searching ? (
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel="Clear the search"
+                  onPress={() => setQuery('')}
+                  hitSlop={12}
+                  style={({ pressed }) => [
+                    styles.clearButton,
+                    { backgroundColor: c.cardBorder, opacity: pressed ? 0.6 : 1 },
+                  ]}>
+                  <Icon name="x" size={14} color={c.text} strokeWidth={2.4} />
+                </Pressable>
+              ) : null}
             </View>
           </View>
 
@@ -105,6 +121,16 @@ export default function HomeScreen() {
         <View style={styles.content}>
           {searching ? (
             <View style={styles.section}>
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => setQuery('')}
+                style={({ pressed }) => [
+                  styles.backRow,
+                  { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
+                ]}>
+                <Icon name="back" size={16} color={c.text} />
+                <Text style={[styles.backText, { color: c.text }]}>Back to everything</Text>
+              </Pressable>
               {results.tools.length > 0 ? (
                 <>
                   <Text style={[styles.sectionLabel, { color: c.blue }]}>JUMP TO</Text>
@@ -149,6 +175,32 @@ export default function HomeScreen() {
                     &quot;power is out&quot;.
                   </Text>
                 </View>
+              ) : null}
+
+              {/* The moment a search comes up short is exactly when someone
+                  needs to ask in their own words, so the offer belongs here
+                  rather than buried in a list further down the page. */}
+              {resultCount < 3 ? (
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/ask', params: { q: query.trim() } })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                    <Icon name="speak" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand instead</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>
+                      Ask it in your own words and it answers from your own articles — and reads the
+                      answer out loud
+                    </Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
               ) : null}
 
               {results.articles.map((hit) => (
@@ -468,6 +520,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   searchInput: { flex: 1, paddingVertical: 11, fontSize: 15, fontFamily: Fonts.body },
+  clearButton: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    alignSelf: 'flex-start',
+    borderWidth: 1,
+    borderRadius: 999,
+    paddingVertical: 9,
+    paddingHorizontal: 14,
+    marginBottom: 12,
+  },
+  backText: { fontSize: 13.5, fontFamily: Fonts.bodySemibold },
   pinnedLabel: { marginBottom: 8, marginTop: 0 },
   section: { marginTop: 22 },
   sectionLabel: {

@@ -3,6 +3,7 @@ import { Alert, Linking, Pressable, ScrollView, StyleSheet, Text, useColorScheme
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
 import { Icon } from '@/components/icon';
+import { ReadAloudButton } from '@/components/read-aloud-button';
 import { CPRDiagram, ChestSealDiagram, TourniquetDiagram } from '@/components/diagrams';
 import { QuickCardView } from '@/components/QuickCard';
 import { Calm, Fonts } from '@/constants/calm';
@@ -82,6 +83,17 @@ export default function ArticleScreen() {
                   {`Steps from the full article "${resolved.sourceTitle}".`}
                 </Text>
               ) : null}
+
+              {/* Above the steps, not below them. Someone holding pressure on
+                  a wound needs this before they start reading, not after. */}
+              <View style={styles.readRow}>
+                <ReadAloudButton
+                  text={[topicData.title, ...body.guidance].join('. ')}
+                  label="Read the steps to me"
+                  color={c.blue}
+                  background={c.blueSoft}
+                />
+              </View>
 
               {quickCard ? (
                 <>
@@ -261,6 +273,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     fontFamily: Fonts.body,
   },
+  readRow: { marginBottom: 12 },
   sources: {
     marginTop: Spacing.three,
     borderWidth: 1,

@@ -30,6 +30,10 @@ const PATHS: Record<string, string> = {
   download: "M12 3v12M7.5 10.5 12 15l4.5-4.5M4 19h16",
   lock: "M5.5 10.5h13V21h-13z M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3M12 14.5v3",
   upload: "M12 16V4M7.5 8.5 12 4l4.5 4.5M4 19h16",
+  x: "M6 6l12 12M18 6 6 18",
+  back: "m15 6-6 6 6 6",
+  speak: "M4 9.5h3.5L12 5.5v13L7.5 14.5H4z M15.5 9.2a4 4 0 0 1 0 5.6 M18 6.8a7.5 7.5 0 0 1 0 10.4",
+  stop: "M7 7h10v10H7z",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {

@@ -35,6 +35,7 @@ interface AskEngineProps {
   model: AskModelChoice;
   c: Palette;
   onChangeModel: () => void;
+  initialQuestion?: string;
 }
 
 export function AskEngine({ model, c, onChangeModel }: AskEngineProps) {

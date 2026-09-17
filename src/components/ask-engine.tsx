@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { models, useLLMChatSession } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
+import { ReadAloudButton } from '@/components/read-aloud-button';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
@@ -35,6 +36,8 @@ interface AskEngineProps {
   model: AskModelChoice;
   c: Palette;
   onChangeModel: () => void;
+  /** A question carried over from the search box, so nobody retypes it. */
+  initialQuestion?: string;
 }
 
 type Phase =
@@ -48,9 +51,9 @@ type Phase =
  * download starts on mount, so this component existing is what commits a person
  * to the download.
  */
-export function AskEngine({ model, c, onChangeModel }: AskEngineProps) {
+export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngineProps) {
   const router = useRouter();
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState(initialQuestion ?? '');
   const [phase, setPhase] = useState<Phase>({ kind: 'idle' });
   const [streamed, setStreamed] = useState('');
 
@@ -193,6 +196,7 @@ export function AskEngine({ model, c, onChangeModel }: AskEngineProps) {
           {phase.answer.length > 0 ? (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.blue, borderLeftWidth: 5 }]}>
               <Text style={[styles.answer, { color: c.text }]}>{phase.answer}</Text>
+              <ReadAloudButton text={phase.answer} color={c.blue} background={c.blueSoft} />
             </View>
           ) : (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
