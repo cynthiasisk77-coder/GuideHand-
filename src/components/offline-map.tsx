@@ -71,6 +71,9 @@ export function OfflineMap({
   // The map runs full-bleed with no navigation header above it, so the Back
   // pill has to clear the status bar and the notch itself.
   const insets = useSafeAreaInsets();
+  // Clear of the gesture bar, with room to spare. A confirmation you cannot
+  // read because it is under the navigation bar is not a confirmation.
+  const bottomInset = insets.bottom + 28;
   const [selected, setSelected] = useState<MapMarker | undefined>(undefined);
   const [picked, setPicked] = useState<Coords | undefined>(undefined);
   const [label, setLabel] = useState('');
@@ -129,7 +132,7 @@ export function OfflineMap({
 
       {/* --- naming the spot you just tapped --------------------------------- */}
       {picked ? (
-        <View style={[styles.panel, { backgroundColor: c.card, borderColor: c.sage }]}>
+        <View style={[styles.panel, { bottom: bottomInset, backgroundColor: c.card, borderColor: c.sage }]}>
           <Text style={[styles.panelTitle, { color: c.text }]}>Name this spot</Text>
           <TextInput
             value={label}
@@ -159,7 +162,7 @@ export function OfflineMap({
 
       {/* --- the standing invitation, so nobody has to guess it is tappable -- */}
       {picking && !picked && !selected ? (
-        <View style={[styles.hint, { backgroundColor: c.card, borderColor: c.sage }]}>
+        <View style={[styles.hint, { bottom: bottomInset, backgroundColor: c.card, borderColor: c.sage }]}>
           <Icon name="pin" size={15} color={c.sageText} />
           <Text style={[styles.hintText, { color: c.text }]}>
             {justSaved ? `Saved "${justSaved}". Tap again to add another.` : 'Tap the map where you want to meet.'}
@@ -168,7 +171,7 @@ export function OfflineMap({
       ) : null}
 
       {selected ? (
-        <View style={[styles.callout, { backgroundColor: c.card, borderColor: c.plum }]}>
+        <View style={[styles.callout, { bottom: bottomInset, backgroundColor: c.card, borderColor: c.plum }]}>
           <View style={styles.calloutText}>
             <Text style={[styles.calloutTitle, { color: c.text }]}>{selected.label}</Text>
             {here ? (
@@ -190,7 +193,7 @@ export function OfflineMap({
           styles.back,
           { top: insets.top + 12, backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
         ]}>
-        <Icon name="chevron" size={17} color={c.text} />
+        <Icon name="arrowLeft" size={18} color={c.text} strokeWidth={2.1} />
         <Text style={[styles.backText, { color: c.text }]}>Back</Text>
       </Pressable>
     </View>
