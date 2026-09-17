@@ -39,19 +39,19 @@ export default function HomeScreen() {
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
             <View style={styles.headerWatermark} pointerEvents="none">
-              <Icon name="compass" size={132} color={c.blue} strokeWidth={1.4} />
+              <Icon name="compass" size={132} color={c.onBlue} strokeWidth={1.4} />
             </View>
-            <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Field Guide</Text>
-            <Text style={[styles.title, { color: c.text }]}>GuideHand</Text>
-            <Text style={[styles.subtitle, { color: c.textSecondary }]}>Emergency Preparedness Guide</Text>
-            <View style={[styles.search, { backgroundColor: c.card }]}>
-              <Icon name="search" size={16} color={c.blue} />
+            <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
+            <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
+            <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
+            <View style={[styles.search, { backgroundColor: 'rgba(255,255,255,0.12)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.22)' }]}>
+              <Icon name="search" size={16} color={c.onBlueSoft} />
               <TextInput
                 value={query}
                 onChangeText={setQuery}
                 placeholder="Search, or just say what's wrong"
-                placeholderTextColor={c.textSecondary}
-                style={[styles.searchInput, { color: c.text }]}
+                placeholderTextColor={c.onBlueSoft}
+                style={[styles.searchInput, { color: c.onBlue }]}
                 autoCorrect={false}
               />
               {/* clearButtonMode is iOS-only and renders nothing on Android,
@@ -66,9 +66,9 @@ export default function HomeScreen() {
                   hitSlop={12}
                   style={({ pressed }) => [
                     styles.clearButton,
-                    { backgroundColor: c.cardBorder, opacity: pressed ? 0.6 : 1 },
+                    { backgroundColor: 'rgba(255,255,255,0.18)', opacity: pressed ? 0.6 : 1 },
                   ]}>
-                  <Icon name="x" size={14} color={c.text} strokeWidth={2.4} />
+                  <Icon name="x" size={14} color={c.onBlue} strokeWidth={2.4} />
                 </Pressable>
               ) : null}
             </View>
@@ -82,16 +82,16 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
+                { backgroundColor: c.danger, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.dangerSoft }]}>
-                <Icon name="siren" size={24} color={c.danger} />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: 'rgba(255,255,255,0.16)' }]}>
+                <Icon name="siren" size={24} color="#FFFFFF" />
               </View>
               <View style={styles.rowText}>
-                <Text style={[styles.rowNameBold, { color: c.text }]}>What To Do In An Emergency</Text>
-                <Text style={[styles.rowSub, { color: c.textSecondary }]}>{p0Count} life-threatening situations, step by step</Text>
+                <Text style={[styles.rowNameBold, { color: '#FFFFFF' }]}>What To Do In An Emergency</Text>
+                <Text style={[styles.rowSub, { color: 'rgba(255,255,255,0.82)' }]}>{p0Count} life-threatening situations, step by step</Text>
               </View>
-              <Icon name="chevron" size={18} color={c.textSecondary} />
+              <Icon name="chevron" size={18} color="rgba(255,255,255,0.75)" />
             </Pressable>
           ) : null}
 
@@ -102,16 +102,16 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.orange, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+                { backgroundColor: c.blueDeep, borderColor: c.blueDeep, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.orangeSoft }]}>
-                <Icon name="medical" size={24} color={c.orange} />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: 'rgba(255,255,255,0.14)' }]}>
+                <Icon name="medical" size={24} color="#FFFFFF" />
               </View>
               <View style={styles.rowText}>
-                <Text style={[styles.rowNameBold, { color: c.text }]}>First Aid</Text>
-                <Text style={[styles.rowSub, { color: c.textSecondary }]}>Medical care and first aid steps</Text>
+                <Text style={[styles.rowNameBold, { color: '#FFFFFF' }]}>First Aid</Text>
+                <Text style={[styles.rowSub, { color: 'rgba(255,255,255,0.82)' }]}>Medical care and first aid steps</Text>
               </View>
-              <Icon name="chevron" size={18} color={c.textSecondary} />
+              <Icon name="chevron" size={18} color="rgba(255,255,255,0.75)" />
             </Pressable>
           ) : null}
         </View>
@@ -241,6 +241,48 @@ export default function HomeScreen() {
           ) : (
             <>
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>ASK IT</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/ask" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
+                    <Icon name="speak" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Ask in your own words, answered from your own articles — offline</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY PLAN</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/family-plan" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.plumSoft }]}>
+                    <Icon name="family" color={c.plum} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Family Plan</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Write it once and send it to everyone — who does what, the out-of-area number, where the supplies are</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.blue }]}>FAMILY</Text>
                 <Pressable
                   accessibilityRole="button"
@@ -256,23 +298,6 @@ export default function HomeScreen() {
                   <View style={styles.rowText}>
                     <Text style={[styles.rowName, { color: c.text }]}>Family & Caregiving</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>Caregiving, family plans, and support</Text>
-                  </View>
-                  <Icon name="chevron" size={18} color={c.textSecondary} />
-                </Pressable>
-                <Pressable
-                  accessibilityRole="button"
-                  onPress={() => router.push({ pathname: "/family-plan" })}
-                  style={({ pressed }) => [
-                    styles.row,
-                    styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
-                  ]}>
-                  <View style={[styles.icon, { backgroundColor: c.plumSoft }]}>
-                    <Icon name="family" color={c.plum} />
-                  </View>
-                  <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Family Plan</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Write it once and send it to everyone — who does what, the out-of-area number, where the supplies are</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
@@ -355,23 +380,6 @@ export default function HomeScreen() {
                   <View style={styles.rowText}>
                     <Text style={[styles.rowName, { color: c.text }]}>Content Packs</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>Download extra reference now, so it&apos;s there when the signal isn&apos;t</Text>
-                  </View>
-                  <Icon name="chevron" size={18} color={c.textSecondary} />
-                </Pressable>
-                <Pressable
-                  accessibilityRole="button"
-                  onPress={() => router.push({ pathname: "/ask" })}
-                  style={({ pressed }) => [
-                    styles.row,
-                    styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
-                  ]}>
-                  <View style={[styles.icon, { backgroundColor: c.blueSoft }]}>
-                    <Icon name="search" color={c.blue} />
-                  </View>
-                  <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Ask in your own words, answered from your own articles — offline</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>

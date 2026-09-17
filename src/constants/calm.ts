@@ -1,66 +1,80 @@
 // Design tokens.
 //
-// The page is a pale blue-green. Cards sitting on it are white, and their
-// identity comes from a coloured border, never a coloured fill — a filled card
-// reads as a warning even when it is only a category, and a pale red fill in
-// particular reads as pink rather than as danger. The header block on each
-// screen is the same blue-green two shades down, so the page has depth without
-// the cards having to carry it.
+// One blue family, run as a proper scale from near-black to near-white, so the
+// app has range instead of sitting in a single pastel band. Pastel is the thing
+// that makes a tool look like a toy: everything at the same lightness, nothing
+// carrying weight.
 //
-// Red stays reserved for genuinely life-threatening signals — the What To Do In
-// An Emergency row and P0 priority — and is never used decoratively.
+// The scale, and where each step is used:
+//
+//   ink      #10202F   the darkest thing on screen — pinned rows, header block
+//   deep     #1B3A52   headings and strong edges
+//   mid      #2E5F80   links, active state, icons that need to carry
+//   steel    #6C8CA4   secondary text on light ground
+//   haze     #C3D2DE   borders
+//   page     #DDE6EE   the ground everything sits on
+//   card     #FFFFFF   white, always, with a coloured edge for identity
+//
+// Cards stay white with a border because a filled card reads as a warning even
+// when it is only a category. The two pinned rows are the exception and are
+// filled dark on purpose: they are the only rows that should look like
+// equipment rather than paper.
+//
+// Red is reserved for genuinely life-threatening signals and never used
+// decoratively.
 
 export const Calm = {
   light: {
-    // White cards on a pale blue-green page, header two shades down.
     card: "#FFFFFF",
-    bg: "#E7F1EE",
-    headerBg: "#CDE1DC",
-    cardBorder: "#C6D9D4",
-    text: "#1C2A27",
-    textSecondary: "#5C6E67",
-    blue: "#2F5D78",
-    blueSoft: "#DCEAF1",
-    blueDeep: "#1E3A54",
-    onBlue: "#FFFFFF",
-    onBlueSoft: "#A9C0CE",
-    sage: "#587A4F",
-    sageSoft: "#E1EDD6",
-    plum: "#74506B",
-    plumSoft: "#EEE0EA",
-    // A true red, on white, at full strength. Anything paler goes pink.
-    danger: "#B3261E",
-    dangerSoft: "#FBE4E1",
-    orange: "#A85715",
-    orangeSoft: "#FAE7D2",
-    priorityUrgent: "#5E82A0",
-    priorityImportant: "#638C4C",
-    priorityGoodToKnow: "#B08B31",
+    bg: "#DDE6EE",
+    headerBg: "#10202F",
+    cardBorder: "#C3D2DE",
+    text: "#10202F",
+    textSecondary: "#5A7387",
+    blue: "#2E5F80",
+    blueSoft: "#D6E4EE",
+    blueDeep: "#1B3A52",
+    // Text sitting on the dark header block.
+    onBlue: "#EAF1F6",
+    onBlueSoft: "#9DB6C7",
+    sage: "#3F6B58",
+    sageSoft: "#D8E7E0",
+    plum: "#5E4A6B",
+    plumSoft: "#E1DAE8",
+    // Signal red, at the strength a warning light is. Paler goes pink.
+    danger: "#A3160C",
+    dangerSoft: "#F6DCD9",
+    // Safety orange rather than tan — the colour of actual rescue equipment.
+    orange: "#9A4A08",
+    orangeSoft: "#F8E2CE",
+    priorityUrgent: "#45708F",
+    priorityImportant: "#4E7A63",
+    priorityGoodToKnow: "#8C6F2A",
   },
   dark: {
-    // Same relationships, inverted: the card is the lightest thing on screen.
-    card: "#16211F",
-    bg: "#0D1615",
-    headerBg: "#1A2A27",
-    cardBorder: "#2C3E3A",
-    text: "#E4EFEB",
-    textSecondary: "#93A8A2",
-    blue: "#8FB0C4",
-    blueSoft: "#1B303A",
-    blueDeep: "#2E4E6C",
-    onBlue: "#E4EFEB",
-    onBlueSoft: "#A9C0CE",
-    sage: "#9EBB88",
-    sageSoft: "#20301F",
-    plum: "#C6A0BC",
-    plumSoft: "#31242E",
-    danger: "#F2867A",
-    dangerSoft: "#3A1F1C",
-    orange: "#E0975A",
-    orangeSoft: "#35240F",
-    priorityUrgent: "#9FB8CC",
-    priorityImportant: "#9CBB86",
-    priorityGoodToKnow: "#D9BC72",
+    // Same scale, read from the other end.
+    card: "#152430",
+    bg: "#0A141C",
+    headerBg: "#050D13",
+    cardBorder: "#27404F",
+    text: "#E6EFF5",
+    textSecondary: "#8FA8B9",
+    blue: "#7FAECD",
+    blueSoft: "#152F3F",
+    blueDeep: "#0F2433",
+    onBlue: "#E6EFF5",
+    onBlueSoft: "#9DB6C7",
+    sage: "#83B39B",
+    sageSoft: "#162A22",
+    plum: "#A992BB",
+    plumSoft: "#241C2C",
+    danger: "#F0655A",
+    dangerSoft: "#33130F",
+    orange: "#E08B3C",
+    orangeSoft: "#2E1C0A",
+    priorityUrgent: "#8DB2CC",
+    priorityImportant: "#8FB89F",
+    priorityGoodToKnow: "#C6A65C",
   },
 } as const;
 
