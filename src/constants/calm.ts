@@ -3,7 +3,7 @@
 // Dark by default: if the grid is down the battery is the lifeline, and a dark
 // ground draws measurably less of it on an OLED screen.
 //
-//   Deep Navy     #101A2E   the ground
+//   Deep Navy     #0A1220   the ground, itself fading #142338 to #05090F
 //   Soft Dusty Blue #93A9B9  the header. The one light thing on the page, and
 //                            it travels a real distance rather than pretending
 //                            to: #CBD8E1 at the top down to #61798D at the
@@ -36,12 +36,12 @@
 export const Calm = {
   light: {
     // --- surfaces -------------------------------------------------------
-    bg: "#101A2E",
+    bg: "#0A1220",
     // The ground fades too. A single flat fill over a whole screen is the thing
     // that makes an app look cheap — this is barely perceptible as a gradient
     // and entirely perceptible as depth.
-    bgFadeTop: "#17243D",
-    bgFadeBottom: "#0B1322",
+    bgFadeTop: "#142338",
+    bgFadeBottom: "#05090F",
     headerBg: "#93A9B9",
     headerFadeTop: "#CBD8E1",
     headerFadeBottom: "#61798D",
@@ -49,7 +49,7 @@ export const Calm = {
     // reaches for first. A light edge does nearly all the work of looking
     // lifted on a dark ground — a drop shadow on navy is almost invisible.
     panelEdge: "#9FB2BF",
-    panelFill: "#17243D",
+    panelFill: "#16253F",
     card: "#F2F0EA",
     cardFade: "#E7E4DC",
     cardBorder: "#D3D0C8",
@@ -93,12 +93,12 @@ export const Calm = {
     // letting the phone's setting swap the navy ground for true black meant two
     // people could install the same build and see two different apps.
     // --- surfaces -------------------------------------------------------
-    bg: "#101A2E",
+    bg: "#0A1220",
     // The ground fades too. A single flat fill over a whole screen is the thing
     // that makes an app look cheap — this is barely perceptible as a gradient
     // and entirely perceptible as depth.
-    bgFadeTop: "#17243D",
-    bgFadeBottom: "#0B1322",
+    bgFadeTop: "#142338",
+    bgFadeBottom: "#05090F",
     headerBg: "#93A9B9",
     headerFadeTop: "#CBD8E1",
     headerFadeBottom: "#61798D",
@@ -106,7 +106,7 @@ export const Calm = {
     // reaches for first. A light edge does nearly all the work of looking
     // lifted on a dark ground — a drop shadow on navy is almost invisible.
     panelEdge: "#9FB2BF",
-    panelFill: "#17243D",
+    panelFill: "#16253F",
     card: "#F2F0EA",
     cardFade: "#E7E4DC",
     cardBorder: "#D3D0C8",

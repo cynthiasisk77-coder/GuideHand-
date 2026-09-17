@@ -65,9 +65,6 @@ export default function HomeScreen() {
             <View style={styles.headerTopo} pointerEvents="none">
               <TopoLines width={420} height={200} color={c.text} opacity={0.16} />
             </View>
-            <View style={styles.headerWatermark} pointerEvents="none">
-              <Icon name="compass" size={118} color={c.text} strokeWidth={1.2} />
-            </View>
             <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
             <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
             <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
@@ -523,6 +520,9 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderRadius: 22,
     padding: 11,
+    // A lit top edge and a dark bottom one is the oldest trick for making a
+    // surface read as raised: light comes from above, so the top catches it.
+    borderTopWidth: 2.2,
     // On a dark ground a drop shadow barely registers, so the light edge
     // carries the lift and the shadow only deepens it.
     shadowColor: '#000000',
@@ -555,13 +555,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     overflow: 'hidden',
-  },
-  headerWatermark: {
-    position: 'absolute',
-    top: -22,
-    right: -20,
-    opacity: 0.13,
-    transform: [{ rotate: '8deg' }],
   },
   eyebrow: {
     fontSize: 10,
@@ -615,7 +608,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 14,
     padding: 12,
-    marginBottom: 8,
+    marginBottom: 10,
+    // A pale card on a dark ground casts a real shadow. Without one it looks
+    // printed onto the page rather than sitting on it.
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.38,
+    shadowRadius: 9,
+    elevation: 6,
   },
   rowEmergency: {
     borderWidth: 2.5,
