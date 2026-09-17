@@ -3,7 +3,7 @@
 // Dark by default: if the grid is down the battery is the lifeline, and a dark
 // ground draws measurably less of it on an OLED screen.
 //
-//   Charcoal      #1C1F22   the ground
+//   Deep Navy     #101A2E   the ground
 //   Soft Dusty Blue #9FB2BF  the header. It is the one light, soft thing on
 //                            the page, and it fades — #B3C3CE at the top down
 //                            to #8499A8 at the bottom — rather than sitting as
@@ -33,7 +33,7 @@
 export const Calm = {
   light: {
     // --- surfaces -------------------------------------------------------
-    bg: "#1C1F22",
+    bg: "#101A2E",
     headerBg: "#9FB2BF",
     headerFadeTop: "#B3C3CE",
     headerFadeBottom: "#8499A8",
