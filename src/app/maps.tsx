@@ -42,6 +42,20 @@ type Download =
   | { kind: 'working'; percent: number; label: string }
   | { kind: 'failed'; message: string };
 
+/**
+ * The name without the coordinates trailing off the end of it.
+ *
+ * Areas downloaded by earlier builds were named "The wider area — 30.78733,
+ * -95.45621", because the default name was built out of the centre. Those rows
+ * are still on people's phones. Nothing is lost by hiding the numbers: the row
+ * underneath already says how big the area is, and a name somebody typed
+ * themselves is left exactly as they typed it.
+ */
+function displayName(region: MapRegion): string {
+  const withoutCoords = region.name.replace(/\s*[—-]\s*-?\d+\.\d+\s*,\s*-?\d+\.\d+\s*$/, "").trim();
+  return withoutCoords || region.name;
+}
+
 export default function MapsScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
@@ -169,6 +183,11 @@ export default function MapsScreen() {
         }
       );
       if (!mounted.current) return;
+      const sameSpot = (a: MapRegion) =>
+        a.radiusMiles === size.radiusMiles &&
+        Math.abs(a.center.latitude - center.latitude) < 0.01 &&
+        Math.abs(a.center.longitude - center.longitude) < 0.01;
+
       const saved: MapRegion = {
         id: packId,
         name: label,
@@ -178,7 +197,14 @@ export default function MapsScreen() {
         maxZoom: size.maxZoom,
         downloadedAt: Date.now(),
       };
-      setRegions((prev) => [saved, ...prev]);
+      // Any earlier copy of this same area is dropped, and its tiles with it.
+      setRegions((prev) => {
+        const replaced = prev.filter(sameSpot);
+        replaced.forEach((old) => {
+          if (old.id !== packId) removeRegion(old.id).catch(() => {});
+        });
+        return [saved, ...prev.filter((r) => !sameSpot(r))];
+      });
       setName('');
       setDownload({ kind: 'idle' });
       // "Where did my map go?" was a fair question: it went into a list row
@@ -259,7 +285,7 @@ export default function MapsScreen() {
                     <Icon name="pin" size={17} color={c.sage} />
                     <View style={styles.regionText}>
                       <Text style={[styles.regionName, { color: c.text }]} numberOfLines={1}>
-                        {region.name}
+                        {displayName(region)}
                       </Text>
                       <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
                         {region.radiusMiles} miles across · tap to open the map

@@ -9,15 +9,16 @@
 // type it correctly into another phone is not a plan anybody will carry out in
 // an emergency. Pointing at a map is.
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Camera, Map, Marker, UserLocation } from '@maplibre/maplibre-react-native';
+import type { CameraRef } from '@maplibre/maplibre-react-native';
 
 import { Icon } from '@/components/icon';
 import { Fonts } from '@/constants/calm';
 import { Coords, distanceMiles, formatDistance } from '@/lib/geo';
-import { MAP_ATTRIBUTION, MAP_STYLE_URL, MapRegion, toLngLat } from '@/lib/offlineMaps';
+import { boundsAround, MAP_ATTRIBUTION, MAP_STYLE_URL, MapRegion, toLngLat, toMapLibreBounds } from '@/lib/offlineMaps';
 
 interface Palette {
   bg: string;
@@ -71,6 +72,24 @@ export function OfflineMap({
   // The map runs full-bleed with no navigation header above it, so the Back
   // pill has to clear the status bar and the notch itself.
   const insets = useSafeAreaInsets();
+  const camera = useRef<CameraRef>(null);
+
+  // initialViewState is exactly that — initial. This component is not
+  // remounted when you close one downloaded area and open another, so without
+  // this every map after the first kept the first one's view. That is why
+  // "they all pull up the same map" and why one that opened at the world stayed
+  // at the world.
+  //
+  // Fitting the region's own bounds rather than a centre and a guessed zoom
+  // also means what you see is exactly the area you downloaded — no more, and
+  // nothing missing off the edge.
+  useEffect(() => {
+    const bounds = toMapLibreBounds(boundsAround(region.center, region.radiusMiles));
+    camera.current?.fitBounds(bounds, {
+      padding: { top: 70, right: 24, bottom: 110, left: 24 },
+      duration: 0,
+    });
+  }, [region.id, region.center, region.radiusMiles]);
   // Clear of the gesture bar, with room to spare. A confirmation you cannot
   // read because it is under the navigation bar is not a confirmation.
   const bottomInset = insets.bottom + 28;
@@ -111,7 +130,7 @@ export function OfflineMap({
         attribution={false}
         compass
         onPress={handleMapPress}>
-        <Camera initialViewState={{ center: toLngLat(region.center), zoom: 12 }} />
+        <Camera ref={camera} initialViewState={{ center: toLngLat(region.center), zoom: 11 }} />
         {here ? <UserLocation /> : null}
         {markers.map((marker) => (
           <Marker key={marker.id} id={marker.id} lngLat={toLngLat(marker)} onPress={() => setSelected(marker)}>
