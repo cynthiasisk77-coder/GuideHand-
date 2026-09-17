@@ -69,7 +69,7 @@ export default function RootLayout() {
         <Stack.Screen name="group/[group]" options={{ title: 'Category' }} />
         <Stack.Screen name="category/[category]" options={{ title: 'Category' }} />
         <Stack.Screen name="article/[category]/[topic]" options={{ title: 'Article' }} />
-        <Stack.Screen name="supply-cache" options={{ title: 'Supply Cache' }} />
+        <Stack.Screen name="supply-cache" options={{ title: 'Home Supplies' }} />
         <Stack.Screen name="medicine-tracker" options={{ title: 'Medicine Tracker' }} />
         <Stack.Screen name="document-photos" options={{ title: 'Document Photos' }} />
         <Stack.Screen name="family-meetup" options={{ title: 'Family Meetup' }} />

@@ -381,7 +381,7 @@ export default function InventoryScreen() {
             ]}>
             <Icon name="checklist" size={16} color={c.sage} />
             <Text style={[styles.linkText, { color: c.text }]}>
-              Supply Cache — what you should have, as a checklist
+              Home Supplies — what you should have, as a checklist
             </Text>
             <Icon name="chevron" size={15} color={c.textSecondary} />
           </Pressable>

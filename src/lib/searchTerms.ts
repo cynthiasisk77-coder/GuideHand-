@@ -193,11 +193,11 @@ export const TOOL_TARGETS: ToolTarget[] = [
     keywords: ["medicine", "medication", "prescription", "pill", "dose", "dosage", "pharmacy", "refill", "expiry", "expiration", "meds", "drug"],
   },
   {
-    label: "Home Supply Cache",
+    label: "Home Supplies",
     sub: "Check off what you have, add what's missing",
     pathname: "/supply-cache",
     icon: "checklist",
-    keywords: ["supply", "supplies", "stockpile", "stock", "checklist", "cache", "store", "storage", "prepare", "kit"],
+    keywords: ["supply", "supplies", "stockpile", "stock", "checklist", "store", "storage", "prepare", "kit"],
   },
   {
     label: "Supply Inventory",

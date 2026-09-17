@@ -82,9 +82,9 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.dangerSoft, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
+                { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.card }]}>
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.dangerSoft }]}>
                 <Icon name="siren" size={24} color={c.danger} />
               </View>
               <View style={styles.rowText}>
@@ -102,9 +102,9 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.orangeSoft, borderColor: c.orange, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+                { backgroundColor: c.card, borderColor: c.orange, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.card }]}>
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.orangeSoft }]}>
                 <Icon name="medical" size={24} color={c.orange} />
               </View>
               <View style={styles.rowText}>
@@ -408,7 +408,7 @@ export default function HomeScreen() {
                     <Icon name="checklist" color={c.sage} />
                   </View>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Home Supply Cache</Text>
+                    <Text style={[styles.rowName, { color: c.text }]}>Home Supplies</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>Check off what you have, add what&apos;s missing</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />

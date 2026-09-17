@@ -48,7 +48,7 @@ export const BACKUP_SECTIONS: BackupSection[] = [
   { key: MEDICINE_KEY, label: 'Medicines', sensitive: false },
   { key: MEETUP_POINTS_KEY, label: 'Meeting places', sensitive: false },
   { key: MEETUP_ACTIVE_KEY, label: 'Active meeting place', sensitive: false },
-  { key: SUPPLY_CACHE_KEY, label: 'Supply cache', sensitive: false },
+  { key: SUPPLY_CACHE_KEY, label: 'Home supplies', sensitive: false },
   { key: INVENTORY_KEY, label: 'Supply inventory', sensitive: false },
   { key: HOUSEHOLD_KEY, label: 'Household size', sensitive: false },
   { key: FAMILY_PLAN_KEY, label: 'Family plan', sensitive: true },

@@ -418,7 +418,7 @@ export const CATEGORIES: Category[] = [
       { title: "Off-grid refrigeration and cooler management", status: "verified", priority: "P2", note: "USDA FSIS + CDC" },
       { title: "Solar cooking and solar box oven basics", status: "verified", priority: "P2", note: "Solar Cookers International + FAO" },
       { title: "Emergency food preservation: sun drying and jerky curing", status: "verified", priority: "P2", note: "USDA FSIS + NCHFP" },
-      { title: "Pest exclusion for emergency grain and seed caches", status: "verified", priority: "P2", note: "Utah State Extension + Penn State Extension" },
+      { title: "Pest exclusion for stored grain and seed", status: "verified", priority: "P2", note: "Utah State Extension + Penn State Extension" },
       { title: "Long-term food storage defense (pests, mylar, oxygen absorbers)", status: "verified", priority: "P2", note: "Utah State Extension + USDA NIFA" },
       { title: "Corn nixtamalization (hominy and masa from wood ash)", status: "verified", priority: "P3", note: "FAO" },
       { title: "Emergency pit-smoking and meat preservation", status: "verified", priority: "P2", note: "USDA FSIS + US Forest Service" },
@@ -569,7 +569,7 @@ export const CATEGORIES: Category[] = [
       { title: "Shelter-in-place plan", status: "verified", priority: "P1", note: "CDC + FEMA" },
       { title: "Grid-down barter mechanics and resource staging", status: "verified", priority: "P3", note: "Red Cross + DoD Civil Affairs" },
       { title: "Documenting storm and disaster damage for insurance and legal claims", status: "partial", priority: "P3", note: "" },
-      { title: "Home emergency supply cache (72 hours to 2 weeks)", status: "partial", priority: "P2", note: "" },
+      { title: "Home emergency supplies (72 hours to 2 weeks)", status: "partial", priority: "P2", note: "" },
     ],
   },
   {

@@ -1943,7 +1943,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Count calories, not cans. Planning by \"how many cans\" hides the answer you need. Work out people multiplied by days multiplied by calories per person, and you have a target you can measure against.",
       "Record five things for every item: what it is, how many, calories in one unit, the date on the label, and where it is. Location matters more than people expect \u2014 food in a basement that floods or an attic that bakes is not food you have.",
       "Rough figures to plan against before you read your own labels: a 15 oz can of beans is around 350 calories, canned chili or stew around 500, a 5 oz can of tuna around 150, a 16 oz jar of peanut butter around 2,650, a pound of dry rice around 1,650, a pound of dry beans around 1,550, a quart of cooking oil around 7,700. Brands differ \u2014 correct these from the label on the thing in your own cupboard.",
-      "Fat is the cheapest calorie by weight and by shelf space. Oil, peanut butter, nuts and shortening carry more than twice the calories per pound that rice or beans do. A cache built only from grain is heavier and bulkier than it needs to be.",
+      "Fat is the cheapest calorie by weight and by shelf space. Oil, peanut butter, nuts and shortening carry more than twice the calories per pound that rice or beans do. A store built only from grain is heavier and bulkier than it needs to be.",
       "Weight the count toward food that needs no cooking. Fuel is often the thing that runs out first, and dry beans that need two hours of boiling are calories on paper until you have the fuel and the water to cook them.",
       "Rotate by eating it. Stock that is never touched quietly ages out. Put new purchases behind the old ones and cook from the front.",
     ],
@@ -1968,7 +1968,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Hold fasteners in the sizes your own house uses. A box of drywall screws will not board a window \u2014 exterior screws and framing nails will.",
       "Every cordless tool is also a power problem. Record its battery in the power inventory too, and keep at least one hand equivalent \u2014 a hand saw, a brace and bit, a hand drill \u2014 for when there is nothing left to charge from.",
       "Adhesives and lubricants have dates. Epoxy, construction adhesive and silicone cure inside the tube; penetrating oil and two-stroke mix do not last indefinitely either. Write the purchase date on them.",
-      "A tool you cannot find is a tool you do not have. Record where each cache actually is, especially anything kept outside the house.",
+      "A tool you cannot find is a tool you do not have. Record where each store actually is, especially anything kept outside the house.",
     ],
   },
   "Pet-supply inventory": {
@@ -2012,7 +2012,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Infant formula is the exception, and it is an important one. Its \"use by\" date is federally regulated, and formula past that date may no longer carry the nutrients an infant needs. Do not use it past the date and do not build a plan that assumes you can.",
       "Condition tells you what a date cannot. Discard any can that bulges, leaks, spurts when opened, is rusted through, or is dented along a seam or the rim. Those are seal failures, and a seal failure carries a botulism risk no matter what the date says.",
       "Water you bottled yourself is the thing genuinely worth rotating on a schedule \u2014 roughly every six months. Commercially sealed bottled water keeps far longer, and the date on it is a quality date again.",
-      "Rotate rather than discard. Move the oldest to the front, eat it, and put the replacement in behind. A cache that is only ever added to eventually becomes a cache of things nobody wants to eat.",
+      "Rotate rather than discard. Move the oldest to the front, eat it, and put the replacement in behind. A store that is only ever added to eventually becomes a shelf of things nobody wants to eat.",
       "A gap is as urgent as an expiry, and easier to fix. A row sitting at zero \u2014 no can opener, no batteries in that size, no water set aside for the dog \u2014 fails just as completely as something rotten, and it can be solved today rather than during the event.",
     ],
   },
@@ -2674,7 +2674,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Sun-dry fruit and vegetables separately: lay sliced apples, peaches, or tomatoes on clean stainless or food-grade plastic mesh screens off the ground, covered with cheesecloth or mosquito netting against flies. Only dry on consecutive sunny days with humidity under 60% and temperatures above 85°F.",
     ],
   },
-  "Pest exclusion for emergency grain and seed caches": {
+  "Pest exclusion for stored grain and seed": {
     sources: ["Utah State University Extension, Storing Grains","Penn State Extension, Pantry Pests Management"],
     guidance: [
       "Use food-grade diatomaceous earth: mix in roughly 1 to 2 cups per 50 pounds of stored dry grain, beans, or seed. The microscopic fossilized diatoms cut into the waxy shells of beetles, weevils, and ants and dehydrate them, with no toxic chemical residue in the food.",
@@ -2999,7 +2999,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "Know gold and silver won't help you at first: in the first phase of a real crisis, precious metals can't be eaten, worn, or used to purify water — they only become useful again once things stabilize and basic needs are already being met some other way.",
       "Stock what actually trades in a crisis: medical and sanitation items (pain relievers, antibiotics, antiseptic, wound dressings, soap, water purification tablets), fuel and maintenance items (small propane canisters, stabilized gasoline, lamp oil, matches, lighters, motor oil, paracord), and food/comfort items (salt, sugar, pepper, coffee or tea, hard liquor — useful both as a trade good and a wound antiseptic — and baking soda).",
-      "Keep trading away from home: never do an exchange at your house or your supply cache. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
+      "Keep trading away from home: never do an exchange at your house or where your supplies are. Meet somewhere neutral with clear sightlines and an easy way out, and don't go alone.",
       "If you're keeping physical cash on hand, small bills matter more than large ones — $1, $5, $10, and $20 bills are actually usable, since most people won't have change for a $100 bill when card readers are down. Pre-1965 US dimes and quarters (90% silver) are also widely recognized and hard to fake, if you want precious metal in a more practical, tradeable form than bullion.",
       "Bring a second person if you can, and don't go alone: have one person handle the actual conversation and exchange, while the other stays back 15-20 yards, watching the surroundings rather than the trade itself. Only bring out the specific item you're trading — never open a bag or trunk that shows everything else you have, which just signals what else there is to take.",
     ],
@@ -3753,7 +3753,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     guidance: [
       "A simple, consistent pin system is worth setting up in advance: one type of marker for water sources (springs, creeks, a working spigot), another for resources (fuel, medical supplies, a safe meeting spot), and another for hazards (a low-water crossing that floods, an unstable bridge, an area to avoid).",
       "Street addresses can become useless if signs and landmarks are destroyed — learning to read and drop a coordinate (either simple GPS decimal coordinates or a grid system like MGRS/UTM) gives you a way to mark and find a spot that doesn't depend on anything still being standing.",
-      "If you're marking sensitive locations — a supply cache, a fallback meeting spot — avoid labeling them in plain language on a device other people might see. A vague nickname, or keeping that layer of the map in a separate password-protected file, keeps the information private without you having to remember complicated codes.",
+      "If you're marking sensitive locations — a store of supplies, a fallback meeting spot — avoid labeling them in plain language on a device other people might see. A vague nickname, or keeping that layer of the map in a separate password-protected file, keeps the information private without you having to remember complicated codes.",
     ],
   },
   "Hand tool maintenance and rust prevention off-grid": {
@@ -3903,7 +3903,7 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "Keep maintenance consumables stocked alongside the tools themselves, not as an afterthought: a couple of mill bastard files for sharpening edges, a combination oil stone, a quart of plain non-detergent oil, and spare hickory or ash handles with steel wedges to rehang a broken tool head.",
     ],
   },
-  "Home emergency supply cache (72 hours to 2 weeks)": {
+  "Home emergency supplies (72 hours to 2 weeks)": {
     sources: ["Not yet sourced — confirm the original source before marking this verified"],
     guidance: [
       "Water: 1 gallon per person per day, minimum 2 weeks — half for drinking, half for sanitation. Store it in food-grade 5-gallon jugs or a bathtub bladder liner for fast pre-storm filling, and keep both a chemical backup (plain 6% unscented bleach, 8 drops per gallon, or chlorine dioxide tablets) and a mechanical backup (a 0.1-micron hollow-fiber filter with a backflush syringe) on hand in case your stored water runs out or gets contaminated.",

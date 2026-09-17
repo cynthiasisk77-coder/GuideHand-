@@ -12,7 +12,7 @@ import { SUPPLY_CACHE_SECTIONS } from '@/content/supplyCache';
 import { findTopicByTitle } from '@/lib/content';
 
 const STORAGE_KEY = 'guidehand.supply-cache.v1';
-const GUIDANCE_TOPIC = 'Home emergency supply cache (72 hours to 2 weeks)';
+const GUIDANCE_TOPIC = 'Home emergency supplies (72 hours to 2 weeks)';
 
 interface CustomItem {
   id: string;
@@ -53,7 +53,7 @@ export default function SupplyCacheScreen() {
   useEffect(() => {
     if (!loaded) return;
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-      .then(() => notePersonalDataChanged('Supply cache changed'))
+      .then(() => notePersonalDataChanged('Home supplies changed'))
       .catch(() => {});
   }, [state, loaded]);
 
@@ -96,12 +96,12 @@ export default function SupplyCacheScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
-      <Stack.Screen options={{ title: 'Supply Cache' }} />
+      <Stack.Screen options={{ title: 'Home Supplies' }} />
       <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Your Supplies</Text>
-            <Text style={[styles.title, { color: c.text }]}>Home Supply Cache</Text>
+            <Text style={[styles.title, { color: c.text }]}>Home Supplies</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>
               {total > 0 ? `${packed} of ${total} packed` : 'Check off what you have, add what\'s missing'}
             </Text>
