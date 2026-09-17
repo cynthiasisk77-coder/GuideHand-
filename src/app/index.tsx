@@ -468,6 +468,23 @@ export default function HomeScreen() {
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => router.push({ pathname: '/home-record' })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.sage }]}>
+                    <Icon name="home" color={c.sage} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Your Home</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Where the shutoffs are, what your appliances are, and photos of the manuals</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => router.push({ pathname: '/inventory' })}
                   style={({ pressed }) => [
                     styles.row,

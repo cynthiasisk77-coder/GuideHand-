@@ -142,6 +142,9 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
 
   { match: /\bfamily plan\b|\bwho (gets|picks up) the (kids|children)\b|\bif we (get )?separated\b|\bcan'?t reach (my|the) (family|kids|husband|wife)\b|\bout[- ]of[- ](area|state) (contact|number)\b|\bmeet(ing)? (up|place) plan\b/, terms: ["family", "plan", "contact", "separated", "children", "reunite"] },
 
+  { match: /\b(shut ?off|turn off) (the )?(water|gas|power|electric)\b|\bwhere is (the )?(main|water|gas|breaker|shutoff|valve)\b|\bmain valve\b|\bbreaker (box|panel)\b|\bwater (main|valve)\b|\bgas (valve|meter)\b/, terms: ["shutoff", "valve", "home", "water", "gas", "breaker"] },
+  { match: /\b(model|serial) number\b|\bowner'?s manual\b|\bappliance\b|\bfilter size\b|\bwhat (furnace|water heater|fridge) do i have\b/, terms: ["home", "appliance", "model", "serial", "manual"] },
+
   // --- navigation ---
   { match: /\blost\b|\bdon'?t know where i am\b|\bturned around\b/, terms: ["lost", "navigation", "orientation", "bearings"] },
   { match: /\bwhich way\b|\bwhat direction\b|\bfind north\b/, terms: ["compass", "direction", "navigation", "cardinal"] },
@@ -198,6 +201,13 @@ export const TOOL_TARGETS: ToolTarget[] = [
     pathname: "/supply-cache",
     icon: "checklist",
     keywords: ["supply", "supplies", "stockpile", "stock", "checklist", "store", "storage", "prepare", "kit"],
+  },
+  {
+    label: "Your Home",
+    sub: "Shutoffs, appliances, model numbers, manuals",
+    pathname: "/home-record",
+    icon: "home",
+    keywords: ["home", "house", "appliance", "appliances", "manual", "manuals", "model", "serial", "shutoff", "shut", "valve", "water", "gas", "breaker", "panel", "furnace", "heater", "filter", "fuse", "electric", "plumbing", "repair", "warranty", "insurance"],
   },
   {
     label: "Supply Inventory",
