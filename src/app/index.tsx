@@ -41,6 +41,10 @@ export default function HomeScreen() {
 
       <View style={styles.pinnedTop}>
         <View style={styles.content}>
+          {/* Everything a person reaches for first — the name, the search, and
+              the two routes out of an emergency — sits inside one raised panel
+              rather than floating loose on the page. */}
+          <View style={[styles.pinnedPanel, { borderColor: c.panelEdge, backgroundColor: c.panelFill }]}>
           {/* The header fades from a lighter slate at the top down into very
               nearly the page colour at the bottom, so it resolves into the
               ground instead of ending on a hard line. No border either — the
@@ -127,6 +131,7 @@ export default function HomeScreen() {
               <Icon name="chevron" size={18} color={c.textSecondary} />
             </Pressable>
           ) : null}
+          </View>
         </View>
       </View>
 
@@ -504,6 +509,18 @@ const SIDE = Spacing.three;
 const styles = StyleSheet.create({
   container: { flex: 1 },
   pinnedTop: { paddingTop: 26 },
+  pinnedPanel: {
+    borderWidth: 1.5,
+    borderRadius: 22,
+    padding: 11,
+    // On a dark ground a drop shadow barely registers, so the light edge
+    // carries the lift and the shadow only deepens it.
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 7 },
+    shadowOpacity: 0.45,
+    shadowRadius: 16,
+    elevation: 12,
+  },
   scroll: { paddingTop: 12, paddingBottom: 40 },
   content: {
     width: '100%',

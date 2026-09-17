@@ -37,6 +37,11 @@ export const Calm = {
     headerBg: "#9FB2BF",
     headerFadeTop: "#B3C3CE",
     headerFadeBottom: "#8499A8",
+    // The raised panel that holds the header and the two things somebody
+    // reaches for first. A light edge does nearly all the work of looking
+    // lifted on a dark ground — a drop shadow on navy is almost invisible.
+    panelEdge: "#9FB2BF",
+    panelFill: "#17243D",
     card: "#F2F0EA",
     cardBorder: "#D3D0C8",
 
@@ -81,6 +86,11 @@ export const Calm = {
     headerBg: "#9FB2BF",
     headerFadeTop: "#B3C3CE",
     headerFadeBottom: "#8499A8",
+    // The raised panel that holds the header and the two things somebody
+    // reaches for first. A light edge does nearly all the work of looking
+    // lifted on a dark ground — a drop shadow on navy is almost invisible.
+    panelEdge: "#9FB2BF",
+    panelFill: "#17243D",
     card: "#F2F0EA",
     cardBorder: "#D3D0C8",
 
