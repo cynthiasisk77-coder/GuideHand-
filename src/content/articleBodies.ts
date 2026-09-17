@@ -8,27 +8,55 @@ export interface ArticleBody {
 }
 
 export const ARTICLE_BODIES: Record<string, ArticleBody> = {
-  "Reading a paper/topographic map": {
-    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation"],
+  "Family plan: getting one onto every phone": {
+    sources: ["FEMA/Ready.gov, Make a Plan","American Red Cross, Create Your Family Emergency Plan"],
     guidance: [
-      "Identify the map's scale, contour interval, and magnetic declination before moving.",
-      "Orient the map to true north using declination, not magnetic north alone, when precision matters.",
-      "This field manual is public domain and explicitly extends beyond military use into outdoor recreation, emergency response, and wilderness survival.",
+      "The plan that works is the one everybody already has. A plan living in one person's head, or on one person's phone, fails exactly when that person is unreachable \u2014 which is the situation it was written for.",
+      "Pick one person out of state and make them the hub. This is the single most useful thing on the whole page. Local phone lines and cell towers jam or go down first in a regional emergency, while a long-distance call often still goes through. So nobody calls each other \u2014 everybody calls the out-of-area person, who relays. One number, learned by heart.",
+      "Write down who does what before anything happens. Who collects which child, from which school. Who gets the dog. Who shuts off the gas. Who has the spare key. In the moment people freeze or duplicate each other, and two adults driving to the same school while nobody goes to the other one is a real thing that happens.",
+      "Note where each person usually is on a weekday. A school, a job site, a shift pattern. It is the difference between searching and going.",
+      "Agree on meeting places, plural: one just outside the house for a fire, one outside the neighbourhood for when you cannot get home, and one well out of the area for when you cannot get back into town at all.",
+      "Text before you call. Short messages get through congested networks when voice calls will not connect, and they keep trying in the background. Keep them brief \u2014 \"ok, at gran's\" does the job.",
+      "Medical details are worth sharing deliberately, not by default. A neighbour holding your child needs to know about the peanut allergy or the seizure medication. A group chat does not. In GuideHand's Family Plan screen each person's medical card is a separate switch, off unless you turn it on, so what travels is a choice rather than an accident.",
+      "Keep a paper copy. Phones die, get lost, get soaked, or sit locked in a car. One printed page in each go-bag and one in each vehicle costs nothing and survives everything the phones do not.",
+      "Rehearse it once. Walk the fire meeting place with the children, actually dial the out-of-area contact and tell them they are the hub, check the school knows who is allowed to collect. A plan nobody has practised is a document, not a plan.",
+      "Review it when something changes \u2014 a new school, a new job, a new phone number, a new baby \u2014 and otherwise once a year. The out-of-date plan is the one that sends somebody to an address the family moved out of.",
+    ],
+  },
+  "Reading a paper/topographic map": {
+    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation","U.S. Geological Survey, Topographic Map Symbols"],
+    guidance: [
+      "Find the scale bar first, usually along the bottom. It tells you how far an inch on the paper is on the ground. On a 1:24,000 map \u2014 the common hiking scale \u2014 one inch is about two thirds of a mile. Lay your thumb along the bar once so your hand knows the distance.",
+      "The wiggly brown lines are contour lines, and each one traces ground at the same height, like a ring around a hill. Somewhere on the map it says how much height is between each line \u2014 often 20 or 40 feet. Lines packed close together mean steep ground. Lines far apart mean it is gentle. That is the whole trick, and it lets you see the shape of country you have never walked.",
+      "Little numbers printed on some contour lines tell you the height there. Follow the numbers to work out which way is uphill, because a ring of contours looks the same whether it is a hill or a hollow.",
+      "Blue is water, green is vegetation, black is things people built, brown is the shape of the ground itself. A dashed line is usually a trail; a solid double line is a road you could drive.",
+      "At the bottom you will find a little diagram with two or three arrows on it. One is true north \u2014 the top of the map. One is magnetic north \u2014 where a compass needle actually points. They are not the same place and the angle between them is the declination. In the United States it ranges from about 20 degrees east in Maine to about 20 degrees west in Washington State.",
+      "That angle matters more the further you walk. One degree off puts you about 90 feet wide of your target after a mile. Ten degrees off puts you a quarter mile wide. Over a short distance you can ignore it; over a long one you cannot.",
+      "Keep the map dry and keep it folded to the piece you are in. A soaked map turns to pulp in a pocket, and a map folded to the whole sheet is one the wind takes.",
     ],
   },
   "Compass use and orientation": {
-    sources: ["U.S. Army FM 3-25.26", "Mississippi State University Extension"],
+    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation","National Oceanic and Atmospheric Administration, Magnetic Declination"],
     guidance: [
-      "Orient map and compass together before moving.",
-      "Take a back-bearing periodically to confirm you haven't drifted off course.",
-      "Do not navigate near large metal objects, vehicles, or power lines — they deflect the needle.",
+      "What a compass actually is: a small magnet balanced on a pin. The Earth has a magnetic field running through it, and the needle simply turns until it lines up with that field. Nothing electronic, nothing to run out. That is why it still works on day nine.",
+      "The red end of the needle points to magnetic north. Magnetic north is not the North Pole \u2014 it is a moving spot in the Arctic, hundreds of miles off, and it drifts a little every year. Your map is drawn to true north. The gap between the two is the declination, printed at the bottom of a good map.",
+      "Hold it flat and level, like a saucer of water you do not want to spill. Tilted, the needle drags on the housing and lies to you. Let it settle and stop swinging before you read it.",
+      "Get metal away from it. A phone, keys, a belt buckle, a knife, the hood of a car, a chain-link fence, power lines overhead \u2014 all of them pull the needle. Step ten feet clear of anything metal and put the phone in a pocket on the far side of your body. A compass read on a car bonnet can be 30 degrees wrong and look perfectly confident about it.",
+      "To walk a direction: turn the dial until your bearing lines up with the mark at the top, hold the compass flat in front of your chest with the direction-of-travel arrow pointing away from you, then turn your whole body \u2014 feet and all \u2014 until the red needle sits inside the outlined arrow on the dial. Sometimes called putting the dog in the doghouse. Now the direction-of-travel arrow is your line. Walk that way.",
+      "Do not walk staring at the compass. Sight along the arrow, pick something on that line you can see \u2014 a particular tree, a rock, a notch in a ridge \u2014 put the compass away, and walk to it. Then do it again. Walking heads-down puts you in a creek.",
+      "To check you are on the line you think: take a back-bearing. Turn around, sight back at where you came from, and the reading should be your bearing plus or minus 180 degrees. If it is not, you have drifted.",
+      "If you have no map and just want to get out: pick a bearing and hold it. People lost without a fixed direction walk in circles \u2014 this is measured, not folklore, and it happens because nobody's stride is perfectly even. A compass held on one number is what stops it.",
     ],
   },
   "Land navigation without GPS": {
-    sources: ["U.S. Army FM 3-25.26"],
+    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation"],
     guidance: [
-      "Combine dead reckoning (direction plus distance from a known point) with terrain association (matching visible features to the map) rather than relying on either alone.",
-      "Recalibrate your pace count for the terrain you're actually walking — it changes on hills, snow, or heavy brush.",
+      "Two methods, and you want both running at once. Dead reckoning is knowing your direction and roughly how far you have gone from a known point. Terrain association is looking up and matching what you can see \u2014 a ridge, a bend in a river, a powerline cut \u2014 to what the map shows. Either one alone will eventually walk you somewhere wrong; together they catch each other's mistakes.",
+      "Know your pace count. Walk a measured hundred metres on flat ground and count every time your left foot lands. Most adults land somewhere around 60 to 65. That number is yours, and it is how you turn steps into distance when nothing else is measuring.",
+      "Then expect it to change. Uphill, in snow, in heavy brush, carrying weight, or tired at the end of a long day, your stride shortens and your count goes up \u2014 sometimes by half again. Recount it for the ground you are actually on rather than trusting the number you got on a running track.",
+      "Handrails are the easiest navigation there is: follow something long you cannot lose. A stream, a ridgeline, a fence, a powerline, a road. It is rarely the shortest way and it is very hard to get lost on.",
+      "Set a catching feature before you set off \u2014 something wide and unmissable that lies beyond your target. A road, a river, a lake shore. If you hit it, you know you have gone too far, and more importantly you know which way to turn back. It turns overshooting from a disaster into information.",
+      "Aim deliberately off to one side of a target you cannot see. If you are heading for a bridge on a river and you aim dead at it, missing leaves you on the bank with no idea which way to turn. Aim a few degrees upstream on purpose, hit the river, and you know the bridge is downstream of you.",
     ],
   },
   "Identifying safe vs. unsafe routes during a disaster": {
@@ -40,13 +68,17 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
     ],
   },
   "Finding cardinal directions without a compass": {
-    sources: ["U.S. Army Field Manual (FM 3-25.26), Map Reading and Land Navigation"],
+    sources: ["U.S. Army FM 3-25.26, Map Reading and Land Navigation","U.S. Naval Observatory, Sun and Moon Data"],
     guidance: [
-      "Shadow-stick method: plant a straight 3-foot stick vertically in level ground, mark the tip of its shadow with a stone, wait 15-20 minutes, and mark the new shadow tip with a second stone. The line from the first stone to the second runs West to East (first mark West, second mark East).",
-      "Analog watch method (Northern Hemisphere): point the hour hand at the sun. The point halfway between the hour hand and 12 o'clock points South, and the opposite direction is North.",
-      "North Star (Polaris) alignment: find the Big Dipper, trace the line through its two outer \"pointer\" stars (Merak and Dubhe) upward about 5 times their spacing, and you'll land on Polaris — within 1 degree of true North.",
-      "Don't trust moss alone: moss grows on any shaded, moisture-retaining side of a tree, not reliably on the north side. Wind-bent vegetation and the fact that south-facing hillsides dry faster and lose snow first (in northern latitudes) are more reliable terrain cues.",
-      "Treat all of this as approximation, not a substitute for a compass and map when accuracy really matters — steep terrain, whiteout, or long distances.",
+      "The sun rises in the east and sets in the west. That is the one everybody half-remembers and it is worth being precise about: it is exactly east and west only twice a year, at the equinoxes. Through the summer it rises north of east and sets north of west; through the winter, south of both. Close enough to point you in the right direction, not close enough to navigate a long way on.",
+      "In the middle of the day, north of the tropics, the sun sits due south at its highest point. So if you face the midday sun in the United States, south is in front of you, north is behind, east is on your left and west on your right. South of the equator it is the reverse \u2014 the midday sun is due north.",
+      "The shadow-stick method, which is the reliable one: push a straight stick about three feet tall into level ground. Put a stone at the tip of its shadow. Wait fifteen or twenty minutes and put a second stone at the new shadow tip. The line between them runs roughly west to east \u2014 first stone west, second stone east. Stand with the first stone on your left and the second on your right, and you are facing north. This works anywhere on Earth, in any season, and needs nothing you do not already have.",
+      "With an analog watch, north of the equator: point the hour hand at the sun. Halfway between the hour hand and the 12 is south. Rough, but it takes three seconds.",
+      "At night, north of the equator, find the North Star. Locate the Big Dipper, take the two stars that form the outer edge of its cup, and follow the line they make upward about five times the distance between them. You land on a middling-bright star sitting by itself \u2014 that is Polaris, and it sits within one degree of true north all night, every night. It does not rise or set. Everything else wheels around it.",
+      "South of the equator, use the Southern Cross: follow the long axis of the cross about four and a half times its own length and drop straight down to the horizon. That point is roughly south.",
+      "About moss: it is not reliable and people have been badly misled by it. Moss grows wherever it is damp and shaded, which in the northern hemisphere is often the north side of a tree \u2014 but it is just as happy on the side sheltered from wind, or the side facing a stream, or all the way round in deep forest. Use it as a hint that agrees with something else, never on its own.",
+      "Better terrain cues than moss: in northern latitudes, south-facing slopes get more sun, so they dry out first, lose their snow first, and often carry different plants than the north-facing slope opposite. Trees standing in the open tend to have fuller, more spreading growth on their sunny side. Prevailing wind bends exposed vegetation the same way across a whole hillside.",
+      "Everything on this page is approximate. It will point you downhill toward a road or keep you walking a straight line out of woodland. It is not accurate enough for crossing featureless ground in a whiteout or holding a course over many miles \u2014 that needs a compass and a map.",
     ],
   },
   "No cellular service or internet": {
