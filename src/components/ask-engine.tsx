@@ -8,6 +8,7 @@ import { ReadAloudButton } from '@/components/read-aloud-button';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
+import { stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
 // this file is the native-only half — the web build resolves ask-engine.web.tsx
@@ -105,11 +106,16 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     try {
       await llm.sendMessage(context.prompt, (token) => {
         collected += token;
-        setStreamed(collected);
+        setStreamed(stripModelArtifacts(collected));
       });
+      // The model emits its own chat-template markers as ordinary text —
+      // "<|start_header_id|>assistant<|end_header_id|>" arrived at the top of a
+      // real answer on a real phone. Citations are read from the raw text,
+      // because stripping can remove the line a [1] was sitting on.
+      const answer = stripModelArtifacts(collected);
       setPhase({
         kind: 'answered',
-        answer: collected.trim(),
+        answer,
         articles: citedArticles(collected, context.articles),
       });
     } catch {

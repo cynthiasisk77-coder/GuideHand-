@@ -42,6 +42,21 @@ const MAX_BULLETS_PER_ARTICLE = 10;
 // Roughly four characters per token; small models here run about 2k context.
 const MAX_CONTEXT_CHARS = 4200;
 
+// A keyword search finds the word, not the meaning. "How to pitch a tent"
+// matched an article about diarrhea, and the model was then asked to answer a
+// camping question from it — which is how a grounded answer turns into a
+// confusing one. These two floors throw away the matches that are only
+// technically matches.
+//
+// Both numbers come from measuring real queries rather than taste. Questions
+// the app genuinely answers score 32-70 on their best hit; "what is the capital
+// of france" tops out at 11.9 and every hit under it is within 8% of that, the
+// flat spread that means nothing actually matched. And on a good question the
+// second and third real hits land at 50-98% of the best one, while the noise
+// ("Lightning" for a tent, "Femur fracture" for a knot) sits at 30-39%.
+const MIN_TOP_SCORE = 15;
+const RELEVANCE_FLOOR = 0.45;
+
 function bodyFor(title: string): { guidance: string[]; sources: string[] } | undefined {
   const own = ARTICLE_BODIES[title];
   if (own) return own;
@@ -100,9 +115,11 @@ function buildPrompt(question: string, articles: SourceArticle[]): string {
     }
   });
 
+  // SYSTEM_PROMPT is deliberately absent here. It is pinned as the session's
+  // system message, and repeating it spent roughly 180 tokens of a 2k window
+  // restating rules the model had already been given — context the articles
+  // and the answer both needed.
   return [
-    SYSTEM_PROMPT,
-    "",
     "ARTICLES:",
     parts.join("\n\n"),
     "",
@@ -124,8 +141,18 @@ export function buildAskContext(question: string): AskContext {
   }
 
   const results = search(trimmed, { limit: MAX_ARTICLES * 2 });
+
+  // The best score of anything that matched at all, including articles that
+  // turn out to have no body yet. It is the honest measure of how well the
+  // question landed, so it is what the floor is measured against.
+  const best = results.articles[0]?.score ?? 0;
+  if (best < MIN_TOP_SCORE) {
+    return { question: trimmed, articles: [], prompt: "", empty: true };
+  }
+
   const articles: SourceArticle[] = [];
   for (const hit of results.articles) {
+    if (hit.score < best * RELEVANCE_FLOOR) break;
     const article = toSourceArticle(hit.doc);
     if (article) articles.push(article);
     if (articles.length >= MAX_ARTICLES) break;

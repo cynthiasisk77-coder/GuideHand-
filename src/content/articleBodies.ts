@@ -1050,6 +1050,23 @@ export const ARTICLE_BODIES: Record<string, ArticleBody> = {
       "This is a 2025 update — if you learned pediatric CPR/choking before then, the sequence has changed; don't rely on older training alone.",
     ],
   },
+  "Broken bone / fracture": {
+    sources: [
+      "American Red Cross, \"Muscle, Bone and Joint Injury\" and \"Fractures\"",
+      "American College of Emergency Physicians (ACEP)",
+      "American Academy of Orthopaedic Surgeons (OrthoInfo)",
+    ],
+    guidance: [
+      "You usually cannot tell a break from a bad sprain by looking, and outside a hospital you do not need to. Treat it as broken and you will be right often enough and safe always. The signs that point to a break: a snap or grinding felt at the moment of injury, a limb or finger that is bent or twisted where it has no joint, swelling and bruising that come on fast, and pain that stays sharp when the part is used rather than easing off.",
+      "Stop using it and hold it still in the position you found it. Do not straighten it, do not pull on it, do not test it by bending it to see how bad it is. Movement is what turns a clean break into one that tears the blood vessels and nerves running beside the bone.",
+      "Look at the skin, colour and feeling beyond the injury, past the break and toward the fingers or toes, and look now, before you wrap anything. Warm, pink, and able to feel a light touch is what you want. Write down or remember what you found — if it changes later, that change is the thing that matters, and you cannot spot a change you never measured.",
+      "A broken finger or toe is splinted against its neighbour. Put a little padding between the two so skin is not held against skin, then tape the injured one to the sound one beside it, above and below the knuckle but never over it. The good finger becomes the splint. Leave the tip uncovered so you can keep checking colour and feeling.",
+      "Ice, wrapped in cloth rather than put on skin, for about twenty minutes at a time, and keep the part raised above the level of the heart when you can. Both are for swelling, and swelling is not a minor detail — it is what makes a splint that fitted an hour ago too tight now.",
+      "Go for help immediately, however hard that is, if the bone is through the skin, if the limb is cold, pale, blue or numb beyond the injury, if it is bent at an angle that is plainly wrong, if it is the thigh, hip, pelvis, neck or back, or if the person is confused or drifting. These are the ones that cost a limb or a life rather than a few weeks of healing.",
+      "Assume you may be on your own with it. If help is hours away or not coming, the splinting and the repeated circulation checks are in \"Fractures, splints, circulation checks\", and a broken thigh bone is its own procedure in \"Femur fracture: making a traction splint\" — that one is the exception where you do pull the leg back to length.",
+      "A break that is splinted and left alone for a day is not ruined. Most bones are set within a few days without harm. What does real damage is walking on it, working with it, or wrapping it so tightly that the blood supply goes while nobody is looking.",
+    ],
+  },
   "Fractures, splints, circulation checks": {
     sources: ["American Red Cross, \"Muscle, Bone and Joint Injury\" and \"Fractures\"", "American College of Emergency Physicians (ACEP)", "Wilderness Medical Society"],
     guidance: [

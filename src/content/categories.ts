@@ -30,7 +30,7 @@ export const CATEGORIES: Category[] = [
       { title: "Severe allergic reaction / epinephrine", status: "specialist", priority: "P0", note: "" },
       { title: "Heart-attack symptoms / aspirin boundary", status: "specialist", priority: "P0", note: "" },
       { title: "Stroke symptoms", status: "specialist", priority: "P0", note: "" },
-      { title: "Broken bone / fracture", status: "specialist", priority: "P0", note: "Full article drafted" },
+      { title: "Broken bone / fracture", status: "verified", priority: "P0", note: "" },
       { title: "Hypothermia", status: "verified", priority: "P0", note: "Shows the full Hypothermia recognition and first aid article (Wilderness Medical Society + CDC)" },
       { title: "Heat illness (exhaustion/stroke)", status: "verified", priority: "P0", note: "Shows the full Extreme heat illness article (CDC/NIOSH + AHA/Red Cross)" },
       { title: "Animal emergency (poisoning)", status: "specialist", priority: "P0", note: "" },
