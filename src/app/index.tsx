@@ -58,7 +58,7 @@ export default function HomeScreen() {
             locations={[0, 0.55, 1]}
             start={{ x: 0.1, y: 0 }}
             end={{ x: 0.9, y: 1 }}
-            style={styles.headerBlock}>
+            style={[styles.headerBlock, { borderLeftWidth: 6, borderLeftColor: c.blue }]}>
             {/* Texture, layered under everything: contour lines for the ground
                 and the compass sitting on top of them, both faint. A header
                 with nothing in it is just a coloured rectangle. */}
@@ -106,7 +106,13 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
+                {
+                  backgroundColor: c.card,
+                  borderColor: c.cardBorder,
+                  borderLeftWidth: 7,
+                  borderLeftColor: c.danger,
+                  opacity: pressed ? 0.85 : 1,
+                },
               ]}>
               <View style={[styles.icon, styles.iconLarge, { borderWidth: 1.5, borderColor: c.danger }]}>
                 <Icon name="siren" size={24} color={c.danger} />
@@ -126,7 +132,14 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+                {
+                  backgroundColor: c.card,
+                  borderColor: c.cardBorder,
+                  borderLeftWidth: 7,
+                  borderLeftColor: c.blue,
+                  opacity: pressed ? 0.85 : 1,
+                  marginBottom: 0,
+                },
               ]}>
               <View style={[styles.icon, styles.iconLarge, { borderWidth: 1.5, borderColor: c.blue }]}>
                 <Icon name="medical" size={24} color={c.blue} />
@@ -167,7 +180,7 @@ export default function HomeScreen() {
                       style={({ pressed }) => [
                         styles.row,
                         styles.rowAccented,
-                        { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                        { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                       ]}>
                       <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                         <Icon name={hit.tool.icon} color={c.blue} />
@@ -212,7 +225,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                     <Icon name="speak" color={c.blue} />
@@ -273,7 +286,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                     <Icon name="speak" color={c.blue} />
@@ -294,7 +307,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.plum }]}>
                     <Icon name="family" color={c.plum} />
@@ -320,7 +333,13 @@ export default function HomeScreen() {
                       style={({ pressed }) => [
                         styles.row,
                         styles.rowAccented,
-                        { backgroundColor: c.card, borderColor: c[accent], opacity: pressed ? 0.7 : 1 },
+                        {
+                          backgroundColor: c.card,
+                          borderColor: c.cardBorder,
+                          borderLeftWidth: 5,
+                          borderLeftColor: c[accent],
+                          opacity: pressed ? 0.7 : 1,
+                        },
                       ]}>
                       <View style={[styles.icon, { borderWidth: 1.5, borderColor: c[accent] }]}>
                         <Icon name={group.icon} color={c[accent]} />
@@ -343,7 +362,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.plum }]}>
                     <Icon name="family" color={c.plum} />
@@ -360,7 +379,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                     <Icon name="compass" color={c.blue} />
@@ -377,7 +396,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.plum }]}>
                     <Icon name="pin" color={c.plum} />
@@ -398,7 +417,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                     <Icon name="download" color={c.blue} />
@@ -415,7 +434,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
                     <Icon name="upload" color={c.blue} />
@@ -436,7 +455,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.sage }]}>
                     <Icon name="checklist" color={c.sage} />
@@ -453,7 +472,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.sage }]}>
                     <Icon name="checklist" color={c.sage} />
@@ -470,7 +489,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.sage }]}>
                     <Icon name="medical" color={c.sage} />
@@ -487,7 +506,7 @@ export default function HomeScreen() {
                   style={({ pressed }) => [
                     styles.row,
                     styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
                   ]}>
                   <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.sage }]}>
                     <Icon name="camera" color={c.sage} />
@@ -618,7 +637,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   rowEmergency: {
-    borderWidth: 2.5,
+    borderWidth: 1,
     marginBottom: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
