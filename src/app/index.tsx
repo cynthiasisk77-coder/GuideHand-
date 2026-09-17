@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, Vie
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
+import { TopoLines } from '@/components/topo-lines';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -36,8 +37,11 @@ export default function HomeScreen() {
   const resultCount = results.articles.length;
 
   return (
-    <View style={[styles.container, { backgroundColor: c.bg }]}>
-      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+    <LinearGradient
+      colors={[c.bgFadeTop, c.bg, c.bgFadeBottom]}
+      locations={[0, 0.42, 1]}
+      style={styles.container}>
+      <StatusBar style="light" />
 
       <View style={styles.pinnedTop}>
         <View style={styles.content}>
@@ -55,8 +59,14 @@ export default function HomeScreen() {
             start={{ x: 0.1, y: 0 }}
             end={{ x: 0.9, y: 1 }}
             style={styles.headerBlock}>
+            {/* Texture, layered under everything: contour lines for the ground
+                and the compass sitting on top of them, both faint. A header
+                with nothing in it is just a coloured rectangle. */}
+            <View style={styles.headerTopo} pointerEvents="none">
+              <TopoLines width={420} height={200} color={c.text} opacity={0.16} />
+            </View>
             <View style={styles.headerWatermark} pointerEvents="none">
-              <Icon name="compass" size={132} color={c.onBlue} strokeWidth={1.4} />
+              <Icon name="compass" size={118} color={c.text} strokeWidth={1.2} />
             </View>
             <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
             <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
@@ -500,7 +510,7 @@ export default function HomeScreen() {
           )}
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 }
 
@@ -538,21 +548,29 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
   },
+  headerTopo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    overflow: 'hidden',
+  },
   headerWatermark: {
     position: 'absolute',
-    top: -28,
-    right: -24,
-    opacity: 0.08,
+    top: -22,
+    right: -20,
+    opacity: 0.13,
     transform: [{ rotate: '8deg' }],
   },
   eyebrow: {
     fontSize: 10,
     fontFamily: Fonts.mono,
-    letterSpacing: 1.8,
+    letterSpacing: 2.6,
     textTransform: 'uppercase',
   },
-  title: { fontSize: 21, fontFamily: Fonts.display },
-  subtitle: { fontSize: 12, marginTop: -6, fontFamily: Fonts.body },
+  title: { fontSize: 27, fontFamily: Fonts.display, letterSpacing: -0.4 },
+  subtitle: { fontSize: 12.5, marginTop: -5, fontFamily: Fonts.bodyMedium },
   search: {
     flexDirection: 'row',
     alignItems: 'center',
