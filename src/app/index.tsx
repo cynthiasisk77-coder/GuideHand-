@@ -209,6 +209,23 @@ export default function HomeScreen() {
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/family-plan" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { backgroundColor: c.plumSoft }]}>
+                    <Icon name="family" color={c.plum} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Family Plan</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Write it once and send it to everyone — who does what, the out-of-area number, where the supplies are</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/maps" })}
                   style={({ pressed }) => [
                     styles.row,

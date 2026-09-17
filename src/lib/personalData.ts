@@ -4,9 +4,10 @@
 // encrypted and backed up together, and it keeps that list from drifting out of
 // sync with the screens as the app grows.
 
+import { FAMILY_PLAN_KEY } from '@/lib/familyPlan';
 import { HOUSEHOLD_KEY, INVENTORY_KEY } from '@/lib/inventory';
 
-export { HOUSEHOLD_KEY, INVENTORY_KEY };
+export { FAMILY_PLAN_KEY, HOUSEHOLD_KEY, INVENTORY_KEY };
 
 export const DOCUMENT_PHOTOS_KEY = 'guidehand.document-photos.v1';
 export const MEDICINE_KEY = 'guidehand.medicine-tracker.v1';
@@ -23,6 +24,10 @@ export const SUPPLY_CACHE_KEY = 'guidehand.supply-cache.v1';
  * tracker, which is on this list.
  */
 export const ENCRYPTED_KEYS: string[] = [
+  // The plan carries names, numbers, where the kids are on a weekday, and
+  // whatever medical detail people chose to include. That is the single most
+  // sensitive thing in the app after the documents.
+  FAMILY_PLAN_KEY,
   DOCUMENT_PHOTOS_KEY,
   MEDICINE_KEY,
   MEETUP_POINTS_KEY,
@@ -46,4 +51,5 @@ export const BACKUP_SECTIONS: BackupSection[] = [
   { key: SUPPLY_CACHE_KEY, label: 'Supply cache', sensitive: false },
   { key: INVENTORY_KEY, label: 'Supply inventory', sensitive: false },
   { key: HOUSEHOLD_KEY, label: 'Household size', sensitive: false },
+  { key: FAMILY_PLAN_KEY, label: 'Family plan', sensitive: true },
 ];

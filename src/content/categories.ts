@@ -526,7 +526,7 @@ export const CATEGORIES: Category[] = [
       { title: "Pregnancy considerations across scenarios", status: "verified", priority: "P1", note: "ACOG + CDC" },
       { title: "Psychological first aid and grief support", status: "verified", priority: "P2", note: "SAMHSA + Disaster Distress Helpline" },
       { title: "Helping children cope with disaster stress", status: "verified", priority: "P2", note: "CDC + American Red Cross" },
-      { title: "Family Circle shared plan and permissions", status: "verified", priority: "P3", note: "App feature" },
+      { title: "Family Circle shared plan and permissions", status: "verified", priority: "P3", note: "Built: Family Plan screen, shared by file, medical opt-in per person" },
       { title: "Medication continuity plan for dependents", status: "partial", priority: "P2", note: "" },
       { title: "Improvised feminine hygiene pads", status: "partial", priority: "P2", note: "" },
     ],

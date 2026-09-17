@@ -140,6 +140,8 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
 
   { match: /\b(offline|download(ed)?|saved?) ?maps?\b|\bmaps? (offline|without|with no) (signal|service|internet|data)\b|\bno (signal|service) map\b/, terms: ["offline", "maps", "download", "streets", "navigate"] },
 
+  { match: /\bfamily plan\b|\bwho (gets|picks up) the (kids|children)\b|\bif we (get )?separated\b|\bcan'?t reach (my|the) (family|kids|husband|wife)\b|\bout[- ]of[- ](area|state) (contact|number)\b|\bmeet(ing)? (up|place) plan\b/, terms: ["family", "plan", "contact", "separated", "children", "reunite"] },
+
   // --- navigation ---
   { match: /\blost\b|\bdon'?t know where i am\b|\bturned around\b/, terms: ["lost", "navigation", "orientation", "bearings"] },
   { match: /\bwhich way\b|\bwhat direction\b|\bfind north\b/, terms: ["compass", "direction", "navigation", "cardinal"] },
@@ -155,6 +157,13 @@ export interface ToolTarget {
 }
 
 export const TOOL_TARGETS: ToolTarget[] = [
+  {
+    label: "Family Plan",
+    sub: "Who does what, and the number everyone calls",
+    pathname: "/family-plan",
+    icon: "family",
+    keywords: ["family", "plan", "share", "shared", "household", "kids", "children", "school", "pickup", "contact", "reunite", "separated", "who", "job", "responsibility", "emergency", "relative", "grandma", "allergy", "allergies"],
+  },
   {
     label: "Offline Maps",
     sub: "Streets on your phone that work with no signal",
