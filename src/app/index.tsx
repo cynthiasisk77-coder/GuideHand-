@@ -57,7 +57,7 @@ export default function HomeScreen() {
             <Text style={[styles.eyebrow, { color: c.onBlueSoft }]}>Field Guide</Text>
             <Text style={[styles.title, { color: c.onBlue }]}>GuideHand</Text>
             <Text style={[styles.subtitle, { color: c.onBlueSoft }]}>Emergency Preparedness Guide</Text>
-            <View style={[styles.search, { backgroundColor: 'rgba(255,255,255,0.12)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.22)' }]}>
+            <View style={[styles.search, { backgroundColor: 'rgba(255,255,255,0.55)', borderWidth: 1, borderColor: 'rgba(0,0,0,0.12)' }]}>
               <Icon name="search" size={16} color={c.onBlueSoft} />
               <TextInput
                 value={query}
@@ -79,7 +79,7 @@ export default function HomeScreen() {
                   hitSlop={12}
                   style={({ pressed }) => [
                     styles.clearButton,
-                    { backgroundColor: 'rgba(255,255,255,0.18)', opacity: pressed ? 0.6 : 1 },
+                    { backgroundColor: 'rgba(0,0,0,0.12)', opacity: pressed ? 0.6 : 1 },
                   ]}>
                   <Icon name="x" size={14} color={c.onBlue} strokeWidth={2.4} />
                 </Pressable>
@@ -289,7 +289,7 @@ export default function HomeScreen() {
                   </View>
                   <View style={styles.rowText}>
                     <Text style={[styles.rowName, { color: c.text }]}>Family Plan</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Write it once and send it to everyone — who does what, the out-of-area number, where the supplies are</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Who does what, and the number everyone calls</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>

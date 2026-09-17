@@ -4,10 +4,14 @@
 // ground draws measurably less of it on an OLED screen.
 //
 //   Charcoal      #1C1F22   the ground
-//   Deep Slate    #18333C   the header, which fades rather than sitting flat:
-//                            #22414B at the top down to #1A2328 at the bottom,
-//                            so it resolves into the charcoal instead of
-//                            ending on a hard line
+//   Soft Dusty Blue #9FB2BF  the header. It is the one light, soft thing on
+//                            the page, and it fades — #B3C3CE at the top down
+//                            to #8499A8 at the bottom — rather than sitting as
+//                            a flat block.
+//
+// Because it is light, the type on it is dark like the cards rather than cream.
+// That was forced by measurement, not taste: a colour pale enough to read as
+// soft cannot carry cream text at 7:1, but it carries near-black at 8.2:1.
 //   Off-White     #F2F0EA   every card, warmed and dimmed rather than pure white
 //
 // The signals are muted on purpose. They still mean exactly what they meant —
@@ -30,9 +34,9 @@ export const Calm = {
   light: {
     // --- surfaces -------------------------------------------------------
     bg: "#1C1F22",
-    headerBg: "#18333C",
-    headerFadeTop: "#22414B",
-    headerFadeBottom: "#1A2328",
+    headerBg: "#9FB2BF",
+    headerFadeTop: "#B3C3CE",
+    headerFadeBottom: "#8499A8",
     card: "#F2F0EA",
     cardBorder: "#D3D0C8",
 
@@ -41,8 +45,8 @@ export const Calm = {
     textSecondary: "#3F444A",
     onBg: "#F2F0EA",
     onBgSoft: "#D8DDE0",
-    onBlue: "#F2F0EA",
-    onBlueSoft: "#C6D4D9",
+    onBlue: "#15171A",
+    onBlueSoft: "#39424A",
 
     // --- signals: the outline colour, then the colour for words -----------
     blue: "#42707E",
@@ -74,9 +78,9 @@ export const Calm = {
     // Already dark-first; this only takes the ground to true black for OLED.
     // --- surfaces -------------------------------------------------------
     bg: "#000000",
-    headerBg: "#18333C",
-    headerFadeTop: "#22414B",
-    headerFadeBottom: "#1A2328",
+    headerBg: "#9FB2BF",
+    headerFadeTop: "#B3C3CE",
+    headerFadeBottom: "#8499A8",
     card: "#F2F0EA",
     cardBorder: "#D3D0C8",
 
@@ -85,8 +89,8 @@ export const Calm = {
     textSecondary: "#3F444A",
     onBg: "#F2F0EA",
     onBgSoft: "#D8DDE0",
-    onBlue: "#F2F0EA",
-    onBlueSoft: "#C6D4D9",
+    onBlue: "#15171A",
+    onBlueSoft: "#39424A",
 
     // --- signals: the outline colour, then the colour for words -----------
     blue: "#42707E",
