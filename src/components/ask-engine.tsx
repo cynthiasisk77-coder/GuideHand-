@@ -5,6 +5,7 @@ import { models, useLLMChatSession } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
 import { ReadAloudButton } from '@/components/read-aloud-button';
+import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
@@ -90,12 +91,13 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     generationConfig: { maxNewTokens: 320 },
   });
 
-  const ask = useCallback(async () => {
-    const context = buildAskContext(question);
+  const ask = useCallback(async (spoken?: string) => {
+    const asked = (spoken ?? question).trim();
+    const context = buildAskContext(asked);
 
     // The safety rule: nothing relevant found means the model is never asked.
     if (context.empty) {
-      setPhase({ kind: 'nothing-found', question: question.trim() });
+      setPhase({ kind: 'nothing-found', question: asked });
       return;
     }
     if (!llm.sendMessage) return;
@@ -181,10 +183,22 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           multiline
           style={[styles.input, { color: c.text, borderColor: c.cardBorder }]}
         />
+        <VoiceInput
+          onPartial={setQuestion}
+          onTranscript={(said) => {
+            // Fill the box so she can see what it heard, then ask without
+            // another tap — the whole point is not having to touch the screen.
+            setQuestion(said);
+            if (said.trim().length >= 2) void ask(said);
+          }}
+          color={c.blueText}
+          background={c.blueSoft}
+          mutedColor={c.textSecondary}
+        />
         <Pressable
           accessibilityRole="button"
           disabled={phase.kind === 'thinking' || question.trim().length < 2}
-          onPress={ask}
+          onPress={() => ask()}
           style={({ pressed }) => [
             styles.button,
             {

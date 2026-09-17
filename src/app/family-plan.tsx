@@ -84,6 +84,16 @@ export default function FamilyPlanScreen() {
   };
 
   const addMember = () => {
+    // Pressing it twice used to leave two blank "Someone new" cards, and a
+    // third press a third. If there is already a blank one waiting, open that
+    // instead of stacking another on top of it.
+    const blank = plan.members.find(
+      (m) => !m.name?.trim() && !m.phone?.trim() && !m.job?.trim() && !m.usuallyAt?.trim()
+    );
+    if (blank) {
+      setOpenMember(blank.id);
+      return;
+    }
     const member = emptyMember();
     save({ ...plan, members: [...plan.members, member] });
     setOpenMember(member.id);
@@ -365,7 +375,15 @@ export default function FamilyPlanScreen() {
             onPress={addMember}
             style={({ pressed }) => [styles.addRow, { backgroundColor: c.plumSoft, opacity: pressed ? 0.7 : 1 }]}>
             <Icon name="plus" size={16} color={c.plum} />
-            <Text style={[styles.addText, { color: c.plum }]}>Add somebody</Text>
+            {/*
+              * "Add somebody" is an invitation and it reads as one — right up
+              * until somebody is in the list, at which point the same words
+              * start to look like the button that saves what you just typed.
+              * Once there is anyone there it is simply Add.
+              */}
+            <Text style={[styles.addText, { color: c.plum }]}>
+              {plan.members.length === 0 ? 'Add somebody' : 'Add'}
+            </Text>
           </Pressable>
 
           {/* --- supplies and notes --------------------------------------- */}
