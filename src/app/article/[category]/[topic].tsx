@@ -4,7 +4,6 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 
 import { Icon } from '@/components/icon';
 import { ReadAloudButton } from '@/components/read-aloud-button';
-import { CPRDiagram, ChestSealDiagram, TourniquetDiagram } from '@/components/diagrams';
 import { QuickCardView } from '@/components/QuickCard';
 import { Calm, Fonts } from '@/constants/calm';
 import { PRIORITY_HUMAN } from '@/constants/categoryStyle';
@@ -13,11 +12,17 @@ import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { QUICK_CARDS } from '@/content/quickCards';
 import { getCategoryBySlug, getRelatedTopics, getTopic, resolveArticleBody } from '@/lib/content';
 
-const DIAGRAM_BY_TOPIC: Record<string, typeof TourniquetDiagram> = {
-  'Severe bleeding and tourniquet': TourniquetDiagram,
-  'Adult CPR/AED': CPRDiagram,
-  'Chest and abdominal trauma (open chest wound)': ChestSealDiagram,
-};
+// The three line drawings that used to sit here are gone. They were
+// rectangles, circles and dashed lines standing in for a tourniquet, a pair
+// of hands on a chest, and a chest seal — abstract enough that they showed
+// nobody anything. On a first-aid page that is not merely useless: a diagram
+// people cannot read is one they may read wrongly, and these three sit on
+// severe bleeding, CPR and an open chest wound.
+//
+// Real photographs are wanted here instead. That needs a source whose licence
+// allows commercial use AND a person who can confirm the picture shows correct
+// technique, which is not something a filename can tell you. Until both are in
+// hand the words stand on their own, which they were written to do.
 
 // The only place in the app a 911 mention is tappable at all — and even here
 // it takes a deliberate second tap on a confirmation, so it can't be dialed
@@ -43,7 +48,6 @@ export default function ArticleScreen() {
   const related = useMemo(() => (topicData ? getRelatedTopics(topicData.title) : []), [topicData]);
   const bodyTitle = resolved?.sourceTitle ?? topicData?.title;
   const quickCard = bodyTitle ? QUICK_CARDS[bodyTitle] : undefined;
-  const Diagram = bodyTitle ? DIAGRAM_BY_TOPIC[bodyTitle] : undefined;
 
   if (!topicData) {
     return (
@@ -96,14 +100,7 @@ export default function ArticleScreen() {
               </View>
 
               {quickCard ? (
-                <>
-                  {Diagram ? (
-                    <View style={[styles.diagramCard, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-                      <Diagram stroke={c.text} accent={c.blue} />
-                    </View>
-                  ) : null}
-                  <QuickCardView data={quickCard} c={c} />
-                </>
+                <QuickCardView data={quickCard} c={c} />
               ) : (
                 body.guidance.map((line, i) =>
                   isCallStep(line) ? (
@@ -239,12 +236,6 @@ const styles = StyleSheet.create({
     letterSpacing: 1.2,
     marginBottom: Spacing.two,
     textTransform: 'uppercase',
-  },
-  diagramCard: {
-    borderWidth: 1,
-    borderRadius: 14,
-    padding: 14,
-    marginBottom: Spacing.three,
   },
   step: {
     flexDirection: 'row',

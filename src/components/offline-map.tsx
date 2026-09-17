@@ -11,6 +11,7 @@
 
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Camera, Map, Marker, UserLocation } from '@maplibre/maplibre-react-native';
 
 import { Icon } from '@/components/icon';
@@ -67,6 +68,9 @@ export function OfflineMap({
   onPickPlace,
   suggestedLabel = 'Meeting place',
 }: OfflineMapProps) {
+  // The map runs full-bleed with no navigation header above it, so the Back
+  // pill has to clear the status bar and the notch itself.
+  const insets = useSafeAreaInsets();
   const [selected, setSelected] = useState<MapMarker | undefined>(undefined);
   const [picked, setPicked] = useState<Coords | undefined>(undefined);
   const [label, setLabel] = useState('');
@@ -184,7 +188,7 @@ export function OfflineMap({
         onPress={onClose}
         style={({ pressed }) => [
           styles.back,
-          { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
+          { top: insets.top + 12, backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.7 : 1 },
         ]}>
         <Icon name="chevron" size={17} color={c.text} />
         <Text style={[styles.backText, { color: c.text }]}>Back</Text>
@@ -286,10 +290,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
-    borderWidth: 1,
     borderRadius: 999,
-    paddingVertical: 8,
-    paddingHorizontal: 13,
+    borderWidth: 1.5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
   },
-  backText: { fontSize: 13.5, fontFamily: Fonts.bodySemibold },
+  backText: { fontSize: 14.5, fontFamily: Fonts.bodyBold },
 });

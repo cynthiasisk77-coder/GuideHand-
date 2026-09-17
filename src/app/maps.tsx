@@ -204,7 +204,15 @@ export default function MapsScreen() {
   if (viewing) {
     return (
       <View style={[styles.container, { backgroundColor: c.bg }]}>
-        <Stack.Screen options={{ title: viewing.name }} />
+        {/*
+          * The header is hidden while a map is open, on purpose. With it
+          * showing there were two back controls fighting: the header arrow,
+          * which leaves the Maps screen altogether and lands you on the home
+          * screen, and the map's own Back pill sitting just under it. The
+          * header arrow was the bigger, more obvious one and it was the wrong
+          * one — there was no way back to the list of downloaded maps.
+          */}
+        <Stack.Screen options={{ title: viewing.name, headerShown: false }} />
         <OfflineMap
           region={viewing}
           here={here}
