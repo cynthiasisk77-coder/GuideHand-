@@ -80,9 +80,11 @@ export const Calm = {
     priorityGoodToKnow: "#42707E",
   },
   dark: {
-    // Already dark-first; this only takes the ground to true black for OLED.
+    // Identical to the other scheme on purpose. The app is dark either way, and
+    // letting the phone's setting swap the navy ground for true black meant two
+    // people could install the same build and see two different apps.
     // --- surfaces -------------------------------------------------------
-    bg: "#000000",
+    bg: "#101A2E",
     headerBg: "#9FB2BF",
     headerFadeTop: "#B3C3CE",
     headerFadeBottom: "#8499A8",
