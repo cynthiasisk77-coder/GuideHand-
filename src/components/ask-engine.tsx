@@ -12,8 +12,26 @@ import { AskModelChoice, AskModelKey } from '@/lib/askModels';
 // The one place the library's model table is read. Kept in this file because
 // this file is the native-only half — the web build resolves ask-engine.web.tsx
 // instead and never loads any of it.
-function configFor(key: AskModelKey): unknown {
-  return models.llm[key];
+//
+// models.llm.LFM2_5_350M is not a model. It is a container of hardware
+// variants — XNNPACK_8DA4W, XNNPACK_FP16, MLX_INT4 — with a DEFAULT that picks
+// the right one for the device. Handing the container straight to the session
+// passes an object with no file paths in it, and the download dies on the
+// phone with "Missing argument \"path\"".
+//
+// This returned `unknown` before, which is why that shipped: the session takes
+// its config loosely, so nothing objected until a real device tried to fetch a
+// file from a path that was not there. The explicit return type below is the
+// actual fix — the container has no modelPath, so handing it over again is now
+// a compile error rather than a download that fails in somebody's hands.
+type ResolvedModel = {
+  readonly modelPath: string;
+  readonly tokenizerPath: string;
+  readonly tokenizerConfigPath: string;
+};
+
+function configFor(key: AskModelKey): ResolvedModel {
+  return models.llm[key].DEFAULT;
 }
 
 interface Palette {
