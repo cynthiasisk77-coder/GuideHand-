@@ -8,7 +8,7 @@ import { OfflineMap } from '@/components/offline-map';
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
-import { Coords, formatCoords } from '@/lib/geo';
+import { Coords } from '@/lib/geo';
 import {
   boundsAround,
   contains,
@@ -23,8 +23,7 @@ import {
 } from '@/lib/offlineMaps';
 import { downloadRegion, listPackIds, removeRegion } from '@/lib/offlineMapPacks';
 import type { MapMarker } from '@/components/offline-map';
-import { MEETUP_POINTS_KEY } from '@/lib/personalData';
-import { secureGetItem } from '@/lib/secureData';
+import { appendMeetupPoint, loadMeetupPoints, newMeetupPointId } from '@/lib/meetupPoints';
 
 // A GPS fix indoors, in a basement, or in airplane mode can simply never
 // arrive — the call does not fail, it waits. Without a ceiling on it the
@@ -90,19 +89,29 @@ export default function MapsScreen() {
   }, [regions, loaded]);
 
   useEffect(() => {
-    secureGetItem(MEETUP_POINTS_KEY)
-      .then((raw) => {
-        if (!raw || !mounted.current) return;
-        const parsed = JSON.parse(raw);
-        if (!Array.isArray(parsed)) return;
-        setMeetupPoints(
-          parsed
-            .filter((p) => typeof p?.latitude === 'number' && typeof p?.longitude === 'number')
-            .map((p) => ({ id: String(p.id), label: String(p.label || 'Meeting place'), latitude: p.latitude, longitude: p.longitude }))
-        );
+    loadMeetupPoints()
+      .then((saved) => {
+        if (!mounted.current) return;
+        setMeetupPoints(saved.map((p) => ({ id: p.id, label: p.label, latitude: p.latitude, longitude: p.longitude })));
       })
       .catch(() => {});
   }, []);
+
+  // Tapping the map is now the ordinary way to set a meeting place. Typing
+  // "34.05224, -118.24368" into a phone is not something anybody does under
+  // pressure, and it was the only way in before this.
+  const savePickedPlace = (coords: Coords, label: string) => {
+    const point = {
+      id: newMeetupPointId(),
+      label,
+      latitude: coords.latitude,
+      longitude: coords.longitude,
+      note: '',
+    };
+    // Shown straight away; the write is what makes it survive the screen closing.
+    setMeetupPoints((prev) => [...prev, { id: point.id, label, latitude: point.latitude, longitude: point.longitude }]);
+    appendMeetupPoint(point).catch(() => {});
+  };
 
   const findMe = useCallback(async (): Promise<Coords | undefined> => {
     setLocating(true);
@@ -147,7 +156,7 @@ export default function MapsScreen() {
     if (!center) return;
 
     const id = regionId();
-    const label = name.trim() || `${size.label} — ${formatCoords(center)}`;
+    const label = name.trim() || `${size.label} — saved ${new Date().toLocaleDateString()}`;
     setDownload({ kind: 'working', percent: 0, label });
 
     try {
@@ -160,12 +169,22 @@ export default function MapsScreen() {
         }
       );
       if (!mounted.current) return;
-      setRegions((prev) => [
-        { id: packId, name: label, center, radiusMiles: size.radiusMiles, minZoom: size.minZoom, maxZoom: size.maxZoom, downloadedAt: Date.now() },
-        ...prev,
-      ]);
+      const saved: MapRegion = {
+        id: packId,
+        name: label,
+        center,
+        radiusMiles: size.radiusMiles,
+        minZoom: size.minZoom,
+        maxZoom: size.maxZoom,
+        downloadedAt: Date.now(),
+      };
+      setRegions((prev) => [saved, ...prev]);
       setName('');
       setDownload({ kind: 'idle' });
+      // "Where did my map go?" was a fair question: it went into a list row
+      // with a chevron. Now it opens, so the answer is that you are looking
+      // at it.
+      setViewing(saved);
     } catch (error) {
       if (!mounted.current) return;
       setDownload({ kind: 'failed', message: error instanceof Error ? error.message : 'The download stopped.' });
@@ -192,6 +211,8 @@ export default function MapsScreen() {
           markers={meetupPoints.filter((point) => contains(viewing, point))}
           c={c}
           onClose={() => setViewing(undefined)}
+          onPickPlace={savePickedPlace}
+          suggestedLabel={`Meeting place ${meetupPoints.length + 1}`}
         />
       </View>
     );
@@ -218,7 +239,7 @@ export default function MapsScreen() {
           {/* --- what you already hold ------------------------------------ */}
           {regions.length > 0 ? (
             <>
-              <Text style={[styles.sectionLabel, { color: c.blue }]}>ON THIS PHONE</Text>
+              <Text style={[styles.sectionLabel, { color: c.blue }]}>YOUR MAPS — TAP ONE TO OPEN IT</Text>
               {regions.map((region) => (
                 <View
                   key={region.id}
@@ -233,7 +254,7 @@ export default function MapsScreen() {
                         {region.name}
                       </Text>
                       <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
-                        {region.radiusMiles} miles out · {formatCoords(region.center)}
+                        {region.radiusMiles} miles across · tap to open the map
                       </Text>
                     </View>
                     <Icon name="chevron" size={16} color={c.textSecondary} />
@@ -270,7 +291,7 @@ export default function MapsScreen() {
                 {here ? 'Centred on where you are' : 'Use where I am now'}
               </Text>
               <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
-                {here ? formatCoords(here) : 'Tap to get a position from the GPS chip'}
+                {here ? 'Got it — this is the area that will download' : 'Tap to get a position from the GPS chip'}
               </Text>
             </View>
           </Pressable>

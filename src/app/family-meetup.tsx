@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { notePersonalDataChanged } from '@/lib/autoBackup';
+import { MEETUP_ACTIVE_KEY, MEETUP_POINTS_KEY } from '@/lib/personalData';
 import { secureGetItem, secureRemoveItem, secureSetItem } from '@/lib/secureData';
 import * as Location from 'expo-location';
 import QRCode from 'react-native-qrcode-svg';
@@ -24,8 +25,8 @@ import {
   parseCoords,
 } from '@/lib/geo';
 
-const STORAGE_KEY = 'guidehand.family-meetup.v1';
-const ACTIVE_KEY = 'guidehand.family-meetup.active.v1';
+const STORAGE_KEY = MEETUP_POINTS_KEY;
+const ACTIVE_KEY = MEETUP_ACTIVE_KEY;
 const GUIDANCE_TOPIC = 'Family communication plan and rendezvous points';
 
 interface MeetupPoint {
@@ -73,6 +74,8 @@ export default function FamilyMeetupScreen() {
   const [coordsDraft, setCoordsDraft] = useState('');
   const [noteDraft, setNoteDraft] = useState('');
   const [addError, setAddError] = useState('');
+  // Folded away by default. Nobody types latitude and longitude by choice.
+  const [showCoords, setShowCoords] = useState(false);
 
   useEffect(() => {
     Promise.all([secureGetItem(STORAGE_KEY), secureGetItem(ACTIVE_KEY)])
@@ -195,7 +198,7 @@ export default function FamilyMeetupScreen() {
     }
     setAddError(
       'Could not read your location, so nothing was saved. Check that location is turned on for GuideHand, ' +
-        'step outside if you can, and try again — or type the coordinates in below.'
+        'step outside if you can, and try again — or pick the spot on the map instead.'
     );
   };
 
@@ -490,8 +493,32 @@ export default function FamilyMeetupScreen() {
               <Text style={[styles.primaryButtonText, { color: c.sageText }]}>Save where I am standing</Text>
             </Pressable>
 
-            <Text style={[styles.orDivider, { color: c.textSecondary }]}>OR TYPE THE COORDINATES</Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push({ pathname: '/maps' })}
+              style={({ pressed }) => [
+                styles.primaryButton,
+                { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+              ]}>
+              <Icon name="compass" size={16} color={c.blue} />
+              <Text style={[styles.primaryButtonText, { color: c.blueText }]}>Pick it on the map</Text>
+            </Pressable>
+            <Text style={[styles.addHint, { color: c.textSecondary }]}>
+              Open a downloaded map and tap the spot. No numbers to type, and it works with no signal.
+            </Text>
 
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setShowCoords((prev) => !prev)}
+              hitSlop={6}
+              style={({ pressed }) => [styles.coordToggle, { opacity: pressed ? 0.6 : 1 }]}>
+              <Text style={[styles.coordToggleText, { color: c.textSecondary }]}>
+                {showCoords ? 'Hide the coordinate box' : 'Type coordinates instead'}
+              </Text>
+            </Pressable>
+
+            {showCoords ? (
+            <>
             <TextInput
               value={coordsDraft}
               onChangeText={(text) => {
@@ -513,6 +540,8 @@ export default function FamilyMeetupScreen() {
               <Icon name="plus" size={16} color={c.blue} />
               <Text style={[styles.addButtonText, { color: c.blue }]}>Add this place</Text>
             </Pressable>
+            </>
+            ) : null}
 
             {addError ? <Text style={[styles.addError, { color: c.dangerText }]}>{addError}</Text> : null}
           </View>
@@ -732,6 +761,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   addButtonText: { fontSize: 14, fontFamily: Fonts.bodyBold },
+  addHint: { fontSize: 12, lineHeight: 17, marginTop: -2, fontFamily: Fonts.body },
+  coordToggle: { alignSelf: 'center', paddingVertical: 6 },
+  coordToggleText: { fontSize: 12.5, textDecorationLine: 'underline', fontFamily: Fonts.body },
   addError: { fontSize: 12.5, lineHeight: 18, fontFamily: Fonts.body },
 
   guidanceRow: {

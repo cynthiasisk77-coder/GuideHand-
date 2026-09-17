@@ -1,9 +1,16 @@
 // The map itself, drawn from tiles already on the phone.
 //
 // Native-only — see offline-map.web.tsx for what the browser gets.
+//
+// The map can be in one of two modes. Normally it just shows where your saved
+// meeting places are. In picking mode it is how you make one: you tap the spot
+// and name it. Typing latitude and longitude was the only way to add a place
+// before, and asking somebody to read "34.05224, -118.24368" off a screen and
+// type it correctly into another phone is not a plan anybody will carry out in
+// an emergency. Pointing at a map is.
 
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Camera, Map, Marker, UserLocation } from '@maplibre/maplibre-react-native';
 
 import { Icon } from '@/components/icon';
@@ -42,14 +49,61 @@ interface OfflineMapProps {
   markers?: MapMarker[];
   c: Palette;
   onClose: () => void;
+  /**
+   * When given, tapping the map offers to save that spot as a meeting place.
+   * Leave it out and the map is read-only.
+   */
+  onPickPlace?: (coords: Coords, label: string) => void;
+  /** Suggested name for the next place, so the field is never empty. */
+  suggestedLabel?: string;
 }
 
-export function OfflineMap({ region, here, markers = [], c, onClose }: OfflineMapProps) {
+export function OfflineMap({
+  region,
+  here,
+  markers = [],
+  c,
+  onClose,
+  onPickPlace,
+  suggestedLabel = 'Meeting place',
+}: OfflineMapProps) {
   const [selected, setSelected] = useState<MapMarker | undefined>(undefined);
+  const [picked, setPicked] = useState<Coords | undefined>(undefined);
+  const [label, setLabel] = useState('');
+  const [justSaved, setJustSaved] = useState('');
+
+  const picking = !!onPickPlace;
+
+  const handleMapPress = (event: { nativeEvent?: { lngLat?: [number, number] } }) => {
+    if (!picking) return;
+    const lngLat = event?.nativeEvent?.lngLat;
+    if (!lngLat) return;
+    // MapLibre hands back [longitude, latitude]; everything else here is the
+    // other way round, and getting that backwards puts the pin in the ocean.
+    setPicked({ longitude: lngLat[0], latitude: lngLat[1] });
+    setLabel('');
+    setSelected(undefined);
+    setJustSaved('');
+  };
+
+  const save = () => {
+    if (!picked || !onPickPlace) return;
+    const name = label.trim() || suggestedLabel;
+    onPickPlace(picked, name);
+    setPicked(undefined);
+    setLabel('');
+    setJustSaved(name);
+  };
 
   return (
     <View style={styles.fill}>
-      <Map style={styles.fill} mapStyle={MAP_STYLE_URL} logo={false} attribution={false} compass>
+      <Map
+        style={styles.fill}
+        mapStyle={MAP_STYLE_URL}
+        logo={false}
+        attribution={false}
+        compass
+        onPress={handleMapPress}>
         <Camera initialViewState={{ center: toLngLat(region.center), zoom: 12 }} />
         {here ? <UserLocation /> : null}
         {markers.map((marker) => (
@@ -57,12 +111,57 @@ export function OfflineMap({ region, here, markers = [], c, onClose }: OfflineMa
             <View style={[styles.pin, { backgroundColor: c.plum, borderColor: c.card }]} />
           </Marker>
         ))}
+        {picked ? (
+          <Marker id="picked" lngLat={toLngLat(picked)}>
+            <View style={[styles.pinNew, { backgroundColor: c.sage, borderColor: c.card }]} />
+          </Marker>
+        ) : null}
       </Map>
 
       {/* Attribution is a licence condition on OpenStreetMap data, not decoration. */}
       <View style={[styles.attribution, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <Text style={[styles.attributionText, { color: c.textSecondary }]}>{MAP_ATTRIBUTION}</Text>
       </View>
+
+      {/* --- naming the spot you just tapped --------------------------------- */}
+      {picked ? (
+        <View style={[styles.panel, { backgroundColor: c.card, borderColor: c.sage }]}>
+          <Text style={[styles.panelTitle, { color: c.text }]}>Name this spot</Text>
+          <TextInput
+            value={label}
+            onChangeText={setLabel}
+            placeholder={suggestedLabel}
+            placeholderTextColor={c.textSecondary}
+            autoFocus
+            style={[styles.input, { color: c.text, borderColor: c.cardBorder }]}
+          />
+          <View style={styles.panelRow}>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => setPicked(undefined)}
+              style={({ pressed }) => [styles.ghost, { borderColor: c.cardBorder, opacity: pressed ? 0.6 : 1 }]}>
+              <Text style={[styles.ghostText, { color: c.textSecondary }]}>Cancel</Text>
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              onPress={save}
+              style={({ pressed }) => [styles.save, { backgroundColor: c.sageSoft, opacity: pressed ? 0.7 : 1 }]}>
+              <Icon name="pin" size={15} color={c.sageText} />
+              <Text style={[styles.saveText, { color: c.sageText }]}>Save this spot</Text>
+            </Pressable>
+          </View>
+        </View>
+      ) : null}
+
+      {/* --- the standing invitation, so nobody has to guess it is tappable -- */}
+      {picking && !picked && !selected ? (
+        <View style={[styles.hint, { backgroundColor: c.card, borderColor: c.sage }]}>
+          <Icon name="pin" size={15} color={c.sageText} />
+          <Text style={[styles.hintText, { color: c.text }]}>
+            {justSaved ? `Saved "${justSaved}". Tap again to add another.` : 'Tap the map where you want to meet.'}
+          </Text>
+        </View>
+      ) : null}
 
       {selected ? (
         <View style={[styles.callout, { backgroundColor: c.card, borderColor: c.plum }]}>
@@ -97,6 +196,9 @@ export function OfflineMap({ region, here, markers = [], c, onClose }: OfflineMa
 const styles = StyleSheet.create({
   fill: { flex: 1 },
   pin: { width: 18, height: 18, borderRadius: 9, borderWidth: 3 },
+  // The one you are placing is bigger than the ones already saved, so you can
+  // see where it landed without hunting for it.
+  pinNew: { width: 24, height: 24, borderRadius: 12, borderWidth: 4 },
   attribution: {
     position: 'absolute',
     left: 10,
@@ -107,6 +209,60 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   attributionText: { fontSize: 9.5, fontFamily: Fonts.body },
+  hint: {
+    position: 'absolute',
+    left: 12,
+    right: 12,
+    bottom: 42,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    borderWidth: 1.5,
+    borderRadius: 13,
+    paddingVertical: 11,
+    paddingHorizontal: 13,
+  },
+  hintText: { flex: 1, fontSize: 13.5, fontFamily: Fonts.bodySemibold },
+  panel: {
+    position: 'absolute',
+    left: 12,
+    right: 12,
+    bottom: 42,
+    gap: 9,
+    borderWidth: 1.5,
+    borderRadius: 14,
+    paddingVertical: 13,
+    paddingHorizontal: 13,
+  },
+  panelTitle: { fontSize: 15, fontFamily: Fonts.displaySemibold },
+  input: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 11,
+    paddingVertical: 10,
+    fontSize: 14.5,
+    fontFamily: Fonts.body,
+  },
+  panelRow: { flexDirection: 'row', gap: 9 },
+  ghost: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingVertical: 11,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ghostText: { fontSize: 14, fontFamily: Fonts.bodySemibold },
+  save: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    borderRadius: 10,
+    paddingVertical: 11,
+  },
+  saveText: { fontSize: 14, fontFamily: Fonts.bodyBold },
   callout: {
     position: 'absolute',
     left: 12,

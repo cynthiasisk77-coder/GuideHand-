@@ -322,6 +322,27 @@ export default function HomeScreen() {
 
               
               <View style={styles.section}>
+                <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>THE MAP</Text>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/maps" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowAccented,
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
+                    <Icon name="compass" color={c.blue} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, { color: c.text }]}>Offline Maps</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Download the streets around you, then tap the map to mark where to meet</Text>
+                  </View>
+                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                </Pressable>
+              </View>
+
+              <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>LOOK SOMETHING UP</Text>
                 {CATEGORY_GROUPS.map((group, i) => {
                   const accent = BAND_ACCENT[group.band];
@@ -370,23 +391,6 @@ export default function HomeScreen() {
                   <View style={styles.rowText}>
                     <Text style={[styles.rowName, { color: c.text }]}>Family & Caregiving</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>Caregiving, family plans, and support</Text>
-                  </View>
-                  <Icon name="chevron" size={18} color={c.textSecondary} />
-                </Pressable>
-                <Pressable
-                  accessibilityRole="button"
-                  onPress={() => router.push({ pathname: "/maps" })}
-                  style={({ pressed }) => [
-                    styles.row,
-                    styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue, opacity: pressed ? 0.7 : 1 },
-                  ]}>
-                  <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
-                    <Icon name="compass" color={c.blue} />
-                  </View>
-                  <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Offline Maps</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Download the streets around you now — the map then works with no signal at all</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>

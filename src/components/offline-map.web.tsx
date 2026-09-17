@@ -40,6 +40,9 @@ interface OfflineMapProps {
   markers?: MapMarker[];
   c: Palette;
   onClose: () => void;
+  // Accepted so the two files share one signature; the browser never calls it.
+  onPickPlace?: (coords: Coords, label: string) => void;
+  suggestedLabel?: string;
 }
 
 export function OfflineMap({ region, c, onClose }: OfflineMapProps) {

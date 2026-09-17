@@ -24,13 +24,6 @@ export interface CategoryGroup {
 
 export const CATEGORY_GROUPS: CategoryGroup[] = [
   {
-    name: "Maps & Navigation",
-    sub: "Paper maps, compass, finding your way",
-    categories: ["Navigation"],
-    icon: "compass",
-    band: "recovery",
-  },
-  {
     name: "Home, Power & Shelter",
     sub: "Heat, power, water lines, keeping clean",
     categories: ["Shelter & Heat", "Home Systems", "Power & Lighting", "Sanitation & Hygiene"],
@@ -57,6 +50,13 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     categories: ["Vehicles & Mechanics", "Evacuation"],
     icon: "car",
     band: "severe",
+  },
+  {
+    name: "Reading Maps & Compasses",
+    sub: "Paper maps, compass, finding north without one",
+    categories: ["Navigation"],
+    icon: "compass",
+    band: "recovery",
   },
   {
     name: "Animals & Pets",
