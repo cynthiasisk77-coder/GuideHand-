@@ -39,13 +39,13 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       summary:
         "Deeper medical reference than the app carries on its own — conditions, symptoms, and what to do when professional care isn't reachable.",
       version: 1,
-      bytes: 0,
-      articleCount: 0,
+      bytes: 18668,
+      articleCount: 10,
       license: "Public domain — MedlinePlus, U.S. National Library of Medicine",
       attribution: "MedlinePlus, U.S. National Library of Medicine",
       icon: "medical",
       url: `${PACK_BASE}/field-medicine.json`,
-      published: false,
+      published: true,
     },
     {
       id: "disaster-response",

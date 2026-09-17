@@ -1,0 +1,175 @@
+{
+  "id": "field-medicine",
+  "name": "Field Medicine Reference",
+  "version": 1,
+  "license": "Public domain — MedlinePlus, U.S. National Library of Medicine",
+  "attribution": "MedlinePlus, U.S. National Library of Medicine, and the U.S. Centers for Disease Control and Prevention",
+  "articles": [
+    {
+      "title": "Is this wound infected, and how bad",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Some redness and soreness in the first day or two is the body starting work, not infection. What tells you it has turned is the direction of travel: pain that is worse on day three than day two, redness spreading outward rather than shrinking, swelling that keeps building, warmth you can feel with the back of your hand, and pus.",
+        "Mark the edge of the redness with a pen and write the time next to it. This is the single most useful thing you can do, because it turns a judgement call into a measurement — an hour later you either see it past the line or you do not.",
+        "Red streaks running from the wound toward the body, fever and shaking chills, a racing pulse, confusion, or feeling far worse than the wound seems to warrant are the ones that mean the infection is in the bloodstream. That is a get-help-now situation and it does not wait for morning.",
+        "Wash it properly rather than dabbing at it. Clean running water and plenty of it, gentle pressure, and keep going for a few minutes. Getting the dirt out matters more than what you put on afterwards, and water does that better than anything in the cupboard.",
+        "Do not use hydrogen peroxide, rubbing alcohol or iodine inside an open wound. They kill the cells that are trying to close it along with everything else, and the result is slower healing rather than a cleaner wound.",
+        "Cover it, and change the dressing when it is wet or dirty rather than on a schedule. A wound kept slightly moist under a clean cover heals faster and scars less than one left to form a hard scab in the open air.",
+        "A puncture, a bite, a wound with something still in it, a wound over a joint or on the hand, or any wound in someone with diabetes or a weak immune system is a different category. Those get infected far more readily and are worth real medical attention if it exists at all."
+      ]
+    },
+    {
+      "title": "Fever: what it means and when it matters",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Fever is the body turning the heat up on purpose. The number alone matters much less than how the person looks and behaves — someone at 103°F who is drinking, talking and making sense is in less trouble than someone at 100°F who is drowsy and will not wake properly.",
+        "Go by touch and behaviour when there is no thermometer. A forehead that feels hot to your lips is worth more than a hand on a forehead. Then look at the things that actually tell you something: are they drinking, are they passing urine, do they know where they are, can they be roused.",
+        "The things that mean go now regardless of the number: a stiff neck with headache and dislike of light, a rash that does not fade when you press a glass against it, trouble breathing, a first-ever seizure, confusion or unrousable drowsiness, or any fever at all in a baby under three months.",
+        "Bring it down for comfort, not to reach a number. Fewer clothes, a cooler room, and drinking. Lukewarm sponging if they want it. Not cold baths and not rubbing alcohol on the skin — cold makes the body shiver, which makes more heat, and alcohol is absorbed through skin and is dangerous.",
+        "Fluids matter more than any medicine here. Fever burns through water fast, and most of what makes someone feel wretched with a fever is the dehydration rather than the temperature.",
+        "Never give aspirin to a child or teenager with a fever. The link to Reye's syndrome — sudden swelling of the brain and liver — is why aspirin stopped being a children's medicine."
+      ]
+    },
+    {
+      "title": "Making and using an oral rehydration drink",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine",
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "This is the treatment that saves more lives than any other on this list, and it is sugar, salt and clean water. The sugar is not for energy — it is what lets the gut pull the salt and the water across, which plain water alone will not do well when someone is emptying out.",
+        "Six level teaspoons of sugar and half a level teaspoon of salt in one litre — about four cups — of clean water. Stir until it dissolves. It should taste no saltier than tears. If it tastes like seawater, throw it out and make it again weaker; too much salt makes things worse, not better.",
+        "Give it in small sips, constantly, rather than a glass at a time. A spoonful every minute or two stays down when a mouthful comes straight back. Keep going even if they vomit — some of it is absorbed before it comes back, and stopping is what loses the race.",
+        "Judge it by urine rather than by how they say they feel. Passing pale urine every few hours means you are winning. Dark urine, or hours with none at all, means you are not, and dry mouth, no tears, sunken eyes and skin that stays pinched when you lift it all say the same.",
+        "For a child, keep offering the same small sips after every loose stool. For a baby still feeding, keep feeding — breast milk or formula continues alongside, it is not replaced.",
+        "This does not fix everything and knowing that matters: blood in the stool, a swollen hard belly, vomiting that will not let anything stay down at all, or someone who cannot be roused needs more than fluids and needs it soon."
+      ]
+    },
+    {
+      "title": "Asthma with no inhaler left",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Sit them upright and leaning slightly forward, hands on knees or a table. Never lie someone down who is struggling to breathe — lying flat makes the work of breathing harder, and this position is what people instinctively find for a reason.",
+        "Get them out of whatever set it off: smoke, cold air, dust, an animal, a can of something being sprayed. Moving rooms is sometimes the whole treatment.",
+        "Slow the breathing out rather than the breathing in. Breathe in through the nose, then out slowly through pursed lips as if cooling soup, roughly twice as long going out as coming in. Air trapped in the chest is the problem in an attack, and a slow controlled exhale is what lets it leave.",
+        "Coffee or strong tea is worth trying when there is nothing else. Caffeine is chemically related to an old asthma drug and has a real, mild opening effect for a couple of hours. It is not a substitute for an inhaler; it is what you do when there is no inhaler.",
+        "Steam does not help an asthma attack and can make it worse. That advice belongs to croup, which is a different thing.",
+        "Signs this is going badly: too breathless to finish a sentence, lips or fingertips going blue or grey, a chest that has gone quiet after being wheezy, sitting hunched and silent, exhaustion, confusion. A quiet chest in an asthma attack is not improvement — it is too little air moving to make a sound.",
+        "Panic tightens the chest, and someone fighting for air is entitled to panic. A calm voice, slow counted breathing done with them rather than at them, and staying where they can see you are doing real physical work here, not just comfort."
+      ]
+    },
+    {
+      "title": "Looking after somebody who cannot get out of bed",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Turn them, or help them shift, at least every two hours, and do it through the night as well. Pressure sores start within hours over the tailbone, hips, heels, elbows and the back of the head, and once the skin is open they take months and can kill.",
+        "Look at the skin every time you turn them, especially the bony places. Redness that does not fade within a few minutes of taking the pressure off is the first stage and it is your warning. Pad between knees and ankles, and float the heels off the bed entirely with a pillow under the calves.",
+        "Keep them dry. Damp skin from sweat or incontinence breaks down far faster under pressure than dry skin, and this is where most of the work is.",
+        "Sit them up to eat and drink, and keep them sitting for half an hour afterwards. Food and drink going down the wrong way is the commonest way a bedbound person gets a chest infection, and it is largely preventable by position alone.",
+        "Get them breathing deeply a few times an hour — a few slow deep breaths, or blowing out through a straw into water. Shallow breathing in a still body lets the bases of the lungs close down, and that is the other half of how pneumonia starts.",
+        "Move the ankles and knees through their range several times a day even if they cannot. It keeps joints from stiffening and helps the blood move in the legs; a hot, swollen, painful calf is a clot until proven otherwise and needs help.",
+        "Keep a written note of what goes in and what comes out — drinks, food, urine. Memory is unreliable over days, and the first sign of most things going wrong is drinking less or passing less."
+      ]
+    },
+    {
+      "title": "Pain relief when the cupboard is nearly empty",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Paracetamol (acetaminophen) and ibuprofen work in different ways, and taking them together, or staggered a couple of hours apart, gives better relief than doubling either one. This is the single most useful thing to know when supplies are short.",
+        "Never exceed the daily total on the packet for paracetamol, and be certain nothing else you are giving contains it. It hides in cold and flu remedies, and paracetamol overdose damages the liver slowly, silently, and often past saving by the time anyone feels ill.",
+        "Ibuprofen goes with food and water, and is the wrong choice in someone with stomach ulcers, kidney trouble, who is dehydrated, or who is in the last third of pregnancy. Dehydration is the one people forget — the kidneys are already struggling without it.",
+        "Cold for the first day or two of an injury, heat after that for stiffness and muscle ache. Cold through a cloth and twenty minutes at a time, not against bare skin.",
+        "Position does more than people expect. An injured limb raised above the heart aches less because less blood is pooling in it, and a splinted joint hurts less than one that moves every time its owner does.",
+        "Do not use aspirin for a child or teenager, and do not give two different anti-inflammatories at once — ibuprofen, naproxen and aspirin are all the same family, and stacking them stacks the stomach and kidney risk without adding relief."
+      ]
+    },
+    {
+      "title": "A chest infection coming on",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "A cold that was getting better and then turns worse around day five to seven is the classic shape of a chest infection setting in behind it. A cough that goes deeper and wetter, a fever returning after it had gone, and feeling worse rather than better are what to watch for.",
+        "Count the breaths for a full minute while they are resting, without telling them you are doing it — people breathe differently when watched. An adult breathing more than about twenty to twenty-four times a minute at rest is working harder than they should be, and the count matters more than any other single sign here.",
+        "Pain low in the chest or in the side that gets sharper when they breathe in deeply points at the lining of the lung rather than at the airway, and that is a step more serious than bronchitis.",
+        "Keep them sitting up, drinking, and taking slow deep breaths several times an hour. Fluid keeps the phlegm loose enough to move; deep breaths keep the bottom of the lungs open. Both sound too simple to matter and both matter.",
+        "Blue or grey lips, confusion or unusual drowsiness, breathing that is fast and shallow, being unable to say a sentence in one breath, or a temperature with a racing pulse in someone over sixty-five or with lung disease — those are the ones to get help for while help still exists.",
+        "Cough medicine that suppresses a productive cough is working against you. If there is something in the chest, coughing it up is the treatment."
+      ]
+    },
+    {
+      "title": "Diabetes when the supplies run short",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Low blood sugar kills in minutes and high blood sugar kills over hours to days. When you cannot measure and cannot tell which it is, treat for low — sugar given to someone already high does little extra harm in the short term, while withholding it from someone low does a great deal.",
+        "Low looks like: shaking, sweating, pale, suddenly hungry, irritable or behaving oddly, confused, slurring. It comes on fast. Fifteen grams of fast sugar — half a cup of juice or ordinary fizzy drink, a tablespoon of honey or sugar, glucose tablets — then wait fifteen minutes and repeat if they are no better.",
+        "Follow the fast sugar with something lasting once they are back with you: bread, crackers, a sandwich. Otherwise they drop again within the hour.",
+        "Never put food or drink into the mouth of someone who is unconscious or fitting. Sugar or honey smeared inside the cheek is the alternative, with the head turned to the side.",
+        "High looks like: very thirsty, passing large amounts of urine, blurred vision, tiredness, and — the dangerous one — breath that smells sweet or of nail polish remover, deep sighing breathing, vomiting and belly pain. That combination is a medical emergency, not a bad day.",
+        "Insulin keeps working for roughly four weeks at room temperature once in use, which is far longer than most people think. Keep it out of direct sun and off anything hot, do not freeze it, and do not throw away insulin that has merely been warm.",
+        "Never stop insulin entirely in someone with type 1 diabetes because they are not eating. The body still needs a background amount, and stopping it is what brings on the sweet-breath emergency above."
+      ]
+    },
+    {
+      "title": "Keeping a sick household from becoming a sick house",
+      "category": "Sanitation & Hygiene",
+      "priority": "P1",
+      "sources": [
+        "U.S. Centers for Disease Control and Prevention"
+      ],
+      "guidance": [
+        "Pick one person to do the caring where you can, and the one least likely to come off badly — not the eldest, not the pregnant one, not the one on medication that suppresses their immune system.",
+        "Hands, with soap, for twenty seconds, under running water, after every contact and before touching food. It is dull and it is the single most effective thing in this article. Hand sanitiser is second best and does nothing for hands that are visibly dirty.",
+        "Give the sick person their own cup, plate, cutlery, towel and flannel, and keep them apart from everyone else's. Wash them in hot soapy water separately.",
+        "Wipe the things hands touch rather than the things that look dirty: door handles, taps, light switches, the toilet flush, phones, the fridge door. Clean first with soap and water, then disinfect — disinfectant on a dirty surface mostly disinfects the dirt.",
+        "Handle soiled laundry as little as possible and do not shake it out. Carry it to the machine, wash it on the hottest setting the fabric allows, and wash your hands afterwards.",
+        "Open a window. Moving air lowers the amount of anything airborne in a room faster than almost anything else you can do without equipment, and costs nothing.",
+        "Keep a plastic-lined, covered bin in the sick room for tissues and dressings, and tie the bag before it leaves the room."
+      ]
+    },
+    {
+      "title": "Medicines that expire, and medicines that matter",
+      "category": "Medical & First Aid",
+      "priority": "P2",
+      "sources": [
+        "MedlinePlus, U.S. National Library of Medicine"
+      ],
+      "guidance": [
+        "Most solid medicines — tablets and capsules kept cool, dry and in their own container — lose potency slowly rather than turning harmful. A paracetamol a year past its date is most likely weaker, not dangerous. That is the general rule and the exceptions below are the reason it is only a rule.",
+        "Liquids, anything in the fridge, eye drops, insulin and anything you inject are the ones to respect the date on. Liquids grow things, and a contaminated eye drop or injection is a serious infection delivered to the worst possible place.",
+        "Nitroglycerin for heart pain, and adrenaline in an auto-injector, genuinely lose their effect and are worth replacing on time. These are the ones where weaker means the thing does not work at the moment it is needed.",
+        "Throw away anything discoloured, crumbling, smelling different, or a liquid that has gone cloudy or separated, whatever the date says. Trust your eyes over the label.",
+        "The bathroom is the worst cupboard in the house for medicines. Heat and steam from showers break them down faster than anything else. A bedroom drawer or a kitchen cupboard away from the cooker is better.",
+        "Keep them in their own labelled containers. In an emergency somebody else may have to work out what a person takes, and a handful of loose tablets in a bag tells them nothing."
+      ]
+    }
+  ]
+}
