@@ -71,6 +71,16 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
   { match: /\bnot breathing\b|\bno pulse\b|\bheart stopped\b/, terms: ["cpr", "aed", "cardiac", "arrest", "compressions"] },
   { match: /\bwheez|\basthma|\binhaler\b/, terms: ["asthma", "breathing", "inhaler", "respiratory"] },
 
+  // --- somebody went down ---
+  //
+  // "Collapsed" was missing entirely. Somebody typing "my mom collapsed" got
+  // nothing at all, while the article they needed — "Unconscious, breathing,
+  // cause unknown" — was sitting right there scoring 93 for the word
+  // "unconscious". Nobody says unconscious. They say she went down.
+  { match: /\bcollaps(e|ed|ing)\b|\bwent down\b|\bdropped\b|\bfell (down|over|out)\b/, terms: ["unconscious", "unresponsive", "collapse", "breathing", "cpr", "recovery", "position"] },
+  { match: /\bwon'?t wake\b|\bcan'?t wake\b|\bwill not wake\b|\bnot waking\b|\bout cold\b/, terms: ["unconscious", "unresponsive", "breathing", "rouse", "cpr"] },
+  { match: /\blimp\b|\bfloppy\b|\bnot responding\b|\bunresponsive\b|\bno response\b/, terms: ["unresponsive", "unconscious", "breathing", "cpr"] },
+
   // --- poisoning ---
   { match: /\b(drank|drink|swallow|ate|eat|eaten|ingest)\w*\b.*\b(bleach|chemical|poison|pill|cleaner|antifreeze|detergent|gasoline|medicine)\b/, terms: ["poisoning", "poison", "ingested", "swallowed", "chemical"] },
   { match: /\bpoison|\boverdose\b|\btoo many pills\b/, terms: ["poisoning", "overdose", "ingested", "toxic"] },

@@ -167,11 +167,19 @@ export interface ParsedQuery {
   terms: string[];
   /** Extra terms suggested by the everyday-phrasing map. */
   hintTerms: string[];
+  /** True when the question names a human being rather than a thing. */
+  aboutAPerson: boolean;
 }
 
 export function parseQuery(raw: string): ParsedQuery {
   const phrase = raw.trim().toLowerCase();
   const terms = tokenize(raw);
+  // Read this off the raw words, before tokenising strips them — most of them
+  // are stopwords and would be gone by the time terms exist.
+  const aboutAPerson = phrase
+    .replace(/[^a-z0-9'\s]/g, " ")
+    .split(/\s+/)
+    .some((word) => PERSON_WORDS.has(word));
 
   const hintTerms: string[] = [];
   for (const hint of PHRASE_HINTS) {
@@ -186,10 +194,10 @@ export function parseQuery(raw: string): ParsedQuery {
   // A single meaningful word that is all stopwords still deserves a try.
   if (terms.length === 0 && phrase.length > 1) {
     const bare = phrase.replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean).map(stem);
-    return { phrase, terms: bare, hintTerms };
+    return { phrase, terms: bare, hintTerms, aboutAPerson };
   }
 
-  return { phrase, terms, hintTerms };
+  return { phrase, terms, hintTerms, aboutAPerson };
 }
 
 // Rare words say more about what someone means than common ones. A document
@@ -211,6 +219,42 @@ const TITLE_PREFIX_BONUS = 12;
 // should not sit below a general-interest one that happened to score a shade
 // higher on word overlap.
 const PRIORITY_BONUS: Record<string, number> = { P0: 8, P1: 3, P2: 0, P3: 0 };
+
+// Words that say the question is about a human being.
+//
+// This exists because of a real failure. Somebody typed "Someone overheating"
+// while a person was overheating in front of them, and the top result — the
+// one the model answered from — was "Vehicle overheating". A car article, for
+// heat stroke. "Someone" was being discarded as a stopword, which made the
+// query identical to "overheating", and the vehicle article wins that on an
+// exact title match.
+//
+// The subject of the sentence is not noise. It is often the only thing
+// separating a medical emergency from a mechanical one.
+const PERSON_WORDS = new Set([
+  "someone", "somebody", "person", "people", "anyone", "man", "woman", "guy",
+  "kid", "kids", "child", "children", "baby", "infant", "toddler", "teen",
+  "he", "she", "him", "her", "they", "them", "his", "hers",
+  "my", "mom", "mother", "dad", "father", "husband", "wife", "son", "daughter",
+  "grandma", "grandpa", "granny", "friend", "neighbour", "neighbor",
+  "patient", "victim", "i'm", "im", "me", "myself",
+]);
+
+// Where a question about a person should be looking.
+const HUMAN_CATEGORIES = new Set([
+  "Medical & First Aid",
+  "What To Do In An Emergency",
+  "Family & Caregiving",
+]);
+
+// And where it should not. These are machines and buildings — genuinely useful
+// categories, and exactly the wrong shelf when somebody is describing a body.
+const NOT_ABOUT_PEOPLE = new Set([
+  "Vehicles & Mechanics",
+  "Home Systems",
+  "Power & Lighting",
+  "Tools & Repairs",
+]);
 
 function scoreDoc(doc: SearchDoc, query: ParsedQuery, index: SearchIndex): number {
   let score = 0;
@@ -246,6 +290,15 @@ function scoreDoc(doc: SearchDoc, query: ParsedQuery, index: SearchIndex): numbe
   }
 
   score += PRIORITY_BONUS[doc.priority ?? "P2"] ?? 0;
+
+  // Somebody describing a person gets articles about people. A car article can
+  // still appear — it is just no longer allowed to outrank heat stroke when the
+  // question said "someone".
+  if (query.aboutAPerson) {
+    if (NOT_ABOUT_PEOPLE.has(doc.categoryName)) score *= 0.45;
+    else if (HUMAN_CATEGORIES.has(doc.categoryName)) score *= 1.25;
+  }
+
   return score;
 }
 

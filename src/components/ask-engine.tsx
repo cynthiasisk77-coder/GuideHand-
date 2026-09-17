@@ -36,6 +36,22 @@ function configFor(key: AskModelKey): ResolvedModel {
   return models.llm[key].DEFAULT;
 }
 
+/**
+ * Whether what came back is an answer or just punctuation.
+ *
+ * "[1]" is not an answer, and neither is "[1] [2]." — but on screen they look
+ * like the model said something, which is worse than it plainly failing. Two
+ * real words is the bar.
+ */
+function hasRealWords(text: string): boolean {
+  const words = text
+    .replace(/\[\d+\]/g, ' ')
+    .replace(/[^a-zA-Z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter((word) => word.length > 1);
+  return words.length >= 2;
+}
+
 interface Palette {
   bg: string;
   card: string;
@@ -117,7 +133,11 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       const answer = stripModelArtifacts(collected);
       setPhase({
         kind: 'answered',
-        answer,
+        // A model that emits nothing but a citation marker leaves "[1]" sitting
+        // on screen where an answer should be. That happened on a real phone
+        // during a real emergency. With the citations and punctuation taken out
+        // there has to be something left that is actually words.
+        answer: hasRealWords(answer) ? answer : '',
         articles: citedArticles(collected, context.articles),
       });
     } catch {
