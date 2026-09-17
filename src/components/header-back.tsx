@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
+    // Sitting a little lower in the header. Hard against the top edge it read
+    // as crowding the status bar rather than belonging to the screen.
+    marginTop: 6,
     paddingVertical: 6,
     paddingRight: 10,
   },

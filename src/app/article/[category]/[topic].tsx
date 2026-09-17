@@ -268,15 +268,22 @@ const styles = StyleSheet.create({
   sources: {
     marginTop: Spacing.three,
     borderWidth: 1,
-    borderRadius: 14,
-    padding: 14,
-    gap: 6,
+    borderRadius: 11,
+    padding: 10,
+    gap: 3,
   },
-  sourcesLabel: { fontSize: 13, fontFamily: Fonts.bodyBold },
+  sourcesLabel: {
+    fontSize: 10,
+    fontFamily: Fonts.mono,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    opacity: 0.75,
+  },
   sourceLine: {
-    fontSize: 13,
-    lineHeight: 19,
+    fontSize: 11,
+    lineHeight: 15.5,
     fontFamily: Fonts.body,
+    opacity: 0.8,
   },
   notYet: {
     borderWidth: 1,
