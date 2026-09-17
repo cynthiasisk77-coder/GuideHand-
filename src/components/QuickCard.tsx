@@ -11,11 +11,13 @@ interface Palette {
   card: string;
   cardBorder: string;
   blue: string;
+  blueText: string;
   blueSoft: string;
   danger: string;
   dangerText: string;
   dangerSoft: string;
   plum: string;
+  plumText: string;
   plumSoft: string;
 }
 

@@ -22,6 +22,7 @@ interface Palette {
   text: string;
   textSecondary: string;
   blue: string;
+  blueText: string;
   blueSoft: string;
   sage: string;
   sageText: string;
@@ -30,6 +31,7 @@ interface Palette {
   dangerText: string;
   dangerSoft: string;
   plum: string;
+  plumText: string;
   plumSoft: string;
 }
 
