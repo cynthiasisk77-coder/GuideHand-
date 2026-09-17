@@ -9,6 +9,8 @@ import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
 import type { SharedPlace } from '@/lib/geo';
 import { formatCoords, parsePlaceCode } from '@/lib/geo';
+import type { FamilyPlan } from '@/lib/familyPlan';
+import { FAMILY_PLAN_KEY, mergePlans, parsePlanCode } from '@/lib/familyPlan';
 
 const STORAGE_KEY = 'guidehand.family-meetup.v1';
 const ACTIVE_KEY = 'guidehand.family-meetup.active.v1';
@@ -33,6 +35,8 @@ export default function MeetupScanScreen() {
   const [permission, requestPermission] = useCameraPermissions();
   const [scanned, setScanned] = useState<SharedPlace | null>(null);
   const [rejected, setRejected] = useState(false);
+  const [scannedPlan, setScannedPlan] = useState<FamilyPlan | undefined>(undefined);
+  const [planSaved, setPlanSaved] = useState('');
   const [saved, setSaved] = useState(false);
   const [cameraFailed, setCameraFailed] = useState(false);
 
@@ -51,6 +55,12 @@ export default function MeetupScanScreen() {
   const handleScan = useCallback(
     ({ data }: { data: string }) => {
       if (scanned) return;
+      const plan = parsePlanCode(data);
+      if (plan) {
+        setScannedPlan(plan);
+        setRejected(false);
+        return;
+      }
       const place = parsePlaceCode(data);
       if (place) {
         setScanned(place);
@@ -61,6 +71,20 @@ export default function MeetupScanScreen() {
     },
     [scanned]
   );
+
+  const savePlan = async () => {
+    if (!scannedPlan) return;
+    try {
+      const raw = await secureGetItem(FAMILY_PLAN_KEY);
+      const mine = raw ? (JSON.parse(raw) as FamilyPlan) : undefined;
+      const merged = mine ? mergePlans(mine, scannedPlan).plan : scannedPlan;
+      await secureSetItem(FAMILY_PLAN_KEY, JSON.stringify(merged));
+      setPlanSaved(`Saved — ${merged.members.length} ${merged.members.length === 1 ? 'person' : 'people'} in the plan now.`);
+      setScannedPlan(undefined);
+    } catch {
+      setPlanSaved('Could not save that plan.');
+    }
+  };
 
   const savePlace = async () => {
     if (!scanned) return;
@@ -104,7 +128,35 @@ export default function MeetupScanScreen() {
             </Text>
           </View>
 
-          {saved && scanned ? (
+          {planSaved ? (
+            <View style={[styles.resultCard, { backgroundColor: c.card, borderColor: c.sage }]}>
+              <View style={[styles.resultIcon, { backgroundColor: c.sageSoft }]}>
+                <Icon name="check" size={22} color={c.sage} strokeWidth={2.4} />
+              </View>
+              <Text style={[styles.resultTitle, { color: c.text }]}>Family plan</Text>
+              <Text style={[styles.resultLabel, { color: c.textSecondary }]}>{planSaved}</Text>
+            </View>
+          ) : scannedPlan ? (
+            <View style={[styles.resultCard, { backgroundColor: c.card, borderColor: c.plum }]}>
+              <View style={[styles.resultIcon, { backgroundColor: c.plumSoft }]}>
+                <Icon name="family" size={20} color={c.plum} />
+              </View>
+              <Text style={[styles.resultTitle, { color: c.text }]}>
+                A family plan with {scannedPlan.members.length}{' '}
+                {scannedPlan.members.length === 1 ? 'person' : 'people'} in it
+              </Text>
+              <Text style={[styles.resultLabel, { color: c.textSecondary }]}>
+                Saving this adds them to your plan. Anyone you already have stays as you wrote them.
+              </Text>
+              <Pressable
+                accessibilityRole="button"
+                onPress={savePlan}
+                style={({ pressed }) => [styles.primaryButton, { backgroundColor: c.plumSoft, opacity: pressed ? 0.7 : 1 }]}>
+                <Icon name="check" size={16} color={c.plum} strokeWidth={2.4} />
+                <Text style={[styles.primaryButtonText, { color: c.plum }]}>Save this plan</Text>
+              </Pressable>
+            </View>
+          ) : saved && scanned ? (
             <View style={[styles.resultCard, { backgroundColor: c.card, borderColor: c.sage }]}>
               <View style={[styles.resultIcon, { backgroundColor: c.sageSoft }]}>
                 <Icon name="check" size={22} color={c.sage} strokeWidth={2.4} />

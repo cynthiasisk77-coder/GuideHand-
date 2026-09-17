@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, useColorScheme, View } from 'react-native';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
+
+import QRCode from 'react-native-qrcode-svg';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -8,7 +10,9 @@ import { MaxContentWidth, Spacing } from '@/constants/theme';
 import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { pickBackupFile, saveBackupFile } from '@/lib/backupFile';
 import {
+  buildPlanCode,
   buildShareFile,
+  planCodeFits,
   emptyMember,
   EMPTY_PLAN,
   FamilyMember,
@@ -24,12 +28,14 @@ import { isEncryptionAvailable, secureGetItem, secureSetItem } from '@/lib/secur
 type Notice = { kind: 'good' | 'bad'; text: string } | undefined;
 
 export default function FamilyPlanScreen() {
+  const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
 
   const [plan, setPlan] = useState<FamilyPlan>(EMPTY_PLAN);
   const [loaded, setLoaded] = useState(false);
   const [openMember, setOpenMember] = useState<string | undefined>(undefined);
+  const [showCode, setShowCode] = useState(false);
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState<Notice>(undefined);
   // Asked rather than assumed. There is no keychain in a browser, so the web
@@ -43,7 +49,20 @@ export default function FamilyPlanScreen() {
       .then((raw) => {
         if (cancelled || !raw) return;
         const parsed = JSON.parse(raw);
-        if (parsed && Array.isArray(parsed.members)) setPlan(parsed);
+        if (parsed && Array.isArray(parsed.members)) {
+          // Earlier builds let the Add button stack blank "Someone new" cards,
+          // and those are still sitting in plans saved back then. Keep one and
+          // drop the rest — a blank member has nothing in it to lose.
+          let keptBlank = false;
+          const members = parsed.members.filter((m: FamilyMember) => {
+            const blank = !m.name?.trim() && !m.phone?.trim() && !m.job?.trim() && !m.usuallyAt?.trim();
+            if (!blank) return true;
+            if (keptBlank) return false;
+            keptBlank = true;
+            return true;
+          });
+          setPlan({ ...parsed, members });
+        }
       })
       .catch(() => {})
       .finally(() => {
@@ -422,6 +441,51 @@ export default function FamilyPlanScreen() {
           {/* --- sharing -------------------------------------------------- */}
           <Text style={[styles.sectionLabel, { color: c.plum, marginTop: 6 }]}>GET IT ONTO EVERY PHONE</Text>
 
+          {/*
+            * Holding one phone up to another is the way this actually happens
+            * in a kitchen, and it needs no signal, no account and no app store.
+            * Sending a file is the fallback, not the first move.
+            */}
+          <Pressable
+            accessibilityRole="button"
+            disabled={plan.members.length === 0}
+            onPress={() => setShowCode((prev) => !prev)}
+            style={({ pressed }) => [
+              styles.primary,
+              { backgroundColor: c.plumSoft, opacity: pressed || plan.members.length === 0 ? 0.5 : 1 },
+            ]}>
+            <Icon name="scan" size={17} color={c.plum} />
+            <Text style={[styles.primaryText, { color: c.plum }]}>
+              {showCode ? 'Hide the code' : 'Show a code for them to scan'}
+            </Text>
+          </Pressable>
+
+          {showCode ? (
+            planCodeFits(plan) ? (
+              <View style={[styles.codeCard, { backgroundColor: '#FFFFFF', borderColor: c.cardBorder }]}>
+                {/* True white behind it on purpose — some scanners will not
+                    lock onto a code on a tinted ground. */}
+                <QRCode value={buildPlanCode(plan)} size={228} backgroundColor="#FFFFFF" color="#000000" />
+              </View>
+            ) : (
+              <View style={[styles.codeNote, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+                <Text style={[styles.codeNoteText, { color: c.text }]}>
+                  This plan has outgrown a scannable code.
+                </Text>
+                <Text style={[styles.codeNoteText, { color: c.textSecondary }]}>
+                  A code this dense will not read reliably off a screen, and least of all in bad
+                  light. Send it as a file instead — the button below does it.
+                </Text>
+              </View>
+            )
+          ) : null}
+
+          {showCode && planCodeFits(plan) ? (
+            <Text style={[styles.codeHint, { color: c.textSecondary }]}>
+              On their phone: Family Plan, then &quot;Scan a code someone is showing me&quot;. No signal needed on either phone.
+            </Text>
+          ) : null}
+
           <Pressable
             accessibilityRole="button"
             disabled={busy || plan.members.length === 0}
@@ -432,6 +496,17 @@ export default function FamilyPlanScreen() {
             ]}>
             {busy ? <ActivityIndicator size="small" color={c.plum} /> : <Icon name="upload" size={17} color={c.plum} />}
             <Text style={[styles.primaryText, { color: c.plum }]}>Send this plan to my family</Text>
+          </Pressable>
+
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push({ pathname: '/meetup-scan' })}
+            style={({ pressed }) => [
+              styles.secondary,
+              { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.6 : 1 },
+            ]}>
+            <Icon name="scan" size={17} color={c.text} />
+            <Text style={[styles.secondaryText, { color: c.text }]}>Scan a code someone is showing me</Text>
           </Pressable>
 
           <Pressable
@@ -529,6 +604,10 @@ const styles = StyleSheet.create({
   },
   addText: { fontSize: 14, fontFamily: Fonts.bodyBold },
 
+  codeCard: { alignItems: 'center', borderWidth: 1, borderRadius: 14, padding: 16, marginTop: 4 },
+  codeNote: { gap: 6, borderWidth: 1, borderRadius: 14, padding: 14, marginTop: 4 },
+  codeNoteText: { fontSize: 13, lineHeight: 18.5, fontFamily: Fonts.body },
+  codeHint: { fontSize: 12, lineHeight: 17, textAlign: 'center', marginTop: 2, fontFamily: Fonts.body },
   primary: {
     flexDirection: 'row',
     alignItems: 'center',

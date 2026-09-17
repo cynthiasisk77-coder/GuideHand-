@@ -281,3 +281,60 @@ export function planGaps(plan: FamilyPlan): string[] {
   if (!plan.suppliesAt) gaps.push('No note about where the supplies are');
   return gaps;
 }
+
+// ---------------------------------------------------------------------------
+// Sharing by code
+// ---------------------------------------------------------------------------
+
+/**
+ * A QR code holds far less than a file does. Version 40 at the lowest error
+ * correction tops out near 2,950 bytes, and a code that dense is miserable to
+ * scan off a phone screen in poor light — which is the only light this is
+ * likely to be used in. Below this a code stays readable; above it the file is
+ * the honest answer and the screen says so rather than showing a wall of dots
+ * nobody's camera will lock onto.
+ */
+export const PLAN_CODE_LIMIT = 1400;
+
+const PLAN_CODE_PREFIX = "guidehand-plan:";
+
+/**
+ * The plan as a scannable code — compact, and carrying only what the file
+ * would carry. planForSharing still decides what leaves the phone, so medical
+ * details nobody switched on do not travel here either.
+ */
+export function buildPlanCode(plan: FamilyPlan): string {
+  return PLAN_CODE_PREFIX + JSON.stringify(planForSharing(plan));
+}
+
+/** Whether that code is small enough to be worth showing. */
+export function planCodeFits(plan: FamilyPlan): boolean {
+  return buildPlanCode(plan).length <= PLAN_CODE_LIMIT;
+}
+
+/**
+ * Reads a scanned plan back. Returns undefined for anything that is not one of
+ * our plan codes, so the scanner can tell a plan from a meeting place without
+ * guessing.
+ */
+export function parsePlanCode(raw: string): FamilyPlan | undefined {
+  const text = raw.trim();
+  if (!text.startsWith(PLAN_CODE_PREFIX)) return undefined;
+  const body = text.slice(PLAN_CODE_PREFIX.length);
+  // Reuse the file reader's validation rather than trusting a second path:
+  // one definition of what a real plan looks like, not two that can drift.
+  const result = readShareFile(
+    JSON.stringify({ format: PLAN_FORMAT, version: PLAN_VERSION, plan: JSON.parse(safeJson(body)) })
+  );
+  return result.ok ? result.plan : undefined;
+}
+
+/** Keeps a malformed scan from throwing out of parsePlanCode. */
+function safeJson(body: string): string {
+  try {
+    JSON.parse(body);
+    return body;
+  } catch {
+    return "null";
+  }
+}
