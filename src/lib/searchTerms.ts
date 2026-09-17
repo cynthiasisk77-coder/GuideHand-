@@ -145,6 +145,10 @@ export const PHRASE_HINTS: { match: RegExp; terms: string[] }[] = [
   { match: /\b(shut ?off|turn off) (the )?(water|gas|power|electric)\b|\bwhere is (the )?(main|water|gas|breaker|shutoff|valve)\b|\bmain valve\b|\bbreaker (box|panel)\b|\bwater (main|valve)\b|\bgas (valve|meter)\b/, terms: ["shutoff", "valve", "home", "water", "gas", "breaker"] },
   { match: /\b(model|serial) number\b|\bowner'?s manual\b|\bappliance\b|\bfilter size\b|\bwhat (furnace|water heater|fridge) do i have\b/, terms: ["home", "appliance", "model", "serial", "manual"] },
 
+  { match: /\b(make|makes?|making|treat|purif\w*|clean|safe) (the )?water (safe|drinkable|to drink|clean)\b|\bhow (much|many) bleach\b|\bbleach (in|per|to) water\b|\bboil water (for )?how long\b|\bis (this|the|my) water safe\b|\bdrink\w* (dirty|pond|creek|river|rain) water\b/, terms: ["water", "safe", "drink", "boiling", "bleach", "disinfection", "purification"] },
+  { match: /\b(plant|start|grow|growing) (a )?(garden|vegetables?|food)\b|\bvegetable garden\b|\bhow deep (to )?plant\b|\bwhen to plant\b|\braised bed\b|\bseeds? (in|into) (the )?ground\b/, terms: ["garden", "planting", "vegetable", "seed", "soil", "growing"] },
+  { match: /\bcan\w* (food|vegetables?|meat|tomatoes|jam)\b|\bpressure canner?\b|\bwater ?bath\b|\bmason jar\b|\bhow to can\b|\bput ?up food\b|\bjar (lids?|seal)\b/, terms: ["canning", "jars", "preserving", "pressure", "botulism", "food"] },
+
   // --- navigation ---
   { match: /\blost\b|\bdon'?t know where i am\b|\bturned around\b/, terms: ["lost", "navigation", "orientation", "bearings"] },
   { match: /\bwhich way\b|\bwhat direction\b|\bfind north\b/, terms: ["compass", "direction", "navigation", "cardinal"] },

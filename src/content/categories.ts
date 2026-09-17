@@ -143,6 +143,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Water",
     topics: [
+      { title: "Making water safe to drink", status: "verified", priority: "P0", note: "CDC + EPA emergency disinfection" },
       { title: "Emergency stored-water quantity and containers", status: "verified", priority: "P0", note: "" },
       { title: "Tap water suspected unsafe", status: "verified", priority: "P0", note: "" },
       { title: "Boiling for microbial hazards", status: "verified", priority: "P0", note: "" },
@@ -162,6 +163,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Food",
     topics: [
+      { title: "Canning basics: jars, lids and the two methods", status: "verified", priority: "P2", note: "USDA NCHFP + CDC" },
       { title: "Refrigerator/freezer outage timing", status: "verified", priority: "P1", note: "CDC + FoodSafety.gov" },
       { title: "Flood-contaminated food and container salvage", status: "verified", priority: "P0", note: "USDA/FSIS" },
       { title: "Damaged/bulging/rusted cans", status: "verified", priority: "P0", note: "USDA/FSIS" },
@@ -412,6 +414,7 @@ export const CATEGORIES: Category[] = [
   {
     name: "Off-Grid Food Production",
     topics: [
+      { title: "Planting a basic vegetable garden", status: "verified", priority: "P2", note: "USDA + Cooperative Extension home gardening" },
       { title: "Off-grid seed saving and viability testing", status: "verified", priority: "P3", note: "USDA + Organic Seed Alliance" },
       { title: "Emergency grain grinding and flour alternatives", status: "verified", priority: "P2", note: "Penn State Extension + FAO" },
       { title: "Root cellaring and underground cold storage", status: "verified", priority: "P2", note: "University of Wisconsin Extension + USDA" },
