@@ -351,7 +351,7 @@ export default function FamilyMeetupScreen() {
                       { backgroundColor: c.sageSoft, opacity: pressed ? 0.7 : 1 },
                     ]}>
                     <Icon name="camera" size={16} color={c.sage} />
-                    <Text style={[styles.shareButtonText, { color: c.sage }]}>Scan a code</Text>
+                    <Text style={[styles.shareButtonText, { color: c.sageText }]}>Scan a code</Text>
                   </Pressable>
                 </View>
               )}
@@ -487,7 +487,7 @@ export default function FamilyMeetupScreen() {
                 { backgroundColor: c.sageSoft, opacity: pressed ? 0.7 : 1 },
               ]}>
               <Icon name="pin" size={16} color={c.sage} />
-              <Text style={[styles.primaryButtonText, { color: c.sage }]}>Save where I am standing</Text>
+              <Text style={[styles.primaryButtonText, { color: c.sageText }]}>Save where I am standing</Text>
             </Pressable>
 
             <Text style={[styles.orDivider, { color: c.textSecondary }]}>OR TYPE THE COORDINATES</Text>
@@ -514,7 +514,7 @@ export default function FamilyMeetupScreen() {
               <Text style={[styles.addButtonText, { color: c.blue }]}>Add this place</Text>
             </Pressable>
 
-            {addError ? <Text style={[styles.addError, { color: c.danger }]}>{addError}</Text> : null}
+            {addError ? <Text style={[styles.addError, { color: c.dangerText }]}>{addError}</Text> : null}
           </View>
 
           {guidance ? (

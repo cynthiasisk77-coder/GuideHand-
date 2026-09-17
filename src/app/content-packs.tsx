@@ -214,7 +214,7 @@ export default function ContentPacksScreen() {
                       {isInstalled ? (
                         <View style={[styles.installedPill, { backgroundColor: c.sageSoft }]}>
                           <Icon name="check" size={12} color={c.sage} strokeWidth={2.6} />
-                          <Text style={[styles.installedPillText, { color: c.sage }]}>
+                          <Text style={[styles.installedPillText, { color: c.sageText }]}>
                             {state === 'update-available' ? 'UPDATE' : 'SAVED'}
                           </Text>
                         </View>

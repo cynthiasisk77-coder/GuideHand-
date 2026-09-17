@@ -1,78 +1,121 @@
 // Design tokens.
 //
-// A dark ground with white cards on it. The page is the darkest thing, the
-// header block sits a step above it, and the cards are white — so the eye goes
-// to the content, and the app itself recedes. That ordering is deliberate: at
-// night, in a power cut, a wall of bright screen is the wrong thing to hand
-// somebody, but the words they need to read should still be black on white.
+// Dark by default, on purpose. If the grid is down and there is no signal, the
+// battery is the lifeline — and a dark ground on the OLED and AMOLED screens
+// most phones now have draws measurably less of it. A bright app is a shorter
+// one.
 //
-// The scale, darkest to lightest:
+//   Deep Charcoal   #1C1F22   the ground
+//   Deep Teal       #1A4D62   the calming anchor — headers, the app's own voice
+//   Cream White     #F8F9FA   every card, and text on the dark
+//   Vivid Crimson   #D9383A   immediate danger to life. Nothing else, ever.
+//   Safety Orange   #FF7A00   severe weather, and warnings about being offline
+//   Medical Green   #27AE60   clear, safe, or handled
 //
-//   page     #0F1A21   the ground
-//   header   #263A47   a step up from it, on every screen
-//   edge     #3A5464   borders on the dark, dividers
-//   steel    #8FA9B9   labels and secondary text sitting on the dark
-//   mist     #D5E0E7   borders on white cards
-//   card     #FFFFFF   white, always
+// Contrast is the other half of this. Somebody reading it may be outdoors in
+// glare or in a dark basement, so text is near-black on cream or cream on
+// charcoal and never a soft grey in between — both of those pairs clear 15:1,
+// well past WCAG AAA.
 //
-// Cards carry their identity in a coloured left edge, never a fill. Red is
-// reserved for genuinely life-threatening signals and is never decorative.
+// The signal colours are tuned for being seen, not for being read. #D9383A and
+// #FF7A00 are right on a button or a border and fail badly as small text on
+// cream — 4.4:1 and 2.5:1, well under the 7:1 AAA needs. So each has a darker
+// twin used only for words:
+//
+//   dangerText  #9B1B14   7.8:1
+//   orangeText  #853F00   7.4:1
+//   sageText    #0E5A2E   7.9:1
+//
+// Same meaning, readable in glare. The bright versions stay for anything the
+// eye is meant to catch rather than parse.
 
 export const Calm = {
   light: {
-    card: "#FFFFFF",
-    bg: "#0F1A21",
-    headerBg: "#263A47",
-    cardBorder: "#D5E0E7",
-    // Text on a white card.
-    text: "#12202A",
-    textSecondary: "#5A7080",
-    // Text and labels sitting directly on the dark ground.
-    onBg: "#E8F0F5",
-    onBgSoft: "#8FA9B9",
-    blue: "#2E6083",
-    blueSoft: "#DCEAF2",
-    blueDeep: "#1B3A52",
-    onBlue: "#EAF2F7",
-    onBlueSoft: "#A2BCCB",
-    sage: "#3F6B58",
-    sageSoft: "#DAE8E2",
+    // --- surfaces -------------------------------------------------------
+    bg: "#1C1F22",
+    headerBg: "#1A4D62",
+    card: "#F8F9FA",
+    cardBorder: "#D4DADE",
+
+    // --- text ------------------------------------------------------------
+    // On a cream card. 17:1 — AAA with room to spare.
+    text: "#121417",
+    // Still dark enough to clear AAA rather than being a soft grey.
+    textSecondary: "#3D4549",
+    // On the charcoal ground. 15:1.
+    onBg: "#F8F9FA",
+    onBgSoft: "#DCE1E4",
+
+    // --- the anchor -------------------------------------------------------
+    blue: "#1A4D62",
+    blueSoft: "#DCE9EE",
+    blueDeep: "#123A4B",
+    onBlue: "#F8F9FA",
+    onBlueSoft: "#D9E7EC",
+
+    // --- signals ----------------------------------------------------------
+    // Life-threatening, and nothing else.
+    danger: "#D9383A",
+    dangerText: "#9B1B14",
+    dangerSoft: "#FBE0E0",
+    // Severe weather, evacuation, and offline warnings.
+    orange: "#FF7A00",
+    orangeText: "#853F00",
+    orangeSoft: "#FFE8D1",
+    // Clear, safe, handled.
+    sage: "#1F8A4C",
+    sageText: "#0E5A2E",
+    sageSoft: "#DCF0E4",
     plum: "#5E4A6B",
-    plumSoft: "#E3DCEA",
-    danger: "#A3160C",
-    dangerSoft: "#F7DEDB",
-    orange: "#8F4507",
-    orangeSoft: "#F9E5D0",
-    priorityUrgent: "#45708F",
-    priorityImportant: "#4E7A63",
-    priorityGoodToKnow: "#8C6F2A",
+    plumSoft: "#E6DFEC",
+
+    priorityUrgent: "#D9383A",
+    priorityImportant: "#FF7A00",
+    priorityGoodToKnow: "#1A4D62",
   },
   dark: {
-    // Already dark by default, so this only deepens the ground a little.
-    card: "#FFFFFF",
-    bg: "#080F14",
-    headerBg: "#1D2E39",
-    cardBorder: "#D5E0E7",
-    text: "#12202A",
-    textSecondary: "#5A7080",
-    onBg: "#E8F0F5",
-    onBgSoft: "#8FA9B9",
-    blue: "#2E6083",
-    blueSoft: "#DCEAF2",
-    blueDeep: "#1B3A52",
-    onBlue: "#EAF2F7",
-    onBlueSoft: "#A2BCCB",
-    sage: "#3F6B58",
-    sageSoft: "#DAE8E2",
+    // Already dark-first, so this only deepens the ground for OLED.
+    // --- surfaces -------------------------------------------------------
+    bg: "#000000",
+    headerBg: "#1A4D62",
+    card: "#F8F9FA",
+    cardBorder: "#D4DADE",
+
+    // --- text ------------------------------------------------------------
+    // On a cream card. 17:1 — AAA with room to spare.
+    text: "#121417",
+    // Still dark enough to clear AAA rather than being a soft grey.
+    textSecondary: "#3D4549",
+    // On the charcoal ground. 15:1.
+    onBg: "#F8F9FA",
+    onBgSoft: "#DCE1E4",
+
+    // --- the anchor -------------------------------------------------------
+    blue: "#1A4D62",
+    blueSoft: "#DCE9EE",
+    blueDeep: "#123A4B",
+    onBlue: "#F8F9FA",
+    onBlueSoft: "#D9E7EC",
+
+    // --- signals ----------------------------------------------------------
+    // Life-threatening, and nothing else.
+    danger: "#D9383A",
+    dangerText: "#9B1B14",
+    dangerSoft: "#FBE0E0",
+    // Severe weather, evacuation, and offline warnings.
+    orange: "#FF7A00",
+    orangeText: "#853F00",
+    orangeSoft: "#FFE8D1",
+    // Clear, safe, handled.
+    sage: "#1F8A4C",
+    sageText: "#0E5A2E",
+    sageSoft: "#DCF0E4",
     plum: "#5E4A6B",
-    plumSoft: "#E3DCEA",
-    danger: "#A3160C",
-    dangerSoft: "#F7DEDB",
-    orange: "#8F4507",
-    orangeSoft: "#F9E5D0",
-    priorityUrgent: "#45708F",
-    priorityImportant: "#4E7A63",
-    priorityGoodToKnow: "#8C6F2A",
+    plumSoft: "#E6DFEC",
+
+    priorityUrgent: "#D9383A",
+    priorityImportant: "#FF7A00",
+    priorityGoodToKnow: "#1A4D62",
   },
 } as const;
 

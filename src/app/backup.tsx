@@ -203,12 +203,12 @@ export default function BackupScreen() {
           {exportAge && exportAge.stale ? (
             <View style={[styles.staleBanner, { backgroundColor: c.dangerSoft, borderColor: c.danger }]}>
               <Icon name="siren" size={17} color={c.danger} />
-              <Text style={[styles.staleText, { color: c.danger }]}>{exportAge.text}</Text>
+              <Text style={[styles.staleText, { color: c.dangerText }]}>{exportAge.text}</Text>
             </View>
           ) : exportAge ? (
             <View style={[styles.freshBanner, { backgroundColor: c.sageSoft, borderColor: c.sage }]}>
               <Icon name="check" size={15} color={c.sage} strokeWidth={2.4} />
-              <Text style={[styles.freshText, { color: c.sage }]}>{exportAge.text}</Text>
+              <Text style={[styles.freshText, { color: c.sageText }]}>{exportAge.text}</Text>
             </View>
           ) : null}
 
@@ -397,7 +397,7 @@ export default function BackupScreen() {
                 {pending.info.includesDocuments ? 'Includes document photos.' : 'Does not include document photos.'}
               </Text>
               <View style={[styles.replaceWarning, { backgroundColor: c.dangerSoft, borderColor: c.danger }]}>
-                <Text style={[styles.replaceWarningText, { color: c.danger }]}>
+                <Text style={[styles.replaceWarningText, { color: c.dangerText }]}>
                   Restoring replaces what is on this phone now with what is in this file. Anything you have added
                   since the backup was made will be gone.
                 </Text>
@@ -425,7 +425,7 @@ export default function BackupScreen() {
                     styles.confirmButton,
                     { backgroundColor: c.dangerSoft, opacity: pressed || busy ? 0.6 : 1 },
                   ]}>
-                  <Text style={[styles.confirmText, { color: c.danger }]}>
+                  <Text style={[styles.confirmText, { color: c.dangerText }]}>
                     {busy ? 'Restoring…' : 'Yes, replace what is on this phone'}
                   </Text>
                 </Pressable>

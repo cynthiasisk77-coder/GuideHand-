@@ -43,8 +43,10 @@ interface Palette {
   blue: string;
   blueSoft: string;
   sage: string;
+  sageText: string;
   sageSoft: string;
   danger: string;
+  dangerText: string;
   dangerSoft: string;
   plum: string;
   plumSoft: string;
@@ -129,7 +131,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         {llm.error ? (
           <>
-            <Text style={[styles.cardLabel, { color: c.danger }]}>That didn&apos;t work</Text>
+            <Text style={[styles.cardLabel, { color: c.dangerText }]}>That didn&apos;t work</Text>
             <Text style={[styles.body, { color: c.textSecondary }]}>{String(llm.error.message ?? llm.error)}</Text>
             <Pressable
               accessibilityRole="button"

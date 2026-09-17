@@ -12,7 +12,10 @@ import { search } from '@/lib/search';
 
 const EMERGENCY_NAME = 'What To Do In An Emergency';
 const FIRST_AID_CATEGORY = 'Medical & First Aid';
-const ACCENT_CYCLE = ['blue', 'plum', 'sage'] as const;
+// Colour carries meaning here, so it is looked up rather than cycled. The old
+// version rotated three accents by position, which made a category's colour an
+// accident of where it happened to sit in the list.
+const BAND_ACCENT = { critical: 'danger', severe: 'orange', recovery: 'blue' } as const;
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -82,10 +85,10 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 },
+                { backgroundColor: c.card, borderColor: c.danger, opacity: pressed ? 0.85 : 1 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.blueSoft }]}>
-                <Icon name="siren" size={24} color={c.text} />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.danger }]}>
+                <Icon name="siren" size={24} color="#FFFFFF" />
               </View>
               <View style={styles.rowText}>
                 <Text style={[styles.rowNameBold, { color: c.text }]}>What To Do In An Emergency</Text>
@@ -102,10 +105,10 @@ export default function HomeScreen() {
               style={({ pressed }) => [
                 styles.row,
                 styles.rowEmergency,
-                { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
+                { backgroundColor: c.card, borderColor: c.blue, opacity: pressed ? 0.85 : 1, marginBottom: 0 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.blueSoft }]}>
-                <Icon name="medical" size={24} color={c.text} />
+              <View style={[styles.icon, styles.iconLarge, { backgroundColor: c.blue }]}>
+                <Icon name="medical" size={24} color="#FFFFFF" />
               </View>
               <View style={styles.rowText}>
                 <Text style={[styles.rowNameBold, { color: c.text }]}>First Aid</Text>
@@ -231,7 +234,7 @@ export default function HomeScreen() {
                   </View>
                   {hit.doc.priority === 'P0' ? (
                     <View style={[styles.urgentPill, { backgroundColor: c.dangerSoft }]}>
-                      <Text style={[styles.urgentPillText, { color: c.danger }]}>URGENT</Text>
+                      <Text style={[styles.urgentPillText, { color: c.dangerText }]}>URGENT</Text>
                     </View>
                   ) : null}
                   <Icon name="chevron" size={18} color={c.textSecondary} />
@@ -286,7 +289,7 @@ export default function HomeScreen() {
               <View style={styles.section}>
                 <Text style={[styles.sectionLabel, { color: c.onBgSoft }]}>LOOK SOMETHING UP</Text>
                 {CATEGORY_GROUPS.map((group, i) => {
-                  const accent = ACCENT_CYCLE[i % ACCENT_CYCLE.length];
+                  const accent = BAND_ACCENT[group.band];
                   return (
                     <Pressable
                       key={group.name}

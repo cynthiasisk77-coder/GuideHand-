@@ -13,6 +13,7 @@ interface Palette {
   blue: string;
   blueSoft: string;
   danger: string;
+  dangerText: string;
   dangerSoft: string;
   plum: string;
   plumSoft: string;
@@ -25,7 +26,7 @@ export function QuickCardView({ data, c }: { data: QuickCardData; c: Palette }) 
 
       <View style={[styles.callNow, { backgroundColor: c.dangerSoft, borderColor: c.danger }]}>
         <Icon name="siren" size={18} color={c.danger} />
-        <Text style={[styles.callNowText, { color: c.danger }]}>{data.callNow}</Text>
+        <Text style={[styles.callNowText, { color: c.dangerText }]}>{data.callNow}</Text>
       </View>
 
       {data.steps.map((step, i) => (

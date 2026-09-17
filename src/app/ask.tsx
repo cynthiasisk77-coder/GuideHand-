@@ -109,7 +109,7 @@ export default function AskScreen() {
                     <Text style={[styles.modelSize, { color: c.textSecondary }]}>{model.size}</Text>
                     {model.recommended ? (
                       <View style={[styles.pill, { backgroundColor: c.sageSoft }]}>
-                        <Text style={[styles.pillText, { color: c.sage }]}>START HERE</Text>
+                        <Text style={[styles.pillText, { color: c.sageText }]}>START HERE</Text>
                       </View>
                     ) : null}
                   </View>

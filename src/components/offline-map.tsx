@@ -20,8 +20,10 @@ interface Palette {
   blue: string;
   blueSoft: string;
   sage: string;
+  sageText: string;
   sageSoft: string;
   danger: string;
+  dangerText: string;
   dangerSoft: string;
   plum: string;
   plumSoft: string;

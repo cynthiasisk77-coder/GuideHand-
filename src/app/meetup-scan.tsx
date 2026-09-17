@@ -146,7 +146,7 @@ export default function MeetupScanScreen() {
                   { backgroundColor: c.sageSoft, opacity: pressed ? 0.7 : 1 },
                 ]}>
                 <Icon name="plus" size={16} color={c.sage} />
-                <Text style={[styles.primaryButtonText, { color: c.sage }]}>Save this meeting place</Text>
+                <Text style={[styles.primaryButtonText, { color: c.sageText }]}>Save this meeting place</Text>
               </Pressable>
               <Pressable accessibilityRole="button" onPress={scanAgain}>
                 <Text style={[styles.secondaryLink, { color: c.blue }]}>That&apos;s not it — scan again</Text>
@@ -195,7 +195,7 @@ export default function MeetupScanScreen() {
           )}
 
           {rejected && !scanned ? (
-            <Text style={[styles.rejected, { color: c.danger }]}>
+            <Text style={[styles.rejected, { color: c.dangerText }]}>
               That code isn&apos;t a location. Make sure the other phone is showing its Family Meetup code, not a
               Wi-Fi or payment code.
             </Text>

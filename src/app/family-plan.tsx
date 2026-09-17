@@ -249,7 +249,7 @@ export default function FamilyPlanScreen() {
                   </View>
                   {member.medical?.share ? (
                     <View style={[styles.pill, { backgroundColor: c.dangerSoft }]}>
-                      <Text style={[styles.pillText, { color: c.danger }]}>MEDICAL</Text>
+                      <Text style={[styles.pillText, { color: c.dangerText }]}>MEDICAL</Text>
                     </View>
                   ) : null}
                   <Icon name="chevron" size={16} color={c.textSecondary} />
@@ -352,7 +352,7 @@ export default function FamilyPlanScreen() {
                       onPress={() => removeMember(member.id)}
                       style={({ pressed }) => [styles.removeRow, { opacity: pressed ? 0.6 : 1 }]}>
                       <Icon name="trash" size={15} color={c.danger} />
-                      <Text style={[styles.removeText, { color: c.danger }]}>Take them out of the plan</Text>
+                      <Text style={[styles.removeText, { color: c.dangerText }]}>Take them out of the plan</Text>
                     </Pressable>
                   </View>
                 ) : null}

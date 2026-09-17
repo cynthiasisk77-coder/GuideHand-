@@ -53,7 +53,7 @@ export default function EmergencyIndexScreen() {
               <View style={styles.rowText}>
                 <Text style={[styles.rowName, { color: c.text }]}>{bucket.name}</Text>
                 <Text style={[styles.rowSub, { color: c.textSecondary }]}>{bucket.sub}</Text>
-                <Text style={[styles.rowCount, { color: c.danger }]}>{bucket.count} topics</Text>
+                <Text style={[styles.rowCount, { color: c.dangerText }]}>{bucket.count} topics</Text>
               </View>
               <Icon name="chevron" size={18} color={c.textSecondary} />
             </Pressable>

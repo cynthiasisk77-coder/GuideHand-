@@ -422,8 +422,10 @@ interface Palette {
   blue: string;
   blueSoft: string;
   sage: string;
+  sageText: string;
   sageSoft: string;
   danger: string;
+  dangerText: string;
   dangerSoft: string;
   plum: string;
   plumSoft: string;
@@ -669,7 +671,7 @@ function ItemRow({
             returnKeyType="done"
           />
           {expiryDraft.trim() && !parseExpiry(expiryDraft) ? (
-            <Text style={[styles.fieldError, { color: c.danger }]}>
+            <Text style={[styles.fieldError, { color: c.dangerText }]}>
               Couldn&apos;t read that as a date. Try 3/27 or March 2027.
             </Text>
           ) : null}
@@ -690,7 +692,7 @@ function ItemRow({
               onPress={onRemove}
               style={({ pressed }) => [styles.removeRow, { opacity: pressed ? 0.6 : 1 }]}>
               <Icon name="trash" size={15} color={c.danger} />
-              <Text style={[styles.removeText, { color: c.danger }]}>Remove this row</Text>
+              <Text style={[styles.removeText, { color: c.dangerText }]}>Remove this row</Text>
             </Pressable>
           ) : null}
         </View>

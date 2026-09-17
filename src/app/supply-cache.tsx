@@ -188,6 +188,7 @@ interface ChecklistPalette {
   text: string;
   textSecondary: string;
   sage: string;
+  sageText: string;
 }
 
 function ChecklistRow({

@@ -276,7 +276,7 @@ export default function MapsScreen() {
           </Pressable>
 
           {locationError ? (
-            <Text style={[styles.error, { color: c.danger }]}>{locationError}</Text>
+            <Text style={[styles.error, { color: c.dangerText }]}>{locationError}</Text>
           ) : null}
 
           <View style={styles.sizeWrap}>
@@ -356,7 +356,7 @@ export default function MapsScreen() {
           )}
 
           {download.kind === 'failed' ? (
-            <Text style={[styles.error, { color: c.danger }]}>{download.message}</Text>
+            <Text style={[styles.error, { color: c.dangerText }]}>{download.message}</Text>
           ) : null}
 
           <Text style={[styles.footer, { color: c.textSecondary }]}>
