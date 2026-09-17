@@ -297,6 +297,23 @@ export default function HomeScreen() {
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/my-notes" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowCompact,
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 4, borderLeftColor: c.sage, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, styles.iconSmall, { borderWidth: 1.5, borderColor: c.sage }]}>
+                    <Icon name="plan" size={17} color={c.sage} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, styles.rowNameCompact, { color: c.text }]}>What You Know</Text>
+                    <Text style={[styles.rowSub, styles.rowSubCompact, { color: c.textSecondary }]}>Add your own notes — the AI answers from those too</Text>
+                  </View>
+                  <Icon name="chevron" size={16} color={c.textSecondary} />
+                </Pressable>
               </View>
 
               <View style={styles.section}>

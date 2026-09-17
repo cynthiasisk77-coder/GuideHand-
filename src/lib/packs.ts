@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BUNDLED_PACK_CATALOG } from '@/content/packCatalog';
 import { registerPacks } from '@/lib/packRegistry';
 import { getPackStorage } from '@/lib/packStorage';
+import { loadMyNotes, notesAsPack } from '@/lib/myNotes';
 import {
   ContentPack,
   InstalledPack,
@@ -204,7 +205,8 @@ export async function loadInstalledPacksIntoRegistry(): Promise<ContentPack[]> {
     }
   }
 
-  registerPacks(loaded);
+  const mine = notesAsPack(await loadMyNotes());
+  registerPacks(mine ? [...loaded, mine] : loaded);
   return loaded;
 }
 
