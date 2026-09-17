@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { models, useLLMChatSession } from 'react-native-executorch';
@@ -9,6 +9,7 @@ import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
+import { AboutYou, loadAboutYou } from '@/lib/aboutYou';
 import { stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
@@ -112,6 +113,19 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   const [question, setQuestion] = useState(initialQuestion ?? '');
   const [phase, setPhase] = useState<Phase>({ kind: 'idle' });
   const [streamed, setStreamed] = useState('');
+  // Read once when the screen opens. It is small, and re-reading it for every
+  // question would put a decrypt in front of an answer somebody is waiting on.
+  const [about, setAbout] = useState<AboutYou | undefined>(undefined);
+
+  useEffect(() => {
+    let alive = true;
+    loadAboutYou().then((saved) => {
+      if (alive) setAbout(saved);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
 
   const llm = useLLMChatSession(configFor(model.modelKey) as never, {
     // The grounding instruction is pinned as the system message so it survives
@@ -125,7 +139,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
   const ask = useCallback(async (spoken?: string) => {
     const asked = (spoken ?? question).trim();
-    const context = buildAskContext(asked);
+    const context = buildAskContext(asked, about);
 
     // The safety rule: nothing relevant found means the model is never asked.
     if (context.empty) {
@@ -161,7 +175,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       // answer anyway — show them rather than showing nothing.
       setPhase({ kind: 'answered', answer: '', articles: context.articles });
     }
-  }, [question, llm]);
+  }, [question, llm, about]);
 
   const openArticle = (article: SourceArticle) => {
     router.push({

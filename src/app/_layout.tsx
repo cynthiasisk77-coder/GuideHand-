@@ -88,6 +88,7 @@ export default function RootLayout() {
         <Stack.Screen name="family-plan" options={{ title: 'Family Plan' }} />
         <Stack.Screen name="home-record" options={{ title: 'Your Home' }} />
         <Stack.Screen name="my-notes" options={{ title: 'What You Know' }} />
+        <Stack.Screen name="about-you" options={{ title: 'About You' }} />
       </Stack>
     </ThemeProvider>
   );

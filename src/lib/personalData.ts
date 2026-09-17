@@ -15,6 +15,7 @@ export const MEDICINE_KEY = 'guidehand.medicine-tracker.v1';
 export const MEETUP_POINTS_KEY = 'guidehand.family-meetup.v1';
 export const MEETUP_ACTIVE_KEY = 'guidehand.family-meetup.active.v1';
 export const SUPPLY_CACHE_KEY = 'guidehand.supply-cache.v1';
+export const ABOUT_YOU_KEY = 'guidehand.about-you.v1';
 export const MY_NOTES_KEY = 'guidehand.my-notes.v1';
 
 /**
@@ -37,6 +38,8 @@ export const ENCRYPTED_KEYS: string[] = [
   MEETUP_POINTS_KEY,
   MEETUP_ACTIVE_KEY,
   MY_NOTES_KEY,
+  // A person's allergies and conditions. The most sensitive thing here.
+  ABOUT_YOU_KEY,
 ];
 
 export interface BackupSection {
@@ -59,4 +62,5 @@ export const BACKUP_SECTIONS: BackupSection[] = [
   { key: FAMILY_PLAN_KEY, label: 'Family plan', sensitive: true },
   { key: HOME_RECORD_KEY, label: 'Home record', sensitive: true },
   { key: MY_NOTES_KEY, label: 'Your own notes', sensitive: true },
+  { key: ABOUT_YOU_KEY, label: 'About you', sensitive: true },
 ];

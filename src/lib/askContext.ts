@@ -14,6 +14,7 @@
 import { ARTICLE_BODIES } from "@/content/articleBodies";
 import { getPackBody } from "@/lib/packRegistry";
 import { search, SearchDoc } from "@/lib/search";
+import { AboutYou, aboutYouLines, hasAnything } from "@/lib/aboutYou";
 
 /** One article handed to the model as source material. */
 export interface SourceArticle {
@@ -83,7 +84,13 @@ function toSourceArticle(doc: SearchDoc): SourceArticle | undefined {
  * drift, and the one thing that must not drift is "do not make up medicine."
  */
 export const SYSTEM_PROMPT = [
-  "You are GuideHand, an offline emergency reference on someone's phone.",
+  "You are GuideHand. You are the calm, competent person standing next to",
+  "somebody having a bad day, reading them their own emergency guide.",
+  "",
+  "Talk like a person, not a manual. Use their name when you know it. Say \"you\"",
+  "and \"your\". Short sentences, plain words, no hedging and no preamble — start",
+  "with what to do. Warm, but never chatty: somebody frightened does not want",
+  "small talk, they want to be told what to do by someone who is not panicking.",
   "",
   "Answer ONLY using the numbered articles provided below. They are the app's own",
   "verified, sourced guidance.",
@@ -97,9 +104,31 @@ export const SYSTEM_PROMPT = [
   "- Do not assume emergency services can be reached. The grid may be down.",
 ].join("\n");
 
-function buildPrompt(question: string, articles: SourceArticle[]): string {
+/**
+ * The standing instruction for what to do with somebody's personal details.
+ *
+ * This is the guardrail on the whole feature. Knowing a person is asthmatic
+ * makes the app more useful — it can point at the line of the article that
+ * concerns them. It does not make the app a doctor, and a small model handed
+ * a medical history will happily start improvising if nobody tells it not to.
+ */
+const ABOUT_YOU_RULES = [
+  "ABOUT THE PERSON YOU ARE HELPING:",
+  "Use their name. Use these details to point out anything in the articles that",
+  "matters especially for them, and to leave out what plainly does not apply.",
+  "They do NOT change the rules above: still answer only from the articles, and",
+  "never invent advice, a dose or a warning because of something written here.",
+  "If their situation needs something the articles do not cover, say that.",
+].join("\n");
+
+function buildPrompt(question: string, articles: SourceArticle[], about?: AboutYou): string {
+  const personalBlock = about && hasAnything(about) ? `${ABOUT_YOU_RULES}\n${aboutYouLines(about)}\n` : "";
+
   const parts: string[] = [];
-  let budget = MAX_CONTEXT_CHARS;
+  // Whatever the profile costs comes out of the articles' budget. The window is
+  // about 2k tokens and does not grow because somebody filled in their
+  // allergies; without this the last article silently falls off the end.
+  let budget = MAX_CONTEXT_CHARS - personalBlock.length;
 
   articles.forEach((article, i) => {
     const header = `[${i + 1}] ${article.title}`;
@@ -120,6 +149,7 @@ function buildPrompt(question: string, articles: SourceArticle[]): string {
   // restating rules the model had already been given — context the articles
   // and the answer both needed.
   return [
+    ...(personalBlock ? [personalBlock] : []),
     "ARTICLES:",
     parts.join("\n\n"),
     "",
@@ -134,7 +164,7 @@ function buildPrompt(question: string, articles: SourceArticle[]): string {
  * Returns empty when nothing relevant was found — the caller must then show
  * that honestly rather than letting the model improvise.
  */
-export function buildAskContext(question: string): AskContext {
+export function buildAskContext(question: string, about?: AboutYou): AskContext {
   const trimmed = question.trim();
   if (trimmed.length < 2) {
     return { question: trimmed, articles: [], prompt: "", empty: true };
@@ -165,7 +195,7 @@ export function buildAskContext(question: string): AskContext {
   return {
     question: trimmed,
     articles,
-    prompt: buildPrompt(trimmed, articles),
+    prompt: buildPrompt(trimmed, articles, about),
     empty: false,
   };
 }
