@@ -114,8 +114,8 @@ export default function HomeScreen() {
                   opacity: pressed ? 0.85 : 1,
                 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { borderWidth: 1.5, borderColor: c.danger }]}>
-                <Icon name="siren" size={24} color={c.danger} />
+              <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.danger }]}>
+                <Icon name="siren" size={21} color={c.danger} />
               </View>
               <View style={styles.rowText}>
                 <Text style={[styles.rowNameBold, { color: c.text }]}>What To Do In An Emergency</Text>
@@ -141,8 +141,8 @@ export default function HomeScreen() {
                   marginBottom: 0,
                 },
               ]}>
-              <View style={[styles.icon, styles.iconLarge, { borderWidth: 1.5, borderColor: c.blue }]}>
-                <Icon name="medical" size={24} color={c.blue} />
+              <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.blue }]}>
+                <Icon name="medical" size={21} color={c.blue} />
               </View>
               <View style={styles.rowText}>
                 <Text style={[styles.rowNameBold, { color: c.text }]}>First Aid</Text>
@@ -676,7 +676,8 @@ const styles = StyleSheet.create({
   },
   rowEmergency: {
     borderWidth: 1,
-    marginBottom: 10,
+    marginBottom: 8,
+    paddingVertical: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.12,
@@ -698,7 +699,7 @@ const styles = StyleSheet.create({
   iconSmall: { width: 31, height: 31, borderRadius: 9 },
   rowText: { flex: 1, minWidth: 0 },
   rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
-  rowNameBold: { fontSize: 16.5, fontFamily: Fonts.display },
+  rowNameBold: { fontSize: 15, fontFamily: Fonts.display },
   rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
   rowNameCompact: { fontSize: 14 },
   rowSubCompact: { fontSize: 11.5 },

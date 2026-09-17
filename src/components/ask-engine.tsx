@@ -37,6 +37,22 @@ function configFor(key: AskModelKey): ResolvedModel {
 }
 
 /**
+ * Download progress as a whole percentage, whichever way the library reports it.
+ *
+ * It showed "Downloading — 10000%" on a real phone, which is what happens when
+ * a value that is already 0-100 gets multiplied by a hundred. Rather than bet
+ * on which convention the library uses — and have it break again if that
+ * changes — anything at or under 1 is read as a fraction and anything above it
+ * as a percentage already. Clamped, because a progress bar whose width is
+ * "10000%" is how that bug got on screen in the first place.
+ */
+function percentOf(progress: number | undefined): number {
+  if (!progress || progress <= 0) return 0;
+  const percent = progress <= 1 ? progress * 100 : progress;
+  return Math.min(100, Math.round(percent));
+}
+
+/**
  * Whether what came back is an answer or just punctuation.
  *
  * "[1]" is not an answer, and neither is "[1] [2]." — but on screen they look
@@ -156,7 +172,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
   // --- still downloading -------------------------------------------------
   if (!llm.isReady) {
-    const pct = Math.round((llm.downloadProgress ?? 0) * 100);
+    const pct = percentOf(llm.downloadProgress);
     return (
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         {llm.error ? (
