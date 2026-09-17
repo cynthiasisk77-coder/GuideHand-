@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 
@@ -59,6 +60,7 @@ function displayName(region: MapRegion): string {
 export default function MapsScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+  const insets = useSafeAreaInsets();
 
   const [regions, setRegions] = useState<MapRegion[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -69,6 +71,11 @@ export default function MapsScreen() {
   const [name, setName] = useState('');
   const [download, setDownload] = useState<Download>({ kind: 'idle' });
   const [viewing, setViewing] = useState<MapRegion | undefined>(undefined);
+  // Once you hold maps, this screen is a list of them. The whole download
+  // apparatus — find me, how big, name it — only comes out when you ask for
+  // another one. "Why are they still there once downloaded? Shouldn't it just
+  // be a list?" It should, and now it is.
+  const [adding, setAdding] = useState(false);
   // The places you already agreed to meet, drawn on the map. Without these the
   // map is just a map; with them it is the thing you are actually navigating to.
   const [meetupPoints, setMeetupPoints] = useState<MapMarker[]>([]);
@@ -207,6 +214,7 @@ export default function MapsScreen() {
       });
       setName('');
       setDownload({ kind: 'idle' });
+      setAdding(false);
       // "Where did my map go?" was a fair question: it went into a list row
       // with a chevron. Now it opens, so the answer is that you are looking
       // at it.
@@ -226,6 +234,10 @@ export default function MapsScreen() {
   const bounds = here ? boundsAround(here, size.radiusMiles) : undefined;
   const estimate = bounds ? estimateBytes(bounds, size.minZoom, size.maxZoom) : undefined;
   const busy = download.kind === 'working';
+  const hasMaps = regions.length > 0;
+  // With no maps yet there is nothing to hide behind, so the download controls
+  // are the screen. With maps, they wait behind one button.
+  const showDownload = !hasMaps || adding;
 
   if (viewing) {
     return (
@@ -255,7 +267,9 @@ export default function MapsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Offline Maps' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, { paddingBottom: insets.bottom + 40 }]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[
@@ -307,111 +321,144 @@ export default function MapsScreen() {
           ) : null}
 
           {/* --- download a new one --------------------------------------- */}
-          <Text style={[styles.sectionLabel, { color: c.blue, marginTop: regions.length > 0 ? 18 : 0 }]}>
-            DOWNLOAD AN AREA
-          </Text>
-
-          <Pressable
-            accessibilityRole="button"
-            disabled={locating || busy}
-            onPress={findMe}
-            style={({ pressed }) => [
-              styles.locateRow,
-              { backgroundColor: c.card, borderColor: here ? c.sage : c.cardBorder, opacity: pressed || locating ? 0.7 : 1 },
-            ]}>
-            {locating ? <ActivityIndicator size="small" color={c.blue} /> : <Icon name="compass" size={17} color={here ? c.sage : c.blue} />}
-            <View style={styles.regionText}>
-              <Text style={[styles.locateTitle, { color: c.text }]}>
-                {here ? 'Centred on where you are' : 'Use where I am now'}
-              </Text>
-              <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
-                {here ? 'Got it — this is the area that will download' : 'Tap to get a position from the GPS chip'}
-              </Text>
-            </View>
-          </Pressable>
-
-          {locationError ? (
-            <Text style={[styles.error, { color: c.dangerText }]}>{locationError}</Text>
-          ) : null}
-
-          <View style={styles.sizeWrap}>
-            {REGION_SIZES.map((option) => {
-              const active = size.id === option.id;
-              const optionBounds = here ? boundsAround(here, option.radiusMiles) : undefined;
-              const optionSize = optionBounds ? estimateBytes(optionBounds, option.minZoom, option.maxZoom) : undefined;
-              return (
-                <Pressable
-                  key={option.id}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: active }}
-                  disabled={busy}
-                  onPress={() => setSize(option)}
-                  style={({ pressed }) => [
-                    styles.sizeCard,
-                    {
-                      backgroundColor: c.card,
-                      borderColor: active ? c.blue : c.cardBorder,
-                      borderWidth: active ? 1.8 : 1,
-                      opacity: pressed ? 0.75 : 1,
-                    },
-                  ]}>
-                  <View style={styles.sizeHead}>
-                    <Text style={[styles.sizeName, { color: c.text }]}>{option.label}</Text>
-                    {optionSize !== undefined ? (
-                      <Text style={[styles.sizeBytes, { color: active ? c.blue : c.textSecondary }]}>
-                        ~{formatBytes(optionSize)}
-                      </Text>
-                    ) : null}
-                  </View>
-                  <Text style={[styles.sizeNote, { color: c.textSecondary }]}>{option.note}</Text>
-                </Pressable>
-              );
-            })}
-          </View>
-
-          <TextInput
-            value={name}
-            onChangeText={setName}
-            placeholder="Call it something — Home, Mom's, the cabin"
-            placeholderTextColor={c.textSecondary}
-            editable={!busy}
-            style={[styles.field, { color: c.text, borderColor: c.cardBorder, backgroundColor: c.card }]}
-            returnKeyType="done"
-          />
-
-          {download.kind === 'working' ? (
-            <View style={[styles.progressCard, { backgroundColor: c.card, borderColor: c.blue }]}>
-              <View style={styles.progressHead}>
-                <ActivityIndicator size="small" color={c.blue} />
-                <Text style={[styles.progressText, { color: c.text }]}>
-                  Downloading — {Math.round(download.percent)}%
-                </Text>
-              </View>
-              <View style={[styles.track, { backgroundColor: c.cardBorder }]}>
-                <View style={[styles.fill, { backgroundColor: c.blue, width: `${Math.max(2, download.percent)}%` }]} />
-              </View>
-              <Text style={[styles.progressNote, { color: c.textSecondary }]}>
-                Keep this screen open until it finishes. Stay on Wi-Fi if you can.
-              </Text>
-            </View>
-          ) : (
+          {hasMaps && !adding ? (
             <Pressable
               accessibilityRole="button"
-              disabled={busy}
-              onPress={start}
+              onPress={() => setAdding(true)}
               style={({ pressed }) => [
                 styles.primary,
-                { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+                { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1, marginTop: 4 },
               ]}>
-              <Icon name="download" size={17} color={c.blue} />
-              <Text style={[styles.primaryText, { color: c.blue }]}>
-                {estimate !== undefined ? `Download this area (~${formatBytes(estimate)})` : 'Download this area'}
-              </Text>
+              <Icon name="plus" size={17} color={c.blue} />
+              <Text style={[styles.primaryText, { color: c.blue }]}>Download another area</Text>
             </Pressable>
-          )}
+          ) : null}
 
-          {download.kind === 'failed' ? (
-            <Text style={[styles.error, { color: c.dangerText }]}>{download.message}</Text>
+          {showDownload ? (
+            <>
+            <Text style={[styles.sectionLabel, { color: c.blue, marginTop: hasMaps ? 20 : 0 }]}>
+              DOWNLOAD AN AREA
+            </Text>
+
+            <Pressable
+              accessibilityRole="button"
+              disabled={locating || busy}
+              onPress={findMe}
+              style={({ pressed }) => [
+                styles.locateRow,
+                { backgroundColor: c.card, borderColor: here ? c.sage : c.cardBorder, opacity: pressed || locating ? 0.7 : 1 },
+              ]}>
+              {locating ? <ActivityIndicator size="small" color={c.blue} /> : <Icon name="compass" size={17} color={here ? c.sage : c.blue} />}
+              <View style={styles.regionText}>
+                <Text style={[styles.locateTitle, { color: c.text }]}>
+                  {here ? 'Centred on where you are' : 'Use where I am now'}
+                </Text>
+                <Text style={[styles.regionMeta, { color: c.textSecondary }]}>
+                  {here ? 'Got it — this is the area that will download' : 'Tap to get a position from the GPS chip'}
+                </Text>
+              </View>
+            </Pressable>
+
+            {locationError ? (
+              <Text style={[styles.error, { color: c.dangerText }]}>{locationError}</Text>
+            ) : null}
+
+            <View style={styles.sizeWrap}>
+              {REGION_SIZES.map((option) => {
+                const active = size.id === option.id;
+                const optionBounds = here ? boundsAround(here, option.radiusMiles) : undefined;
+                const optionSize = optionBounds ? estimateBytes(optionBounds, option.minZoom, option.maxZoom) : undefined;
+                return (
+                  <Pressable
+                    key={option.id}
+                    // A radio, not a button: it is one choice out of a set, and
+                    // "button" throws the selected state away — a screen reader
+                    // was never told which size was picked.
+                    accessibilityRole="radio"
+                    aria-checked={active}
+                    disabled={busy}
+                    onPress={() => setSize(option)}
+                    style={({ pressed }) => [
+                      styles.sizeCard,
+                      {
+                        backgroundColor: active ? c.blueSoft : c.card,
+                        borderColor: active ? c.blue : c.cardBorder,
+                        borderWidth: active ? 2 : 1,
+                        opacity: pressed ? 0.75 : 1,
+                      },
+                    ]}>
+                    <View style={styles.sizeHead}>
+                      {active ? <Icon name="check" size={15} color={c.blue} /> : null}
+                      <Text style={[styles.sizeName, { color: c.text }]}>{option.label}</Text>
+                      {optionSize !== undefined ? (
+                        <Text style={[styles.sizeBytes, { color: active ? c.blue : c.textSecondary }]}>
+                          ~{formatBytes(optionSize)}
+                        </Text>
+                      ) : null}
+                    </View>
+                    <Text style={[styles.sizeNote, { color: c.textSecondary }]}>{option.note}</Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+
+            <TextInput
+              value={name}
+              onChangeText={setName}
+              placeholder="Call it something — Home, Mom's, the cabin"
+              placeholderTextColor={c.textSecondary}
+              editable={!busy}
+              style={[styles.field, { color: c.text, borderColor: c.cardBorder, backgroundColor: c.card }]}
+              returnKeyType="done"
+            />
+
+            {download.kind === 'working' ? (
+              <View style={[styles.progressCard, { backgroundColor: c.card, borderColor: c.blue }]}>
+                <View style={styles.progressHead}>
+                  <ActivityIndicator size="small" color={c.blue} />
+                  <Text style={[styles.progressText, { color: c.text }]}>
+                    Downloading — {Math.round(download.percent)}%
+                  </Text>
+                </View>
+                <View style={[styles.track, { backgroundColor: c.cardBorder }]}>
+                  <View style={[styles.fill, { backgroundColor: c.blue, width: `${Math.max(2, download.percent)}%` }]} />
+                </View>
+                <Text style={[styles.progressNote, { color: c.textSecondary }]}>
+                  Keep this screen open until it finishes. Stay on Wi-Fi if you can.
+                </Text>
+              </View>
+            ) : (
+              <Pressable
+                accessibilityRole="button"
+                disabled={busy}
+                onPress={start}
+                style={({ pressed }) => [
+                  styles.primary,
+                  { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 },
+                ]}>
+                <Icon name="download" size={17} color={c.blue} />
+                <Text style={[styles.primaryText, { color: c.blue }]}>
+                  {estimate !== undefined ? `Download this area (~${formatBytes(estimate)})` : 'Download this area'}
+                </Text>
+              </Pressable>
+            )}
+
+            {download.kind === 'failed' ? (
+              <Text style={[styles.error, { color: c.dangerText }]}>{download.message}</Text>
+            ) : null}
+
+            {hasMaps && !busy ? (
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => {
+                  setAdding(false);
+                  setDownload({ kind: 'idle' });
+                }}
+                style={({ pressed }) => [styles.quiet, { opacity: pressed ? 0.6 : 1 }]}>
+                <Text style={[styles.quietText, { color: c.textSecondary }]}>Never mind — back to my maps</Text>
+              </Pressable>
+            ) : null}
+            </>
           ) : null}
 
           <Text style={[styles.footer, { color: c.textSecondary }]}>
@@ -490,6 +537,9 @@ const styles = StyleSheet.create({
   track: { height: 6, borderRadius: 3, overflow: 'hidden' },
   fill: { height: 6, borderRadius: 3 },
   progressNote: { fontSize: 12, lineHeight: 17, fontFamily: Fonts.body },
+
+  quiet: { alignItems: 'center', paddingVertical: 13, marginTop: 2 },
+  quietText: { fontSize: 13, fontFamily: Fonts.bodySemibold },
 
   error: { fontSize: 12.5, lineHeight: 18, fontFamily: Fonts.body, marginTop: 8, marginBottom: 4 },
 
