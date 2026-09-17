@@ -306,17 +306,17 @@ export default function HomeScreen() {
                   onPress={() => router.push({ pathname: "/family-plan" })}
                   style={({ pressed }) => [
                     styles.row,
-                    styles.rowAccented,
-                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                    styles.rowCompact,
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 4, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
                   ]}>
-                  <View style={[styles.icon, { borderWidth: 1.5, borderColor: c.plum }]}>
-                    <Icon name="family" color={c.plum} />
+                  <View style={[styles.icon, styles.iconSmall, { borderWidth: 1.5, borderColor: c.plum }]}>
+                    <Icon name="family" size={17} color={c.plum} />
                   </View>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Family Plan</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Who does what, and the number everyone calls</Text>
+                    <Text style={[styles.rowName, styles.rowNameCompact, { color: c.text }]}>Family Plan</Text>
+                    <Text style={[styles.rowSub, styles.rowSubCompact, { color: c.textSecondary }]}>Who does what, and who to call</Text>
                   </View>
-                  <Icon name="chevron" size={18} color={c.textSecondary} />
+                  <Icon name="chevron" size={16} color={c.textSecondary} />
                 </Pressable>
               </View>
 
@@ -663,6 +663,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   rowAccented: { borderWidth: 1.5 },
+  // Family Plan sits between the urgent routes and the reference shelves, so it
+  // reads lighter than either: same card, less of it.
+  rowCompact: { padding: 9, gap: 10, marginBottom: 8, borderRadius: 12 },
   icon: {
     width: 40,
     height: 40,
@@ -671,10 +674,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconLarge: { width: 46, height: 46, borderRadius: 13 },
+  iconSmall: { width: 31, height: 31, borderRadius: 9 },
   rowText: { flex: 1, minWidth: 0 },
   rowName: { fontSize: 15, fontFamily: Fonts.displaySemibold },
   rowNameBold: { fontSize: 16.5, fontFamily: Fonts.display },
   rowSub: { fontSize: 12, marginTop: 1, fontFamily: Fonts.body },
+  rowNameCompact: { fontSize: 14 },
+  rowSubCompact: { fontSize: 11.5 },
   sectionLabelSpaced: { marginTop: 18 },
   urgentPill: { paddingHorizontal: 7, paddingVertical: 3, borderRadius: 999 },
   urgentPillText: { fontSize: 9, fontFamily: Fonts.mono, letterSpacing: 0.8 },
