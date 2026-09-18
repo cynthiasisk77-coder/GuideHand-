@@ -20,6 +20,12 @@ interface ReadAloudButtonProps {
   background: string;
   /** Colour for the line explaining a phone that cannot speak. */
   mutedColor?: string;
+  /**
+   * Start reading as soon as the phone confirms it has a voice. Used so an
+   * answer is spoken without a tap; the button then shows Stop, exactly as if
+   * it had been tapped, so there is one owner of what is being said.
+   */
+  autoPlay?: boolean;
 }
 
 type Voice = 'checking' | 'ready' | 'none';
@@ -30,6 +36,7 @@ export function ReadAloudButton({
   color,
   background,
   mutedColor,
+  autoPlay = false,
 }: ReadAloudButtonProps) {
   const [speaking, setSpeaking] = useState(false);
   const [voice, setVoice] = useState<Voice>('checking');
@@ -37,13 +44,28 @@ export function ReadAloudButton({
   useEffect(() => {
     let alive = true;
     hasVoiceAsync().then((ok) => {
-      if (alive) setVoice(ok ? 'ready' : 'none');
+      if (!alive) return;
+      setVoice(ok ? 'ready' : 'none');
+      if (ok && autoPlay) {
+        setSpeaking(true);
+        void readAloud(text, {
+          onDone: () => alive && setSpeaking(false),
+          onError: () => {
+            if (!alive) return;
+            setSpeaking(false);
+            setVoice('none');
+          },
+        });
+      }
     });
     // Leaving a screen should not leave a voice talking in an empty room.
     return () => {
       alive = false;
       stopReading();
     };
+    // Once per mount on purpose: the caller keys this button by the text it
+    // reads, so a new answer is a new mount, not a changed prop.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggle = () => {

@@ -232,7 +232,7 @@ export default function HomeScreen() {
                     <Icon name="speak" color={c.blue} />
                   </View>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand instead</Text>
+                    <Text style={[styles.rowName, { color: c.text }]}>Ask Max instead</Text>
                     <Text style={[styles.rowSub, { color: c.textSecondary }]}>
                       Ask it in your own words and it answers from your own articles — and reads the
                       answer out loud
@@ -293,8 +293,8 @@ export default function HomeScreen() {
                     <Icon name="speak" color={c.blue} />
                   </View>
                   <View style={styles.rowText}>
-                    <Text style={[styles.rowName, { color: c.text }]}>Ask GuideHand</Text>
-                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Ask in your own words, answered from your own articles — offline</Text>
+                    <Text style={[styles.rowName, { color: c.text }]}>Ask Max</Text>
+                    <Text style={[styles.rowSub, { color: c.textSecondary }]}>Say what&apos;s wrong. Max finds the page, tells you, and reads it out — offline</Text>
                   </View>
                   <Icon name="chevron" size={18} color={c.textSecondary} />
                 </Pressable>

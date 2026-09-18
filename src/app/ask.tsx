@@ -48,7 +48,7 @@ export default function AskScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
-      <Stack.Screen options={{ title: 'Ask GuideHand' }} />
+      <Stack.Screen options={{ title: 'Ask Max' }} />
       <KeyboardAwareScrollView
         contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
@@ -65,10 +65,11 @@ export default function AskScreen() {
               },
             ]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Offline</Text>
-            <Text style={[styles.title, { color: c.text }]}>Ask GuideHand</Text>
+            <Text style={[styles.title, { color: c.text }]}>Ask Max</Text>
             <Text style={[styles.subhead, { color: c.textSecondary }]}>
-              Ask a question in your own words and get an answer built from your own saved articles. Once the model
-              is downloaded this works with no signal, no Wi-Fi and no account.
+              Say what&apos;s happening in your own words. Max finds the right page in your own saved articles,
+              tells you what it says, and reads it to you. Once the model is downloaded this works with no
+              signal, no Wi-Fi and no account.
             </Text>
           </View>
 
@@ -76,9 +77,9 @@ export default function AskScreen() {
           <View style={[styles.boundary, { backgroundColor: c.plumSoft, borderColor: c.plum }]}>
             <Icon name="lock" size={16} color={c.plum} />
             <Text style={[styles.boundaryText, { color: c.plum }]}>
-              It only ever answers from GuideHand&apos;s own sourced articles, and it names which ones it used. It
-              does not know anything they don&apos;t say, and it will tell you when they don&apos;t cover your
-              question rather than guessing.
+              Max only ever answers from GuideHand&apos;s own sourced articles and your own notes, and names which
+              ones it used. It does not know anything they don&apos;t say, and it will tell you when they don&apos;t
+              cover your question rather than guessing.
             </Text>
           </View>
 

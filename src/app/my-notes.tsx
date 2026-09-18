@@ -106,7 +106,7 @@ export default function MyNotesScreen() {
           {live > 0 ? (
             <View style={[styles.banner, { backgroundColor: c.sageSoft, borderColor: c.sage }]}>
               <Text style={[styles.bannerText, { color: c.sageText }]}>
-                {live} {live === 1 ? 'note is' : 'notes are'} searchable, and Ask GuideHand can answer from{' '}
+                {live} {live === 1 ? 'note is' : 'notes are'} searchable, and Max can answer from{' '}
                 {live === 1 ? 'it' : 'them'}.
               </Text>
             </View>

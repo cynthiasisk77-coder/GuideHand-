@@ -84,7 +84,7 @@ export default function RootLayout() {
           <Stack.Screen name="meetup-scan" options={{ title: 'Scan a Code' }} />
           <Stack.Screen name="content-packs" options={{ title: 'Content Packs' }} />
           <Stack.Screen name="backup" options={{ title: 'Back Up & Restore' }} />
-          <Stack.Screen name="ask" options={{ title: 'Ask GuideHand' }} />
+          <Stack.Screen name="ask" options={{ title: 'Ask Max' }} />
           <Stack.Screen name="inventory" options={{ title: 'Supply Inventory' }} />
           <Stack.Screen name="maps" options={{ title: 'Offline Maps' }} />
           <Stack.Screen name="family-plan" options={{ title: 'Family Plan' }} />

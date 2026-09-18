@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,10 +8,10 @@ import { Icon } from '@/components/icon';
 import { ReadAloudButton } from '@/components/read-aloud-button';
 import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
-import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
+import { AI_NAME, buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
 import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
-import { stripModelArtifacts } from '@/lib/readAloud';
+import { readAloud, stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
 // this file is the native-only half — the web build resolves ask-engine.web.tsx
@@ -112,6 +112,9 @@ type Phase =
 // That is a several-gigabyte model being loaded into memory, which takes a few
 // seconds and no network at all.
 const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';
+// Whether Max reads answers out without being asked. On by default: she asked
+// for something that talks to her, and a button you have to find is not that.
+const SPEAKS_KEY = 'guidehand.max-speaks.v1';
 
 /**
  * The model half of Ask. Mounted only once a model has been chosen — the
@@ -129,6 +132,9 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // undefined until we have read the flag: neither message is shown before we
   // know which one is true.
   const [alreadyHave, setAlreadyHave] = useState<boolean | undefined>(undefined);
+  // undefined until read, so the first answer does not decide for itself.
+  const [speaks, setSpeaks] = useState<boolean | undefined>(undefined);
+  const greeted = useRef(false);
 
   useEffect(() => {
     let alive = true;
@@ -139,6 +145,21 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       alive = false;
     };
   }, []);
+
+  useEffect(() => {
+    let alive = true;
+    AsyncStorage.getItem(SPEAKS_KEY)
+      .then((v) => alive && setSpeaks(v !== 'no'))
+      .catch(() => alive && setSpeaks(true));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const setSpeaksAndRemember = (next: boolean) => {
+    setSpeaks(next);
+    AsyncStorage.setItem(SPEAKS_KEY, next ? 'yes' : 'no').catch(() => {});
+  };
 
   useEffect(() => {
     let alive = true;
@@ -163,6 +184,20 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     resetOnTurn: true,
     generationConfig: { maxNewTokens: 320 },
   });
+
+  const firstName = about?.name.trim().split(/\s+/)[0] ?? '';
+  const greeting = firstName
+    ? `Hi ${firstName} — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`
+    : `Hi — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`;
+
+  // Said out loud once per visit, only when speaking is on and only once the
+  // profile has been read, so it does not greet a stranger and then learn her
+  // name a moment later.
+  useEffect(() => {
+    if (!llm.isReady || speaks !== true || about === undefined || greeted.current) return;
+    greeted.current = true;
+    void readAloud(greeting, {});
+  }, [llm.isReady, speaks, about, greeting]);
 
   // Written the first time this model is usable, so the next open knows the
   // file is already here and says so.
@@ -237,16 +272,33 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
               <Text style={[styles.buttonText, { color: c.blue }]}>Pick a different one</Text>
             </Pressable>
           </>
-        ) : alreadyHave && pct === 0 ? (
+        ) : alreadyHave ? (
+          // Her screenshot: "Downloading — 100%", a full bar, and a spinner that
+          // sat there. The library sets progress to 100 the moment the file is
+          // on the phone and only reports ready once the whole thing is in
+          // memory — so this state is loading, at 100%, not 0%. The earlier
+          // check for 0% never fired. Once the flag says the file is here,
+          // every spinner on this card is loading, whatever the number says.
           <>
             <View style={styles.downloadRow}>
               <ActivityIndicator color={c.blue} />
-              <Text style={[styles.cardLabel, { color: c.text }]}>Getting it ready…</Text>
+              <Text style={[styles.cardLabel, { color: c.text }]}>Getting {AI_NAME} ready…</Text>
             </View>
             <Text style={[styles.body, { color: c.textSecondary }]}>
-              {model.name} is already on this phone. It is being read into memory, which takes a few
-              seconds the first time you open this screen. Nothing is downloading and no signal is needed.
+              {model.name} ({model.size}) is already on this phone and is being read into memory. Nothing is
+              downloading and no signal is needed.
+              {model.modelKey === 'LLAMA3_2_3B'
+                ? ' Large is the slowest to load — often a minute or more each time. Medium answers nearly as well and loads in seconds.'
+                : ''}
             </Text>
+            {model.modelKey === 'LLAMA3_2_3B' ? (
+              <Pressable
+                accessibilityRole="button"
+                onPress={onChangeModel}
+                style={({ pressed }) => [styles.button, { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 }]}>
+                <Text style={[styles.buttonText, { color: c.blue }]}>Switch to Medium instead</Text>
+              </Pressable>
+            ) : null}
           </>
         ) : (
           <>
@@ -289,10 +341,28 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           ]}>
           <Icon name="family" size={16} color={c.plumText} />
           <Text style={[styles.tellItText, { color: c.plumText }]}>
-            It doesn&apos;t know who you are yet. Add your name, allergies and conditions →
+            {AI_NAME} doesn&apos;t know who you are yet. Add your name, allergies and conditions →
           </Text>
         </Pressable>
       ) : null}
+
+      <View style={[styles.greet, { backgroundColor: c.blueSoft, borderColor: c.blue }]}>
+        <View style={[styles.greetBadge, { backgroundColor: c.blue }]}>
+          <Text style={[styles.greetBadgeText, { color: c.card }]}>{AI_NAME.charAt(0)}</Text>
+        </View>
+        <Text style={[styles.greetText, { color: c.text }]}>{greeting}</Text>
+      </View>
+
+      <Pressable
+        accessibilityRole="switch"
+        accessibilityState={{ checked: speaks === true }}
+        onPress={() => setSpeaksAndRemember(!(speaks === true))}
+        style={({ pressed }) => [styles.speaksRow, { opacity: pressed ? 0.7 : 1 }]}>
+        <Icon name={speaks === true ? 'speak' : 'stop'} size={15} color={speaks === true ? c.blue : c.textSecondary} />
+        <Text style={[styles.speaksText, { color: speaks === true ? c.blue : c.textSecondary }]}>
+          {speaks === true ? `${AI_NAME} reads answers out loud — tap to turn off` : `${AI_NAME} is quiet — tap to have answers read out loud`}
+        </Text>
+      </Pressable>
 
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <TextInput
@@ -345,9 +415,9 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
       {phase.kind === 'nothing-found' ? (
         <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-          <Text style={[styles.cardLabel, { color: c.text }]}>Nothing in GuideHand covers that</Text>
+          <Text style={[styles.cardLabel, { color: c.text }]}>Nothing {AI_NAME} has covers that</Text>
           <Text style={[styles.body, { color: c.textSecondary }]}>
-            No article matched &quot;{phase.question}&quot;, so there was nothing to answer from — and GuideHand
+            No article matched &quot;{phase.question}&quot;, so there was nothing to answer from — and {AI_NAME}
             will not make something up. Try different words, or browse the categories.
           </Text>
         </View>
@@ -358,7 +428,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           {phase.answer.length > 0 ? (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.blue, borderLeftWidth: 5 }]}>
               <Text style={[styles.answer, { color: c.text }]}>{phase.answer}</Text>
-              <ReadAloudButton text={phase.answer} color={c.blue} background={c.blueSoft} />
+              <ReadAloudButton key={phase.answer} text={phase.answer} autoPlay={speaks === true} color={c.blue} background={c.blueSoft} />
             </View>
           ) : (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
@@ -404,6 +474,13 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
 const styles = StyleSheet.create({
   card: { borderWidth: 1, borderRadius: 14, padding: 14, marginBottom: 10, gap: 10 },
+  greet: { flexDirection: 'row', alignItems: 'center', gap: 11, borderWidth: 1.5, borderRadius: 14, paddingVertical: 12, paddingHorizontal: 13, marginBottom: 8 },
+  greetBadge: { width: 34, height: 34, borderRadius: 17, alignItems: 'center', justifyContent: 'center' },
+  greetBadgeText: { fontSize: 17, fontFamily: Fonts.displaySemibold },
+  greetText: { flex: 1, fontSize: 14, lineHeight: 20, fontFamily: Fonts.bodySemibold },
+  speaksRow: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 6, paddingHorizontal: 4, marginBottom: 8 },
+  speaksText: { flex: 1, fontSize: 12.5, fontFamily: Fonts.bodySemibold },
+
   tellIt: {
     flexDirection: 'row',
     alignItems: 'center',

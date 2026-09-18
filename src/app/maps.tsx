@@ -23,6 +23,7 @@ import {
   REGION_SIZES,
   RegionSize,
   regionId,
+  collapseDuplicates,
 } from '@/lib/offlineMaps';
 import { downloadRegion, listPackIds, removeRegion } from '@/lib/offlineMapPacks';
 import type { MapMarker } from '@/components/offline-map';
@@ -98,7 +99,12 @@ export default function MapsScreen() {
         // OS or a reinstall, the row for it is a lie and gets dropped.
         const alive = await listPackIds();
         if (!mounted.current) return;
-        setRegions(alive.length > 0 ? stored.filter((r) => alive.includes(r.id)) : stored);
+        const present = alive.length > 0 ? stored.filter((r) => alive.includes(r.id)) : stored;
+        const { keep, drop } = collapseDuplicates(present);
+        // The extra copies' tiles come off the phone too; a row that is gone
+        // but a pack that stays would just be wasted space nobody can see.
+        drop.forEach((id) => removeRegion(id).catch(() => {}));
+        setRegions(keep);
       })
       .catch(() => {})
       .finally(() => {

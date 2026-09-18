@@ -6,11 +6,10 @@
 // EpiPen — use it now" instead of reading out the same page it reads everyone.
 
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 
 import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
-
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
@@ -56,6 +55,11 @@ export default function AboutYouScreen() {
 
   const [about, setAbout] = useState<AboutYou>(emptyAboutYou());
   const [loaded, setLoaded] = useState(false);
+  // "There is no way to hit save." There was — it saved on every keystroke,
+  // silently — and to a person that is indistinguishable from not saving at
+  // all. The auto-save stays, because it is the safer of the two. This is the
+  // button and the confirmation a person needs in order to believe it.
+  const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved'>('idle');
 
   useEffect(() => {
     let cancelled = false;
@@ -79,6 +83,23 @@ export default function AboutYouScreen() {
   }, []);
 
   const filled = hasAnything(about);
+
+  const saveNow = async () => {
+    setSaveState('saving');
+    try {
+      await saveAboutYou(about);
+      notePersonalDataChanged('about-you');
+      setSaveState('saved');
+    } catch {
+      setSaveState('idle');
+    }
+  };
+
+  useEffect(() => {
+    if (saveState !== 'saved') return;
+    const t = setTimeout(() => setSaveState('idle'), 2500);
+    return () => clearTimeout(t);
+  }, [saveState]);
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
@@ -105,7 +126,7 @@ export default function AboutYouScreen() {
             <View style={[styles.banner, { backgroundColor: c.plumSoft, borderColor: c.plum }]}>
               <Icon name="check" size={15} color={c.plumText} strokeWidth={2.4} />
               <Text style={[styles.bannerText, { color: c.plumText }]}>
-                {about.name.trim() ? `Ask GuideHand will call you ${about.name.trim()}.` : 'Ask GuideHand knows this about you.'}
+                {about.name.trim() ? `Max will call you ${about.name.trim()}.` : 'Max knows this about you.'}
               </Text>
             </View>
           ) : null}
@@ -127,6 +148,23 @@ export default function AboutYouScreen() {
               />
             </View>
           ))}
+
+          <Pressable
+            accessibilityRole="button"
+            disabled={saveState === 'saving'}
+            onPress={saveNow}
+            style={({ pressed }) => [
+              styles.save,
+              { backgroundColor: saveState === 'saved' ? c.sageSoft : c.plumSoft, borderColor: saveState === 'saved' ? c.sage : c.plum, opacity: pressed ? 0.7 : 1 },
+            ]}>
+            <Icon name={saveState === 'saved' ? 'check' : 'lock'} size={17} color={saveState === 'saved' ? c.sageText : c.plumText} strokeWidth={2.3} />
+            <Text style={[styles.saveText, { color: saveState === 'saved' ? c.sageText : c.plumText }]}>
+              {saveState === 'saving' ? 'Saving…' : saveState === 'saved' ? 'Saved on this phone' : 'Save'}
+            </Text>
+          </Pressable>
+          <Text style={[styles.saveNote, { color: c.textSecondary }]}>
+            It also saves as you type. The button is here so you can see it took.
+          </Text>
 
           <View style={[styles.privacy, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
             <Text style={[styles.privacyTitle, { color: c.text }]}>Where this goes</Text>
@@ -160,6 +198,9 @@ const styles = StyleSheet.create({
   label: { fontSize: 14, fontFamily: Fonts.displaySemibold },
   input: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 11, paddingVertical: 10, fontSize: 14.5, fontFamily: Fonts.body },
   inputBig: { minHeight: 110, textAlignVertical: 'top' },
+  save: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, borderWidth: 1.5, borderRadius: 13, paddingVertical: 14, marginTop: 4 },
+  saveText: { fontSize: 15, fontFamily: Fonts.bodyBold },
+  saveNote: { fontSize: 12, lineHeight: 17, textAlign: 'center', fontFamily: Fonts.body, marginTop: -2 },
   privacy: { borderWidth: 1, borderRadius: 14, padding: 13, gap: 7, marginTop: 4 },
   privacyTitle: { fontSize: 14, fontFamily: Fonts.displaySemibold },
   privacyText: { fontSize: 12.5, lineHeight: 18, fontFamily: Fonts.body },

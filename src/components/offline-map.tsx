@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Camera, Map, Marker, UserLocation } from '@maplibre/maplibre-react-native';
+import * as Location from 'expo-location';
 import type { CameraRef } from '@maplibre/maplibre-react-native';
 
 import { Icon } from '@/components/icon';
@@ -83,16 +84,55 @@ export function OfflineMap({
   // Fitting the region's own bounds rather than a centre and a guessed zoom
   // also means what you see is exactly the area you downloaded — no more, and
   // nothing missing off the edge.
-  useEffect(() => {
+  // Frame the downloaded area. Called on every region change AND again when
+  // the map reports it has finished loading: a move sent before the style is
+  // in place can be lost, and the fallback is the default world view — which
+  // is what her screenshot of Europe and Africa was, on a map of Texas.
+  const frame = () => {
     const bounds = toMapLibreBounds(boundsAround(region.center, region.radiusMiles));
-    camera.current?.fitBounds(bounds, {
-      padding: { top: 70, right: 24, bottom: 110, left: 24 },
-      duration: 0,
-    });
-  }, [region.id, region.center, region.radiusMiles]);
+    // The camera throws if it is asked to move before the native map exists
+    // ("wait for the map being initialized"). On the first open that is exactly
+    // when the mount effect runs, so the throw is swallowed here and the call
+    // from onDidFinishLoadingMap does the framing a moment later.
+    try {
+      camera.current?.fitBounds(bounds, {
+        padding: { top: 70, right: 24, bottom: 110, left: 24 },
+        duration: 0,
+      });
+    } catch {
+      // Too early. onDidFinishLoadingMap calls this again.
+    }
+  };
+  useEffect(frame, [region.id, region.center, region.radiusMiles]);
   // Clear of the gesture bar, with room to spare. A confirmation you cannot
   // read because it is under the navigation bar is not a confirmation.
   const bottomInset = insets.bottom + 28;
+
+  // "It isn't showing my location." It wasn't: the dot was only drawn if the
+  // list screen's "Use where I am now" had been tapped first, because that was
+  // the only thing that ever asked the phone where it was. The map now asks for
+  // itself when it opens. UserLocation draws the dot but never asks permission,
+  // so the asking has to happen here.
+  const [locationAllowed, setLocationAllowed] = useState(false);
+  const [fix, setFix] = useState<Coords | undefined>(undefined);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const permission = await Location.requestForegroundPermissionsAsync();
+        if (!alive || permission.status !== 'granted') return;
+        setLocationAllowed(true);
+        const position = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
+        if (alive) setFix({ latitude: position.coords.latitude, longitude: position.coords.longitude });
+      } catch {
+        // No fix indoors or with location off. The dot simply does not appear.
+      }
+    })();
+    return () => {
+      alive = false;
+    };
+  }, []);
+  const you = fix ?? here;
   const [selected, setSelected] = useState<MapMarker | undefined>(undefined);
   const [picked, setPicked] = useState<Coords | undefined>(undefined);
   const [label, setLabel] = useState('');
@@ -129,9 +169,10 @@ export function OfflineMap({
         logo={false}
         attribution={false}
         compass
+        onDidFinishLoadingMap={frame}
         onPress={handleMapPress}>
         <Camera ref={camera} initialViewState={{ center: toLngLat(region.center), zoom: 11 }} />
-        {here ? <UserLocation /> : null}
+        {locationAllowed ? <UserLocation accuracy heading /> : null}
         {markers.map((marker) => (
           <Marker key={marker.id} id={marker.id} lngLat={toLngLat(marker)} onPress={() => setSelected(marker)}>
             <View style={[styles.pin, { backgroundColor: c.plum, borderColor: c.card }]} />
@@ -193,9 +234,9 @@ export function OfflineMap({
         <View style={[styles.callout, { bottom: bottomInset, backgroundColor: c.card, borderColor: c.plum }]}>
           <View style={styles.calloutText}>
             <Text style={[styles.calloutTitle, { color: c.text }]}>{selected.label}</Text>
-            {here ? (
+            {you ? (
               <Text style={[styles.calloutMeta, { color: c.textSecondary }]}>
-                {formatDistance(distanceMiles(here, selected))} from you
+                {formatDistance(distanceMiles(you, selected))} from you
               </Text>
             ) : null}
           </View>

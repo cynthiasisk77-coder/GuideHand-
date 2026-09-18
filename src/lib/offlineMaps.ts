@@ -188,3 +188,36 @@ export function contains(region: MapRegion, point: Coords): boolean {
     point.longitude <= bounds.ne.longitude
   );
 }
+
+/**
+ * Same place, same size: one map. Downloading the same spot five times left
+ * five rows and five sets of tiles, and the first fix for that only caught the
+ * sixth — it ran when a new download finished and never looked at the rows
+ * already on the phone. This runs when the list loads, keeps the newest of
+ * each set, and hands back the ids whose tiles should go.
+ */
+export function collapseDuplicates(regions: MapRegion[]): { keep: MapRegion[]; drop: string[] } {
+  const key = (r: MapRegion) =>
+    `${r.center.latitude.toFixed(2)},${r.center.longitude.toFixed(2)}:${r.radiusMiles}`;
+  // A name somebody typed ("Livingston") beats one the app made up ("The wider
+  // area — saved 17/09/2026"). The freshest tiles are kept; the human name
+  // travels with them.
+  const typed = (r: MapRegion) =>
+    !REGION_SIZES.some((size) => r.name === size.label || r.name.startsWith(`${size.label} —`)) &&
+    !/\d+\.\d+\s*,\s*-?\d+\.\d+/.test(r.name);
+  const newest = new Map<string, MapRegion>();
+  const bestName = new Map<string, string>();
+  for (const r of regions) {
+    const k = key(r);
+    const current = newest.get(k);
+    if (!current || (r.downloadedAt ?? 0) > (current.downloadedAt ?? 0)) newest.set(k, r);
+    if (typed(r) && !bestName.has(k)) bestName.set(k, r.name);
+  }
+  const keepIds = new Set([...newest.values()].map((r) => r.id));
+  return {
+    keep: regions
+      .filter((r) => keepIds.has(r.id))
+      .map((r) => (bestName.has(key(r)) ? { ...r, name: bestName.get(key(r)) as string } : r)),
+    drop: regions.filter((r) => !keepIds.has(r.id)).map((r) => r.id),
+  };
+}
