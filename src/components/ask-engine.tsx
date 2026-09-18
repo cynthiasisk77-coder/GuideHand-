@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { models, useLLMChatSession } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
@@ -103,6 +104,15 @@ type Phase =
   | { kind: 'answered'; answer: string; articles: SourceArticle[] }
   | { kind: 'nothing-found'; question: string };
 
+// Remembers that a model finished downloading at least once on this phone.
+//
+// The screen could not tell downloading from loading, so every time Ask was
+// opened it said "Starting the download… keep this screen open and stay on
+// Wi-Fi" while it was really just reading a file already sitting on the phone.
+// That is a several-gigabyte model being loaded into memory, which takes a few
+// seconds and no network at all.
+const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';
+
 /**
  * The model half of Ask. Mounted only once a model has been chosen — the
  * download starts on mount, so this component existing is what commits a person
@@ -116,6 +126,9 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // Read once when the screen opens. It is small, and re-reading it for every
   // question would put a decrypt in front of an answer somebody is waiting on.
   const [about, setAbout] = useState<AboutYou | undefined>(undefined);
+  // undefined until we have read the flag: neither message is shown before we
+  // know which one is true.
+  const [alreadyHave, setAlreadyHave] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
     let alive = true;
@@ -127,6 +140,20 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     };
   }, []);
 
+  useEffect(() => {
+    let alive = true;
+    AsyncStorage.getItem(READY_ONCE_PREFIX + model.id)
+      .then((flag) => {
+        if (alive) setAlreadyHave(flag === 'yes');
+      })
+      .catch(() => {
+        if (alive) setAlreadyHave(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [model.id]);
+
   const llm = useLLMChatSession(configFor(model.modelKey) as never, {
     // The grounding instruction is pinned as the system message so it survives
     // every turn rather than being something the model can talk itself out of.
@@ -136,6 +163,16 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     resetOnTurn: true,
     generationConfig: { maxNewTokens: 320 },
   });
+
+  // Written the first time this model is usable, so the next open knows the
+  // file is already here and says so.
+  useEffect(() => {
+    if (!llm.isReady) return;
+    // Only the write. Setting the flag in state here would be a needless
+    // re-render: once the model is ready this card is not on screen at all,
+    // and the next time the screen opens the value is read back from storage.
+    AsyncStorage.setItem(READY_ONCE_PREFIX + model.id, 'yes').catch(() => {});
+  }, [llm.isReady, model.id]);
 
   const ask = useCallback(async (spoken?: string) => {
     const asked = (spoken ?? question).trim();
@@ -199,6 +236,17 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
               style={({ pressed }) => [styles.button, { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 }]}>
               <Text style={[styles.buttonText, { color: c.blue }]}>Pick a different one</Text>
             </Pressable>
+          </>
+        ) : alreadyHave && pct === 0 ? (
+          <>
+            <View style={styles.downloadRow}>
+              <ActivityIndicator color={c.blue} />
+              <Text style={[styles.cardLabel, { color: c.text }]}>Getting it ready…</Text>
+            </View>
+            <Text style={[styles.body, { color: c.textSecondary }]}>
+              {model.name} is already on this phone. It is being read into memory, which takes a few
+              seconds the first time you open this screen. Nothing is downloading and no signal is needed.
+            </Text>
           </>
         ) : (
           <>
