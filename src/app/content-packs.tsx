@@ -19,6 +19,9 @@ import {
 import { formatBytes, InstalledPack, PackListing } from '@/lib/packTypes';
 
 interface PackScreenData {
+  // Kept so that finishing a download does not send the screen back to the
+  // internet for a list it is already holding.
+  catalog: CatalogResult;
   rows: PackRow[];
   orphans: InstalledPack[];
   source: CatalogResult['source'];
@@ -27,6 +30,7 @@ interface PackScreenData {
 }
 
 const EMPTY_SCREEN_DATA: PackScreenData = {
+  catalog: { catalog: { catalogVersion: 0, packs: [] }, source: 'bundled' },
   rows: [],
   orphans: [],
   source: 'bundled',
@@ -34,13 +38,24 @@ const EMPTY_SCREEN_DATA: PackScreenData = {
   freeBytes: undefined,
 };
 
-async function loadPackScreenData(): Promise<PackScreenData> {
+/**
+ * @param known A catalog already in hand. Passing it skips the network.
+ *
+ * "The 100% still spins for a while before opening." It did: finishing a
+ * download called this, and this fetched the catalog again, with an eight
+ * second ceiling on it. On a slow connection that is eight seconds of spinner
+ * after the thing has already downloaded, and on a bad one it is all eight.
+ * The catalog cannot have changed in the seconds since it was read, so the
+ * copy already on screen is used instead.
+ */
+async function loadPackScreenData(known?: CatalogResult): Promise<PackScreenData> {
   const [result, installed, free] = await Promise.all([
-    loadCatalog(),
+    known ? Promise.resolve(known) : loadCatalog(),
     getInstalledPacks(),
     getFreeSpace(),
   ]);
   return {
+    catalog: result,
     rows: buildPackRows(result.catalog, installed),
     orphans: findOrphanedPacks(result.catalog, installed),
     source: result.source,
@@ -57,8 +72,8 @@ export default function ContentPacksScreen() {
   const [busyId, setBusyId] = useState<string | null>(null);
   const [message, setMessage] = useState<{ kind: 'ok' | 'bad'; text: string } | null>(null);
 
-  const refresh = useCallback(async () => {
-    setData(await loadPackScreenData());
+  const refresh = useCallback(async (known?: CatalogResult) => {
+    setData(await loadPackScreenData(known));
   }, []);
 
   useEffect(() => {
@@ -95,7 +110,7 @@ export default function ContentPacksScreen() {
     } else {
       setMessage({ kind: 'bad', text: result.reason });
     }
-    await refresh();
+    await refresh(data?.catalog);
     setBusyId(null);
   };
 
@@ -104,7 +119,7 @@ export default function ContentPacksScreen() {
     setMessage(null);
     await removePack(id);
     setMessage({ kind: 'ok', text: `${name} removed. You can download it again any time.` });
-    await refresh();
+    await refresh(data?.catalog);
     setBusyId(null);
   };
 

@@ -10,7 +10,7 @@ import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
 import { buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
-import { AboutYou, loadAboutYou } from '@/lib/aboutYou';
+import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
 import { stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
@@ -272,6 +272,28 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // --- ready -------------------------------------------------------------
   return (
     <>
+      {/*
+        * Offered here rather than only on the home screen, because this is the
+        * screen where it makes a difference. "It doesn't know my name" turned
+        * out not to be a bug at all — the profile had simply never been filled
+        * in, and there was nothing anywhere near the question box to say it
+        * existed.
+        */}
+      {about && !hasAnything(about) ? (
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push({ pathname: '/about-you' })}
+          style={({ pressed }) => [
+            styles.tellIt,
+            { backgroundColor: c.plumSoft, borderColor: c.plum, opacity: pressed ? 0.75 : 1 },
+          ]}>
+          <Icon name="family" size={16} color={c.plumText} />
+          <Text style={[styles.tellItText, { color: c.plumText }]}>
+            It doesn&apos;t know who you are yet. Add your name, allergies and conditions →
+          </Text>
+        </Pressable>
+      ) : null}
+
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <TextInput
           value={question}
@@ -382,6 +404,18 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
 const styles = StyleSheet.create({
   card: { borderWidth: 1, borderRadius: 14, padding: 14, marginBottom: 10, gap: 10 },
+  tellIt: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 9,
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 11,
+    paddingHorizontal: 12,
+    marginBottom: 10,
+  },
+  tellItText: { flex: 1, fontSize: 12.5, lineHeight: 17.5, fontFamily: Fonts.bodySemibold },
+
   cardLabel: { fontSize: 14, fontFamily: Fonts.bodyBold },
   body: { fontSize: 13, lineHeight: 19, fontFamily: Fonts.body },
   input: {
