@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+
 import QRCode from 'react-native-qrcode-svg';
 
 import { Icon } from '@/components/icon';
@@ -31,6 +33,7 @@ export default function FamilyPlanScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
 
   const [plan, setPlan] = useState<FamilyPlan>(EMPTY_PLAN);
   const [loaded, setLoaded] = useState(false);
@@ -173,7 +176,9 @@ export default function FamilyPlanScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Family Plan' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[

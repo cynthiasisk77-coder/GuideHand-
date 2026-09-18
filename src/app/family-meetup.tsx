@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
 import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { MEETUP_ACTIVE_KEY, MEETUP_POINTS_KEY } from '@/lib/personalData';
 import { secureGetItem, secureRemoveItem, secureSetItem } from '@/lib/secureData';
@@ -62,6 +64,7 @@ export default function FamilyMeetupScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
 
   const [points, setPoints] = useState<MeetupPoint[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -219,7 +222,9 @@ export default function FamilyMeetupScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Family Meetup' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.plum }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Family</Text>

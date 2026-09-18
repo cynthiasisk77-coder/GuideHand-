@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { notePersonalDataChanged } from '@/lib/autoBackup';
@@ -34,6 +36,7 @@ export default function SupplyCacheScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
   const [state, setState] = useState<StoredState>(EMPTY_STATE);
   const [loaded, setLoaded] = useState(false);
   const [drafts, setDrafts] = useState<Record<string, string>>({});
@@ -97,7 +100,9 @@ export default function SupplyCacheScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Home Supplies' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage }]}>
             <Text style={[styles.eyebrow, { color: c.textSecondary }]}>Your Supplies</Text>

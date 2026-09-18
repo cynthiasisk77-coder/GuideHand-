@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
+
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Icon } from '@/components/icon';
@@ -85,6 +87,7 @@ export default function InventoryScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
 
   const [items, setItems] = useState<InventoryItem[]>(() =>
     INVENTORY_STARTER_ITEMS.map(starterToItem)
@@ -177,7 +180,9 @@ export default function InventoryScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Supply Inventory' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[

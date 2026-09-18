@@ -9,6 +9,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
@@ -51,6 +53,7 @@ const FIELDS: Field[] = [
 export default function AboutYouScreen() {
   const colorScheme = useColorScheme();
   const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
 
   const [about, setAbout] = useState<AboutYou>(emptyAboutYou());
   const [loaded, setLoaded] = useState(false);
@@ -81,7 +84,9 @@ export default function AboutYouScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'About You' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[

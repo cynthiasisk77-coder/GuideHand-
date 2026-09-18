@@ -9,9 +9,11 @@
 // Anything written here is searchable like an article, and Ask GuideHand can
 // answer from it and say it came from you. It never leaves the phone.
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
+
+import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -28,13 +30,24 @@ import {
 } from '@/lib/myNotes';
 import { loadInstalledPacksIntoRegistry } from '@/lib/packs';
 
+// Matches styles.scroll's paddingTop: a card's measured y is relative to the
+// content block, which starts that far down inside the scroll view.
+const SCROLL_TOP = 14;
+
 export default function MyNotesScreen() {
   const colorScheme = useColorScheme();
   const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
+  const keyboard = useKeyboardRoom();
 
   const [notes, setNotes] = useState<MyNote[]>([]);
   const [open, setOpen] = useState<string | undefined>(undefined);
   const [loaded, setLoaded] = useState(false);
+  // Where each note card sits down the page, so the one you just opened can be
+  // brought up to the top where the keyboard cannot reach it. A card's own top
+  // does not move when it expands — it grows downwards — so the position
+  // measured while it was still shut is the right one to scroll to.
+  const scroller = useRef<ScrollView>(null);
+  const cardTops = useRef<Record<string, number>>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -78,12 +91,28 @@ export default function MyNotesScreen() {
     setOpen((current) => (current === id ? undefined : current));
   };
 
+  // Opening a note scrolls it up under the header. Without this the card you
+  // are typing into stays wherever it happened to be, which on a half-scrolled
+  // list is behind the keyboard.
+  useEffect(() => {
+    if (!open) return;
+    const top = cardTops.current[open];
+    if (top === undefined) return;
+    const settle = setTimeout(() => {
+      scroller.current?.scrollTo({ y: Math.max(0, top + SCROLL_TOP - 12), animated: true });
+    }, 60);
+    return () => clearTimeout(settle);
+  }, [open]);
+
   const live = notes.filter(isUsable).length;
 
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'What You Know' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        ref={scroller}
+        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[
@@ -130,6 +159,9 @@ export default function MyNotesScreen() {
             return (
               <View
                 key={note.id}
+                onLayout={(event) => {
+                  cardTops.current[note.id] = event.nativeEvent.layout.y;
+                }}
                 style={[styles.note, { backgroundColor: c.card, borderColor: isOpen ? c.sage : c.cardBorder }]}>
                 <Pressable
                   accessibilityRole="button"
