@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AskEngine } from '@/components/ask-engine';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
@@ -48,7 +49,9 @@ export default function AskScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Ask GuideHand' }} />
-      <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
+        keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
             style={[
@@ -128,7 +131,7 @@ export default function AskScreen() {
             Runs entirely on this device. Your questions are never sent anywhere.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }
