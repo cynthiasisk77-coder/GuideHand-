@@ -103,7 +103,17 @@ interface AskEngineProps {
 type Phase =
   | { kind: 'idle' }
   | { kind: 'thinking' }
-  | { kind: 'answered'; answer: string; articles: SourceArticle[] }
+  | {
+      kind: 'answered';
+      answer: string;
+      articles: SourceArticle[];
+      /** What the model actually wrote when it was rejected as not an answer. */
+      raw?: string;
+      /** The error, verbatim, when generation threw. */
+      failure?: string;
+      /** prompt tokens · tokens written · seconds. Temporary readout. */
+      note?: string;
+    }
   | { kind: 'nothing-found'; question: string };
 
 // Remembers that a model finished downloading at least once on this phone.
@@ -253,28 +263,41 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     setStreamed('');
     let collected = '';
     try {
-      await llm.sendMessage(context.prompt, (token) => {
+      const turn = await llm.sendMessage(context.prompt, (token) => {
         collected += token;
         setStreamed(stripModelArtifacts(collected));
       });
+      // TEMPORARY readout, the same idea as the build date: "it said nothing"
+      // is unanswerable, "prompt 1,512 tokens, wrote 3, in 41 s" is not. The
+      // last stats entry is the answer's own generation step.
+      const last = turn.stats[turn.stats.length - 1];
+      const note = last
+        ? `prompt ${last.numPromptTokens.toLocaleString()} tokens · wrote ${last.numGeneratedTokens.toLocaleString()} · ${Math.round((last.inferenceEndMs - last.inferenceStartMs) / 1000)} s`
+        : undefined;
       // The model emits its own chat-template markers as ordinary text —
       // "<|start_header_id|>assistant<|end_header_id|>" arrived at the top of a
       // real answer on a real phone. Citations are read from the raw text,
       // because stripping can remove the line a [1] was sitting on.
       const answer = stripModelArtifacts(collected);
+      // A model that emits nothing but a citation marker leaves "[1]" sitting
+      // on screen where an answer should be. That happened on a real phone
+      // during a real emergency. With the citations and punctuation taken out
+      // there has to be something left that is actually words — and when
+      // there is not, what it did write is shown, not hidden.
+      const real = hasRealWords(answer);
       setPhase({
         kind: 'answered',
-        // A model that emits nothing but a citation marker leaves "[1]" sitting
-        // on screen where an answer should be. That happened on a real phone
-        // during a real emergency. With the citations and punctuation taken out
-        // there has to be something left that is actually words.
-        answer: hasRealWords(answer) ? answer : '',
+        answer: real ? answer : '',
+        raw: real ? undefined : answer.slice(0, 120),
         articles: citedArticles(collected, context.articles),
+        note,
       });
-    } catch {
+    } catch (error) {
       // A failed generation still leaves the articles, which are the real
-      // answer anyway — show them rather than showing nothing.
-      setPhase({ kind: 'answered', answer: '', articles: context.articles });
+      // answer anyway. The error itself is shown, verbatim: a generic
+      // "couldn't finish" hid the cause for three builds.
+      const failure = error instanceof Error ? error.message : String(error);
+      setPhase({ kind: 'answered', answer: '', failure, articles: context.articles });
     }
   }, [question, llm, usable]);
 
@@ -476,13 +499,38 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
               <ReadAloudButton key={phase.answer} text={phase.answer} autoPlay={speaks === true} color={c.blue} background={c.blueSoft} />
             </View>
           ) : (
-            <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-              <Text style={[styles.body, { color: c.textSecondary }]}>
-                Couldn&apos;t finish writing an answer, but these are the articles it was reading. They are the real
-                guidance — open them directly.
-              </Text>
+            <View style={[styles.card, { backgroundColor: c.card, borderColor: c.dangerText ?? c.cardBorder }]}>
+              {phase.failure ? (
+                <>
+                  <Text style={[styles.cardLabel, { color: c.text }]}>{AI_NAME} hit an error</Text>
+                  <Text style={[styles.body, { color: c.textSecondary }]} selectable>{phase.failure}</Text>
+                </>
+              ) : phase.raw !== undefined ? (
+                <>
+                  <Text style={[styles.cardLabel, { color: c.text }]}>{AI_NAME} only wrote this:</Text>
+                  <Text style={[styles.body, { color: c.textSecondary }]} selectable>
+                    &quot;{phase.raw || '(nothing)'}&quot;
+                  </Text>
+                  <Text style={[styles.body, { color: c.textSecondary }]}>
+                    That is not an answer, so it is not shown as one. The articles below are the real guidance.
+                  </Text>
+                </>
+              ) : (
+                <Text style={[styles.body, { color: c.textSecondary }]}>
+                  Couldn&apos;t finish writing an answer, but these are the articles it was reading. They are the real
+                  guidance — open them directly.
+                </Text>
+              )}
+              <Pressable
+                accessibilityRole="button"
+                onPress={() => void ask()}
+                style={({ pressed }) => [styles.button, { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 }]}>
+                <Text style={[styles.buttonText, { color: c.blue }]}>Ask again</Text>
+              </Pressable>
             </View>
           )}
+
+          {phase.note ? <Text style={[styles.note, { color: c.textSecondary }]}>{phase.note}</Text> : null}
 
           <Text style={[styles.sourcesLabel, { color: c.blue }]}>FROM THESE ARTICLES</Text>
           {phase.articles.map((article) => (
@@ -525,6 +573,8 @@ const styles = StyleSheet.create({
   greetText: { flex: 1, fontSize: 14, lineHeight: 20, fontFamily: Fonts.bodySemibold },
   speaksRow: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 6, paddingHorizontal: 4, marginBottom: 8 },
   speaksText: { flex: 1, fontSize: 12.5, fontFamily: Fonts.bodySemibold },
+
+  note: { fontSize: 11, lineHeight: 15, fontFamily: Fonts.mono, textAlign: 'center', marginTop: 6, marginBottom: 2 },
 
   tellIt: {
     flexDirection: 'row',

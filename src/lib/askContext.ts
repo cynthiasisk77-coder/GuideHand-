@@ -41,7 +41,13 @@ export interface AskContext {
 const MAX_ARTICLES = 4;
 const MAX_BULLETS_PER_ARTICLE = 10;
 // Roughly four characters per token; small models here run about 2k context.
-const MAX_CONTEXT_CHARS = 4200;
+// Was 4200 when answers were coming out. The Max persona added roughly 165
+// tokens of system prompt; the window the model was exported with is baked
+// into the model file and cannot be read from here. Rather than bet on it,
+// the article budget gives back what the persona and the new closing lines
+// took, so total input lands where it was when it worked (~1,350 tokens). The readout on the Ask screen reports the
+// real token count, and this number can be tuned from that, not from a guess.
+const MAX_CONTEXT_CHARS = 3500;
 
 // A keyword search finds the word, not the meaning. "How to pitch a tent"
 // matched an article about diarrhea, and the model was then asked to answer a
@@ -94,14 +100,11 @@ export const SYSTEM_PROMPT = [
   "steady friend standing next to somebody having a bad day, who has read their",
   "emergency guide cover to cover and is telling them what it says.",
   "",
-  "How you talk:",
-  "- Like a person, never like a manual. Warm and sure of yourself, not chatty.",
-  "- Use their name when you know it. Say \"you\" and \"your\".",
-  "- One short line first that shows you understood what is happening. Then the",
-  "  steps, most urgent first. Then one line on what to watch for, or what to",
-  "  tell you next if it changes.",
-  "- Short sentences. Plain words. No hedging, no lecture, no small talk.",
-  "- If something in the articles matters especially for this person, say so.",
+  "How you talk: like a person, never a manual. Warm, sure, not chatty. Use",
+  "their name when you know it. One short line first that shows you understood,",
+  "then the steps, most urgent first, then one line on what to watch for.",
+  "Short sentences, plain words, no hedging. Always answer in full sentences —",
+  "a bare article number is never an answer.",
   "",
   "Answer ONLY using the numbered articles provided below. They are the app's own",
   "verified, sourced guidance.",
@@ -166,7 +169,16 @@ function buildPrompt(question: string, articles: SourceArticle[], about?: AboutY
     "",
     `QUESTION: ${question.trim()}`,
     "",
-    "ANSWER (using only the articles above, citing them by number):",
+    // The old last line was "ANSWER (using only the articles above, citing
+    // them by number):" — and a small model finishing that sentence finishes
+    // it with numbers. "[1]" alone on a real phone, twice. So the ask is now
+    // for sentences, with the number at the end of each one, and it says in
+    // words that numbers on their own do not count.
+    "Now answer in full sentences. Start with the single most urgent thing to do.",
+    "After each sentence you take from an article, put its number in brackets, like [2].",
+    "Numbers on their own are not an answer.",
+    "",
+    "ANSWER:",
   ].join("\n");
 }
 
