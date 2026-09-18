@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import { TopoLines } from '@/components/topo-lines';
 
+import { BuildStamp } from '@/components/build-stamp';
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
 import { MaxContentWidth, Spacing } from '@/constants/theme';
@@ -577,6 +578,8 @@ export default function HomeScreen() {
               <Text style={[styles.footer, { color: c.onBgSoft }]}>
                 GuideHand is a reference, not a substitute for emergency services or medical care.
               </Text>
+
+              <BuildStamp color={c.onBgSoft} />
             </>
           )}
         </View>
