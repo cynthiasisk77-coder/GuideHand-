@@ -11,6 +11,8 @@ import { Fonts } from '@/constants/calm';
 import { AI_NAME, buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
 import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
+import { requestUnlock } from '@/lib/deviceLock';
+import { isProfileUnlocked, loadProfileAccess, markProfileUnlocked, ProfileAccess } from '@/lib/profileAccess';
 import { readAloud, stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
@@ -135,6 +137,15 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // undefined until read, so the first answer does not decide for itself.
   const [speaks, setSpeaks] = useState<boolean | undefined>(undefined);
   const greeted = useRef(false);
+  // Whether Max may read the profile right now. The profile itself is always
+  // loaded — that is how the screen knows one exists — but it is only handed to
+  // Max when the About You setting allows it, or the phone has been unlocked
+  // during this run of the app.
+  const [access, setAccess] = useState<ProfileAccess | undefined>(undefined);
+  const [profileOpen, setProfileOpen] = useState(isProfileUnlocked());
+  const [unlocking, setUnlocking] = useState(false);
+  const mayUseProfile = access === 'always' || profileOpen;
+  const usable = mayUseProfile ? about : undefined;
 
   useEffect(() => {
     let alive = true;
@@ -155,6 +166,24 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       alive = false;
     };
   }, []);
+
+  useEffect(() => {
+    let alive = true;
+    loadProfileAccess().then((v) => alive && setAccess(v));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const unlockForMax = async () => {
+    setUnlocking(true);
+    const result = await requestUnlock(`Let ${AI_NAME} use your details`);
+    if (result.ok || result.reason === 'unavailable') {
+      markProfileUnlocked();
+      setProfileOpen(true);
+    }
+    setUnlocking(false);
+  };
 
   const setSpeaksAndRemember = (next: boolean) => {
     setSpeaks(next);
@@ -185,7 +214,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     generationConfig: { maxNewTokens: 320 },
   });
 
-  const firstName = about?.name.trim().split(/\s+/)[0] ?? '';
+  const firstName = usable?.name.trim().split(/\s+/)[0] ?? '';
   const greeting = firstName
     ? `Hi ${firstName} — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`
     : `Hi — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`;
@@ -194,10 +223,10 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // profile has been read, so it does not greet a stranger and then learn her
   // name a moment later.
   useEffect(() => {
-    if (!llm.isReady || speaks !== true || about === undefined || greeted.current) return;
+    if (!llm.isReady || speaks !== true || about === undefined || access === undefined || greeted.current) return;
     greeted.current = true;
     void readAloud(greeting, {});
-  }, [llm.isReady, speaks, about, greeting]);
+  }, [llm.isReady, speaks, about, access, greeting]);
 
   // Written the first time this model is usable, so the next open knows the
   // file is already here and says so.
@@ -211,7 +240,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
   const ask = useCallback(async (spoken?: string) => {
     const asked = (spoken ?? question).trim();
-    const context = buildAskContext(asked, about);
+    const context = buildAskContext(asked, usable);
 
     // The safety rule: nothing relevant found means the model is never asked.
     if (context.empty) {
@@ -247,7 +276,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       // answer anyway — show them rather than showing nothing.
       setPhase({ kind: 'answered', answer: '', articles: context.articles });
     }
-  }, [question, llm, about]);
+  }, [question, llm, usable]);
 
   const openArticle = (article: SourceArticle) => {
     router.push({
@@ -331,6 +360,22 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
         * in, and there was nothing anywhere near the question box to say it
         * existed.
         */}
+      {about && hasAnything(about) && !mayUseProfile && access !== undefined ? (
+        <Pressable
+          accessibilityRole="button"
+          disabled={unlocking}
+          onPress={unlockForMax}
+          style={({ pressed }) => [
+            styles.tellIt,
+            { backgroundColor: c.plumSoft, borderColor: c.plum, opacity: pressed || unlocking ? 0.7 : 1 },
+          ]}>
+          <Icon name="lock" size={16} color={c.plumText} />
+          <Text style={[styles.tellItText, { color: c.plumText }]}>
+            {AI_NAME} is answering without your details. Unlock to let him use them →
+          </Text>
+        </Pressable>
+      ) : null}
+
       {about && !hasAnything(about) ? (
         <Pressable
           accessibilityRole="button"
