@@ -9,6 +9,8 @@
 // texted, emailed, and left on other people's phones, so anything that rides
 // along by default eventually ends up somewhere nobody chose.
 
+import { deflateSync, inflateSync, strFromU8, strToU8 } from 'fflate';
+
 export const FAMILY_PLAN_KEY = 'guidehand.family-plan.v1';
 
 export const PLAN_FORMAT = 'guidehand-family-plan';
@@ -296,7 +298,67 @@ export function planGaps(plan: FamilyPlan): string[] {
  */
 export const PLAN_CODE_LIMIT = 1400;
 
+// The old code. Still read, never written: codes already on people's screens
+// and in their photos keep working.
 const PLAN_CODE_PREFIX = "guidehand-plan:";
+
+/**
+ * Where a plan code points. "The QR code says no usable data is found when
+ * you scan it." It did: the code was a GuideHand-only string, and a phone's
+ * camera only knows what to do with web links, contacts, Wi-Fi and the like.
+ * So the code is now a link. A camera opens it; the app claims this exact
+ * path, so on a phone with GuideHand it opens straight into the app; on one
+ * without, a small page explains what it is. The plan rides in the # part of
+ * the link, which browsers never send to the server — so nothing personal
+ * leaves the phone even when it is opened in a browser.
+ */
+export const PLAN_LINK_BASE = "https://cynthiasisk77-coder.github.io/GuideHand-/plan/";
+const PLAN_LINK_PATH = "/GuideHand-/plan";
+
+// Base64url without Buffer or atob, which neither Hermes nor the web build can
+// be relied on to share. Alphabet from RFC 4648 §5; no padding, so the payload
+// is clean in a URL fragment and in a QR byte stream.
+const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+function toBase64Url(bytes: Uint8Array): string {
+  let out = "";
+  for (let i = 0; i < bytes.length; i += 3) {
+    const a = bytes[i], b = bytes[i + 1], c = bytes[i + 2];
+    const n = (a << 16) | ((b ?? 0) << 8) | (c ?? 0);
+    out += B64[(n >> 18) & 63] + B64[(n >> 12) & 63];
+    out += b === undefined ? "" : B64[(n >> 6) & 63];
+    out += c === undefined ? "" : B64[n & 63];
+  }
+  return out;
+}
+function fromBase64Url(text: string): Uint8Array | undefined {
+  const clean = text.replace(/[^A-Za-z0-9\-_]/g, "");
+  if (clean.length % 4 === 1) return undefined;
+  const bytes: number[] = [];
+  for (let i = 0; i < clean.length; i += 4) {
+    const v = [0, 1, 2, 3].map((k) => (i + k < clean.length ? B64.indexOf(clean[i + k]) : -1));
+    if (v[0] < 0 || v[1] < 0) return undefined;
+    const n = (v[0] << 18) | (v[1] << 12) | ((v[2] < 0 ? 0 : v[2]) << 6) | (v[3] < 0 ? 0 : v[3]);
+    bytes.push((n >> 16) & 255);
+    if (v[2] >= 0) bytes.push((n >> 8) & 255);
+    if (v[3] >= 0) bytes.push(n & 255);
+  }
+  return Uint8Array.from(bytes);
+}
+
+/** The compact payload: the plan, deflated, as base64url. */
+function encodePlanPayload(plan: FamilyPlan): string {
+  const json = JSON.stringify(planForSharing(plan));
+  return toBase64Url(deflateSync(strToU8(json), { level: 9 }));
+}
+function decodePlanPayload(payload: string): string | undefined {
+  const bytes = fromBase64Url(payload);
+  if (!bytes || bytes.length === 0) return undefined;
+  try {
+    return strFromU8(inflateSync(bytes));
+  } catch {
+    return undefined;
+  }
+}
 
 /**
  * The plan as a scannable code — compact, and carrying only what the file
@@ -304,7 +366,7 @@ const PLAN_CODE_PREFIX = "guidehand-plan:";
  * details nobody switched on do not travel here either.
  */
 export function buildPlanCode(plan: FamilyPlan): string {
-  return PLAN_CODE_PREFIX + JSON.stringify(planForSharing(plan));
+  return `${PLAN_LINK_BASE}#${encodePlanPayload(plan)}`;
 }
 
 /** Whether that code is small enough to be worth showing. */
@@ -319,8 +381,22 @@ export function planCodeFits(plan: FamilyPlan): boolean {
  */
 export function parsePlanCode(raw: string): FamilyPlan | undefined {
   const text = raw.trim();
-  if (!text.startsWith(PLAN_CODE_PREFIX)) return undefined;
-  const body = text.slice(PLAN_CODE_PREFIX.length);
+  if (!text) return undefined;
+
+  let body: string | undefined;
+  if (text.startsWith(PLAN_CODE_PREFIX)) {
+    // The old code, still honoured.
+    body = text.slice(PLAN_CODE_PREFIX.length);
+  } else if (text.includes(PLAN_LINK_PATH) && text.includes("#")) {
+    // The link a camera reads, or the app is opened with.
+    body = decodePlanPayload(text.slice(text.indexOf("#") + 1));
+  } else if (/^[A-Za-z0-9\-_]{16,}$/.test(text)) {
+    // Just the payload — what the app hands itself after being opened by
+    // the link, with the address already stripped off.
+    body = decodePlanPayload(text);
+  }
+  if (!body) return undefined;
+
   // Reuse the file reader's validation rather than trusting a second path:
   // one definition of what a real plan looks like, not two that can drift.
   const result = readShareFile(

@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.guidehand.emergencyprep",
+      "sha256_cert_fingerprints": [
+        "9F:3B:97:62:82:44:54:2D:17:49:EC:C1:93:82:CD:2E:75:CF:73:28:8D:7D:3A:69:4D:AC:5E:60:7C:D3:2C:E9"
+      ]
+    }
+  }
+]

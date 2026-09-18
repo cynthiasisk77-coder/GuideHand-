@@ -1,0 +1,4 @@
+# GitHub Pages runs Jekyll, which skips dot-directories unless told not to.
+# Android reads /.well-known/assetlinks.json to let the app open plan links directly.
+include:
+  - .well-known

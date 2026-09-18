@@ -20,7 +20,24 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "versionCode": 5
+      "versionCode": 5,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "cynthiasisk77-coder.github.io",
+              "pathPrefix": "/GuideHand-/plan"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "web": {
       "output": "static",
@@ -76,7 +93,7 @@
       [
         "expo-speech-recognition",
         {
-          "microphonePermission": "GuideHand uses the microphone so you can ask your question out loud instead of typing it \u2014 useful when your hands are busy or it is dark.",
+          "microphonePermission": "GuideHand uses the microphone so you can ask your question out loud instead of typing it — useful when your hands are busy or it is dark.",
           "speechRecognitionPermission": "GuideHand turns what you say into text so it can look up your own articles. With on-device recognition this never leaves the phone.",
           "androidSpeechServicePackages": [
             "com.google.android.googlequicksearchbox"

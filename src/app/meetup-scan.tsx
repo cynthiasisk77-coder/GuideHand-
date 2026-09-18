@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { secureGetItem, secureSetItem } from '@/lib/secureData';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 
@@ -32,10 +32,18 @@ export default function MeetupScanScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
 
+  // A plan can arrive here without the camera: the family-plan link, opened
+  // from a phone's own camera app or a message, lands on this screen with the
+  // plan's payload in `code`. Same screen, same "Save this plan" card.
+  const { code } = useLocalSearchParams<{ code?: string }>();
+  // When the screen was opened by a plan link, the plan is known before the
+  // first render, so it is the state's starting value rather than something an
+  // effect sets a frame later.
+  const linkedPlan = code ? parsePlanCode(decodeURIComponent(code)) : undefined;
   const [permission, requestPermission] = useCameraPermissions();
   const [scanned, setScanned] = useState<SharedPlace | null>(null);
-  const [rejected, setRejected] = useState(false);
-  const [scannedPlan, setScannedPlan] = useState<FamilyPlan | undefined>(undefined);
+  const [rejected, setRejected] = useState<boolean>(Boolean(code) && !linkedPlan);
+  const [scannedPlan, setScannedPlan] = useState<FamilyPlan | undefined>(linkedPlan);
   const [planSaved, setPlanSaved] = useState('');
   const [saved, setSaved] = useState(false);
   const [cameraFailed, setCameraFailed] = useState(false);
@@ -45,12 +53,12 @@ export default function MeetupScanScreen() {
   // permission and the effect would ask again, forever.
   const askedRef = useRef(false);
   useEffect(() => {
-    if (askedRef.current) return;
+    if (askedRef.current || code) return;
     if (permission && !permission.granted && permission.canAskAgain) {
       askedRef.current = true;
       requestPermission().catch(() => {});
     }
-  }, [permission, requestPermission]);
+  }, [permission, requestPermission, code]);
 
   const handleScan = useCallback(
     ({ data }: { data: string }) => {
