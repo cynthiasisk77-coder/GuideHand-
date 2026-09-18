@@ -12,6 +12,7 @@ import { StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import * as Updates from 'expo-updates';
 
+import { KeyboardReadout } from '@/components/keyboard-readout';
 import { Fonts } from '@/constants/calm';
 
 function builtOn(): string | undefined {
@@ -26,11 +27,14 @@ export function BuildStamp({ color }: { color: string }) {
   const version = Constants.expoConfig?.version ?? '1.0.0';
   const built = builtOn();
   return (
-    <Text style={[styles.stamp, { color }]} selectable>
-      GuideHand {version}
-      {built ? `\nThis copy was built ${built}` : '\nRunning from the development server'}
-      {built && !Updates.isEmbeddedLaunch ? '\n(from a downloaded update, not the installed app)' : ''}
-    </Text>
+    <>
+      <Text style={[styles.stamp, { color }]} selectable>
+        GuideHand {version}
+        {built ? `\nThis copy was built ${built}` : '\nRunning from the development server'}
+        {built && !Updates.isEmbeddedLaunch ? '\n(from a downloaded update, not the installed app)' : ''}
+      </Text>
+      <KeyboardReadout color={color} />
+    </>
   );
 }
 

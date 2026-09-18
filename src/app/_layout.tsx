@@ -8,6 +8,7 @@ import { useColorScheme } from 'react-native';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { HeaderBack } from '@/components/header-back';
+import { KeyboardProvider } from '@/components/keyboard-provider';
 import { Calm, Fonts } from '@/constants/calm';
 import { loadInstalledPacksIntoRegistry } from '@/lib/packs';
 import { encryptLegacyData } from '@/lib/secureData';
@@ -56,40 +57,42 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <Stack
-        screenOptions={{
-          headerTintColor: c.text,
-          headerStyle: { backgroundColor: c.headerBg },
-          headerShadowVisible: false,
-          headerTitleStyle: { fontWeight: '700', color: c.text, fontFamily: Fonts.displaySemibold },
-          // Our own back button on every screen, not the navigator's. The
-          // built-in one takes itself away whenever React Navigation decides
-          // there is no history to go back to, and a screen with no way out is
-          // worse than a button that occasionally just goes home.
-          headerBackVisible: false,
-          headerLeft: () => <HeaderBack color={c.text} />,
-        }}>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="group/[group]" options={{ title: 'Category' }} />
-        <Stack.Screen name="category/[category]" options={{ title: 'Category' }} />
-        <Stack.Screen name="article/[category]/[topic]" options={{ title: 'Article' }} />
-        <Stack.Screen name="supply-cache" options={{ title: 'Home Supplies' }} />
-        <Stack.Screen name="medicine-tracker" options={{ title: 'Medicine Tracker' }} />
-        <Stack.Screen name="document-photos" options={{ title: 'Document Photos' }} />
-        <Stack.Screen name="family-meetup" options={{ title: 'Family Meetup' }} />
-        <Stack.Screen name="meetup-scan" options={{ title: 'Scan a Code' }} />
-        <Stack.Screen name="content-packs" options={{ title: 'Content Packs' }} />
-        <Stack.Screen name="backup" options={{ title: 'Back Up & Restore' }} />
-        <Stack.Screen name="ask" options={{ title: 'Ask GuideHand' }} />
-        <Stack.Screen name="inventory" options={{ title: 'Supply Inventory' }} />
-        <Stack.Screen name="maps" options={{ title: 'Offline Maps' }} />
-        <Stack.Screen name="family-plan" options={{ title: 'Family Plan' }} />
-        <Stack.Screen name="home-record" options={{ title: 'Your Home' }} />
-        <Stack.Screen name="my-notes" options={{ title: 'What You Know' }} />
-        <Stack.Screen name="about-you" options={{ title: 'About You' }} />
-      </Stack>
-    </ThemeProvider>
+    <KeyboardProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <AnimatedSplashOverlay />
+        <Stack
+          screenOptions={{
+            headerTintColor: c.text,
+            headerStyle: { backgroundColor: c.headerBg },
+            headerShadowVisible: false,
+            headerTitleStyle: { fontWeight: '700', color: c.text, fontFamily: Fonts.displaySemibold },
+            // Our own back button on every screen, not the navigator's. The
+            // built-in one takes itself away whenever React Navigation decides
+            // there is no history to go back to, and a screen with no way out is
+            // worse than a button that occasionally just goes home.
+            headerBackVisible: false,
+            headerLeft: () => <HeaderBack color={c.text} />,
+          }}>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="group/[group]" options={{ title: 'Category' }} />
+          <Stack.Screen name="category/[category]" options={{ title: 'Category' }} />
+          <Stack.Screen name="article/[category]/[topic]" options={{ title: 'Article' }} />
+          <Stack.Screen name="supply-cache" options={{ title: 'Home Supplies' }} />
+          <Stack.Screen name="medicine-tracker" options={{ title: 'Medicine Tracker' }} />
+          <Stack.Screen name="document-photos" options={{ title: 'Document Photos' }} />
+          <Stack.Screen name="family-meetup" options={{ title: 'Family Meetup' }} />
+          <Stack.Screen name="meetup-scan" options={{ title: 'Scan a Code' }} />
+          <Stack.Screen name="content-packs" options={{ title: 'Content Packs' }} />
+          <Stack.Screen name="backup" options={{ title: 'Back Up & Restore' }} />
+          <Stack.Screen name="ask" options={{ title: 'Ask GuideHand' }} />
+          <Stack.Screen name="inventory" options={{ title: 'Supply Inventory' }} />
+          <Stack.Screen name="maps" options={{ title: 'Offline Maps' }} />
+          <Stack.Screen name="family-plan" options={{ title: 'Family Plan' }} />
+          <Stack.Screen name="home-record" options={{ title: 'Your Home' }} />
+          <Stack.Screen name="my-notes" options={{ title: 'What You Know' }} />
+          <Stack.Screen name="about-you" options={{ title: 'About You' }} />
+        </Stack>
+      </ThemeProvider>
+    </KeyboardProvider>
   );
 }
