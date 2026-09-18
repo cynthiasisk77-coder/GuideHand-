@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ActivityIndicator, Alert, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 import * as ImagePicker from 'expo-image-picker';
 
 import { Icon } from '@/components/icon';
@@ -27,7 +27,6 @@ import { secureGetItem, secureSetItem } from '@/lib/secureData';
 export default function HomeRecordScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
 
   const [items, setItems] = useState<HomeItem[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -134,8 +133,8 @@ export default function HomeRecordScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Your Home' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
@@ -343,7 +342,7 @@ export default function HomeRecordScreen() {
             Encrypted on this device and included in your backups. Nothing here is sent anywhere.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

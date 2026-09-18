@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 
@@ -63,7 +63,6 @@ export default function MapsScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
   const insets = useSafeAreaInsets();
-  const keyboard = useKeyboardRoom();
 
   const [regions, setRegions] = useState<MapRegion[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -270,8 +269,8 @@ export default function MapsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Offline Maps' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, { paddingBottom: insets.bottom + 40 + keyboard }]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={[styles.scroll, { paddingBottom: insets.bottom + 40 }]}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
@@ -469,7 +468,7 @@ export default function MapsScreen() {
             that can expire out from under you.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

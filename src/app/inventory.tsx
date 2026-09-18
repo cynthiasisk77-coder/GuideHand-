@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Icon } from '@/components/icon';
@@ -87,7 +87,6 @@ export default function InventoryScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
 
   const [items, setItems] = useState<InventoryItem[]>(() =>
     INVENTORY_STARTER_ITEMS.map(starterToItem)
@@ -180,8 +179,8 @@ export default function InventoryScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Supply Inventory' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
@@ -409,7 +408,7 @@ export default function InventoryScreen() {
             Saved on this device only, and included in your backups. Nothing here is sent anywhere.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

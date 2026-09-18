@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { Pressable, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 import { notePersonalDataChanged } from '@/lib/autoBackup';
 import { secureGetItem, secureSetItem } from '@/lib/secureData';
 
@@ -30,7 +30,6 @@ export default function MedicineTrackerScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
   const [entries, setEntries] = useState<MedicineEntry[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [nameDraft, setNameDraft] = useState('');
@@ -84,8 +83,8 @@ export default function MedicineTrackerScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Medicine Tracker' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.sage }]}>
@@ -190,7 +189,7 @@ export default function MedicineTrackerScreen() {
             Saved on this device only, encrypted. Nothing here is sent anywhere.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

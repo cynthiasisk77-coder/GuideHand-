@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, useColorScheme, View } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet, Switch, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 
 import QRCode from 'react-native-qrcode-svg';
 
@@ -33,7 +33,6 @@ export default function FamilyPlanScreen() {
   const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
 
   const [plan, setPlan] = useState<FamilyPlan>(EMPTY_PLAN);
   const [loaded, setLoaded] = useState(false);
@@ -176,8 +175,8 @@ export default function FamilyPlanScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Family Plan' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
@@ -536,7 +535,7 @@ export default function FamilyPlanScreen() {
               : 'This browser has no secure keychain, so the plan is stored in the clear here. On the phone app it is encrypted.'}
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

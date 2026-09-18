@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
+import { ActivityIndicator, Platform, Pressable, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -59,7 +59,6 @@ function formatWhen(iso: string): string {
 export default function BackupScreen() {
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
 
   const [summary, setSummary] = useState<{ label: string; count: number }[] | null>(null);
   const [choice, setChoice] = useState<Choice>('everything');
@@ -192,8 +191,8 @@ export default function BackupScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'Back Up & Restore' }} />
-      <ScrollView
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View style={[styles.headerBlock, { backgroundColor: c.headerBg, borderWidth: 1, borderColor: c.cardBorder, borderLeftWidth: 5, borderLeftColor: c.blue }]}>
@@ -475,7 +474,7 @@ export default function BackupScreen() {
             The backup file is yours. GuideHand has no account, no server, and never sees it.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }

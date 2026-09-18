@@ -13,7 +13,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
 import { Stack } from 'expo-router';
 
-import { useKeyboardRoom } from '@/hooks/use-keyboard-room';
+import { KeyboardAwareScrollView } from '@/components/keyboard-aware-scroll';
 
 import { Icon } from '@/components/icon';
 import { Calm, Fonts } from '@/constants/calm';
@@ -37,7 +37,6 @@ const SCROLL_TOP = 14;
 export default function MyNotesScreen() {
   const colorScheme = useColorScheme();
   const c = Calm[colorScheme === 'dark' ? 'dark' : 'light'];
-  const keyboard = useKeyboardRoom();
 
   const [notes, setNotes] = useState<MyNote[]>([]);
   const [open, setOpen] = useState<string | undefined>(undefined);
@@ -109,9 +108,9 @@ export default function MyNotesScreen() {
   return (
     <View style={[styles.container, { backgroundColor: c.bg }]}>
       <Stack.Screen options={{ title: 'What You Know' }} />
-      <ScrollView
+      <KeyboardAwareScrollView
         ref={scroller}
-        contentContainerStyle={[styles.scroll, keyboard > 0 ? { paddingBottom: keyboard + 24 } : null]}
+        contentContainerStyle={styles.scroll}
         keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <View
@@ -229,7 +228,7 @@ export default function MyNotesScreen() {
             anywhere, and the AI answers from it without a signal.
           </Text>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 }
