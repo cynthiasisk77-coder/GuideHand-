@@ -42,6 +42,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.3",
+    "react-native-audio-api": "^0.13.5",
     "react-native-blob-util": "^0.24.11",
     "react-native-executorch": "^0.10.2",
     "react-native-gesture-handler": "~2.32.0",

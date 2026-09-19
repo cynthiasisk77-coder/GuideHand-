@@ -466,6 +466,13 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
         </Text>
       </Pressable>
 
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => router.push({ pathname: '/max-voice' })}
+        style={({ pressed }) => [styles.voiceLink, { opacity: pressed ? 0.6 : 1 }]}>
+        <Text style={[styles.voiceLinkText, { color: c.blue }]}>Change {AI_NAME}’s voice →</Text>
+      </Pressable>
+
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <View style={styles.inputWrap}>
           <TextInput
@@ -643,6 +650,8 @@ const styles = StyleSheet.create({
   greetText: { flex: 1, fontSize: 14, lineHeight: 20, fontFamily: Fonts.bodySemibold },
   speaksRow: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 6, paddingHorizontal: 4, marginBottom: 8 },
   speaksText: { flex: 1, fontSize: 12.5, fontFamily: Fonts.bodySemibold },
+  voiceLink: { paddingHorizontal: 4, paddingBottom: 12, marginTop: -4 },
+  voiceLinkText: { fontSize: 12.5, fontFamily: Fonts.bodySemibold, textDecorationLine: 'underline' },
 
   note: { fontSize: 11, lineHeight: 15, fontFamily: Fonts.mono, textAlign: 'center', marginTop: 6, marginBottom: 2 },
 

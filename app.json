@@ -99,6 +99,15 @@
             "com.google.android.googlequicksearchbox"
           ]
         }
+      ],
+      [
+        "react-native-audio-api",
+        {
+          "disableFFmpeg": true,
+          "androidForegroundService": false,
+          "androidPermissions": [],
+          "iosBackgroundMode": false
+        }
       ]
     ],
     "experiments": {

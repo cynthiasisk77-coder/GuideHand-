@@ -20,6 +20,9 @@
 
 import * as Speech from 'expo-speech';
 
+import { isNaturalVoiceReady, prepareNaturalVoice, speakNaturally, stopNatural } from '@/lib/naturalVoice';
+import { loadVoiceChoice, voiceChoiceNow, type VoiceChoice } from '@/lib/voiceChoice';
+
 /**
  * Slower than the default. A person following a step while doing it needs time
  * to act between sentences, and a panicked person needs it more.
@@ -37,6 +40,8 @@ export interface ReadOptions {
   onDone?: () => void;
   /** Called when the phone cannot speak — usually no voice data installed. */
   onError?: () => void;
+  /** Use this voice instead of the chosen one. For the "Hear it" buttons. */
+  voice?: VoiceChoice;
 }
 
 // Each call to readAloud claims a new number. A chunk that finishes after
@@ -49,7 +54,8 @@ let currentRun = 0;
  * each other is worse than silence.
  */
 export async function readAloud(text: string, options: ReadOptions = {}): Promise<void> {
-  const chunks = chunkForSpeech(tidyForSpeech(text));
+  const tidy = tidyForSpeech(text);
+  const chunks = chunkForSpeech(tidy);
   if (chunks.length === 0) {
     options.onDone?.();
     return;
@@ -59,6 +65,7 @@ export async function readAloud(text: string, options: ReadOptions = {}): Promis
   // how the first chunk gets cancelled by the thing that was meant to clear
   // the way for it.
   const run = ++currentRun;
+  stopNatural();
   try {
     await Speech.stop();
   } catch {
@@ -66,10 +73,33 @@ export async function readAloud(text: string, options: ReadOptions = {}): Promis
   }
   if (run !== currentRun) return;
 
-  speakFrom(chunks, 0, run, options);
+  const choice = options.voice ?? voiceChoiceNow() ?? (await loadVoiceChoice());
+  if (run !== currentRun) return;
+
+  if (choice.kind === 'natural') {
+    // Load it if the files are here and it is not in memory yet — a few
+    // seconds, once per run of the app. Never a download: only the voice
+    // screen may start one of those.
+    const ready = isNaturalVoiceReady() || (await prepareNaturalVoice({ allowDownload: false }));
+    if (run !== currentRun) return;
+    if (ready) {
+      void speakNaturally(tidy, choice.voice, {
+        onDone: () => {
+          if (run === currentRun) options.onDone?.();
+        },
+        // The phone's own voice is the fallback, so something is heard.
+        onError: () => {
+          if (run === currentRun) speakFrom(chunks, 0, run, options, undefined);
+        },
+      });
+      return;
+    }
+  }
+
+  speakFrom(chunks, 0, run, options, choice.kind === 'phone' ? choice.identifier : undefined);
 }
 
-function speakFrom(chunks: string[], index: number, run: number, options: ReadOptions): void {
+function speakFrom(chunks: string[], index: number, run: number, options: ReadOptions, voice: string | undefined): void {
   if (run !== currentRun) return;
   if (index >= chunks.length) {
     options.onDone?.();
@@ -81,7 +111,9 @@ function speakFrom(chunks: string[], index: number, run: number, options: ReadOp
     // Named explicitly. A phone with no default speech locale set picks
     // nothing and says nothing, which looks exactly like a broken button.
     language: 'en-US',
-    onDone: () => speakFrom(chunks, index + 1, run, options),
+    // The phone's identifier for the chosen voice. Left out, the phone picks.
+    voice,
+    onDone: () => speakFrom(chunks, index + 1, run, options, voice),
     onStopped: () => {
       // A stop is deliberate: report finished, but do not queue what is left.
       if (run === currentRun) options.onDone?.();
@@ -96,6 +128,7 @@ export function stopReading(): void {
   // Invalidating the run first means any chunk still in flight will not queue
   // its successor, even though stop() itself takes a moment to land.
   currentRun += 1;
+  stopNatural();
   void Speech.stop().catch(() => {});
 }
 
@@ -116,6 +149,7 @@ export async function isReading(): Promise<boolean> {
  * broken button and a phone that simply has no voice yet.
  */
 export async function hasVoiceAsync(): Promise<boolean> {
+  if (voiceChoiceNow()?.kind === 'natural' && isNaturalVoiceReady()) return true;
   try {
     const voices = await Speech.getAvailableVoicesAsync();
     return voices.length > 0;

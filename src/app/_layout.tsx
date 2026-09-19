@@ -91,6 +91,7 @@ export default function RootLayout() {
           <Stack.Screen name="home-record" options={{ title: 'Your Home' }} />
           <Stack.Screen name="my-notes" options={{ title: 'What You Know' }} />
           <Stack.Screen name="about-you" options={{ title: 'About You' }} />
+          <Stack.Screen name="max-voice" options={{ title: "Max's Voice" }} />
         </Stack>
       </ThemeProvider>
     </KeyboardProvider>
