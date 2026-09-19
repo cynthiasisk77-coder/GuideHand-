@@ -76,6 +76,20 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       published: true,
     },
     {
+      id: "field-fixes",
+      name: "Field Fixes & Improvised Repairs",
+      summary:
+        "Fast fixes for when things break and the store is closed: leaking lines and radiators, a snapped belt, a flat with no jack, no pump, no light, no coat. From the Army repair, rigging, and survival manuals where they exist, and marked \"not yet sourced\" where a trick is only hand-me-down.",
+      version: 1,
+      bytes: 27665,
+      articleCount: 12,
+      license: "Original text written for GuideHand. Sources named on every article: U.S. Army field manuals (FM 4-30.31, FM 5-125, ATP 3-50.21) and MedlinePlus. Lines that come only from hand-me-down field practice say so.",
+      attribution: "U.S. Army field manuals FM 4-30.31, FM 5-125, ATP 3-50.21; MedlinePlus",
+      icon: "tools",
+      url: `${PACK_BASE}/field-fixes.json`,
+      published: true,
+    },
+    {
       id: "disaster-response",
       name: "Disaster Response",
       summary:

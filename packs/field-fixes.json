@@ -1,0 +1,204 @@
+{
+  "id": "field-fixes",
+  "name": "Field Fixes & Improvised Repairs",
+  "version": 1,
+  "license": "Original text written for GuideHand. Sources named on every article: U.S. Army field manuals (FM 4-30.31, FM 5-125, ATP 3-50.21) and MedlinePlus. Lines that come only from hand-me-down field practice say so.",
+  "attribution": "U.S. Army field manuals FM 4-30.31, FM 5-125, ATP 3-50.21; MedlinePlus",
+  "articles": [
+    {
+      "title": "Siphoning fuel or water without a pump, and never by mouth",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Gasoline poisoning\" (medical encyclopedia)",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A siphon needs two things: a hose full of liquid with no air in it, and an outlet that sits lower than the surface of the liquid you are draining. Once both are true, gravity does the work and keeps doing it until the source runs dry or the outlet rises above the surface. See Manual siphon-pump legal/safety boundaries for the check-ball hose that makes this easy, and for why the cans go on the ground.",
+        "The submersion start: coil the whole hose into the barrel, tank, or flooded space until it fills and the bubbles stop. Plug the end tightly with a thumb, lift that end out and down below the level of the liquid, and let go. This works for water and for fuel in an open container.",
+        "The two-hose start, for a tank you cannot dunk a hose into (hand-me-down, not yet checked): run the long hose deep into the tank and down to your can; push a second, short hose a couple of inches into the filler neck; pack a damp rag tightly around both where they enter the neck; blow hard and steadily into the short hose. The pressure pushes fuel up the long hose, and once it is flowing downhill it keeps flowing. Your mouth touches only the short hose, which never holds fuel.",
+        "Never siphon gasoline, diesel, or kerosene by mouth. People have swallowed and breathed in fuel doing exactly that. Gasoline swallowed or breathed can burn the throat and food pipe and cause vomiting, collapse, seizures, coma, and breathing trouble.",
+        "If it happens anyway: get the person to fresh air if they breathed it. Do not make them vomit. If they swallowed it and are awake and alert, give water or milk; nothing by mouth if they are drowsy. Flush skin or eyes with plenty of water for at least 15 minutes. Poison Help is 1-800-222-1222 when you have signal; otherwise get them to care by whatever route actually works. See Unknown swallowed poison, no induced vomiting and Poison exposure by eye, skin, inhalation.",
+        "Fuel vapour plus a spark is a fire. Siphon outdoors, away from flames, running engines, and anyone smoking."
+      ]
+    },
+    {
+      "title": "Leaking hoses, lines, and fittings: tape, wire, string, and a split hose",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "These are the Army's own field repairs for a vehicle that has to keep moving. They hold long enough to get home, not forever, and every one of them is followed by a real repair when parts can be had. Engine off and cool before touching a hose; fuel and oil lines are handled with no flame or spark anywhere near.",
+        "A cracked low-pressure oil or fuel line: wrap the crack tightly with friction tape and hold the tape in place with wire wound over it; the wire is what lets the tape stand the pressure. Or clean the line, cover just the crack with a couple of wraps of rubber electrical tape, follow with many wraps of aluminum tape, then wire or hose clamps over the whole thing.",
+        "The split-hose sleeve, for a crack you cannot tape well: take a piece of reinforced hose whose inside diameter matches the outside of the leaking tube, split it lengthwise, coat the inside with sealant if you have any, slip it over the leak with the split on the side opposite the leak, and clamp it down with hose clamps. More clamps make it stronger.",
+        "A fitting that weeps at the flare: wind string or a strip of rag tightly around the line behind the flare, winding clockwise, the same direction the nut turns to tighten. Slide the nut back over it, screw it on, and tighten it down against the packing with a wrench; the string becomes the gasket. Several wraps of thread-seal tape do the same job.",
+        "A leaking radiator or heater hose: let the engine cool, wrap the leak with electrical tape or reinforcing tape, refill the coolant, and leave the radiator cap loose so the system cannot build the pressure that would blow the patch. Drive slowly until the hose can be replaced. A layer of plastic wrapped tight under the tape is a hand-me-down some swear by; the tape and the loose cap are what the manual counts on.",
+        "A flexible fuel line that has collapsed and starves the engine: wind thin wire around a pencil to make a coil slightly smaller than the line's inside, slide the coil off, and push it into the line. Fuel flows through the coil and the line cannot flatten.",
+        "Holes in a fuel tank or oil reservoir: the Army kit carries tapered plugs that are driven into the hole to slow the leak until a proper patch goes on; a whittled wooden peg or a rubber plug does the same. Two hand-me-downs, not yet checked: rubbing a dry bar of soap hard across a small gouge to stop a gasoline drip, and running a self-tapping sheet-metal screw with a rubber washer into a round pinhole. Tape alone does not hold on a fuel tank, because gasoline dissolves the glue.",
+        "For the pipes in the house, see Broken water pipe isolation and temp patch."
+      ]
+    },
+    {
+      "title": "Radiator leaks and an overheating engine: fold the tube, loosen the cap, drive slow",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A radiator punctured by a branch or debris: with the engine cool, cut the cooling fins away from the leaking tube and bend them aside, cut the leaking tube through, fold each cut end back about three-quarters of an inch, and press the folded ends flat with pliers. That tube is out of service and the leak is closed.",
+        "Every tube you fold takes away cooling, so the engine runs hotter; a few is fine, many is not. After any field repair to the radiator, leave the cap loose so pressure cannot build and break the repair, and drive slowly. Radiator sealant, poured in with the cap put back on, closes small pinholes and seam leaks; it is worth carrying a bottle.",
+        "Ground black pepper or a raw egg white poured into a cool radiator are hand-me-downs for pinholes, not yet checked, and an egg can clog the passages it does not seal. The Army carries bottled sealant instead. See Emergency vehicle maintenance (fluid leaks, belts, tires).",
+        "A broken fan blade makes the engine shake dangerously. On a fan with an even number of evenly spaced blades, remove the rest of the broken blade and the blade directly opposite it, and the fan runs in balance; watch the temperature, because it cools less. On an unevenly spaced fan, trim a little off the blade opposite the break, or run the whole fan lightly loaded only for short stretches.",
+        "The rule under all of it: an engine that is losing coolant is driven at low speed, with the temperature gauge watched, and stopped before it cooks. Never open a hot radiator cap; the scalding spray is the injury that comes with this repair."
+      ]
+    },
+    {
+      "title": "A broken belt: mend it, tie one, or carry a link belt",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "When the fan or alternator belt breaks and there is no spare: mend the broken belt by punching a hole in each end, putting a small-gauge wire or a bootlace through the holes, and tying it off. Refit it with just enough tension to turn the accessories.",
+        "Or substitute for it: loop fiber rope from a tarpaulin, or a length of wire, around the pulleys several times, pull it as tight as you can, and tie a square knot. See Basic knots for emergencies.",
+        "Either way, run the engine at low speed; a mended or substitute belt breaks or is thrown at high speed. It is a limp-home fix.",
+        "The Army's real answer is a link belt: a belt made of removable links that is sized to fit by adding or taking away links, carried in the repair kit. One costs little, fits many pulleys, and belongs in the glovebox of a vehicle that may have to keep running with nothing open.",
+        "Pantyhose, zip ties linked through the grooves, and nylon webbing are hand-me-downs for the same job, not yet checked. On a modern car with one long ribbed belt snaking round six pulleys, a rope rarely stays on; the link belt is what fits."
+      ]
+    },
+    {
+      "title": "Tires with no shop: plugs, a strap to seat the bead, zip-tie chains, and no jack",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A hole from a nail or a small gash is plugged with a tire plug kit, the string-and-needle kind; the patch can be made with the tire still on the vehicle, but let the air out first, because the tire must not be under pressure while it is patched. Damage bigger than about four inches cannot be patched. Never plug a sidewall. See Emergency vehicle maintenance (fluid leaks, belts, tires) for the plug steps.",
+        "A tubeless tire that has come off the bead and will not hold air while you pump (hand-me-down, not yet checked): wrap a ratchet strap around the middle of the tread, cinch it down hard so the tread squeezes in and both sidewalls push out against the rim, pump until the bead catches with a pop, then release and remove the strap before topping up. Stand clear of the strap when it lets go.",
+        "A slow leak where a rusty or dry-rotted rim meets the bead (hand-me-down): break the bead a little, smear a thick line of heavy grease or petroleum jelly along the rim edge, and reseat it. It holds air for days, not months.",
+        "Traction on ice, mud, or wet grass with nothing else (hand-me-down): thread heavy zip ties, the thick ones rated well over a hundred pounds, through the openings in the wheel and around the tire, with the blocky heads over the tread to act as studs. Drive slowly and cut them off on pavement. Floor mats jammed nubs-down under the leading edge of the spinning tire is the older version. See Emergency vehicle extraction (tow straps, winching, traction).",
+        "No jack. The Army's substitute jack is a timber longer than the distance from the axle to the ground: put one end against the axle at an angle and the other end in a shallow hole, drive the vehicle forward against it so the timber stands up straight and lifts the axle, then set the brakes and block the vehicle securely before anyone reaches under it. For a truck with dual rear wheels, run the inner wheel up onto a log or rock and the outer one hangs free. A car with an aluminum or plastic bumper is not lifted by the bumper this way; it would break.",
+        "The spare-wheel ramp, hand-me-down: lay the spare flat a couple of feet ahead of the flat tire, prop a stout plank from the ground onto the spare's rim as a ramp lined up with the axle, and drive slowly up it until the axle rests on the spare. Block the wheels. Nobody puts any part of themselves under a vehicle held up by a trick; the trick is for getting the flat off, not for working underneath.",
+        "A truck with dual rear wheels and no winch can pull itself out with its own wheel: tie one end of a rope to the wheel hub, run it between the duals and out through a hole in the wheel disk (not the hole with the valve stem), knot the end over the hub, anchor the other end, and drive slowly so the wheel winds the rope in."
+      ]
+    },
+    {
+      "title": "12-volt fixes: a loose battery clamp, a splice, and the one thing never to bypass",
+      "category": "Vehicles & Mechanics",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A battery clamp that has gone loose and will not tighten: take it off, clean the post and the clamp, lay the clamp on something flat and strike it with a hammer to squeeze the soft lead and close the hole, then refit and tighten. If it is still loose, wedge a nail or another sliver of metal between the post and the clamp and tighten onto it.",
+        "Around batteries: no smoking and no flame, because the gas a battery gives off is explosive, and keep tools and rings from bridging the terminals, because the arc burns and can wreck the electrics. Disconnect the vehicle's power before working on any wire.",
+        "Wiring: simple repairs need only electrical tape, wire nuts, some 16- or 22-gauge wire, and zip ties; a pair of pliers cuts, crimps, and strips. Softening the plastic jacket with a lighter for two seconds and sliding it off is a hand-me-down for stripping wire with nothing else; keep the flame off the copper and mind the fumes.",
+        "Never bridge a blown fuse with foil or a strand of wire. The fuse is the one part standing between a short circuit and a wiring fire; take it out of the way and the next fault burns. Find why it blew instead.",
+        "Hand-me-downs on batteries, not yet checked: a smaller AAA cell can stand in for a AA in a flashlight or radio when a wad of foil fills the gap at the flat end, since both are 1.5-volt cells, though it runs down sooner. A cordless-drill battery is an 18- to 20-volt source, not 12; it can run 12-volt gear only through a step-down converter, and connecting it straight to a 12-volt radio or charger destroys them.",
+        "For starting a car with a dead battery, see Jump-start sequence by vehicle type; household cable is not jumper cable. For keeping batteries alive and safe, see Lithium battery heat/cold/fire/storage."
+      ]
+    },
+    {
+      "title": "Light with no lantern, and making batteries last",
+      "category": "Power & Lighting",
+      "priority": "P2",
+      "sources": [
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A phone flashlight or a small LED pointed straight at people is harsh and lights one spot. Strapped face-first against a clear or milky jug of water, the light scatters through the water and fills a room with a soft glow instead (hand-me-down, and it works). It does not make the light use less battery; it makes the battery you are spending light the whole room.",
+        "Set the phone's light to its lowest setting, or use the smallest light you have, and see Phone low-power settings and battery budgeting for stretching the phone itself.",
+        "A AAA cell will run a AA device when a wad of foil fills the gap at its flat end (hand-me-down); same voltage, less time. Keep spare cells warm in a pocket in the cold; a cold cell gives less.",
+        "Never a generator, charcoal, or a fuel lamp indoors for light; see Generator carbon-monoxide safety."
+      ]
+    },
+    {
+      "title": "Water when the pump is dead: siphons, a bailer down the well, and a pipe pump",
+      "category": "Water",
+      "priority": "P1",
+      "sources": [
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "Water sitting in a rain barrel, a water heater, a flooded cellar, or a stock tank moves with a siphon and no pump at all: fill the hose completely, cap the end, drop it below the level of the water, and let go. See Siphoning fuel or water without a pump, and never by mouth, and Household pipe gravity draining for the water heater.",
+        "A well with no power: the pump you cannot run is not the only way down the hole. A bailer, sometimes called a well torpedo, is a length of pipe with a one-way valve at the bottom that opens as it sinks into the water and closes as it is pulled up, carrying a quart or two each trip on a rope. Home-made from PVC pipe, a check valve or a marble-and-flap valve at the foot, and an eyebolt at the top, it must be narrower than the well casing, clean, and tied off so it cannot be dropped down the well (hand-me-down, not yet checked). See Well-water pump manual operation (deep and shallow wells).",
+        "A pipe pump for a flooded basement or a deep barrel (hand-me-down): a length of stiff 1- to 1.5-inch pipe with a loose flap or a ball inside a coupling at the bottom. Plunge it up and down in the water; on the way down water forces past the valve into the pipe, on the way up the valve shuts and the column climbs until it spills out the top. Slow, but it moves water with nothing else.",
+        "Whatever comes up from a well after a flood or a long outage is treated before it is drunk; see Emergency water well disinfection (shock chlorination)."
+      ]
+    },
+    {
+      "title": "Cold with no coat: stuffing your clothes, keeping feet dry, and the layers that work",
+      "category": "Shelter & Heat",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, ATP 3-50.21 Survival (2018), chapters 2, 5, and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "Clothing keeps you warm by trapping still air against the body. Several loose, light layers beat one thick one, because each layer adds a pocket of dead air, and loose beats tight because tight clothing squeezes the air out and cuts the blood supply that warms hands and feet. The Army's rule is the same in every climate: clean, dry, loose, and in layers.",
+        "That is why stuffing works. Dry crumpled newspaper, dry leaves, dry grass, pine needles, or bubble wrap pushed inside a shirt and between trouser layers until you look puffed up makes dead-air insulation out of rubbish (the stuffing itself is hand-me-down; the principle is the manual's). The same manual builds its best cold-weather shelter, the debris hut, out of nothing but sticks and two to three feet of the same dry debris.",
+        "Stay dry. Wet clothing pulls heat out of the body up to twenty-five times faster than dry, so an outer layer that sheds rain matters more than a thick one, and sweat is the wetness people forget: open the jacket, take off a layer, or take off the hat before you sweat, because the head and hands shed heat fast. Nearly half of the body's heat can leave through uncovered hands, feet, head, and neck, so cover them first.",
+        "Feet: wet socks are changed through the day, and feet are washed and dried daily when it is possible at all. Wool keeps insulating when wet; cotton loses nine-tenths of its warmth once it is wet and is slow to dry. Feet kept wet and cold for long enough get immersion foot, which is numb, then burning, then blistered; see Trench foot (feet wet and cold for too long).",
+        "Soaked boots and one dry pair of socks (hand-me-down, not yet checked): dry socks on, a plastic bread bag or shopping bag over each sock, then back into the wet boots. The bag keeps the cold water in the boot off the sock. Take it off and air the feet whenever you stop for long, because a foot sealed in plastic sweats.",
+        "In a stalled car in the cold, everyone and everything dry goes into the layers, and the engine is run only with the tailpipe clear of snow and a window cracked; see Vehicle stranded in heat or cold. For the person who has already gone quiet and clumsy, see Hypothermia recognition and first aid."
+      ]
+    },
+    {
+      "title": "Breathing through smoke or dust with no mask",
+      "category": "Disasters",
+      "priority": "P1",
+      "sources": [
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A dry shirt held loosely over the face lets fine ash and dust straight through. What helps a little is thick, folded cloth, wetted with clean water, held or tied snugly over the nose and mouth so air has to come through the cloth: a folded bandanna, a doubled towel, a padded bra cup with its moulded shape (hand-me-down, all of it). It catches some of the particles. It does nothing at all against carbon monoxide or hot gases.",
+        "So the cloth is for getting out, not for staying in. Low, fast, and out of the smoke; see Smoke inhalation and carbon monoxide and Wildfire warning, evacuation, smoke."
+      ]
+    },
+    {
+      "title": "Moving what you can't lift: the Spanish windlass, levers, rollers, and cribbing",
+      "category": "Tools & Repairs",
+      "priority": "P1",
+      "sources": [
+        "U.S. Army, FM 5-125 Rigging Techniques, Procedures, and Applications (1995), chapters 3 and 5",
+        "U.S. Army, FM 4-30.31 Recovery and Battle Damage Assessment and Repair (2006), chapters 5 and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A machine multiplies force. A lever that lets a ten-pound push lift a hundred-pound load has a mechanical advantage of ten, and the same idea is in a screw, a block and tackle, and a rope wound round a post. With one of these, one or two people move what four cannot.",
+        "The Spanish windlass, for dragging a load along the ground, pulling a stuck vehicle toward an anchor, straightening a post, or drawing two things together: fasten a rope between the load and a solid anchor some distance away and pull it hand-tight. Stand a short, thick pole or pipe upright beside the rope about halfway along, make a loop in the rope and wrap it partly around the pole, and push a stout bar through the loop to use as a crank. Turning the bar winds the rope onto the pole and shortens the line with great force. Keep the rope leaving the pole at about the same height on both sides so the pole does not tip over, and lash the crank bar off between turns so it cannot whip back.",
+        "Rollers: put four to six round rollers, hardwood or pipe, under the load on a smooth runway of planks, roll the load slowly forward, and as each roller comes out behind, carry it round to the front. To turn, angle the front rollers slightly toward the turn and the rear ones the other way. Skids of two-inch plank, kept at a low angle, carry a load over rough ground; grease on a skid is dangerous, because the load can slide sideways without warning.",
+        "Cribbing is timbers stacked in alternating layers to hold a heavy thing up at a height, and it is the safety measure that keeps a load from coming down on anyone working under or near it. Lift with a jack in stages: block the jack on solid footing, raise the load, build cribbing under it, lower the load onto the cribbing, reset the jack higher, and repeat. Only sound, dry timbers, evenly bedded on firm ground.",
+        "A pole as a lever pries a light truck out of a ditch: lift the front end with the pole while power is applied in reverse. A hitch that multiplies pull for tying down a load is in Basic knots for emergencies (the trucker's hitch).",
+        "Wire twisted with a bar is the windlass in miniature (hand-me-down, not yet checked): a loose loop of baling wire around two broken parts, a rod through the loop, and turns of the rod pull the parts together with hundreds of pounds of force. Wedge the rod against something so it cannot untwist."
+      ]
+    },
+    {
+      "title": "Small fixes and a fire starter: glue and baking soda, wax, graphite, a rubber band, a can with no opener",
+      "category": "Tools & Repairs",
+      "priority": "P2",
+      "sources": [
+        "U.S. Army, ATP 3-50.21 Survival (2018), chapters 2, 5, and 6",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "None of the tricks below has been checked against a reference except where said; they are the kind that get passed along because they work often enough. Try them on something that does not matter first.",
+        "Superglue and baking soda: a drop of superglue with dry baking soda sprinkled on it, or sawdust, sets hard in seconds and fills gaps ordinary superglue cannot, rebuilding a broken plastic mount, a stripped hole in wood, or a crack in a plastic jug. Build it up in layers.",
+        "Threads and bolts: candle wax, beeswax, or a dry bar of soap rubbed onto pipe threads before they are screwed together seals minor leaks when there is no thread tape. A rusted nut that will not move after penetrating oil: heat it with a torch, touch a candle to the hot threads so the wax wicks in, let it cool, and try again.",
+        "A lock that will not turn: rub a soft pencil heavily over the key and shave graphite dust into the keyhole; graphite is a dry lubricant that does not gum up or attract dirt the way oil does. A stripped screw head: press a wide rubber band flat over it and drive the screwdriver through the band. A wrench too big for the nut: shim the gap with a coin or a washer. Heavy coat-hanger or spoke wire, bent into a hairpin, replaces a lost cotter pin or hitch pin.",
+        "A can with no opener: turn it upside down on rough flat concrete or a coarse flat stone and grind the rim in circles for about a minute until the crimped seam wears through and liquid beads on the stone; squeeze the sides and the lid lifts off with no jagged edge. Stabbing a can with a kitchen knife is how hands get cut.",
+        "Fire starters you can make: the Army's survival manual lists candles, paper, cotton balls smeared with petroleum jelly, and lint among the man-made tinders that catch a spark or flame. Strips of corrugated cardboard coiled into a tuna can or a foil cup and soaked with melted candle wax make a puck that lights in rain and wind and burns for many minutes, long enough to dry out wet kindling (the puck is hand-me-down; the tinders are the manual's). Fire and molten wax: outdoors, with a lid to smother it."
+      ]
+    }
+  ]
+}
