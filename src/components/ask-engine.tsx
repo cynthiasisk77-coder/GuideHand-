@@ -132,8 +132,10 @@ const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';
 // for something that talks to her, and a button you have to find is not that.
 const SPEAKS_KEY = 'guidehand.max-speaks.v1';
 // The most an answer may run to. Long enough for the urgent thing and the
-// steps after it; short enough that a wrong turn is over quickly.
-const GENERATION = { maxNewTokens: 320 };
+// steps after it; short enough that a wrong turn is over quickly. echo is
+// off here too, though the session forces it off regardless: on, the engine
+// repeats the whole prompt back as the answer (see askSessionCore.ts).
+const GENERATION = { maxNewTokens: 320, echo: false };
 
 /**
  * The model half of Ask. Mounted only once a model has been chosen — the

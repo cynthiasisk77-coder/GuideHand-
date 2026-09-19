@@ -53,6 +53,21 @@ export interface AskSession {
   dispose(): void;
 }
 
+/**
+ * The generation settings a one-question session must run with.
+ *
+ * The engine's `echo` setting is ON by default and repeats the prompt back
+ * through the token callback as if the model had written it. The library's
+ * chat session never notices, because the only thing it hands generate() is
+ * a one-line assistant header. This session hands it the whole prompt —
+ * instructions, articles and all — and on a real phone every word of that
+ * came back as "the answer" and was read out loud. Off, always, whatever the
+ * caller passes.
+ */
+export function oneShotGenerationConfig<T extends object>(config: T): T & { echo: false } {
+  return { ...config, echo: false };
+}
+
 export interface AskSessionParts<P> {
   runner: {
     /** Empties the model's memory of the previous question. */

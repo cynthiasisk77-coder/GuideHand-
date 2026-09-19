@@ -12,7 +12,7 @@ import RNBlobUtil from 'react-native-blob-util';
 import { scheduleOnRN } from 'react-native-worklets';
 import { createResourceScope, llm, useModel, useResourceDownload, wrapAsync } from 'react-native-executorch';
 
-import { AskSession, buildAskSession } from '@/lib/askSessionCore';
+import { AskSession, buildAskSession, oneShotGenerationConfig } from '@/lib/askSessionCore';
 
 export type { AskAnswer, AskSession, AskStats } from '@/lib/askSessionCore';
 
@@ -77,7 +77,8 @@ export async function createAskSession(
           2,
           { addGenPrompt: true }
         ),
-      generate: (prompt, onToken) => generate(runner, prompt, { genConfig, eosToken, onToken }),
+      generate: (prompt, onToken) =>
+        generate(runner, prompt, { genConfig: oneShotGenerationConfig(genConfig), eosToken, onToken }),
       afterTurn: () => preprocessor.clear(),
       dispose: scope.dispose,
     });
