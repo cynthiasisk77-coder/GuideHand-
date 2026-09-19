@@ -300,6 +300,23 @@ export default function HomeScreen() {
                 </Pressable>
                 <Pressable
                   accessibilityRole="button"
+                  onPress={() => router.push({ pathname: "/night-watch" })}
+                  style={({ pressed }) => [
+                    styles.row,
+                    styles.rowCompact,
+                    { backgroundColor: c.card, borderColor: c.cardBorder, borderLeftWidth: 4, borderLeftColor: c.plum, opacity: pressed ? 0.7 : 1 },
+                  ]}>
+                  <View style={[styles.icon, styles.iconSmall, { borderWidth: 1.5, borderColor: c.plum }]}>
+                    <Icon name="moon" size={17} color={c.plum} />
+                  </View>
+                  <View style={styles.rowText}>
+                    <Text style={[styles.rowName, styles.rowNameCompact, { color: c.text }]}>Night Watch</Text>
+                    <Text style={[styles.rowSub, styles.rowSubCompact, { color: c.textSecondary }]}>Long night? Max keeps you company — talk, games, stories, check-ins</Text>
+                  </View>
+                  <Icon name="chevron" size={16} color={c.textSecondary} />
+                </Pressable>
+                <Pressable
+                  accessibilityRole="button"
                   onPress={() => router.push({ pathname: "/my-notes" })}
                   style={({ pressed }) => [
                     styles.row,

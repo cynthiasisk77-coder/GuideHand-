@@ -175,6 +175,13 @@ export interface ToolTarget {
 
 export const TOOL_TARGETS: ToolTarget[] = [
   {
+    label: "Night Watch",
+    sub: "Max keeps you company: talk, games, stories, check-ins",
+    pathname: "/night-watch",
+    icon: "moon",
+    keywords: ["night", "watch", "company", "lonely", "alone", "awake", "sleep", "bored", "talk", "chat", "story", "stories", "game", "games", "trivia", "riddle", "riddles", "check", "scared", "long", "max"],
+  },
+  {
     label: "Family Plan",
     sub: "Who does what, and the number everyone calls",
     pathname: "/family-plan",

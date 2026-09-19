@@ -38,6 +38,32 @@ export interface AskAnswer {
   superseded: boolean;
 }
 
+/**
+ * One question, as handed to a session. A plain string is the user turn,
+ * answered under the session's standing instructions; the object form carries
+ * its own instructions and settings, which is how Night Watch shares the one
+ * loaded model with Ask without either being the other.
+ */
+export type AskInput =
+  | string
+  | {
+      readonly system: string;
+      /**
+       * Earlier turns, oldest first, for a screen that is a conversation.
+       * Rendered through the model's own chat template, so the model sees who
+       * said what and stops when its own turn is over. Ask never sets this.
+       */
+      readonly history?: readonly ChatTurn[];
+      readonly user: string;
+      readonly temperature?: number;
+      readonly maxNewTokens?: number;
+    };
+
+export interface ChatTurn {
+  readonly role: 'user' | 'assistant';
+  readonly content: string;
+}
+
 export interface AskSession {
   /**
    * Answers one question from scratch. Whatever the model is writing right now
@@ -45,7 +71,7 @@ export interface AskSession {
    * @param question The full prompt for this question: articles and all.
    * @param onToken Each piece of the answer as it is written.
    */
-  ask(question: string, onToken?: (token: string) => void): Promise<AskAnswer>;
+  ask(question: AskInput, onToken?: (token: string) => void): Promise<AskAnswer>;
   /** Stops the answer being written. The pending ask() resolves with what it has. */
   stop(): void;
   /** The most tokens the model can hold at once: prompt and answer together. */
@@ -76,7 +102,7 @@ export interface AskSessionParts<P> {
     stop(): void;
   };
   /** Turns a question into whatever the model needs to be handed. */
-  render(question: string): P;
+  render(question: AskInput): P;
   /** Runs the model on its own thread and resolves when it is done or stopped. */
   generate(prompt: P, onToken?: (token: string) => void): Promise<{ response: string; stats: AskStats }>;
   /** Tidy-up after every question, finished or not. */
@@ -124,7 +150,7 @@ export function buildAskSession<P>(parts: AskSessionParts<P>): AskSession {
 
   const runOne = async (
     ticket: number,
-    question: string,
+    question: AskInput,
     onToken?: (token: string) => void
   ): Promise<AskAnswer> => {
     if (ticket !== latest) {

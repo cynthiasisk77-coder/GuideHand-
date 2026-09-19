@@ -67,3 +67,12 @@ export function findAskModel(id: string | null | undefined): AskModelChoice | un
 }
 
 export const ASK_MODEL_KEY = 'guidehand.ask.model.v1';
+
+// Remembers that a model finished downloading at least once on this phone.
+//
+// The screen could not tell downloading from loading, so every time Ask was
+// opened it said "Starting the download… keep this screen open and stay on
+// Wi-Fi" while it was really just reading a file already sitting on the phone.
+// That is a several-gigabyte model being loaded into memory, which takes a few
+// seconds and no network at all. Keyed by model id.
+export const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';

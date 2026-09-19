@@ -38,6 +38,7 @@ const PATHS: Record<string, string> = {
   back: "m15 6-6 6 6 6",
   speak: "M4 9.5h3.5L12 5.5v13L7.5 14.5H4z M15.5 9.2a4 4 0 0 1 0 5.6 M18 6.8a7.5 7.5 0 0 1 0 10.4",
   stop: "M7 7h10v10H7z",
+  moon: "M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z",
 };
 
 const CIRCLES: Record<string, { cx: number; cy: number; r: number }[]> = {

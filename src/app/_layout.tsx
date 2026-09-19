@@ -92,6 +92,8 @@ export default function RootLayout() {
           <Stack.Screen name="my-notes" options={{ title: 'What You Know' }} />
           <Stack.Screen name="about-you" options={{ title: 'About You' }} />
           <Stack.Screen name="max-voice" options={{ title: "Max's Voice" }} />
+          <Stack.Screen name="night-watch" options={{ title: 'Night Watch' }} />
+          <Stack.Screen name="night-story" options={{ title: 'A Story' }} />
         </Stack>
       </ThemeProvider>
     </KeyboardProvider>

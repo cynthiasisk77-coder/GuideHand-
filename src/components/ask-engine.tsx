@@ -2,61 +2,21 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { models } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
 import { ReadAloudButton } from '@/components/read-aloud-button';
 import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
 import { AI_NAME, buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
-import { AskModelChoice, AskModelKey } from '@/lib/askModels';
+import { AskModelChoice, READY_ONCE_PREFIX } from '@/lib/askModels';
+import { configFor, percentOf } from '@/lib/askModelFiles';
+import { SPEAKS_KEY } from '@/lib/maxSpeaks';
 import { useAskSession } from '@/lib/askSession';
 import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
 import { requestUnlock } from '@/lib/deviceLock';
 import { isProfileUnlocked, loadProfileAccess, markProfileUnlocked, ProfileAccess } from '@/lib/profileAccess';
 import { readAloud, stopReading, stripModelArtifacts, subscribeVoiceReport, voiceReportNow } from '@/lib/readAloud';
 import { describeVoiceReport, isStandIn, type VoiceReport } from '@/lib/voiceReport';
-
-// The one place the library's model table is read. Kept in this file because
-// this file is the native-only half — the web build resolves ask-engine.web.tsx
-// instead and never loads any of it.
-//
-// models.llm.LFM2_5_350M is not a model. It is a container of hardware
-// variants — XNNPACK_8DA4W, XNNPACK_FP16, MLX_INT4 — with a DEFAULT that picks
-// the right one for the device. Handing the container straight to the session
-// passes an object with no file paths in it, and the download dies on the
-// phone with "Missing argument \"path\"".
-//
-// This returned `unknown` before, which is why that shipped: the session takes
-// its config loosely, so nothing objected until a real device tried to fetch a
-// file from a path that was not there. The explicit return type below is the
-// actual fix — the container has no modelPath, so handing it over again is now
-// a compile error rather than a download that fails in somebody's hands.
-type ResolvedModel = {
-  readonly modelPath: string;
-  readonly tokenizerPath: string;
-  readonly tokenizerConfigPath: string;
-};
-
-function configFor(key: AskModelKey): ResolvedModel {
-  return models.llm[key].DEFAULT;
-}
-
-/**
- * Download progress as a whole percentage, whichever way the library reports it.
- *
- * It showed "Downloading — 10000%" on a real phone, which is what happens when
- * a value that is already 0-100 gets multiplied by a hundred. Rather than bet
- * on which convention the library uses — and have it break again if that
- * changes — anything at or under 1 is read as a fraction and anything above it
- * as a percentage already. Clamped, because a progress bar whose width is
- * "10000%" is how that bug got on screen in the first place.
- */
-function percentOf(progress: number | undefined): number {
-  if (!progress || progress <= 0) return 0;
-  const percent = progress <= 1 ? progress * 100 : progress;
-  return Math.min(100, Math.round(percent));
-}
 
 /**
  * Whether what came back is an answer or just punctuation.
@@ -121,17 +81,6 @@ type Phase =
     }
   | { kind: 'nothing-found'; question: string };
 
-// Remembers that a model finished downloading at least once on this phone.
-//
-// The screen could not tell downloading from loading, so every time Ask was
-// opened it said "Starting the download… keep this screen open and stay on
-// Wi-Fi" while it was really just reading a file already sitting on the phone.
-// That is a several-gigabyte model being loaded into memory, which takes a few
-// seconds and no network at all.
-const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';
-// Whether Max reads answers out without being asked. On by default: she asked
-// for something that talks to her, and a button you have to find is not that.
-const SPEAKS_KEY = 'guidehand.max-speaks.v1';
 // The most an answer may run to. Long enough for the urgent thing and the
 // steps after it; short enough that a wrong turn is over quickly. echo is
 // off here too, though the session forces it off regardless: on, the engine
@@ -297,7 +246,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       setStreamed('');
       let collected = '';
       try {
-        const result = await session.ask(context.prompt, (token) => {
+        const result = await session.ask({ system: SYSTEM_PROMPT, user: context.prompt }, (token) => {
           if (mine !== turn.current) return;
           collected += token;
           setStreamed(stripModelArtifacts(collected));

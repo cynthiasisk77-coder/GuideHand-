@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AskEngine } from '@/components/ask-engine';
@@ -15,6 +15,7 @@ export default function AskScreen() {
   // the question they just typed is the kind of small friction that stops
   // people using a thing at all.
   const { q } = useLocalSearchParams<{ q?: string }>();
+  const router = useRouter();
   const scheme = useColorScheme();
   const c = Calm[scheme === 'dark' ? 'dark' : 'light'];
 
@@ -128,6 +129,14 @@ export default function AskScreen() {
             </>
           )}
 
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => router.push({ pathname: '/night-watch' })}
+            style={({ pressed }) => [styles.nightLink, { borderColor: c.plum, opacity: pressed ? 0.7 : 1 }]}>
+            <Icon name="moon" size={16} color={c.onBg} />
+            <Text style={[styles.nightLinkText, { color: c.onBg }]}>Long night? Max can keep you company in Night Watch →</Text>
+          </Pressable>
+
           <Text style={[styles.footer, { color: c.textSecondary }]}>
             Runs entirely on this device. Your questions are never sent anywhere.
           </Text>
@@ -189,6 +198,8 @@ const styles = StyleSheet.create({
   modelBody: { fontSize: 13, lineHeight: 18.5, fontFamily: Fonts.body },
 
   footnote: { fontSize: 12.5, lineHeight: 18.5, fontFamily: Fonts.body, marginTop: 8 },
+  nightLink: { flexDirection: 'row', alignItems: 'center', gap: 9, borderWidth: 1.2, borderRadius: 12, paddingVertical: 11, paddingHorizontal: 12, marginTop: 16 },
+  nightLinkText: { flex: 1, fontSize: 13, lineHeight: 18, fontFamily: Fonts.bodySemibold },
   footer: {
     marginTop: 22,
     marginBottom: 12,
