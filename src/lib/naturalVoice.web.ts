@@ -37,9 +37,9 @@ export async function prepareNaturalVoice(_options: { allowDownload: boolean }):
 export async function speakNaturally(
   _text: string,
   _voice: NaturalVoiceId,
-  handlers: { onDone?: () => void; onError?: () => void }
+  handlers: { onDone?: () => void; onError?: (message: string) => void }
 ): Promise<void> {
-  handlers.onError?.();
+  handlers.onError?.('there is no on-device voice in the browser');
 }
 
 export function stopNatural(): void {}

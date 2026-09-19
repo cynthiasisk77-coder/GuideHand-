@@ -67,7 +67,7 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       summary:
         "Panic attacks, anxiety, grief, shock, a frightened child, someone who wants to die, and how to be the steady person in the room. Written from the guides responders train on, for when no counselor can be reached.",
       version: 1,
-      bytes: 39867,
+      bytes: 39917,
       articleCount: 10,
       license: "Original text written for GuideHand. Sources named on every article: U.S. Army and Navy medical manuals, FEMA, SAMHSA, NIMH, the VA National Center for PTSD, MedlinePlus, and the NHS (Open Government Licence).",
       attribution: "U.S. Army and Navy medical manuals, FEMA, SAMHSA, NIMH, VA National Center for PTSD, MedlinePlus, NHS",

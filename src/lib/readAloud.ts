@@ -20,8 +20,16 @@
 
 import * as Speech from 'expo-speech';
 
-import { isNaturalVoiceReady, prepareNaturalVoice, speakNaturally, stopNatural } from '@/lib/naturalVoice';
+import { AI_NAME } from '@/lib/aiName';
+import {
+  isNaturalVoiceReady,
+  naturalVoiceState,
+  prepareNaturalVoice,
+  speakNaturally,
+  stopNatural,
+} from '@/lib/naturalVoice';
 import { loadVoiceChoice, voiceChoiceNow, type VoiceChoice } from '@/lib/voiceChoice';
+import { couldNotSpeak, whyNotNatural, type VoiceReport } from '@/lib/voiceReport';
 
 /**
  * Slower than the default. A person following a step while doing it needs time
@@ -48,6 +56,30 @@ export interface ReadOptions {
 // someone has pressed stop finds its number is stale and does not queue the
 // next one, which is what stops a cancelled article carrying on talking.
 let currentRun = 0;
+
+// Which voice actually did the talking last, and why, when it was not the one
+// chosen. On a real phone a man's voice was chosen and a woman's came out: the
+// phone's own voice had quietly stood in for Max's, and nothing said so. Now
+// every screen that speaks can.
+let lastReport: VoiceReport | undefined;
+const reportListeners = new Set<(report: VoiceReport) => void>();
+
+function report(next: Omit<VoiceReport, 'at'>): void {
+  const value: VoiceReport = { ...next, at: Date.now() };
+  lastReport = value;
+  reportListeners.forEach((listener) => listener(value));
+}
+
+export function voiceReportNow(): VoiceReport | undefined {
+  return lastReport;
+}
+
+export function subscribeVoiceReport(listener: (report: VoiceReport) => void): () => void {
+  reportListeners.add(listener);
+  return () => {
+    reportListeners.delete(listener);
+  };
+}
 
 /**
  * Speaks text, stopping anything already being read. Two voices talking over
@@ -83,17 +115,24 @@ export async function readAloud(text: string, options: ReadOptions = {}): Promis
     const ready = isNaturalVoiceReady() || (await prepareNaturalVoice({ allowDownload: false }));
     if (run !== currentRun) return;
     if (ready) {
+      report({ chosen: choice, used: 'natural' });
       void speakNaturally(tidy, choice.voice, {
         onDone: () => {
           if (run === currentRun) options.onDone?.();
         },
-        // The phone's own voice is the fallback, so something is heard.
-        onError: () => {
-          if (run === currentRun) speakFrom(chunks, 0, run, options, undefined);
+        // The phone's own voice is the fallback, so something is heard — and
+        // the screen is told why, so nobody is left wondering who is talking.
+        onError: (message) => {
+          if (run !== currentRun) return;
+          report({ chosen: choice, used: 'phone', reason: couldNotSpeak(message, AI_NAME) });
+          speakFrom(chunks, 0, run, options, undefined);
         },
       });
       return;
     }
+    report({ chosen: choice, used: 'phone', reason: whyNotNatural(naturalVoiceState(), AI_NAME) });
+  } else {
+    report({ chosen: choice, used: 'phone' });
   }
 
   speakFrom(chunks, 0, run, options, choice.kind === 'phone' ? choice.identifier : undefined);

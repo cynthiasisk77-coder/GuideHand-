@@ -1,11 +1,15 @@
 // The models a person can choose to download.
 //
-// Deliberately weighted toward the small end. This app's whole situation is a
-// phone that may have to last days on whatever charge it has, so a model that
-// answers a bit better while eating the battery twice as fast is the wrong
-// trade here — and because every answer is grounded in GuideHand's own
-// articles, a small model is doing comprehension rather than recall, which is
-// the thing small models are actually good at.
+// Medium is the one to recommend, and that was measured, not guessed. The same
+// three models were run on a desk with the exact prompts the app builds. The
+// 350M one answered "my sister is having a panic attack" with one sentence,
+// parroted the instructions back, and invented steps that are in no article
+// ("place a hand on her chest", "elevate the injured arm"). The 1B one wrote a
+// warm, cited answer from the articles, used the person's name, and said what
+// the article says. A model that makes things up is worse than no model in an
+// app whose whole promise is that Max reads you your own vetted page; so
+// Small stays available for phones that cannot take Medium, labelled for what
+// it is.
 
 // Deliberately no import from react-native-executorch. That package is native
 // code, and reaching for it here would pull TurboModuleRegistry into every
@@ -33,8 +37,8 @@ export const ASK_MODELS: AskModelChoice[] = [
     name: 'Small',
     size: 'about 300 MB',
     summary:
-      'Quickest to download, lightest on the battery. Good at reading your articles back in plain words, which is what it is here to do.',
-    recommended: true,
+      'Quickest to download and lightest on the battery, but too small to trust: on a desk test it answered in one line and wandered off the articles. Only if the phone cannot take Medium.',
+    recommended: false,
     modelKey: 'LFM2_5_350M',
   },
   {
@@ -42,8 +46,8 @@ export const ASK_MODELS: AskModelChoice[] = [
     name: 'Medium',
     size: 'about 1 GB',
     summary:
-      'Writes more naturally and handles a vague question better. Noticeably heavier on the battery and slower to answer.',
-    recommended: false,
+      'The one to pick. Warm, uses your name, stays on the articles and says which one it read. Heavier on the battery and slower to answer than Small.',
+    recommended: true,
     modelKey: 'LLAMA3_2_1B',
   },
   {

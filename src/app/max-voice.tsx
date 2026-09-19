@@ -22,7 +22,7 @@ import {
   subscribeNaturalVoice,
   type NaturalVoiceState,
 } from '@/lib/naturalVoice';
-import { readAloud, stopReading } from '@/lib/readAloud';
+import { readAloud, stopReading, subscribeVoiceReport, voiceReportNow } from '@/lib/readAloud';
 import {
   describePhoneVoices,
   describeVoiceChoice,
@@ -32,9 +32,11 @@ import {
   PHONE_DEFAULT,
   sameVoice,
   saveVoiceChoice,
+  voiceGenderLabel,
   type PhoneVoiceRow,
   type VoiceChoice,
 } from '@/lib/voiceChoice';
+import { describeVoiceReport, isStandIn, type VoiceReport } from '@/lib/voiceReport';
 
 const SAMPLE = `Hi, I'm ${AI_NAME}. Tell me what's happening, and we'll take it one step at a time.`;
 
@@ -48,6 +50,8 @@ export default function MaxVoiceScreen() {
   const [onPhone, setOnPhone] = useState<boolean | undefined>(undefined);
   // Which row is being sampled right now, so its button can say Stop.
   const [hearing, setHearing] = useState<string | undefined>(undefined);
+  // Who actually did the talking last time, and why, if it was not the chosen one.
+  const [report, setReport] = useState<VoiceReport | undefined>(voiceReportNow());
 
   useEffect(() => {
     let alive = true;
@@ -62,9 +66,11 @@ export default function MaxVoiceScreen() {
       if (yes) void prepareNaturalVoice({ allowDownload: false });
     });
     const unsubscribe = subscribeNaturalVoice((state) => alive && setNatural(state));
+    const unsubscribeReport = subscribeVoiceReport((next) => alive && setReport(next));
     return () => {
       alive = false;
       unsubscribe();
+      unsubscribeReport();
       stopReading();
     };
   }, []);
@@ -155,6 +161,11 @@ export default function MaxVoiceScreen() {
             {choice ? (
               <Text style={[styles.current, { color: c.blue }]}>Now using: {describeVoiceChoice(choice)}</Text>
             ) : null}
+            {report ? (
+              <Text style={[styles.status, { color: isStandIn(report) ? (c.dangerText ?? c.textSecondary) : c.textSecondary }]}>
+                {describeVoiceReport(report, AI_NAME)}
+              </Text>
+            ) : null}
           </View>
 
           {naturalVoiceSupported() ? (
@@ -162,7 +173,8 @@ export default function MaxVoiceScreen() {
               <Text style={[styles.sectionLabel, { color: c.blue }]}>{AI_NAME.toUpperCase()}&apos;S OWN VOICE</Text>
               <Text style={[styles.sectionNote, { color: c.textSecondary }]}>
                 A real-sounding voice that lives on the phone. Downloads once ({NATURAL_VOICE_SIZE}) on Wi-Fi, then
-                works with no signal like everything else here.
+                works with no signal like everything else here. {AI_NAME} is {AI_NAME} whichever voice reads for
+                her: pick a woman&apos;s voice or a man&apos;s, whichever you would rather hear in a bad moment.
               </Text>
 
               {natural.kind === 'ready' || onPhone === true ? null : onPhone === undefined ? (
@@ -222,7 +234,7 @@ export default function MaxVoiceScreen() {
                 row(
                   `natural-${v.id}`,
                   { kind: 'natural', voice: v.id },
-                  v.name,
+                  `${v.name} · ${voiceGenderLabel(v.gender)}`,
                   naturalReady ? v.about : `${v.about} Ready once the download above is done.`,
                   naturalReady,
                   naturalReady
@@ -276,6 +288,7 @@ const styles = StyleSheet.create({
   title: { fontSize: 24, lineHeight: 30, fontFamily: Fonts.displaySemibold },
   subhead: { fontSize: 13.5, lineHeight: 19.5, fontFamily: Fonts.body },
   current: { fontSize: 13, fontFamily: Fonts.bodyBold, marginTop: 4 },
+  status: { fontSize: 12.5, lineHeight: 17.5, fontFamily: Fonts.body },
   sectionLabel: { fontSize: 11, fontFamily: Fonts.mono, letterSpacing: 1.2, marginTop: 8, marginBottom: 6, marginLeft: 2 },
   sectionNote: { fontSize: 13, lineHeight: 18.5, fontFamily: Fonts.body, marginBottom: 10 },
   loading: { marginVertical: 14 },

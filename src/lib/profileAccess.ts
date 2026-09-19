@@ -4,7 +4,7 @@
 // you if they are on your phone." The screen is now behind the phone's own
 // unlock, the same way Document Photos is. But locking the screen alone leaves
 // a side door: Max reads the same profile, and anyone holding the phone could
-// ask him what medicines she takes. So the same unlock covers Max too — unless
+// ask her what medicines she takes. So the same unlock covers Max too — unless
 // she chooses otherwise, because there is a real reason someone might: if she
 // is the one hurt, whoever picks up her phone needs Max to know she takes a
 // blood thinner. That call is hers. It is one switch on the About You screen.

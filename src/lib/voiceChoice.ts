@@ -11,7 +11,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /** The voices shipped in the English language pack, named as the model names them. */
-export type NaturalVoiceId = 'af_heart' | 'am_michael';
+export type NaturalVoiceId = 'af_heart' | 'af_sarah' | 'am_michael';
 
 export type VoiceChoice =
   | {
@@ -23,21 +23,32 @@ export type VoiceChoice =
     }
   | { kind: 'natural'; voice: NaturalVoiceId };
 
+export type VoiceGender = 'woman' | 'man';
+
 export interface NaturalVoiceOption {
   id: NaturalVoiceId;
   name: string;
+  /** Said plainly on the picker. A name alone told nobody which was which. */
+  gender: VoiceGender;
   about: string;
 }
 
 /**
- * The two worth offering out of the pack's six. The model's own voice sheet
- * grades Heart an A and Michael a C+; the other four are D or below and
- * sound it.
+ * The three worth offering out of the pack's six. The model's own voice sheet
+ * grades Heart an A, Sarah and Michael a C+; the other three are D or below
+ * and sound it. Two women's voices and a man's, because some people would
+ * rather be told what to do by a man, and they should get to choose.
  */
 export const NATURAL_VOICES: readonly NaturalVoiceOption[] = [
-  { id: 'af_heart', name: 'Heart', about: 'A warm woman’s voice. The most natural one there is in the set.' },
-  { id: 'am_michael', name: 'Michael', about: 'A steady man’s voice.' },
+  { id: 'af_heart', name: 'Heart', gender: 'woman', about: 'Warm and even. The most natural voice in the set.' },
+  { id: 'af_sarah', name: 'Sarah', gender: 'woman', about: 'Lighter and brisker. Not as polished as Heart.' },
+  { id: 'am_michael', name: 'Michael', gender: 'man', about: 'Low and steady.' },
 ];
+
+/** "a woman's voice" / "a man's voice", for labels. */
+export function voiceGenderLabel(gender: VoiceGender): string {
+  return gender === 'man' ? 'a man’s voice' : 'a woman’s voice';
+}
 
 /** One download covers both natural voices. Rounded up from the real file sizes. */
 export const NATURAL_VOICE_SIZE = 'about 350 MB';
@@ -99,7 +110,8 @@ export function sameVoice(a: VoiceChoice, b: VoiceChoice): boolean {
 /** What to call a choice on screen. */
 export function describeVoiceChoice(choice: VoiceChoice): string {
   if (choice.kind === 'natural') {
-    return NATURAL_VOICES.find((v) => v.id === choice.voice)?.name ?? 'Natural voice';
+    const voice = NATURAL_VOICES.find((v) => v.id === choice.voice);
+    return voice ? `${voice.name} (${voiceGenderLabel(voice.gender)})` : 'Natural voice';
   }
   return choice.identifier ? (choice.label ?? 'A phone voice') : 'The phone’s usual voice';
 }

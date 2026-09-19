@@ -155,19 +155,20 @@ export function stopNatural(): void {
 
 /**
  * Says the text in Max's voice, stopping anything already being said.
- * onDone fires when the last word has been heard; onError when the voice
- * could not speak at all, so the caller can fall back to the phone's.
+ * onDone fires when the last word has been heard; onError, with the reason,
+ * when the voice could not speak at all, so the caller can fall back to the
+ * phone's and say why.
  */
 export function speakNaturally(
   text: string,
   voice: NaturalVoiceId,
-  handlers: { onDone?: () => void; onError?: () => void }
+  handlers: { onDone?: () => void; onError?: (message: string) => void }
 ): Promise<void> {
   stopNatural();
   const run = chain.then(async () => {
     const tts = engine;
     if (!tts) {
-      handlers.onError?.();
+      handlers.onError?.('the voice is not loaded');
       return;
     }
     let source: ReturnType<AudioContext['createBufferQueueSource']> | undefined;
@@ -186,8 +187,8 @@ export function speakNaturally(
         current = undefined;
         handlers.onDone?.();
       }
-    } catch {
-      handlers.onError?.();
+    } catch (error) {
+      handlers.onError?.(error instanceof Error ? error.message : String(error));
     } finally {
       try {
         source?.disconnect();

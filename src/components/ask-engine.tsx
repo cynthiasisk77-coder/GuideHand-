@@ -14,7 +14,8 @@ import { useAskSession } from '@/lib/askSession';
 import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
 import { requestUnlock } from '@/lib/deviceLock';
 import { isProfileUnlocked, loadProfileAccess, markProfileUnlocked, ProfileAccess } from '@/lib/profileAccess';
-import { readAloud, stopReading, stripModelArtifacts } from '@/lib/readAloud';
+import { readAloud, stopReading, stripModelArtifacts, subscribeVoiceReport, voiceReportNow } from '@/lib/readAloud';
+import { describeVoiceReport, isStandIn, type VoiceReport } from '@/lib/voiceReport';
 
 // The one place the library's model table is read. Kept in this file because
 // this file is the native-only half — the web build resolves ask-engine.web.tsx
@@ -135,7 +136,12 @@ const SPEAKS_KEY = 'guidehand.max-speaks.v1';
 // steps after it; short enough that a wrong turn is over quickly. echo is
 // off here too, though the session forces it off regardless: on, the engine
 // repeats the whole prompt back as the answer (see askSessionCore.ts).
-const GENERATION = { maxNewTokens: 320, echo: false };
+// Temperature 0.3, measured rather than guessed. The medium model was run on a
+// desk with the app's exact prompts: at the library's sampling default it
+// invented things that are in no article ("a parked car with the engine
+// running", "if her heart rate is above 100"); at 0.3 it mostly read the
+// articles back, warmly, and cited them. Lower still turns it into a list.
+const GENERATION = { maxNewTokens: 320, echo: false, temperature: 0.3 };
 
 /**
  * The model half of Ask. Mounted only once a model has been chosen — the
@@ -155,6 +161,8 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   const [alreadyHave, setAlreadyHave] = useState<boolean | undefined>(undefined);
   // undefined until read, so the first answer does not decide for itself.
   const [speaks, setSpeaks] = useState<boolean | undefined>(undefined);
+  // Who actually did the talking, so a stand-in voice is never a mystery.
+  const [voiceReport, setVoiceReport] = useState<VoiceReport | undefined>(voiceReportNow());
   const greeted = useRef(false);
   // Whether Max may read the profile right now. The profile itself is always
   // loaded — that is how the screen knows one exists — but it is only handed to
@@ -194,6 +202,8 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     };
   }, []);
 
+  useEffect(() => subscribeVoiceReport(setVoiceReport), []);
+
   const unlockForMax = async () => {
     setUnlocking(true);
     const result = await requestUnlock(`Let ${AI_NAME} use your details`);
@@ -232,8 +242,8 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
 
   const firstName = usable?.name.trim().split(/\s+/)[0] ?? '';
   const greeting = firstName
-    ? `Hi ${firstName} — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`
-    : `Hi — I'm ${AI_NAME}. Tell me what's going on and I'll find the right page and walk you through it.`;
+    ? `Hi ${firstName}, it's ${AI_NAME}. I'm right here. Tell me what's going on and we'll take it one step at a time.`
+    : `Hi, it's ${AI_NAME}. I'm right here. Tell me what's going on and we'll take it one step at a time.`;
 
   // Said out loud once per visit, only when speaking is on and only once the
   // profile has been read, so it does not greet a stranger and then learn her
@@ -430,7 +440,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           ]}>
           <Icon name="lock" size={16} color={c.plumText} />
           <Text style={[styles.tellItText, { color: c.plumText }]}>
-            {AI_NAME} is answering without your details. Unlock to let him use them →
+            {AI_NAME} is answering without your details. Unlock to let her use them →
           </Text>
         </Pressable>
       ) : null}
@@ -467,6 +477,12 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           {speaks === true ? `${AI_NAME} reads answers out loud — tap to turn off` : `${AI_NAME} is quiet — tap to have answers read out loud`}
         </Text>
       </Pressable>
+
+      {speaks === true && isStandIn(voiceReport) ? (
+        <Text style={[styles.voiceNote, { color: c.dangerText ?? c.textSecondary }]}>
+          {describeVoiceReport(voiceReport, AI_NAME)}
+        </Text>
+      ) : null}
 
       <Pressable
         accessibilityRole="button"
@@ -652,6 +668,7 @@ const styles = StyleSheet.create({
   greetText: { flex: 1, fontSize: 14, lineHeight: 20, fontFamily: Fonts.bodySemibold },
   speaksRow: { flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 6, paddingHorizontal: 4, marginBottom: 8 },
   speaksText: { flex: 1, fontSize: 12.5, fontFamily: Fonts.bodySemibold },
+  voiceNote: { fontSize: 12.5, lineHeight: 17.5, fontFamily: Fonts.body, paddingHorizontal: 4, marginBottom: 6 },
   voiceLink: { paddingHorizontal: 4, paddingBottom: 12, marginTop: -4 },
   voiceLinkText: { fontSize: 12.5, fontFamily: Fonts.bodySemibold, textDecorationLine: 'underline' },
 
