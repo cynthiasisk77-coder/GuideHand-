@@ -42,7 +42,9 @@ export interface NaturalVoiceOption {
 export const NATURAL_VOICES: readonly NaturalVoiceOption[] = [
   { id: 'af_heart', name: 'Heart', gender: 'woman', about: 'Warm and even. The most natural voice in the set.' },
   { id: 'af_sarah', name: 'Sarah', gender: 'woman', about: 'Lighter and brisker. Not as polished as Heart.' },
-  { id: 'am_michael', name: 'Michael', gender: 'man', about: 'Low and steady.' },
+  // The model calls this voice am_michael. She did not like the name, so on
+  // every screen he is Sam.
+  { id: 'am_michael', name: 'Sam', gender: 'man', about: 'Low and steady.' },
 ];
 
 /** "a woman's voice" / "a man's voice", for labels. */
