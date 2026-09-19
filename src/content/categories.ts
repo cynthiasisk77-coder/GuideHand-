@@ -68,6 +68,7 @@ export const CATEGORIES: Category[] = [
       { title: "Heart attack and aspirin boundaries", status: "specialist", priority: "P0", note: "" },
       { title: "Dehydration and oral rehydration", status: "partial", priority: "P1", note: "" },
       { title: "Fever, respiratory infection, isolation", status: "specialist", priority: "P1", note: "" },
+      { title: "Headache: easing it, and the signs it is an emergency", status: "verified", priority: "P1", note: "MedlinePlus + NHS" },
       { title: "Sepsis warning signs", status: "specialist", priority: "P1", note: "CDC + Sepsis Alliance" },
       { title: "Dental pain, broken tooth, facial swelling", status: "verified", priority: "P1", note: "ADA/MouthHealthy + JADA" },
       { title: "Eye injury and chemical irrigation", status: "verified", priority: "P0", note: "AAO + Mayo Clinic" },
