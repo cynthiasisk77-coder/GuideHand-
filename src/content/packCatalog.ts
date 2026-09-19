@@ -48,6 +48,20 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       published: true,
     },
     {
+      id: "field-medic",
+      name: "Corpsman & Field Medic Reference",
+      summary:
+        "The things people go to a doctor for, and the medic-level skills behind them \u2014 written for when the doctor cannot be reached. Every line sourced to NIH, CDC, or U.S. military medical manuals.",
+      version: 1,
+      bytes: 38367,
+      articleCount: 13,
+      license: "Original text written for GuideHand. Sources named on every article: U.S. National Institutes of Health, CDC, MedlinePlus, and U.S. military medical manuals.",
+      attribution: "U.S. National Institutes of Health, CDC, MedlinePlus, U.S. Navy and Army medical manuals",
+      icon: "medical",
+      url: `${PACK_BASE}/field-medic.json`,
+      published: true,
+    },
+    {
       id: "disaster-response",
       name: "Disaster Response",
       summary:

@@ -1,0 +1,249 @@
+{
+  "id": "field-medic",
+  "name": "Corpsman & Field Medic Reference",
+  "version": 1,
+  "license": "Original text written for GuideHand. Sources named on every article: U.S. National Institutes of Health, CDC, MedlinePlus, and U.S. military medical manuals.",
+  "attribution": "U.S. National Institutes of Health, CDC, MedlinePlus, U.S. Navy and Army medical manuals",
+  "articles": [
+    {
+      "title": "Urinary infection (UTI): easing it, and the signs it has reached the kidneys",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases), \"Bladder Infection (Urinary Tract Infection—UTI) in Adults: Symptoms & Causes\"",
+        "NIDDK, \"Bladder Infection (Urinary Tract Infection—UTI) in Adults: Treatment\""
+      ],
+      "guidance": [
+        "A bladder infection feels like this: burning when you urinate, frequent or intense urges to go even when there is little to pass, pain or discomfort low in the abdomen, and urine that is cloudy, bloody, or strong-smelling. Nearly always it is bacteria.",
+        "The line that matters is whether it has climbed to a kidney. Fever and chills, nausea or vomiting, or pain in the back, side, or groin mean it may have. A kidney infection needs quick treatment; left alone it can cause severe pain and serious harm. Get medical help by whatever route actually works: call if you have signal, otherwise get them there or send someone.",
+        "Antibiotics are the treatment, and they come from a professional. What you can do yourself, and should do from the first hour: drink lots of liquids, water above all, because more urine flushes the bacteria out. Someone who has been told to limit fluids for heart or kidney disease should not simply drink extra; that is a question for a professional.",
+        "For the pain: a heating pad, or a warm compress, on the back or lower abdomen, and ibuprofen or acetaminophen taken as the label says.",
+        "If antibiotics were prescribed, finish the whole course even when the symptoms are gone. Stopping early breeds bacteria the drug can no longer kill, which makes the next infection harder to treat and can spread to other people. Men may need a longer course than women, because the bacteria can move into the prostate.",
+        "Keeping it from coming back matters most when care is far away: drink enough through the day, wipe front to back, go when you feel the urge instead of holding it, take the time to empty the bladder fully, and wear cotton underwear and loose clothes that do not trap moisture. Diaphragms, unlubricated condoms, and spermicide raise the chance of infection; someone who keeps getting them may want a different method.",
+        "Watch for: symptoms that are not easing after a couple of days of fluids and pain relief, or any of the kidney signs above. Either one is a reason to reach care rather than wait it out."
+      ]
+    },
+    {
+      "title": "Vomiting and diarrhea: stomach bugs, food poisoning, and keeping fluids up",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases), \"Diarrhea: Symptoms & Causes\"",
+        "NIDDK, \"Diarrhea: Treatment\"",
+        "NIDDK, \"Diarrhea: Eating, Diet, & Nutrition\"",
+        "CDC (U.S. Centers for Disease Control and Prevention), \"Food Poisoning Symptoms\""
+      ],
+      "guidance": [
+        "Most sudden diarrhea is a stomach virus, food poisoning, or a medicine side effect (antibiotics and antacids that contain magnesium are common ones), and most of it goes away on its own within days. The thing that hurts people is not the diarrhea. It is the water and salts leaving with it.",
+        "So the whole job is fluids. Water, plus liquids that carry electrolytes: broth, sports drinks, or an oral rehydration solution from a store or made at home (see Making and using an oral rehydration drink). Small amounts often beat big gulps that come straight back up. Babies keep taking breast milk or formula as usual.",
+        "Eat as soon as appetite returns, and eat normally; a restricted diet or fasting does not help, and children should get their usual food. Leave alone for now: alcohol, caffeine, sugary drinks and juices, candy, sugar-free gum and sweets (sugar alcohols), fried and fatty food, and milk products, which can be hard to digest for up to a month after a bout.",
+        "Over-the-counter loperamide or bismuth subsalicylate can be used by adults, but not by infants or children, and not by anyone with bloody stools or a fever. If it is getting worse, or has lasted more than 2 days on them, that is a reason to reach care.",
+        "Dehydration in an adult looks like extreme thirst or a dry mouth, urinating less than usual, dark urine, feeling tired, dizzy, or lightheaded, sunken eyes or cheeks, and skin that stays tented when you pinch it and let go. In a baby or small child add: no wet diaper for 3 hours or more, no tears when crying, a sunken soft spot on the head, and drowsiness. A child with these signs can die within a day if nothing is done, so this is where everything goes into fluids and into reaching care.",
+        "Get medical help right away, by whatever route actually works, for: a change in how the person is (irritable, listless, no energy); vomiting so often that liquids will not stay down; severe pain in the abdomen or rectum; stools that are black and tarry or carry red blood or pus; any of the dehydration signs; diarrhea for more than 2 days in an adult or more than 1 day in a child; a fever over 102°F in an adult, any fever in an infant, or a high fever in an older child; six or more loose stools a day; or an infant who will not eat or drink for more than a few hours. Babies under 12 months, premature babies, anyone pregnant, over 65, on antibiotics, or with a weak immune system are the ones to worry about first.",
+        "How long after eating it started points at the cause, which matters for the rest of the household. Nausea and vomiting within 30 minutes to 8 hours: staph, from food handled and then not cooked again (sliced meats, puddings, pastries, sandwiches). Cramps and diarrhea 6 to 24 hours after a big batch of meat or gravy kept warm too long: Clostridium perfringens. Diarrhea, fever, and cramps 6 hours to 6 days after undercooked chicken or eggs or raw milk: salmonella. Vomiting and diarrhea 12 to 48 hours after contact with a sick person or their food: norovirus, which spreads through a house fast. Severe cramps and bloody diarrhea 3 to 4 days after undercooked ground beef, raw milk, lettuce, or sprouts: E. coli, which in some people goes on to kidney failure. Bloody diarrhea 2 to 5 days after raw poultry: campylobacter.",
+        "Two that are emergencies in their own right. Trouble swallowing, muscle weakness, double or blurred vision, drooping eyelids, or slurred speech starting 18 to 36 hours after home-canned or fermented food, the weakness starting at the head and moving down, is botulism. And fever with flu-like aches in a pregnant woman, up to 2 weeks after soft cheese, deli meat, hot dogs, smoked fish, sprouts, or melon, can be listeria, which can end the pregnancy. Both need care by any route you have.",
+        "Keep it from going through the whole household: wash hands with soap for 20 seconds after the toilet, after diapers, before touching food, and after caring for the sick person; use a sanitizer of at least 60% alcohol when there is no soap. See Keeping a sick household from becoming a sick house."
+      ]
+    },
+    {
+      "title": "Belly pain: what is ordinary, and what is appendicitis or worse",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases), \"Appendicitis: Symptoms & Causes\"",
+        "NIDDK, \"Appendicitis: Treatment\"",
+        "MedlinePlus (U.S. National Library of Medicine), \"Abdominal Pain\" health topic"
+      ],
+      "guidance": [
+        "The abdomen runs from below the chest to the groin and holds a lot of organs; pain can come from any of them, and sometimes from the chest. Severe pain does not always mean something serious, and mild pain does not mean it is not. What tells you is the pattern and what comes with it.",
+        "Get medical help immediately, by whatever route actually works, for: pain that is sudden and sharp; belly pain together with pain in the chest, neck, or shoulder; vomiting blood or blood in the stool; an abdomen that is stiff, hard, and tender to the touch; or not being able to move the bowels, especially with vomiting.",
+        "Appendicitis has a shape worth knowing. The pain often begins around the belly button and moves down and to the right. It starts suddenly, can wake a person from sleep, gets worse with moving, deep breaths, coughing, or sneezing, feels unlike any pain they have had, and worsens over a matter of hours, usually before anything else shows up. Then comes loss of appetite, nausea or vomiting, fever, and a swollen belly; some people cannot pass gas, or feel a bowel movement would help. Children may show none of the usual signs.",
+        "It is a medical emergency. The treatment is surgery to remove the appendix, with antibiotics started first; a few mild cases are treated with antibiotics alone, but surgery is the standard. Waiting is what turns it into a burst appendix, and a burst appendix means peritonitis, an infection of the whole abdomen that can kill, or an abscess that has to be drained.",
+        "This is one of the situations this app cannot fix. An inflamed appendix needs a surgeon, and everything possible should go into reaching one, starting now rather than after a night of watching.",
+        "Mild pain that lasts a week or more, or any belly pain with other symptoms that are worrying you, is a reason to see a provider even when it is not tonight."
+      ]
+    },
+    {
+      "title": "Dehydration: spotting it early in adults, children, and babies",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Dehydration\" health topic",
+        "NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases), \"Diarrhea: Symptoms & Causes\""
+      ],
+      "guidance": [
+        "In an adult, dehydration shows as feeling very thirsty, a dry mouth, urinating and sweating less than usual, dark urine, dry skin, tiredness, and dizziness. Two more signs from the field: skin that stays tented for a moment when pinched on the back of the hand and released, and sunken eyes or cheeks.",
+        "Babies and small children cannot tell you. Look for a dry mouth and tongue, crying without tears, no wet diaper for 3 hours or more, a high fever, unusual sleepiness or drowsiness, irritability, eyes that look sunken, and, in a baby, a sunken soft spot on the head.",
+        "It can be mild or it can kill. Get medical help right away, by whatever route actually works, when any of these appear: confusion, fainting, no urination, a rapid heartbeat, rapid breathing, or shock (pale, cold, clammy, weak).",
+        "The treatment is to put back what was lost, fluids and salts together. Mild cases just need plenty of water. When a lot of sweat or diarrhea has gone out, drinks with electrolytes help: sports drinks, or an oral rehydration solution, which is sold without a prescription and can be made at home (see Making and using an oral rehydration drink). Severe dehydration is treated with fluids through a vein in a hospital, which is why the severe signs above are a reason to reach care and not to keep trying at home.",
+        "When liquids will not stay down, go small: sips of water, or ice chips to suck on, and keep at it. Many small amounts over an hour do what one large drink cannot.",
+        "Prevention is most of it when supplies are short: enough water every day; extra in hot weather and with any hard work outdoors; extra again whenever someone is sick; and go easy on sugary and caffeinated drinks, which do not replace what sweat takes out. Sports drinks carry a lot of sugar, so they are a supplement to water, not a replacement for it."
+      ]
+    },
+    {
+      "title": "Ear infection: a child pulling at an ear, and what actually helps",
+      "category": "Medical & First Aid",
+      "priority": "P2",
+      "sources": [
+        "NIDCD (National Institute on Deafness and Other Communication Disorders), \"Ear Infections in Children\"",
+        "MedlinePlus (U.S. National Library of Medicine), \"Ear Infections\" health topic"
+      ],
+      "guidance": [
+        "An ear infection is fluid trapped behind the eardrum, usually with bacteria in it, and it usually follows a cold, a sore throat, or another infection of the nose and throat. Children get them far more than adults, because their drainage tubes are smaller and flatter and their immune systems are still learning. Most children have had at least one by their third birthday, and it is the single most common reason a child is taken to a doctor.",
+        "A child too young to say \"my ear hurts\" shows it instead: tugging or pulling at an ear, fussiness and crying, trouble sleeping, fever (especially in babies and toddlers), fluid draining from the ear, clumsiness or trouble with balance, and not responding to quiet sounds.",
+        "Many ear infections go away on their own. When a child does not have severe ear pain or a fever, doctors themselves often wait a day or two to see whether the earache settles before deciding on antibiotics. So the first day of an earache with no fever is not an emergency; it is a day of pain relief and watching.",
+        "For pain and fever: acetaminophen or ibuprofen as the label says for the child's age and weight. Never aspirin for a child with a fever or flu-like symptoms; it is a known cause of Reye's syndrome, a rare but serious illness.",
+        "What needs a professional: severe ear pain, a fever with it, an infection in a young baby, pain that is not settling after a day or two, or a child who keeps getting them. Antibiotics for an ear infection come from a prescriber, most often a course of amoxicillin over seven to ten days, and a prescribed course should be finished. A child who gets infection after infection may eventually need small tubes placed in the eardrums to let the pressure out; that is planned care, not emergency care.",
+        "Fluid can stay behind the eardrum after the infection is over, sometimes for a long time. It may cause no pain at all, but it muffles hearing and makes the next infection easier to catch, so a child who seems not to hear well weeks after an earache should be checked when care is reachable."
+      ]
+    },
+    {
+      "title": "Sore throat: soothing it, and telling strep from a virus",
+      "category": "Medical & First Aid",
+      "priority": "P2",
+      "sources": [
+        "CDC (U.S. Centers for Disease Control and Prevention), \"About Strep Throat\"",
+        "MedlinePlus (U.S. National Library of Medicine), \"Sore Throat\" health topic"
+      ],
+      "guidance": [
+        "Most sore throats are viruses, the ones that come with colds and flu. Only about 1 adult in 10 and 3 children in 10 with a sore throat have strep, which is bacterial. Allergies, smoke, mononucleosis, and tonsillitis are other causes.",
+        "The signs that point to a plain virus: a cough, a runny nose, a hoarse or raspy voice, or pink eye alongside the sore throat. Strep does not usually bring those.",
+        "The signs that point to strep: a sore throat that came on very fast, pain when swallowing, fever, red and swollen tonsils, white patches or streaks of pus on the tonsils, tiny red spots on the roof of the mouth, and swollen, tender glands at the front of the neck. It shows up 2 to 5 days after exposure. Children may also have a headache, nausea or vomiting, stomach pain, or a fine red rash (scarlet fever). Strep is most common in children 5 to 15 and rare under 3, and it runs through a household.",
+        "Whatever the cause, the same things ease it: drink plenty of liquids, suck on lozenges, gargle, and use an over-the-counter pain reliever as the label says. Children do not get aspirin.",
+        "Strep is treated with antibiotics from a prescriber, which shorten the illness and lower the chance of it spreading or of the rarer complications: an abscess beside the tonsils, an ear or sinus infection, a kidney disease, or rheumatic fever, which damages the heart, joints, brain, and skin. A quick test in a clinic tells strep from a virus; without one, a fast-onset sore throat with fever and white patches, and no cough or runny nose, is the pattern to take to a professional when one can be reached.",
+        "Keep it from going round the house: wash hands often with soap, do not share cups, utensils, or bites of food with the sick person, wash their cups and plates after use, cover coughs and sneezes, and keep any wounds clean and covered, because the same bacteria infect broken skin."
+      ]
+    },
+    {
+      "title": "Skin infections: impetigo, cellulitis, boils, and the ones that need care now",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "CDC (U.S. Centers for Disease Control and Prevention), \"About Impetigo\"",
+        "CDC, \"About Cellulitis\"",
+        "CDC, \"Methicillin-resistant Staphylococcus aureus (MRSA) Basics\""
+      ],
+      "guidance": [
+        "Three skin infections cover most of what turns up in a household with no clinic nearby. Impetigo: red, itchy sores that break open and weep clear fluid or pus for a few days and then crust over with a honey-coloured scab, most often on the arms, legs, and around the mouth and nose, most common in children 2 to 5, and very catching. Cellulitis: a patch of skin that is painful, red, swollen, warm, and tender, sometimes pitted like an orange peel or blistered, most often on a foot or leg, and not catching. A boil or abscess: a bump full of pus, red, swollen, painful, and warm, usually where the skin was broken, often mistaken for a spider bite when no spider was seen.",
+        "All three are bacteria getting in through broken skin: cuts, scrapes, bites, puncture wounds, scabies, chickenpox, athlete's foot, eczema. In a long emergency with more scrapes and less washing, they are common, and keeping small wounds clean and covered is the prevention that matters most.",
+        "Cellulitis and abscesses need antibiotics from a prescriber, and an abscess often needs a professional to drain it. Impetigo is treated with an antibiotic ointment when there are only a few sores and antibiotic tablets when there are many; a prescribed course should be used exactly as directed.",
+        "Get medical help immediately, by whatever route actually works, when the red area of cellulitis spreads quickly or the person develops a fever or chills. Untreated, it can reach the bloodstream, the heart valves, a bone, or a joint. The same goes for any pus-filled bump with a fever, or one that has not improved within 48 hours: a staph infection that is left alone can turn into sepsis.",
+        "What you can do while care is far: keep an infected arm or leg raised, which reduces the swelling and speeds recovery; cover the area with a clean, dry bandage; do not pick at, squeeze, or pop a boil or sore, which pushes the infection deeper and spreads it; and wash your hands every time you touch it.",
+        "Stopping the spread: impetigo passes to other people in the household through contact, and staph passes through contact with infected skin, wounds, and things that touched them, so the sick person's towels, bedding, and clothes are theirs alone until it clears, and everyone washes hands. Someone with impetigo can be around others once they have started treatment and all sores on exposed skin are covered.",
+        "Someone who gets cellulitis of the lower leg again and again often has a fungal infection between the toes (athlete's foot) letting the bacteria in. Treating that is what stops the cycle."
+      ]
+    },
+    {
+      "title": "Dizziness and fainting: getting them safely down, and the signs it is more than a faint",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Fainting (Syncope)\" health topic",
+        "MedlinePlus (U.S. National Library of Medicine), \"Dizziness and Vertigo\" health topic",
+        "U.S. Navy, Hospital Corpsman (NAVEDTRA 14295), chapter 4, \"Syncope\""
+      ],
+      "guidance": [
+        "A faint is a short loss of consciousness that happens when blood pressure drops suddenly and the brain is briefly short of blood. Just before it, a person feels dizzy, lightheaded, or sick, their vision whites out or blacks out, their skin goes cold and clammy, and then their muscles let go and they fall. Once they are down, blood gets back to the head and they usually come round quickly.",
+        "The common causes are ordinary: heat or dehydration, standing up too fast, standing still for a long time, a fright or bad news, some medicines, a drop in blood sugar from a missed meal. It is more common in older people. In a household under strain, that list is a checklist: water, shade, food, and sitting down.",
+        "If someone feels a faint coming on, get them down before they fall: lying flat with the legs raised, or sitting with the head between the knees. A cool, wet cloth on the face and loosened clothing help.",
+        "When someone has fainted: make sure the airway is clear and check that they are breathing, then keep them lying down for 10 to 15 minutes before letting them get up. Most people recover completely. See Unconscious, breathing, cause unknown if they do not come round within moments.",
+        "A faint is usually nothing to worry about, but it can be the first sign of something serious, including a heart problem, diabetes, a stroke, or a seizure disorder. Anyone who faints should see a provider to find out why, when one can be reached. A faint with chest pain, during exertion, or in someone with a known heart condition moves that up the list.",
+        "Dizziness and vertigo are not the same. Dizziness is feeling lightheaded, woozy, or unsteady; vertigo is the feeling that you or the room is spinning when nothing is moving. Both get worse with walking, standing, or moving the head, and can bring nausea, vomiting, sweating, trouble walking, and ringing in the ears. Common causes are the same sudden drops in blood pressure, dehydration, getting up too fast, and medicines, plus inner-ear problems (the most common cause of vertigo), motion sickness, migraines, and head injury. Dizziness often settles on its own.",
+        "Get medical help right away, by whatever route actually works, for sudden or severe dizziness or vertigo together with vision problems, slurred speech, or weakness. Those are stroke signs. See Stroke."
+      ]
+    },
+    {
+      "title": "Breathing trouble: asthma, COPD, and when short of breath means something worse",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Breathing Problems\" health topic",
+        "NHLBI (National Heart, Lung, and Blood Institute), \"Asthma Symptoms\"",
+        "NHLBI, \"COPD Symptoms\"",
+        "NHLBI, \"Heart Attack Symptoms\"",
+        "U.S. Navy, Hospital Corpsman (NAVEDTRA 14295), chapter 4, \"Anaphylactic reaction\""
+      ],
+      "guidance": [
+        "Being short of breath means it is hard or uncomfortable to take in the air you need. A stuffy nose or hard exercise can do it harmlessly. But it is also how lung conditions (asthma, emphysema, pneumonia), airway problems, heart disease, allergies, and panic attacks show themselves, and someone who is often short of breath needs the cause found.",
+        "Asthma has a pattern: wheezing (a whistling sound breathing out), coughing especially at night or early morning, shortness of breath, and a tight chest. The symptoms come and go, start or worsen with a cold, are set off by exercise, allergies, cold air, or breathing fast from laughing or crying, and are worse at night and in the morning. It is getting worse when symptoms come more often, the reliever inhaler is needed more, coughing wakes the person at night, or ordinary activity becomes hard. See Asthma, COPD, breathing distress and Asthma with no inhaler left.",
+        "COPD looks like shortness of breath with physical effort, an ongoing cough that brings up a lot of mucus, wheezing, chest tightness or heaviness that makes a deep breath hard or painful, and tiredness. Flare-ups come from infections and from dust and smoke, which in an emergency means generator exhaust, wood smoke, and dusty cleanup. Keep the person away from all of it. Heart disease often goes along with COPD.",
+        "Sit anyone struggling to breathe upright and leaning slightly forward, hands on knees or a table. Do not lay them flat.",
+        "Get medical help immediately, by whatever route actually works, when breathing trouble comes with any of these: chest pain, heaviness, or pressure, sweating for no reason, nausea, or light-headedness, which together are heart attack signs, and shortness of breath at rest or with very little activity is itself a heart attack sign, especially in older people (see Heart attack and aspirin boundaries); a lost or hoarse voice, giant hives, or wheezing after a sting, a food, or a medicine, which is a severe allergic reaction (see Severe allergic reaction / epinephrine); or breathing that is getting worse in front of you, in anyone.",
+        "A headache, dizziness, and nausea in more than one person at once, with a generator, stove, or heater running indoors, is carbon monoxide until proven otherwise: everyone out into fresh air (see Smoke inhalation and carbon monoxide)."
+      ]
+    },
+    {
+      "title": "High blood pressure: the numbers, what they mean, and when it is a crisis",
+      "category": "Medical & First Aid",
+      "priority": "P2",
+      "sources": [
+        "NHLBI (National Heart, Lung, and Blood Institute), \"What Is High Blood Pressure?\"",
+        "NHLBI, \"High Blood Pressure Symptoms\"",
+        "NHLBI, \"High Blood Pressure Treatment\""
+      ],
+      "guidance": [
+        "Blood pressure is written as two numbers, like 120/80. The first is the pressure when the heart pumps; the second is the pressure between beats. Healthy is below 120 over below 80. Elevated is 120 to 129 over below 80. Stage 1 high is 130 to 139 or 80 to 89. Stage 2 high is 140 or more, or 90 or more. Higher than 180 or higher than 120 is a hypertensive crisis. Readings change through the day, so it is consistent readings that count.",
+        "Half of American adults have high blood pressure and a third of those do not know it, because it usually causes no symptoms at all until it has done damage: stroke, heart attack, heart failure, aneurysm, kidney disease, eye damage. That is why it is checked at least yearly, and why a home cuff is worth having in the supplies.",
+        "A reading above 180/120 with no symptoms: wait 5 minutes and check again. If it is still that high, a provider needs to know, since a medicine may need starting or changing.",
+        "A reading above 180/120 on the second check with any of these is an emergency, and you do not wait to see whether it comes down on its own: a sudden severe headache, difficulty breathing, sudden severe pain in the abdomen, chest, or back, numbness or weakness, a sudden change in vision, or trouble talking. Get medical help by whatever route actually works.",
+        "The treatment is the daily life plus, for many people, medicine. Eating the DASH way with little salt lowered pressure as well as medicine did in research; emergency food is often very salty, which matters here. Avoid or limit alcohol. Move: even a 10-minute walk a day helps, and sitting less helps. Losing 3 to 5 percent of body weight improves pressure. Stop smoking.",
+        "Blood pressure medicines are taken every day whether or not anything feels wrong, and an emergency is the worst time to run out. See Medication storage, expiration, continuity for keeping a supply going."
+      ]
+    },
+    {
+      "title": "Chest pain: sorting the causes, and treating it as the heart until proven otherwise",
+      "category": "Medical & First Aid",
+      "priority": "P0",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Chest Pain\" health topic",
+        "NHLBI (National Heart, Lung, and Blood Institute), \"Heart Attack Symptoms\"",
+        "U.S. Navy, Hospital Corpsman (NAVEDTRA 14295), chapter 4, \"Heart conditions\""
+      ],
+      "guidance": [
+        "Chest pain does not always mean a heart attack. It can be angina, a panic attack, heartburn or another problem of the swallowing tube, sore chest muscles, a lung problem such as pneumonia, pleurisy, or a clot in the lung, or inflammation of the joints where the ribs meet the breastbone. Some of those are serious in their own right.",
+        "Get immediate medical care, by whatever route actually works, for chest pain that does not go away, crushing pain or pressure in the chest, or chest pain together with nausea, sweating, dizziness, or shortness of breath.",
+        "A heart attack does not always begin with crushing pain. It can start slowly, be mild, and come and go over hours, and it differs between people and between men and women. The signs: pain, heaviness, or discomfort in the center or left of the chest; pain or discomfort in one or both arms, the back, shoulders, neck, jaw, or the upper belly; shortness of breath at rest or with little effort; sweating for no reason; feeling unusually tired for no reason, sometimes for days, more often in women; nausea or vomiting; light-headedness or sudden dizziness; a rapid or irregular heartbeat. Older people and people with diabetes can have a heart attack with almost no symptoms at all.",
+        "Angina is chest pain in someone with known heart disease, a squeezing pain under the breastbone that can spread to the left arm or jaw. It comes on with exertion and goes away within a few minutes of rest, or of their own prescribed nitroglycerin under the tongue. A heart attack's pain is worse, lasts longer, and does not go away with rest or medicine. If you cannot tell which it is, treat it as a heart attack.",
+        "Every minute matters. If an ambulance can reach you, that is the safest way, because treatment starts on the way; do not have the person drive, and do not delay for aspirin or anything else. If nothing can reach you, getting them toward care is the job. Whether to give aspirin is its own decision; see Heart attack and aspirin boundaries.",
+        "While you wait or travel: sit them semi-upright, loosen tight clothing, keep them calm and still, watch their breathing and pulse, and be ready to start CPR if they stop responding and stop breathing normally. See Adult CPR/AED."
+      ]
+    },
+    {
+      "title": "Fever in a baby or child: what to do at home, and the temperatures that need a doctor",
+      "category": "Medical & First Aid",
+      "priority": "P1",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"When your baby or infant has a fever\"",
+        "MedlinePlus (U.S. National Library of Medicine), \"Fever\" (medical encyclopedia)",
+        "MedlinePlus (U.S. National Library of Medicine), \"Fever\" health topic"
+      ],
+      "guidance": [
+        "A fever is the body fighting an infection, and most fevers in children are harmless and come from mild illnesses. A plain cold can push a child to 102 to 104°F without anything serious going on, and overdressing a baby can raise the temperature by itself. What tells you more than the number is the child: one who is still interested in playing, eating and drinking well, alert and smiling, a normal colour, and looks well once the temperature comes down is probably not seriously ill.",
+        "The numbers that need a provider right away, or the emergency room if that is what can be reached: any baby under 3 months with a rectal temperature of 100.4°F (38°C) or higher; a baby 3 to 12 months with 102.2°F (39°C) or higher; a child under 2 whose fever has lasted more than 24 to 48 hours, or an older child past 48 to 72 hours; a fever of 105°F (40.5°C) or higher, unless it comes down readily with treatment and the child is comfortable; and fevers that come and go for a week or more even if they are not high.",
+        "Also reach a provider when the child does not act alert or more comfortable as the fever drops, when a fever comes back after going away, when there are no tears with crying or no wet diaper or urine in 8 hours, when other symptoms point at something treatable (sore throat, earache, diarrhea, vomiting, cough, pain when urinating), when a new rash or bruises appear, after a recent immunization, or when the child has a serious condition such as a heart problem, sickle cell anemia, diabetes, cystic fibrosis, or a weakened immune system.",
+        "Get help immediately, by whatever route actually works, for a fever with any of these: crying that cannot be calmed; a child who cannot be woken easily or at all; confusion; cannot walk; difficulty breathing even after the nose is cleared; blue lips, tongue, or nails; a very bad headache; a stiff neck; refusing to move an arm or leg; a seizure; or a new rash or bruises appearing. A fever seizure itself is usually over quickly, does not mean epilepsy, and does no lasting harm, but it still goes on this list.",
+        "At home: do not bundle a child up, even one with chills, because it keeps the fever from coming down or pushes it higher. One layer of light clothing and one light blanket for sleep, a comfortable room, a fan if it is stuffy. A lukewarm bath or sponge-down helps cool them, and works best after medicine, otherwise the temperature bounces back. Never cold baths, ice, or alcohol rubs: they cause shivering, which raises the core temperature. The goal is a more comfortable child, not a normal number; a drop of even one degree usually does it.",
+        "Medicine: acetaminophen and ibuprofen both lower fever. Know the child's weight and follow the package for that weight. Acetaminophen goes every 4 to 6 hours and ibuprofen every 6 to 8, and ibuprofen is not for babies under 6 months. Under 3 months, a provider decides before any medicine is given. No aspirin for a child unless a provider says so.",
+        "Fluids matter more than food. Plenty to drink; babies get breast milk or formula and no fruit juice; a child who is vomiting can have an electrolyte drink; older children should not have much juice and no sports drinks. Soft, bland food is fine when they want it, and nobody is forced to eat.",
+        "Adults, briefly: a provider right away for 105°F or higher unless it comes down readily, a fever that stays at or keeps climbing above 103°F, one lasting more than 48 to 72 hours or coming and going for a week, a fever with a new rash or bruises or pain on urinating, a serious long-term illness, a weakened immune system, or recent travel abroad. The same emergency list applies. See Fever, respiratory infection, isolation for keeping it from spreading."
+      ]
+    },
+    {
+      "title": "Back pain: what settles on its own, safe lifting, and the signs it is something else",
+      "category": "Medical & First Aid",
+      "priority": "P2",
+      "sources": [
+        "MedlinePlus (U.S. National Library of Medicine), \"Low back pain - acute\" (medical encyclopedia)",
+        "MedlinePlus (U.S. National Library of Medicine), \"Back Pain\" health topic"
+      ],
+      "guidance": [
+        "Eight people in ten get back pain at some point. Most sudden low back pain is a strained or torn muscle or ligament, or a muscle spasm, and most people improve or recover within 4 to 6 weeks, often much sooner. It can feel like burning, tingling, a dull ache, or a sharp pain too severe to move through, and it can run into the hip, leg, or foot.",
+        "What to do in the first days: cut back on normal activity for a few days, but do not take to bed, because more than 1 or 2 days lying down makes it worse. Ice the painful area for the first 48 to 72 hours, then switch to heat. Over-the-counter pain relievers such as ibuprofen, taken as the label says, help.",
+        "Cleanup after a disaster is where backs get hurt. Get help with anything heavy or awkward; stand close to the load with your feet apart; bend at the knees, not the waist; tighten your stomach muscles; hold the load close; lift with your legs; do not bend forward as you stand; and do not twist while bending, lifting, or carrying. When standing for a long time, rest one foot and then the other on something raised.",
+        "Contact a provider right away, by whatever route actually works, for back pain after a severe blow or fall; loss of control of urine or stool; weakness or numbness in the buttocks, thigh, leg, or pelvis; difficulty walking or keeping balance; pain running down a leg below the knee; unexplained fever with the back pain; burning when urinating or blood in the urine; redness or swelling over the spine; pain that is worse lying down or that wakes you at night; pain so severe there is no comfortable position; or a history of cancer.",
+        "Also get seen for back pain that is different and worse than earlier episodes, that has lasted longer than 4 weeks, or that comes with unintended weight loss, and for anyone who uses steroids or injects drugs. Severe pain, or pain that has not improved after three days, is reason enough to call.",
+        "Back pain is not always the back. A kidney infection or stone, a leaking aneurysm of the main artery in the abdomen, pregnancy, the gallbladder or pancreas, and the female reproductive organs can all present as back pain, which is why fever, urinary symptoms, or pain that does not behave like a strain belong on the list above. See Urinary infection (UTI)."
+      ]
+    }
+  ]
+}
