@@ -43,6 +43,16 @@ export function VoiceInput({ onTranscript, onPartial, color, background, mutedCo
   // Held in a ref as well as reported upward: the end event arrives after the
   // last result, and that is where a transcript gets committed.
   const latest = useRef('');
+  // Committed at most once per press of the button. Android sends the final
+  // result AND an end event, and each used to commit — the same words asked
+  // twice, and the model refuses the second while it is busy with the first.
+  const committed = useRef(false);
+  const commit = (text: string) => {
+    if (committed.current) return;
+    committed.current = true;
+    latest.current = '';
+    onTranscript(text);
+  };
 
   useEffect(() => {
     let alive = true;
@@ -76,7 +86,7 @@ export function VoiceInput({ onTranscript, onPartial, color, background, mutedCo
     const said = event.results?.[0]?.transcript ?? '';
     if (!said) return;
     latest.current = said;
-    if (event.isFinal) onTranscript(said);
+    if (event.isFinal) commit(said);
     else onPartial?.(said);
   });
 
@@ -84,10 +94,7 @@ export function VoiceInput({ onTranscript, onPartial, color, background, mutedCo
     setState((prev) => (prev.kind === 'listening' ? { kind: 'idle' } : prev));
     // Android often ends without ever flagging a result as final. Without this
     // the words appear while you speak and vanish when you stop.
-    if (latest.current) {
-      onTranscript(latest.current);
-      latest.current = '';
-    }
+    if (latest.current) commit(latest.current);
   });
 
   useSpeechRecognitionEvent('error', (event) => {
@@ -102,6 +109,7 @@ export function VoiceInput({ onTranscript, onPartial, color, background, mutedCo
 
   const start = async () => {
     latest.current = '';
+    committed.current = false;
     const granted = await ExpoSpeechRecognitionModule.requestPermissionsAsync();
     if (!granted.granted) {
       setState({ kind: 'unavailable', why: 'GuideHand needs permission to use the microphone.' });

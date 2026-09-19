@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { models, useLLMChatSession } from 'react-native-executorch';
+import { models } from 'react-native-executorch';
 
 import { Icon } from '@/components/icon';
 import { ReadAloudButton } from '@/components/read-aloud-button';
@@ -10,10 +10,11 @@ import { VoiceInput } from '@/components/voice-input';
 import { Fonts } from '@/constants/calm';
 import { AI_NAME, buildAskContext, citedArticles, SourceArticle, SYSTEM_PROMPT } from '@/lib/askContext';
 import { AskModelChoice, AskModelKey } from '@/lib/askModels';
+import { useAskSession } from '@/lib/askSession';
 import { AboutYou, hasAnything, loadAboutYou } from '@/lib/aboutYou';
 import { requestUnlock } from '@/lib/deviceLock';
 import { isProfileUnlocked, loadProfileAccess, markProfileUnlocked, ProfileAccess } from '@/lib/profileAccess';
-import { readAloud, stripModelArtifacts } from '@/lib/readAloud';
+import { readAloud, stopReading, stripModelArtifacts } from '@/lib/readAloud';
 
 // The one place the library's model table is read. Kept in this file because
 // this file is the native-only half — the web build resolves ask-engine.web.tsx
@@ -102,9 +103,10 @@ interface AskEngineProps {
 
 type Phase =
   | { kind: 'idle' }
-  | { kind: 'thinking' }
+  | { kind: 'thinking'; question: string }
   | {
       kind: 'answered';
+      question: string;
       answer: string;
       articles: SourceArticle[];
       /** What the model actually wrote when it was rejected as not an answer. */
@@ -113,6 +115,8 @@ type Phase =
       failure?: string;
       /** prompt tokens · tokens written · seconds. Temporary readout. */
       note?: string;
+      /** She tapped stop, or asked something else, before it finished. */
+      stoppedEarly?: boolean;
     }
   | { kind: 'nothing-found'; question: string };
 
@@ -127,6 +131,9 @@ const READY_ONCE_PREFIX = 'guidehand.ask-model-downloaded.';
 // Whether Max reads answers out without being asked. On by default: she asked
 // for something that talks to her, and a button you have to find is not that.
 const SPEAKS_KEY = 'guidehand.max-speaks.v1';
+// The most an answer may run to. Long enough for the urgent thing and the
+// steps after it; short enough that a wrong turn is over quickly.
+const GENERATION = { maxNewTokens: 320 };
 
 /**
  * The model half of Ask. Mounted only once a model has been chosen — the
@@ -214,15 +221,12 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
     };
   }, [model.id]);
 
-  const llm = useLLMChatSession(configFor(model.modelKey) as never, {
-    // The grounding instruction is pinned as the system message so it survives
-    // every turn rather than being something the model can talk itself out of.
-    initialMessages: [{ role: 'system', content: SYSTEM_PROMPT }],
-    // Each question stands alone with its own articles; carrying history over
-    // would let an earlier answer contaminate the next one.
-    resetOnTurn: true,
-    generationConfig: { maxNewTokens: 320 },
-  });
+  // Every question starts the model from zero: the standing instructions and
+  // that one question. The library's chat session was used before, and it
+  // quietly re-sent every earlier question and answer along with each new one
+  // — its "resetOnTurn" empties the model's memory, not the history it is
+  // re-fed — so the second question was already carrying the first.
+  const engine = useAskSession(configFor(model.modelKey), SYSTEM_PROMPT, GENERATION);
 
   const firstName = usable?.name.trim().split(/\s+/)[0] ?? '';
   const greeting = firstName
@@ -233,73 +237,103 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   // profile has been read, so it does not greet a stranger and then learn her
   // name a moment later.
   useEffect(() => {
-    if (!llm.isReady || speaks !== true || about === undefined || access === undefined || greeted.current) return;
+    if (!engine.isReady || speaks !== true || about === undefined || access === undefined || greeted.current) return;
     greeted.current = true;
     void readAloud(greeting, {});
-  }, [llm.isReady, speaks, about, access, greeting]);
+  }, [engine.isReady, speaks, about, access, greeting]);
 
   // Written the first time this model is usable, so the next open knows the
   // file is already here and says so.
   useEffect(() => {
-    if (!llm.isReady) return;
+    if (!engine.isReady) return;
     // Only the write. Setting the flag in state here would be a needless
     // re-render: once the model is ready this card is not on screen at all,
     // and the next time the screen opens the value is read back from storage.
     AsyncStorage.setItem(READY_ONCE_PREFIX + model.id, 'yes').catch(() => {});
-  }, [llm.isReady, model.id]);
+  }, [engine.isReady, model.id]);
 
-  const ask = useCallback(async (spoken?: string) => {
-    const asked = (spoken ?? question).trim();
-    const context = buildAskContext(asked, usable);
+  // Only the newest question gets to touch the screen. An older one that is
+  // still finishing, or was cut off to make room, resolves quietly.
+  const turn = useRef(0);
 
-    // The safety rule: nothing relevant found means the model is never asked.
-    if (context.empty) {
-      setPhase({ kind: 'nothing-found', question: asked });
-      return;
-    }
-    if (!llm.sendMessage) return;
+  const stopMax = () => {
+    engine.session?.stop();
+    stopReading();
+  };
 
-    setPhase({ kind: 'thinking' });
-    setStreamed('');
-    let collected = '';
-    try {
-      const turn = await llm.sendMessage(context.prompt, (token) => {
-        collected += token;
-        setStreamed(stripModelArtifacts(collected));
-      });
-      // TEMPORARY readout, the same idea as the build date: "it said nothing"
-      // is unanswerable, "prompt 1,512 tokens, wrote 3, in 41 s" is not. The
-      // last stats entry is the answer's own generation step.
-      const last = turn.stats[turn.stats.length - 1];
-      const note = last
-        ? `prompt ${last.numPromptTokens.toLocaleString()} tokens · wrote ${last.numGeneratedTokens.toLocaleString()} · ${Math.round((last.inferenceEndMs - last.inferenceStartMs) / 1000)} s`
-        : undefined;
-      // The model emits its own chat-template markers as ordinary text —
-      // "<|start_header_id|>assistant<|end_header_id|>" arrived at the top of a
-      // real answer on a real phone. Citations are read from the raw text,
-      // because stripping can remove the line a [1] was sitting on.
-      const answer = stripModelArtifacts(collected);
-      // A model that emits nothing but a citation marker leaves "[1]" sitting
-      // on screen where an answer should be. That happened on a real phone
-      // during a real emergency. With the citations and punctuation taken out
-      // there has to be something left that is actually words — and when
-      // there is not, what it did write is shown, not hidden.
-      const real = hasRealWords(answer);
-      setPhase({
-        kind: 'answered',
-        answer: real ? answer : '',
-        raw: real ? undefined : answer.slice(0, 120),
-        articles: citedArticles(collected, context.articles),
-        note,
-      });
-    } catch (error) {
-      // A failed generation still leaves the articles, which are the real
-      // answer anyway. The error itself is shown, verbatim: a generic
-      // "couldn't finish" hid the cause for three builds.
-      const failure = error instanceof Error ? error.message : String(error);
-      setPhase({ kind: 'answered', answer: '', failure, articles: context.articles });
-    }
-  }, [question, llm, usable]);
+  const ask = useCallback(
+    async (spoken?: string) => {
+      const asked = (spoken ?? question).trim();
+      if (asked.length < 2) return;
+      // The box empties the moment a question goes. She had to delete the old
+      // one by hand before every new question; now the question moves to the
+      // answer card, and tapping it there puts it back to change.
+      setQuestion('');
+      stopReading();
+      const context = buildAskContext(asked, usable);
+
+      // The safety rule: nothing relevant found means the model is never asked.
+      if (context.empty) {
+        setPhase({ kind: 'nothing-found', question: asked });
+        return;
+      }
+      const session = engine.session;
+      if (!session) return;
+
+      const mine = ++turn.current;
+      setPhase({ kind: 'thinking', question: asked });
+      setStreamed('');
+      let collected = '';
+      try {
+        const result = await session.ask(context.prompt, (token) => {
+          if (mine !== turn.current) return;
+          collected += token;
+          setStreamed(stripModelArtifacts(collected));
+        });
+        if (mine !== turn.current || result.superseded) return;
+        // TEMPORARY readout, the same idea as the build date: "it said nothing"
+        // is unanswerable, "prompt 1,304 of 2,048 tokens, wrote 3, in 41 s" is
+        // not. The window is how much the model can hold, prompt and answer.
+        const stats = result.stats;
+        const note = stats
+          ? `prompt ${stats.numPromptTokens.toLocaleString()} of ${session.contextWindow.toLocaleString()} tokens · wrote ${stats.numGeneratedTokens.toLocaleString()} · ${Math.round((stats.inferenceEndMs - stats.inferenceStartMs) / 1000)} s`
+          : undefined;
+        // The model emits its own chat-template markers as ordinary text —
+        // "<|start_header_id|>assistant<|end_header_id|>" arrived at the top of
+        // a real answer on a real phone. Citations are read from the raw text,
+        // because stripping can remove the line a [1] was sitting on.
+        const answer = stripModelArtifacts(result.text);
+        // A model that emits nothing but a citation marker leaves "[1]" sitting
+        // on screen where an answer should be. That happened on a real phone
+        // during a real emergency. With the citations and punctuation taken out
+        // there has to be something left that is actually words — and when
+        // there is not, what it did write is shown, not hidden.
+        const real = hasRealWords(answer);
+        if (result.stoppedEarly && !real) {
+          // Stopped before it had said anything. There is nothing to show.
+          setPhase({ kind: 'idle' });
+          return;
+        }
+        setPhase({
+          kind: 'answered',
+          question: asked,
+          answer: real ? answer : '',
+          raw: real ? undefined : answer.slice(0, 120),
+          articles: citedArticles(result.text, context.articles),
+          note,
+          stoppedEarly: result.stoppedEarly,
+        });
+      } catch (error) {
+        if (mine !== turn.current) return;
+        // A failed generation still leaves the articles, which are the real
+        // answer anyway. The error itself is shown, verbatim: a generic
+        // "couldn't finish" hid the cause for three builds.
+        const failure = error instanceof Error ? error.message : String(error);
+        setPhase({ kind: 'answered', question: asked, answer: '', failure, articles: context.articles });
+      }
+    },
+    [question, engine.session, usable]
+  );
 
   const openArticle = (article: SourceArticle) => {
     router.push({
@@ -309,14 +343,14 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
   };
 
   // --- still downloading -------------------------------------------------
-  if (!llm.isReady) {
-    const pct = percentOf(llm.downloadProgress);
+  if (!engine.isReady) {
+    const pct = percentOf(engine.downloadProgress);
     return (
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-        {llm.error ? (
+        {engine.error ? (
           <>
             <Text style={[styles.cardLabel, { color: c.dangerText }]}>That didn&apos;t work</Text>
-            <Text style={[styles.body, { color: c.textSecondary }]}>{String(llm.error.message ?? llm.error)}</Text>
+            <Text style={[styles.body, { color: c.textSecondary }]}>{String(engine.error.message ?? engine.error)}</Text>
             <Pressable
               accessibilityRole="button"
               onPress={onChangeModel}
@@ -433,14 +467,29 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
       </Pressable>
 
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
-        <TextInput
-          value={question}
-          onChangeText={setQuestion}
-          placeholder="What's happening? Say it plainly."
-          placeholderTextColor={c.textSecondary}
-          multiline
-          style={[styles.input, { color: c.text, borderColor: c.cardBorder }]}
-        />
+        <View style={styles.inputWrap}>
+          <TextInput
+            value={question}
+            onChangeText={setQuestion}
+            placeholder="What's happening? Say it plainly."
+            placeholderTextColor={c.textSecondary}
+            multiline
+            style={[
+              styles.input,
+              { color: c.text, borderColor: c.cardBorder, paddingRight: question.length > 0 ? 42 : 12 },
+            ]}
+          />
+          {question.length > 0 ? (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Clear the question"
+              hitSlop={10}
+              onPress={() => setQuestion('')}
+              style={({ pressed }) => [styles.clear, { backgroundColor: c.blueSoft, opacity: pressed ? 0.6 : 1 }]}>
+              <Text style={[styles.clearText, { color: c.blueText }]}>×</Text>
+            </Pressable>
+          ) : null}
+        </View>
         <VoiceInput
           onPartial={setQuestion}
           onTranscript={(said) => {
@@ -453,27 +502,39 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           background={c.blueSoft}
           mutedColor={c.textSecondary}
         />
+        {phase.kind === 'thinking' ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={stopMax}
+            style={({ pressed }) => [styles.button, { backgroundColor: c.blueSoft, opacity: pressed ? 0.6 : 1 }]}>
+            <ActivityIndicator size="small" color={c.blue} />
+            <Text style={[styles.buttonText, { color: c.blue }]}>{AI_NAME} is writing… tap to stop</Text>
+          </Pressable>
+        ) : (
+          <Pressable
+            accessibilityRole="button"
+            disabled={question.trim().length < 2}
+            onPress={() => void ask()}
+            style={({ pressed }) => [
+              styles.button,
+              { backgroundColor: c.blueSoft, opacity: pressed || question.trim().length < 2 ? 0.5 : 1 },
+            ]}>
+            <Icon name="search" size={16} color={c.blue} />
+            <Text style={[styles.buttonText, { color: c.blue }]}>Ask</Text>
+          </Pressable>
+        )}
+      </View>
+
+      {phase.kind === 'thinking' || phase.kind === 'answered' ? (
         <Pressable
           accessibilityRole="button"
-          disabled={phase.kind === 'thinking' || question.trim().length < 2}
-          onPress={() => ask()}
-          style={({ pressed }) => [
-            styles.button,
-            {
-              backgroundColor: c.blueSoft,
-              opacity: pressed || phase.kind === 'thinking' || question.trim().length < 2 ? 0.5 : 1,
-            },
-          ]}>
-          {phase.kind === 'thinking' ? (
-            <ActivityIndicator size="small" color={c.blue} />
-          ) : (
-            <Icon name="search" size={16} color={c.blue} />
-          )}
-          <Text style={[styles.buttonText, { color: c.blue }]}>
-            {phase.kind === 'thinking' ? 'Reading your articles…' : 'Ask'}
-          </Text>
+          accessibilityLabel="Put this question back in the box to change it"
+          onPress={() => setQuestion(phase.question)}
+          style={({ pressed }) => [styles.askedRow, { opacity: pressed ? 0.6 : 1 }]}>
+          <Text style={[styles.askedLabel, { color: c.textSecondary }]}>YOU ASKED</Text>
+          <Text style={[styles.askedText, { color: c.text }]}>{phase.question}</Text>
         </Pressable>
-      </View>
+      ) : null}
 
       {phase.kind === 'thinking' && streamed.length > 0 ? (
         <View style={[styles.card, { backgroundColor: c.card, borderColor: c.blue }]}>
@@ -496,7 +557,16 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
           {phase.answer.length > 0 ? (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.blue, borderLeftWidth: 5 }]}>
               <Text style={[styles.answer, { color: c.text }]}>{phase.answer}</Text>
-              <ReadAloudButton key={phase.answer} text={phase.answer} autoPlay={speaks === true} color={c.blue} background={c.blueSoft} />
+              {phase.stoppedEarly ? (
+                <Text style={[styles.body, { color: c.textSecondary }]}>You stopped {AI_NAME} there.</Text>
+              ) : null}
+              <ReadAloudButton
+                key={phase.answer}
+                text={phase.answer}
+                autoPlay={speaks === true && !phase.stoppedEarly}
+                color={c.blue}
+                background={c.blueSoft}
+              />
             </View>
           ) : (
             <View style={[styles.card, { backgroundColor: c.card, borderColor: c.dangerText ?? c.cardBorder }]}>
@@ -523,7 +593,7 @@ export function AskEngine({ model, c, onChangeModel, initialQuestion }: AskEngin
               )}
               <Pressable
                 accessibilityRole="button"
-                onPress={() => void ask()}
+                onPress={() => void ask(phase.question)}
                 style={({ pressed }) => [styles.button, { backgroundColor: c.blueSoft, opacity: pressed ? 0.7 : 1 }]}>
                 <Text style={[styles.buttonText, { color: c.blue }]}>Ask again</Text>
               </Pressable>
@@ -587,6 +657,22 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   tellItText: { flex: 1, fontSize: 12.5, lineHeight: 17.5, fontFamily: Fonts.bodySemibold },
+
+  inputWrap: { position: 'relative' },
+  clear: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  clearText: { fontSize: 18, lineHeight: 20, fontFamily: Fonts.bodyBold },
+  askedRow: { paddingHorizontal: 4, paddingTop: 2, paddingBottom: 10, gap: 2 },
+  askedLabel: { fontSize: 11, fontFamily: Fonts.mono, letterSpacing: 1.2 },
+  askedText: { fontSize: 14, lineHeight: 20, fontFamily: Fonts.bodySemibold },
 
   cardLabel: { fontSize: 14, fontFamily: Fonts.bodyBold },
   body: { fontSize: 13, lineHeight: 19, fontFamily: Fonts.body },
