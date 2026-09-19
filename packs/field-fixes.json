@@ -2,8 +2,8 @@
   "id": "field-fixes",
   "name": "Field Fixes & Improvised Repairs",
   "version": 1,
-  "license": "Original text written for GuideHand. Sources named on every article: U.S. Army field manuals (FM 4-30.31, FM 5-125, ATP 3-50.21) and MedlinePlus. Lines that come only from hand-me-down field practice say so.",
-  "attribution": "U.S. Army field manuals FM 4-30.31, FM 5-125, ATP 3-50.21; MedlinePlus",
+  "license": "Original text written for GuideHand. Sources named on every article: U.S. Army field manuals (FM 4-30.31, FM 5-125, FM 6-02.53, ATP 3-50.21), the Forest Service saw and tree-climbing guides, OSHA, the FCC rules, NOAA, the Coast Guard, and MedlinePlus. Lines that come only from hand-me-down field practice say so.",
+  "attribution": "U.S. Army field manuals; USDA Forest Service; OSHA; FCC rules (47 CFR); NOAA; U.S. Coast Guard; MedlinePlus",
   "articles": [
     {
       "title": "Siphoning fuel or water without a pump, and never by mouth",
@@ -198,6 +198,121 @@
         "A lock that will not turn: rub a soft pencil heavily over the key and shave graphite dust into the keyhole; graphite is a dry lubricant that does not gum up or attract dirt the way oil does. A stripped screw head: press a wide rubber band flat over it and drive the screwdriver through the band. A wrench too big for the nut: shim the gap with a coin or a washer. Heavy coat-hanger or spoke wire, bent into a hairpin, replaces a lost cotter pin or hitch pin.",
         "A can with no opener: turn it upside down on rough flat concrete or a coarse flat stone and grind the rim in circles for about a minute until the crimped seam wears through and liquid beads on the stone; squeeze the sides and the lid lifts off with no jagged edge. Stabbing a can with a kitchen knife is how hands get cut.",
         "Fire starters you can make: the Army's survival manual lists candles, paper, cotton balls smeared with petroleum jelly, and lint among the man-made tinders that catch a spark or flame. Strips of corrugated cardboard coiled into a tuna can or a foil cup and soaked with melted candle wax make a puck that lights in rain and wind and burns for many minutes, long enough to dry out wet kindling (the puck is hand-me-down; the tinders are the manual's). Fire and molten wax: outdoors, with a lid to smother it."
+      ]
+    },
+    {
+      "title": "Calling for help on a radio: which channel, what to say, and when the rules let you",
+      "category": "Communication",
+      "priority": "P1",
+      "sources": [
+        "Electronic Code of Federal Regulations, 47 CFR Part 95 (FRS: 95.563, 95.567; GMRS: 95.1705; CB: 95.931, 95.963)",
+        "Electronic Code of Federal Regulations, 47 CFR Part 97 (97.5, 97.403, 97.405)",
+        "NOAA National Weather Service, \"NOAA Weather Radio All Hazards\"",
+        "U.S. Coast Guard Navigation Center, \"International VHF Marine Radio Channels and Frequencies\"",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "Which radio services a household can own, and what each needs, is in FRS, GMRS, MURS, CB, amateur-radio boundaries; the licences are in Amateur (ham) radio licensing basics. This article is the part for the bad night: which channel to turn to, what to say, and what the rules allow when a life is at risk.",
+        "Listening first. A NOAA weather radio, or a scanner that covers the seven channels from 162.400 to 162.550 MHz, carries the National Weather Service's warnings, watches, and forecasts around the clock from more than a thousand transmitters, plus public-safety alerts such as AMBER alerts and 911 outages. It tells you what is coming; it cannot hear you. See NOAA Weather Radio.",
+        "Family walkie-talkies (FRS) use 22 channels shared with GMRS: channels 1 to 7 and 15 to 22 at up to 2 watts, channels 8 to 14 at half a watt. Channel 1 is 462.5625 MHz. An FRS radio needs no licence; a GMRS radio, which reaches farther and can use repeaters, needs an individual FCC licence, with no test, and the rules let family members operate under it. There is no emergency channel on FRS, so agree on a channel and a check-in time before the emergency: whoever is listening is who hears you.",
+        "CB radios have 40 channels from 26.965 to 27.405 MHz and need no licence. Channel 9 (27.065 MHz) is set aside by rule for emergency communications and traveller assistance and may be used for nothing else, and every CB operator must give priority to emergency traffic on every channel.",
+        "Marine VHF: channel 16 (156.800 MHz) is the international distress, safety, and calling channel, kept for exactly that. On or near the water with a marine radio, a life-threatening emergency goes out on channel 16.",
+        "Ham radio: a licence is required to transmit on amateur frequencies, and that is the rule to live by in ordinary times. The same rules say plainly that nothing in them prevents an amateur station from using any means of radio at its disposal for the immediate safety of human life or the immediate protection of property when normal communications are not available, and that a station in distress may use any means at its disposal to attract attention, make its condition and location known, and get help. Learn the radio before that night, not on it.",
+        "A repeater is a radio on a hill or a tower that hears a small handheld and rebroadcasts it across a county. To use one you need three things that differ in every area: its frequency, its offset, and its tone. Look up the ham and GMRS repeaters near you while the internet is up, and write them, with your local emergency net's day, time, and frequency, into What You Know in this app, where they will be waiting with no signal. Hams also listen on 146.520 MHz, the national 2-meter calling frequency (a convention among operators, not a rule).",
+        "What to say, on any service: press the button, wait a second, then speak slowly. Say it is an emergency, who you are, where you are (a road, a landmark, or the coordinates from this app's map), what has happened, how many people, and what you need. Let go of the button and listen. Repeat every minute or two. Short, plain, and repeated beats long and clever. On marine and aviation radio the life-threatening call is the word Mayday, spoken three times, then the message."
+      ]
+    },
+    {
+      "title": "Making an antenna from wire when you have no signal",
+      "category": "Communication",
+      "priority": "P2",
+      "sources": [
+        "U.S. Army, FM 6-02.53 Tactical Radio Operations (2009), chapter 9 \"Antennas\" and appendix C",
+        "Not yet sourced: field practice passed hand to hand, not yet checked against a reference. Test it before you rely on it."
+      ],
+      "guidance": [
+        "A radio with no signal usually has an antenna problem: too low, too short, or touching something. The Army's radio manual builds antennas out of wire, poles, and junk insulators, and the rules are simple enough to use with a handheld on a hill.",
+        "Length. A half-wave antenna's length in feet is 468 divided by the frequency in MHz; in metres, 142.5 divided by the MHz. For a 146 MHz ham handheld that is about 3.2 feet; for 462 MHz family radios about 1 foot; for 27 MHz CB about 17 feet. A dipole is two wires of a quarter wave each, half that length apiece, fed at the centre, one side to the radio's antenna connection and the other to its ground side. It works for FM radios held horizontally or vertically, and a couple of wooden sticks and some string will hold it up.",
+        "Higher and clearer. The manual hangs its long wires 10 to 20 feet up when it can and accepts as low as 3 feet. The ideal site is a clear, flat area with no trees, fences, power lines, or hills; the clearest, flattest spot you have is the one to use. A single wire two or more wavelengths long, run out toward the station you want to reach with its far end grounded through a 500- to 600-ohm resistor, is a directional antenna for HF.",
+        "Insulators keep the wire from shorting to whatever holds it up. Plastic and glass are best: plastic spoons, buttons, bottle necks, folded plastic bags. Wood and dry rope work, but not as well. The wire should touch nothing but the radio's terminal and its insulators. Guy lines made of wire are cut into short pieces joined with insulators so they do not become part of the antenna.",
+        "Repairs. A broken antenna wire is lowered, the ends cleaned bright, twisted together, and soldered if you can. An unbalanced feed can make the radio itself hot with stray current and shock the operator; the manual's cure is a coil of the coax, ten turns about 6 inches across, taped under the antenna's centre insulator. A handheld's snapped rubber antenna replaced by a wire of the right length pushed into or clipped to the connector is hand-me-down, not yet checked."
+      ]
+    },
+    {
+      "title": "Chainsaw precautions, every one",
+      "category": "Tools & Repairs",
+      "priority": "P1",
+      "sources": [
+        "OSHA, QuickCard \"Chainsaw Safety\" (OSHA 3269-04R, 2013)",
+        "OSHA, Fact Sheet \"Working Safely with Chainsaws\"",
+        "USDA Forest Service, \"Chain Saw and Crosscut Saw Training Course: Student's Guidebook\" (0667-2805-MTDC), chapters 2 and 4",
+        "USDA Forest Service, \"Saw Operations Guide\" (2017, version 1.3.2), chapters 3 and 4"
+      ],
+      "guidance": [
+        "Before starting: check the controls, the chain tension, and every bolt and handle; the chain sharp, the oil tank full, the chain brake working. Start the saw on the ground or on something firm, with the brake on, at least 10 feet from where you fuelled it. Never drop-start a saw.",
+        "Fuel: an approved can, a funnel or a flexible spout, at least 10 feet from any flame or spark, no smoking, and never into a running or hot saw. Fuel and the saw ride outside the passenger compartment, and never with food.",
+        "Wear it all: a helmet, eye protection with side shields or a face screen, ear protection (a saw is louder than 85 decibels), gloves, cut-resistant chaps that overlap the boots by two inches, and heavy 8-inch boots with nonskid soles. No loose clothing. The chaps stop a running chain by clogging its sprocket with fibre, and most chain cuts land on the left leg, which is why they matter.",
+        "Holding it: both hands on the handles with thumbs and fingers wrapped round, secure footing, the saw never above shoulder height, never from a ladder, never in a tree, never reaching or off balance. Full throttle before the chain touches wood, and do not throttle down until the cut is through.",
+        "Kickback is the saw thrown back at you when the upper quarter of the bar's tip touches something, or when the wood pinches the chain in the cut. So: do not cut with the tip, keep the tip guard on, clear dirt, rocks, and small limbs from the chain's path, and look for nails or wire in the wood before you cut. Cutting with the top of the bar pushes the saw back at you; the bottom of the bar pulls it away. A dull, loose, or badly filed chain kicks back more.",
+        "Wood under tension springs when it is cut. Small trees and limbs pinned under a fallen tree (spring poles) release with enough force to break bones. Look for them before every cut, and see Cutting a fallen tree out of the road (bucking): reading the bind.",
+        "People: never work alone, and keep others twice the height of the tree away. Shut the saw off, or set the brake, when carrying it more than a few steps or over rough ground, and carry it with the bar pointing back and the muffler away from your body. Take breaks: more kickbacks, more pinched bars, and more near misses are the signs of fatigue, and the next one is the injury.",
+        "Higher-risk jobs that belong to trained people: trees on unstable ground or steep slopes, trees with a heavy lean, rot in the stem or roots, trees known to split, and anything above shoulder height or off the ground. The Forest Service trains and certifies every sawyer before they cut, and a first-aid kit is part of the saw's equipment. See Chainsaw and cutting-tool safety."
+      ]
+    },
+    {
+      "title": "Felling a tree: the three cuts, the hinge, and the escape route",
+      "category": "Tools & Repairs",
+      "priority": "P1",
+      "sources": [
+        "USDA Forest Service, \"Chain Saw and Crosscut Saw Training Course: Student's Guidebook\" (0667-2805-MTDC), chapters 2 and 4",
+        "USDA Forest Service, \"Saw Operations Guide\" (2017, version 1.3.2), chapters 3 and 4",
+        "OSHA, Fact Sheet \"Working Safely with Chainsaws\""
+      ],
+      "guidance": [
+        "Felling is the most dangerous thing a saw does, and the Forest Service certifies its sawyers before they fell anything. If a tree is beyond your skill, leaning hard, rotten, tangled in other trees, or near a power line, the answer is to leave it. Never fell within two and a half tree lengths of a power line unless the utility has certified it is dead, and never in the dark, in fog or smoke, or in wind strong enough to move the tree; the guidebook stops felling above about 15 miles an hour.",
+        "Size it up. Look up first: dead tops, hanging broken limbs (widow makers), and loose bark cause most of the accidents. Judge the lean, forward and sideways, the heavy side of the crown, and rot at the base (a hollow thud when struck, fungus, wounds). Walk out the lay, where it will fall, and clear it. Keep everyone else two and a half tree lengths away.",
+        "Escape routes. Before the first cut, clear two paths at 90 to 135 degrees from the direction of fall, never straight behind the tree, leading to a safe spot at least 20 feet from the stump, ideally behind a sound standing tree. Clear the base of brush and anything that could trip you or catch the bar.",
+        "The undercut, on the side the tree will fall toward, made in every tree 5 inches through or bigger: a level horizontal cut one-third of the way into the trunk, then a sloping cut at about 45 degrees down to meet it exactly. The two cuts must meet and not cross; where they cross you get a dutchman, and the tree can split up the middle (a barber chair) or fall where it likes. Clean the notch out, then sight along the saw's gunning marks or an axe handle laid in the notch to check the aim; the back of the notch must be square to the direction you want.",
+        "The back cut, from the other side: level, about 2 inches above the floor of the notch, stopping short so that a strip of uncut wood, the hinge or holding wood, is left between the two cuts. The hinge is what steers the tree; cut through it and you have no control. The step between the notch floor and the back cut is what keeps the trunk from kicking back over the stump.",
+        "Wedges go into the back cut as soon as the bar has passed far enough, two of them if there is any wind, driven with an axe, to keep the kerf open and push the tree over. Shout a warning before the undercut and again, with the saw off, before the back cut. Keep both escape routes ready, because you may switch sides.",
+        "When the tree commits, go: walk the escape route without stopping at the stump, and if the saw is stuck or slows you, leave it. Watch the top on the way out. Stay in the safe spot for at least 30 seconds after it lands, because limbs and other trees are still moving, then shout all clear.",
+        "A tree that hangs up in another tree (a lodged tree) is a trap: never climb it, never work under it, and never leave it unmarked. Flag the area two and a half tree lengths around, warn everyone, and find someone with more skill and a winch. A tree that sits back on the saw during the back cut (a sitback) needs wedges and, usually, help; do not leave a partly cut tree without marking it."
+      ]
+    },
+    {
+      "title": "Cutting a fallen tree out of the road (bucking): reading the bind",
+      "category": "Tools & Repairs",
+      "priority": "P1",
+      "sources": [
+        "USDA Forest Service, \"Chain Saw and Crosscut Saw Training Course: Student's Guidebook\" (0667-2805-MTDC), chapters 2 and 4",
+        "USDA Forest Service, \"Saw Operations Guide\" (2017, version 1.3.2), chapters 3 and 4",
+        "OSHA, Fact Sheet \"Working Safely with Chainsaws\""
+      ],
+      "guidance": [
+        "A tree on the ground is under forces you cannot see. Wherever it is held off the ground, by a rock, a stump, its own limbs, or the slope, one side of the trunk is being stretched (tension) and the other squeezed (compression). Cut into the compression side and the cut closes and pinches the bar; cut into the tension side and it opens. Cut it wrong and the log drops, rolls, or splits toward you.",
+        "Four binds. Top bind: the log is supported at both ends, so the top is squeezed and the bottom stretched. Bottom bind: supported in the middle, so the bottom is squeezed and the top stretched. Side bind: a log bent sideways, with the tension on the bowed-out side. End bind: the log's own weight squeezing the whole cut. Most logs have two at once, and the binds change every time the log moves.",
+        "Set up. Look up for hanging limbs and never stand under one. Find the spring poles, the small trees or limbs bent under the log, and deal with them first or move. Decide the offside, the side the log will move toward when cut, usually downhill, and stay off it. Clear your footing and an escape path with more than 8 feet of room. Start bucking at the small end and work toward the butt.",
+        "The cut. Cut the offside first, about one-third through, from a safe position, so the final cut needs less bar. Then take a small pie-shaped notch, under an inch and a half, out of the compression side, so the log can settle into it instead of splintering. Then the release cut, through the tension side. Top bind: notch from the top, release from below. Bottom bind: notch from below, release from the top. End bind: cut down from the top and get a wedge in early. Side bind: if you are not sure it is safe, do not make the cut, and stand behind a solid tree when you do.",
+        "Watch the kerf as you cut: if it starts to open, you have a bottom bind; if it starts to close, a top bind. If you cannot tell, move the saw slowly back and forth in the cut so it does not get trapped, cut only deep enough to set a wedge, and wedge it. Dark chips mean the chain is in the dirt.",
+        "Spring poles: stand back and make a series of shallow cuts about half an inch apart on the underside, stopping each cut as soon as the pole moves, four to six cuts, then the release cut from the top just past the series, on the piece that will fall. Be clear of the piece that will spring.",
+        "Blowdown, a tree with its roots torn up: the root wad can drop back into its hole or roll at any moment as the trunk is cut. Cut the small trees growing on the roots first, do not cut limbs that are holding the roots in place, and never stand behind or downhill of the root wad. Buck in short sections that will be easy to control, and never leave a log partly cut without marking it. Nobody approaches a sawyer from below until the saw is off and the sawyer has said to come."
+      ]
+    },
+    {
+      "title": "Climbing a tree, if you must",
+      "category": "Security & Safety",
+      "priority": "P2",
+      "sources": [
+        "USDA Forest Service, \"National Tree Climbing Guide\" (2015), chapters 1 and 6",
+        "USDA Forest Service, \"Saw Operations Guide\" (2017, version 1.3.2), chapters 3 and 4",
+        "OSHA, Fact Sheet \"Working Safely with Chainsaws\""
+      ],
+      "guidance": [
+        "The Forest Service, whose people climb trees for a living, will not let an employee climb without training and a certificate, because the chance of a serious or fatal fall is always there. So the first question is whether you must: a lookout, a signal, or a stranded cat is rarely worth a fall you cannot get help for. If you must, these are their rules.",
+        "Three points always. Each hand and each foot is a point of contact; three of them are set firmly on something that will hold your weight before the fourth moves. On conifers, hands and feet go next to the trunk on a sound live limb. Never a dead branch, a branch stub, or a limb that is cracked or rotten, and never both hands or both feet on the same live branch less than 3 inches thick.",
+        "Free climbing, with no rope or lanyard, is done only in the live crown, on sound live branches strong enough to hold you, and even then a lanyard round the trunk clipped to a harness at both ends counts as two points and is worth having. A climbing helmet with a chin strap that will stay on in a fall; a hard hat is not a substitute.",
+        "Look the tree over from the ground first: cracks, rot, fungus, a split trunk, a dead top, and anything a storm has left hanging. Never climb a tree that is lodged against another, a tree damaged by storm or fire, or a tree near a power line. See Felling a tree: the three cuts, the hinge, and the escape route for why a lodged tree is a trap.",
+        "Never climb with a running saw, and never cut from a tree or a ladder; that is the work of trained, roped climbers, and OSHA lists it among the highest-risk saw jobs. Come down the way you went up, three points all the way, and leave someone on the ground who knows you are up there."
       ]
     }
   ]
