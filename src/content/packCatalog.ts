@@ -62,6 +62,20 @@ export const BUNDLED_PACK_CATALOG: PackCatalog = {
       published: true,
     },
     {
+      id: "crisis-comfort",
+      name: "Crisis Comfort & Psychological First Aid",
+      summary:
+        "Panic attacks, anxiety, grief, shock, a frightened child, someone who wants to die, and how to be the steady person in the room. Written from the guides responders train on, for when no counselor can be reached.",
+      version: 1,
+      bytes: 39867,
+      articleCount: 10,
+      license: "Original text written for GuideHand. Sources named on every article: U.S. Army and Navy medical manuals, FEMA, SAMHSA, NIMH, the VA National Center for PTSD, MedlinePlus, and the NHS (Open Government Licence).",
+      attribution: "U.S. Army and Navy medical manuals, FEMA, SAMHSA, NIMH, VA National Center for PTSD, MedlinePlus, NHS",
+      icon: "family",
+      url: `${PACK_BASE}/crisis-comfort.json`,
+      published: true,
+    },
+    {
       id: "disaster-response",
       name: "Disaster Response",
       summary:
